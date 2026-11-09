@@ -120,17 +120,23 @@ band's Middle Color and Pixel Size by expression. cloudBackground and introCard 
 
 ## brickTextBackground
 
-A wall of blue rounded bricks filling the frame (8 rows in a running bond), each holding one word picked at
-random from a sentence.
+A wall of small rounded bricks filling the frame (12 rows in a running bond, 126 bricks), each holding one word
+picked at random from a sentence. Every brick is its own shade, and a gradient runs across the wall (darker
+top-left to lighter bottom-right), dithered into Dark Color / Light Color pixels like ditherGradientBackground.
 
-- **Sentence** — the `sentence` guide layer (not rendered). Type any sentence; every brick re-picks its words from it.
-- **Build** (0–100, on `controls`) — the bricks pop in one by one in a fixed random order with overshoot; at 100 the
-  wall fills the whole comp. Keyframed 0 → 100 over the first 2.5 s. **Overshoot** sets the pop.
-- **Scramble** (checkbox) — every brick swaps to another random word every **Scramble Every** seconds, each at its
-  own moment.
-- **Brick Color** — the bricks' colour. Words are Satoshi Bold in white and shrink to fit their brick.
+How it's built: `brickShapes` holds the bricks in grey (each its own shade) with the gradient multiplied over them.
+In brickTextBackground, `bricks` is that precomp through Craft Halftone & Dither and Tint, matted by `brick shapes`
+(the same precomp) so only the bricks show. The words sit on top: white Satoshi Bold with a navy outline,
+shrinking to fit and popping with their brick.
 
-All of these are in Essential Graphics.
+- **Sentence** — the `sentence` guide layer (not rendered). Type any sentence; every brick picks its words from it.
+- **Build** (0–100) — the bricks pop in one by one in a fixed random order with overshoot; at 100 the wall fills the
+  comp. Keyframed 0 → 100 over the first 2.5 s. **Overshoot** sets the pop.
+- **Scramble** (checkbox) — every brick swaps to another random word every **Scramble Every** seconds.
+- **Dark Color**, **Light Color** — the dither's two blues. **Shade Variation** — how different the bricks are
+  (0 = all the same). **Dither Size** — the dither's pixel size.
+
+All of these are on `controls` and in Essential Graphics.
 
 ## Building
 

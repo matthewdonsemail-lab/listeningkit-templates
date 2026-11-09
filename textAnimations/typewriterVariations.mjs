@@ -671,54 +671,95 @@ const bluekeyScaleExpression = [
   writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
 }
 
-// brickTextBackground: a wall of blue rounded bricks filling the frame, each holding one word picked at random
-// from a sentence.
-//   sentence — a guide text layer (not rendered) holding the sentence; edit it (or Sentence in Essential
-//     Graphics) and every brick re-picks its words from it.
-//   controls — Build (0–100): the bricks pop in one by one in a fixed random order with overshoot, and at 100 the
-//     wall fills the whole comp. It's keyframed 0 → 100 over the first 2.5 s. Overshoot sets the pop. Scramble
-//     (checkbox) makes every brick swap to another random word every Scramble Every seconds, each brick at its own
-//     moment. Brick Color sets the bricks.
-//   8 rows of bricks in a running bond (every other row shifted half a brick), each brick a shape layer with its
-//   word as a child text layer that shrinks to fit.
+// brickTextBackground: a wall of small rounded bricks filling the frame, each holding one word picked at random
+// from a sentence, shaded brick by brick and dithered across the wall like ditherGradientBackground.
+//   brickShapes (precomp) — the bricks in grey, each its own shade (Shade Variation), with a gradient multiplied
+//     over them (darker top-left to lighter bottom-right, preserve transparency so it only lands on bricks).
+//   brickTextBackground — `brick shapes` (that precomp, used as the matte) and `bricks` (the same precomp run
+//     through Craft Halftone & Dither and Tint, so the shading turns into Dark Color / Light Color pixels), then
+//     the words on top.
+//   sentence — a guide text layer (not rendered) holding the sentence; every brick picks its words from it.
+//   controls — Build (0–100): the bricks pop in one by one in a fixed random order with overshoot; at 100 the wall
+//     fills the comp. Keyframed 0 → 100 over the first 2.5 s. Overshoot sets the pop. Scramble (checkbox) swaps
+//     every brick's word every Scramble Every seconds, each brick at its own moment. Dark Color and Light Color are
+//     the dither's two blues, Shade Variation how different the bricks are from each other (0 = all the same),
+//     Dither Size the dither's pixel size.
 {
   const name = "brickTextBackground";
+  const shapesComp = "brickShapes";
   const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
   const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
   const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
   const key = (layer, path, value, time) => ({ command: "prop.addKey", params: { layer, path, value, time } });
   const ease = (layer, path, time, side) => ({ command: "keys.setEase", params: { layer, path, time, side, speed: 0, influence: 60 } });
-  const round = (v) => Math.round(v * 100) / 100;
+  const plugins = { command: "effect.plugins.load", params: { folder: `${process.env.APPDATA.replace(/\\/g, "/")}/EffectCraft/Plug-ins` } };
+  const round = (v) => Math.round(v * 1000) / 1000;
 
   let seed = 424242;
   const random = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
 
-  const W = 1920, H = 1080, rows = 8, perRow = 7, gap = 10;
+  const W = 1920, H = 1080, rows = 12, perRow = 10, gap = 6;
   const rowH = H / rows, brickW = W / perRow;
   const bricks = [];
   for (let r = 0; r < rows; r++) {
     const offset = r % 2 === 1;
     const count = offset ? perRow + 1 : perRow;
-    for (let c = 0; c < count; c++) bricks.push({ x: offset ? c * brickW : brickW / 2 + c * brickW, y: rowH / 2 + r * rowH });
+    for (let c = 0; c < count; c++) bricks.push({ x: offset ? c * brickW : brickW / 2 + c * brickW, y: rowH / 2 + r * rowH, shade: 0 });
   }
   const n = bricks.length;
-  // A fixed random build order.
   const order = bricks.map((_, i) => i);
   for (let i = n - 1; i > 0; i--) {
     const j = Math.floor(random() * (i + 1));
     [order[i], order[j]] = [order[j], order[i]];
   }
+  bricks.forEach((b) => (b.shade = round(random())));
 
-  const controls = `var c = thisComp.layer("controls");`;
-  const hash = `function rnd(v) { var s = Math.sin(v * 12.9898) * 43758.5453; return s - Math.floor(s); }`;
+  const ctl = `var c = comp("${name}").layer("controls");`;
+  const popScale = (i) => [
+    ctl,
+    `var build = c.effect("Build")("Slider"), ov = c.effect("Overshoot")("Slider");`,
+    `var n = ${n}, place = ${order.indexOf(i)}, w = 100 / n * 4;`,
+    `var t = Math.min(Math.max((build - place / n * (100 - w)) / w, 0), 1), u = t - 1;`,
+    `var s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;`,
+  ];
+
+  // The grey bricks, in their own comp.
   const steps = [
+    plugins,
+    { command: "comp.new", params: { name: shapesComp, width: W, height: H, frameRate: 30, duration: 5, open: true } },
+  ];
+  bricks.forEach((b, i) => {
+    const brick = `brick ${String(i + 1).padStart(3, "0")}`;
+    steps.push(
+      { command: "layer.newShape", params: { kind: "rounded", name: brick, size: [round(brickW - gap), round(rowH - gap)], fill: [1, 1, 1], position: [round(b.x), round(b.y)] } },
+      set(brick, "contents/group/contents/rect/roundness", 10),
+      expr(brick, "contents/group/contents/fill/color", [ctl, `var v = 1 - c.effect("Shade Variation")("Slider") / 100 * ${b.shade};`, `[v, v, v, 1]`].join("\n")),
+      expr(brick, "transform/scale", [...popScale(i), `[100 * s, 100 * s]`].join("\n")),
+    );
+  });
+  steps.push(
+    { command: "layer.newSolid", params: { name: "gradient", color: "#ffffff", width: W, height: H } },
+    fx("gradient", "Gradient Ramp"),
+    set("gradient", "effects/#1/start", [0, 0]),
+    set("gradient", "effects/#1/startColor", [0.3, 0.3, 0.3, 1]),
+    set("gradient", "effects/#1/end", [W, H]),
+    set("gradient", "effects/#1/endColor", [1, 1, 1, 1]),
+    { command: "layer.setBlendMode", params: { layers: ["gradient"], mode: "Multiply" } },
+    { command: "layer.setSwitch", params: { layers: ["gradient"], switch: "preserveTransparency", value: true } },
+  );
+
+  // The main comp: controls, sentence, the dithered bricks under their own matte, then the words.
+  steps.push(
     { command: "comp.new", params: { name, width: W, height: H, frameRate: 30, duration: 5, background: "#ffffff", open: true } },
     { command: "layer.newNull", params: { name: "controls" } },
-    fx("controls", "Slider Control"),
-    fx("controls", "Slider Control"),
-    fx("controls", "Checkbox Control"),
-    fx("controls", "Slider Control"),
-    fx("controls", "Color Control"),
+    fx("controls", "Slider Control"), // 1 Build
+    fx("controls", "Slider Control"), // 2 Overshoot
+    fx("controls", "Checkbox Control"), // 3 Scramble
+    fx("controls", "Slider Control"), // 4 Scramble Every
+    fx("controls", "Color Control"), // 5 Dark Color
+    fx("controls", "Color Control"), // 6 Light Color
+    fx("controls", "Slider Control"), // 7 Shade Variation
+    fx("controls", "Slider Control"), // 8 Dither Size
     key("controls", "effects/#1/slider", 0, 0),
     key("controls", "effects/#1/slider", 100, 2.5),
     ease("controls", "effects/#1/slider", 0, "out"),
@@ -726,44 +767,51 @@ const bluekeyScaleExpression = [
     set("controls", "effects/#2/slider", 1.7),
     set("controls", "effects/#3/checkbox", true),
     set("controls", "effects/#4/slider", 0.8),
-    set("controls", "effects/#5/color", [0.165, 0.549, 1, 1]),
+    set("controls", "effects/#5/color", [0.114, 0.435, 0.878, 1]),
+    set("controls", "effects/#6/color", [0.56, 0.77, 1, 1]),
+    set("controls", "effects/#7/slider", 45),
+    set("controls", "effects/#8/slider", 6),
     { command: "layer.newText", params: { text: "Listen to your competitors across Twitter Reddit and Facebook help their customers and get new customers", name: "sentence", position: [960, 540], font: "Satoshi", style: "Bold", size: 40, fill: [0, 0, 0], justify: "center" } },
     { command: "layer.setSwitch", params: { layers: ["sentence"], switch: "guide", value: true } },
-  ];
+    { command: "layer.addItem", params: { item: shapesComp, time: 0 } },
+    { command: "layer.rename", params: { layer: shapesComp, name: "bricks" } },
+    fx("bricks", "Craft Halftone & Dither"),
+    expr("bricks", "effects/#1/cell_size", `thisComp.layer("controls").effect("Dither Size")("Slider")`),
+    set("bricks", "effects/#1/contrast", 1),
+    set("bricks", "effects/#1/dither_spread", 1),
+    fx("bricks", "Tint"),
+    expr("bricks", "effects/#2/black", `thisComp.layer("controls").effect("Dark Color")("Color")`),
+    expr("bricks", "effects/#2/white", `thisComp.layer("controls").effect("Light Color")("Color")`),
+    { command: "layer.addItem", params: { item: shapesComp, time: 0 } },
+    { command: "layer.rename", params: { layer: shapesComp, name: "brick shapes" } },
+    { command: "layer.arrange", params: { layers: ["brick shapes"], above: "bricks" } },
+    { command: "layer.setTrackMatte", params: { layer: "bricks", matte: "brick shapes", kind: "alpha" } },
+  );
 
   bricks.forEach((b, i) => {
-    const id = String(i + 1).padStart(2, "0");
-    const brick = `brick ${id}`;
-    const word = `word ${id}`;
+    const brick = `brick ${String(i + 1).padStart(3, "0")}`;
+    const word = `word ${String(i + 1).padStart(3, "0")}`;
     steps.push(
-      { command: "layer.newShape", params: { kind: "rounded", name: brick, size: [round(brickW - gap), round(rowH - gap)], fill: [0.165, 0.549, 1], position: [round(b.x), round(b.y)] } },
-      set(brick, "contents/group/contents/rect/roundness", 14),
-      expr(brick, "contents/group/contents/fill/color", `thisComp.layer("controls").effect("Brick Color")("Color")`),
-      // Pop in with overshoot as Build passes this brick's place in the order; every brick is in by Build 100.
-      expr(brick, "transform/scale", [
-        controls,
-        `var build = c.effect("Build")("Slider"), ov = c.effect("Overshoot")("Slider");`,
-        `var n = ${n}, place = ${order.indexOf(i)}, w = 100 / n * 4;`,
-        `var t = Math.min(Math.max((build - place / n * (100 - w)) / w, 0), 1), u = t - 1;`,
-        `var s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;`,
-        `[100 * s, 100 * s]`,
-      ].join("\n")),
-      { command: "layer.newText", params: { text: "word", name: word, position: [round(b.x), round(b.y)], font: "Satoshi", style: "Bold", size: 46, fill: [1, 1, 1], justify: "center" } },
-      { command: "layer.setParent", params: { layers: [word], parent: brick } },
-      set(word, "transform/position", [0, 0, 0]),
+      { command: "layer.newText", params: { text: "word", name: word, position: [round(b.x), round(b.y)], font: "Satoshi", style: "Bold", size: 28, fill: [1, 1, 1], stroke: [0.051, 0.165, 0.298], applyStroke: true, strokeWidth: 5, strokeOverFill: false, justify: "center" } },
       // A random word from the sentence; with Scramble on it re-picks every Scramble Every seconds.
       expr(word, "text/sourceText", [
-        controls,
-        hash,
+        `var c = thisComp.layer("controls");`,
+        `function rnd(v) { var s = Math.sin(v * 12.9898) * 43758.5453; return s - Math.floor(s); }`,
+        `function mix(a) { a = (a ^ 61) ^ (a >>> 16); a = a + (a << 3); a = a ^ (a >>> 4); a = (a * 668265261) | 0; a = a ^ (a >>> 15); return a >>> 0; }`,
         `var words = String(thisComp.layer("sentence").text.sourceText).split(/\\s+/);`,
         `var list = []; for (var k = 0; k < words.length; k++) if (words[k].length) list.push(words[k]);`,
         `var every = Math.max(c.effect("Scramble Every")("Slider"), 0.05), k0 = ${i + 1};`,
         `var tick = c.effect("Scramble")("Checkbox") == 1 ? Math.floor(time / every + rnd(k0 * 3.7)) : 0;`,
-        `function mix(a) { a = (a ^ 61) ^ (a >>> 16); a = a + (a << 3); a = a ^ (a >>> 4); a = (a * 668265261) | 0; a = a ^ (a >>> 15); return a >>> 0; }`,
         `list.length ? list[mix(k0 * 7919 + tick * 104729) % list.length] : ""`,
       ].join("\n")),
       expr(word, "transform/anchor", [`var r = sourceRectAtTime(time, false);`, `[r.left + r.width / 2, r.top + r.height / 2, 0]`].join("\n")),
-      expr(word, "transform/scale", [`var r = sourceRectAtTime(time, false);`, `var f = r.width > 0 ? Math.min(1, ${round(brickW - gap - 34)} / r.width) : 1;`, `[100 * f, 100 * f, 100]`].join("\n")),
+      // Shrinks to fit its brick and pops with it.
+      expr(word, "transform/scale", [
+        `var r = sourceRectAtTime(time, false);`,
+        `var f = r.width > 0 ? Math.min(1, ${round(brickW - gap - 22)} / r.width) : 1;`,
+        `var b = comp("${shapesComp}").layer("${brick}").transform.scale[0] / 100;`,
+        `[100 * f * b, 100 * f * b, 100]`,
+      ].join("\n")),
     );
   });
 
@@ -774,7 +822,10 @@ const bluekeyScaleExpression = [
     { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#2/slider", name: "Overshoot" } },
     { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#3/checkbox", name: "Scramble" } },
     { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#4/slider", name: "Scramble Every" } },
-    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#5/color", name: "Brick Color" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#5/color", name: "Dark Color" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#6/color", name: "Light Color" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#7/slider", name: "Shade Variation" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#8/slider", name: "Dither Size" } },
   );
   mkdirSync(`effects/${name}`, { recursive: true });
   writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
