@@ -9,7 +9,9 @@ var namesByLayer = {
     introducing: ["Letter Overshoot", "Pop Time", "Whole Overshoot", "Continuous Scale"],
     "listening kit": ["Letter Overshoot", "Pop Time", "Whole Overshoot", "Continuous Scale"],
     controls: ["Overshoot", "Pop Time", "Word Spacing", "Continuous Scale"]
-  }
+  },
+  // null keeps an effect's own name (the ramp, dither and tint before the slider).
+  ditherGradientBackground: { upper: [null, null, null, "Gradient Amount"] }
 };
 
 function reapply(group) {
@@ -22,7 +24,7 @@ function reapply(group) {
 
 function nameSliders(layer, list) {
   var count = layer.property("Effects").numProperties;
-  for (var k = 0; k < list.length && k < count; k++) layer.effect(k + 1).name = list[k];
+  for (var k = 0; k < list.length && k < count; k++) if (list[k]) layer.effect(k + 1).name = list[k];
 }
 
 for (var i = 1; i <= app.project.numItems; i++) {

@@ -326,6 +326,63 @@
     }
   },
   {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "upper"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#4/slider",
+      "value": 70
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#1/start",
+      "expression": "var u = thisComp.layer(\"upper\"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)(\"cell_size\"), 1);\nvar g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;\nvar top = thisComp.height - g;\nvar split = Math.round((top + g * 0.5) / cell) * cell;\nvar bottom = thisComp.height + g * 0.15;\n[thisComp.width / 2, top]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#1/end",
+      "expression": "var u = thisComp.layer(\"upper\"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)(\"cell_size\"), 1);\nvar g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;\nvar top = thisComp.height - g;\nvar split = Math.round((top + g * 0.5) / cell) * cell;\nvar bottom = thisComp.height + g * 0.15;\n[thisComp.width / 2, split]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#1/start",
+      "expression": "var u = thisComp.layer(\"upper\"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)(\"cell_size\"), 1);\nvar g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;\nvar top = thisComp.height - g;\nvar split = Math.round((top + g * 0.5) / cell) * cell;\nvar bottom = thisComp.height + g * 0.15;\n[thisComp.width / 2, split]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#1/end",
+      "expression": "var u = thisComp.layer(\"upper\"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)(\"cell_size\"), 1);\nvar g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;\nvar top = thisComp.height - g;\nvar split = Math.round((top + g * 0.5) / cell) * cell;\nvar bottom = thisComp.height + g * 0.15;\n[thisComp.width / 2, bottom]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#4/completion",
+      "expression": "var u = thisComp.layer(\"upper\"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)(\"cell_size\"), 1);\nvar g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;\nvar top = thisComp.height - g;\nvar split = Math.round((top + g * 0.5) / cell) * cell;\nvar bottom = thisComp.height + g * 0.15;\nsplit / thisComp.height * 100"
+    }
+  },
+  {
     "command": "essential.setName",
     "params": {
       "comp": "ditherGradientBackground",
@@ -366,6 +423,15 @@
       "layer": "upper",
       "path": "effects/#2/cell_size",
       "name": "Pixel Size"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "ditherGradientBackground",
+      "layer": "upper",
+      "path": "effects/#4/slider",
+      "name": "Gradient Amount"
     }
   }
 ]

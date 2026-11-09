@@ -557,7 +557,8 @@ const bluekeyScaleExpression = [
 // Dither (18 px cells) and then Tint, so the dither's black and white become the band's two colours:
 //   upper — Top Color (blue) to Middle Color (light blue), from y 320 to 702.
 //   lower — Middle Color to Bottom Color (white), from y 702 down, wiped so it only covers below 702.
-// Essential Graphics: Top Color, Middle Color, Bottom Color, Pixel Size.
+// The band positions follow the Gradient Amount slider (see gradientGeometry).
+// Essential Graphics: Top Color, Middle Color, Bottom Color, Pixel Size, Gradient Amount.
 {
   const name = "ditherGradientBackground";
   const plugins = { command: "effect.plugins.load", params: { folder: `${process.env.APPDATA.replace(/\\/g, "/")}/EffectCraft/Plug-ins` } };
@@ -568,6 +569,16 @@ const bluekeyScaleExpression = [
   const lightBlue = [0.56, 0.77, 1, 1];
   const white = [1, 1, 1, 1];
   const split = 702; // a multiple of the 18 px cell, so the cut falls between pixel rows
+  // Where the bands sit, from the Gradient Amount slider: the gradient covers that % of the frame from the
+  // bottom; the split between the bands is halfway down it, snapped to the pixel grid; the lower band's ramp
+  // runs a little past the bottom so some light pixels are left there.
+  const gradientGeometry = [
+    `var u = thisComp.layer("upper"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)("cell_size"), 1);`,
+    `var g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;`,
+    `var top = thisComp.height - g;`,
+    `var split = Math.round((top + g * 0.5) / cell) * cell;`,
+    `var bottom = thisComp.height + g * 0.15;`,
+  ];
 
   const band = (layer, y0, y1, black, whiteTo) => [
     { command: "layer.newSolid", params: { name: layer, color: "#000000", width: 1920, height: 1080 } },
@@ -596,11 +607,21 @@ const bluekeyScaleExpression = [
     // The lower band follows the upper one's Middle Color and pixel size.
     expr("lower", "effects/#3/black", `thisComp.layer("upper").effect(3)(2)`),
     expr("lower", "effects/#2/cell_size", `thisComp.layer("upper").effect(2)("cell_size")`),
+    // Gradient Amount (upper's 4th effect): how much of the frame, from the bottom, the gradient takes up.
+    // 70 is the original look; 0 is solid Top Color, 100 starts the fade at the very top.
+    fx("upper", "Slider Control"),
+    set("upper", "effects/#4/slider", 70),
+    expr("upper", "effects/#1/start", [...gradientGeometry, `[thisComp.width / 2, top]`].join("\n")),
+    expr("upper", "effects/#1/end", [...gradientGeometry, `[thisComp.width / 2, split]`].join("\n")),
+    expr("lower", "effects/#1/start", [...gradientGeometry, `[thisComp.width / 2, split]`].join("\n")),
+    expr("lower", "effects/#1/end", [...gradientGeometry, `[thisComp.width / 2, bottom]`].join("\n")),
+    expr("lower", "effects/#4/completion", [...gradientGeometry, `split / thisComp.height * 100`].join("\n")),
     { command: "essential.setName", params: { comp: name, name } },
     { command: "essential.addProperty", params: { comp: name, layer: "upper", path: "effects/#3/black", name: "Top Color" } },
     { command: "essential.addProperty", params: { comp: name, layer: "upper", path: "effects/#3/white", name: "Middle Color" } },
     { command: "essential.addProperty", params: { comp: name, layer: "lower", path: "effects/#3/white", name: "Bottom Color" } },
     { command: "essential.addProperty", params: { comp: name, layer: "upper", path: "effects/#2/cell_size", name: "Pixel Size" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "upper", path: "effects/#4/slider", name: "Gradient Amount" } },
   ];
   mkdirSync(`effects/${name}`, { recursive: true });
   writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");

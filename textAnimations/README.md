@@ -102,8 +102,12 @@ Brand blue at the top breaking into light blue, then into white, in big square p
 Two bands, each a black-to-white Gradient Ramp through Craft Halftone & Dither (18 px cells) and Tint:
 `upper` goes blue to light blue (y 320–702), `lower` light blue to white below 702.
 
-Essential Graphics: Top Color, Middle Color, Bottom Color, Pixel Size. The lower band follows the upper
-band's Middle Color and Pixel Size by expression.
+Essential Graphics: Top Color, Middle Color, Bottom Color, Pixel Size, Gradient Amount. The lower band follows
+the upper band's Middle Color and Pixel Size by expression.
+
+**Gradient Amount** (a slider on `upper`) sets how much of the frame, from the bottom, the gradient takes up. 70 is the
+default look; lower squeezes the fade toward the bottom with more solid blue above; 100 starts it at the very top.
+Both bands move with it and stay on the pixel grid.
 
 ## Building
 
