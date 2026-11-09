@@ -89,6 +89,10 @@ ListeningKit, so each cloud here is our own: six 3D spheres under a null.
   and 30 clouds in 4 depth layers (12 far and small down to 3 near and big), as on the site. Each cloud drifts
   right at its layer's speed and wraps around, bobs and turns slowly (expressions on its null). Far clouds are
   tinted toward the sky to stand in for the site's fog. Positions come from a fixed seed.
+  The clouds also slide in and out, set on the `controls` null: from its `in` marker every cloud slides in from off
+  the left with overshoot (the marker's length is how long until the last one lands), and from its `out` marker
+  each winds up and slides back out to the left. Sliders: Overshoot, Stagger (the most seconds one cloud starts
+  after another).
 - `cloudBackground` — `sky` (the ditherGradientBackground precomp), then `clayClouds` through the site's clay
   dither: Black & White, Levels (black 0.3, white 0.92), Craft Halftone & Dither (3 px cells), Tint (shade
   light blue, lit white).
@@ -107,6 +111,9 @@ from fully blue to fully white. Two bands, each a black-to-white Gradient Ramp t
 the frame), 100 is fully white (the fade has gone off the top). It's keyframed 0 → 100 over the 5 s comp with easy
 ease, so the fade comes up slowly, speeds up, and lands on white at the end. Move the keyframes to retime it, or
 remove them and set one value for a still gradient (about 45 gives the original look).
+
+The dither leaves a dot in every tile even in pure white, so a `clear` layer in Bottom Color covers everything past
+the end of the fade; at Wipe 100 the frame is clean white.
 
 Essential Graphics: Wipe, Top Color, Middle Color, Bottom Color, Pixel Size. The lower band follows the upper
 band's Middle Color and Pixel Size by expression. cloudBackground and introCard use this precomp, so they wipe too.

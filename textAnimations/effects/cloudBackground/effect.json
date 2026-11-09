@@ -77,6 +77,82 @@
   {
     "command": "layer.newNull",
     "params": {
+      "name": "controls"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "controls"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "controls"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "value": 1.7
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#2/slider",
+      "value": 0.35
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "controls"
+      ],
+      "time": 0,
+      "comment": "in"
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "controls"
+      ],
+      "time": 3.6,
+      "comment": "out"
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "controls",
+      "index": 0,
+      "duration": 1.3
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "controls",
+      "index": 1,
+      "duration": 1.3
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
       "name": "cloud 01"
     }
   },
@@ -119,7 +195,7 @@
     "params": {
       "layer": "cloud 01",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -14.83, y0 = 2.26, phase = 3.42;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -14.83, y0 = 2.26, phase = 3.42;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.7;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -361,7 +437,7 @@
     "params": {
       "layer": "cloud 02",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -12.68, y0 = 5.61, phase = 2.75;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -12.68, y0 = 5.61, phase = 2.75;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.4;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -603,7 +679,7 @@
     "params": {
       "layer": "cloud 03",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -9.46, y0 = -1.05, phase = 6.05;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -9.46, y0 = -1.05, phase = 6.05;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.1;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -845,7 +921,7 @@
     "params": {
       "layer": "cloud 04",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -7.43, y0 = 3.92, phase = 1.85;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -7.43, y0 = 3.92, phase = 1.85;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.8;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -1087,7 +1163,7 @@
     "params": {
       "layer": "cloud 05",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -4.79, y0 = 5.66, phase = 1.78;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -4.79, y0 = 5.66, phase = 1.78;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.5;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -1329,7 +1405,7 @@
     "params": {
       "layer": "cloud 06",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -2.16, y0 = -0.03, phase = 6.19;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -2.16, y0 = -0.03, phase = 6.19;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.2;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -1571,7 +1647,7 @@
     "params": {
       "layer": "cloud 07",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 0.45, y0 = 5.53, phase = 3.28;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 0.45, y0 = 5.53, phase = 3.28;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.9;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -1813,7 +1889,7 @@
     "params": {
       "layer": "cloud 08",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 3.83, y0 = 2.67, phase = 2.2;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 3.83, y0 = 2.67, phase = 2.2;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.6;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -2055,7 +2131,7 @@
     "params": {
       "layer": "cloud 09",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 6.57, y0 = 0.02, phase = 1.64;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 6.57, y0 = 0.02, phase = 1.64;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.3;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -2297,7 +2373,7 @@
     "params": {
       "layer": "cloud 10",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 9.18, y0 = 0.07, phase = 1.24;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 9.18, y0 = 0.07, phase = 1.24;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -2539,7 +2615,7 @@
     "params": {
       "layer": "cloud 11",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 10.27, y0 = -1.32, phase = 0.42;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 10.27, y0 = -1.32, phase = 0.42;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.7;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -2781,7 +2857,7 @@
     "params": {
       "layer": "cloud 12",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 14.1, y0 = 6.52, phase = 3.52;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 14.1, y0 = 6.52, phase = 3.52;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.4;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 2687.08]"
     }
   },
   {
@@ -3023,7 +3099,7 @@
     "params": {
       "layer": "cloud 13",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -12.44, y0 = 5.16, phase = 3.72;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -12.44, y0 = 5.16, phase = 3.72;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.1;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 1679.42]"
     }
   },
   {
@@ -3265,7 +3341,7 @@
     "params": {
       "layer": "cloud 14",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -8.6, y0 = 4.7, phase = 0.62;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -8.6, y0 = 4.7, phase = 0.62;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.8;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 1679.42]"
     }
   },
   {
@@ -3507,7 +3583,7 @@
     "params": {
       "layer": "cloud 15",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -5.78, y0 = 5.37, phase = 5.51;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -5.78, y0 = 5.37, phase = 5.51;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.5;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 1679.42]"
     }
   },
   {
@@ -3749,7 +3825,7 @@
     "params": {
       "layer": "cloud 16",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -2.87, y0 = 5.17, phase = 6.21;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -2.87, y0 = 5.17, phase = 6.21;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.2;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 1679.42]"
     }
   },
   {
@@ -3991,7 +4067,7 @@
     "params": {
       "layer": "cloud 17",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -0.63, y0 = -0.47, phase = 6;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -0.63, y0 = -0.47, phase = 6;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.9;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 1679.42]"
     }
   },
   {
@@ -4233,7 +4309,7 @@
     "params": {
       "layer": "cloud 18",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 1.5, y0 = 3.25, phase = 1.25;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 1.5, y0 = 3.25, phase = 1.25;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.6;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 1679.42]"
     }
   },
   {
@@ -4475,7 +4551,7 @@
     "params": {
       "layer": "cloud 19",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 4.65, y0 = 4.41, phase = 2.91;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 4.65, y0 = 4.41, phase = 2.91;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.3;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 1679.42]"
     }
   },
   {
@@ -4717,7 +4793,7 @@
     "params": {
       "layer": "cloud 20",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 7.33, y0 = -0.02, phase = 5.96;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 7.33, y0 = -0.02, phase = 5.96;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 1679.42]"
     }
   },
   {
@@ -4959,7 +5035,7 @@
     "params": {
       "layer": "cloud 21",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 10.98, y0 = 5.3, phase = 4.24;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 10.98, y0 = 5.3, phase = 4.24;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.7;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 1679.42]"
     }
   },
   {
@@ -5201,7 +5277,7 @@
     "params": {
       "layer": "cloud 22",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = -9.83, y0 = 2.6, phase = 4.28;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = -9.83, y0 = 2.6, phase = 4.28;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.4;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 839.71]"
     }
   },
   {
@@ -5443,7 +5519,7 @@
     "params": {
       "layer": "cloud 23",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = -5, y0 = 1.88, phase = 4.46;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = -5, y0 = 1.88, phase = 4.46;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.1;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 839.71]"
     }
   },
   {
@@ -5685,7 +5761,7 @@
     "params": {
       "layer": "cloud 24",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = -2.6, y0 = 2.86, phase = 6.28;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = -2.6, y0 = 2.86, phase = 6.28;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.8;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 839.71]"
     }
   },
   {
@@ -5927,7 +6003,7 @@
     "params": {
       "layer": "cloud 25",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = 0.54, y0 = 1.53, phase = 4.52;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = 0.54, y0 = 1.53, phase = 4.52;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.5;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 839.71]"
     }
   },
   {
@@ -6169,7 +6245,7 @@
     "params": {
       "layer": "cloud 26",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = 4.19, y0 = 0.94, phase = 5.39;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = 4.19, y0 = 0.94, phase = 5.39;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.2;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 839.71]"
     }
   },
   {
@@ -6411,7 +6487,7 @@
     "params": {
       "layer": "cloud 27",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = 7.88, y0 = -0.29, phase = 1.29;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = 7.88, y0 = -0.29, phase = 1.29;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.9;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 839.71]"
     }
   },
   {
@@ -6653,7 +6729,7 @@
     "params": {
       "layer": "cloud 28",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.22, edge = 8.19;\nvar x0 = -6.95, y0 = 0.76, phase = 5;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 167.94]"
+      "expression": "var unit = 167.94, speed = 0.22, edge = 8.19;\nvar x0 = -6.95, y0 = 0.76, phase = 5;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.6;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 167.94]"
     }
   },
   {
@@ -6895,7 +6971,7 @@
     "params": {
       "layer": "cloud 29",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.22, edge = 8.19;\nvar x0 = -0.38, y0 = 1.04, phase = 1.55;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 167.94]"
+      "expression": "var unit = 167.94, speed = 0.22, edge = 8.19;\nvar x0 = -0.38, y0 = 1.04, phase = 1.55;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0.3;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 167.94]"
     }
   },
   {
@@ -7137,7 +7213,7 @@
     "params": {
       "layer": "cloud 30",
       "path": "transform/position",
-      "expression": "var unit = 167.94, speed = 0.22, edge = 8.19;\nvar x0 = 5.82, y0 = 0.82, phase = 2.59;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 167.94]"
+      "expression": "var unit = 167.94, speed = 0.22, edge = 8.19;\nvar x0 = 5.82, y0 = 0.82, phase = 2.59;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\"), away = x + edge;\nif (mIn) x -= away * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));\n[960 + x * unit, 540 - y * unit, 167.94]"
     }
   },
   {

@@ -333,7 +333,7 @@
     "params": {
       "layer": "upper",
       "path": "effects/#1/start",
-      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\n[thisComp.width / 2, top]"
+      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low + cell);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\nvar bottomRow = Math.ceil(bottom / cell) * cell;\n[thisComp.width / 2, top]"
     }
   },
   {
@@ -341,7 +341,7 @@
     "params": {
       "layer": "upper",
       "path": "effects/#1/end",
-      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\n[thisComp.width / 2, split]"
+      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low + cell);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\nvar bottomRow = Math.ceil(bottom / cell) * cell;\n[thisComp.width / 2, split]"
     }
   },
   {
@@ -349,7 +349,7 @@
     "params": {
       "layer": "lower",
       "path": "effects/#1/start",
-      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\n[thisComp.width / 2, split]"
+      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low + cell);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\nvar bottomRow = Math.ceil(bottom / cell) * cell;\n[thisComp.width / 2, split]"
     }
   },
   {
@@ -357,7 +357,7 @@
     "params": {
       "layer": "lower",
       "path": "effects/#1/end",
-      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\n[thisComp.width / 2, bottom]"
+      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low + cell);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\nvar bottomRow = Math.ceil(bottom / cell) * cell;\n[thisComp.width / 2, bottom]"
     }
   },
   {
@@ -365,7 +365,58 @@
     "params": {
       "layer": "lower",
       "path": "effects/#4/completion",
-      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\nMath.min(Math.max(split / H * 100, 0), 100)"
+      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low + cell);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\nvar bottomRow = Math.ceil(bottom / cell) * cell;\nMath.min(Math.max(split / H * 100, 0), 100)"
+    }
+  },
+  {
+    "command": "layer.newSolid",
+    "params": {
+      "name": "clear",
+      "color": "#ffffff",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Fill",
+      "layers": [
+        "clear"
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "clear",
+      "path": "effects/#1/color",
+      "expression": "thisComp.layer(\"lower\").effect(3)(2)"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Linear Wipe",
+      "layers": [
+        "clear"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clear",
+      "path": "effects/#2/angle",
+      "value": 180
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "clear",
+      "path": "effects/#2/completion",
+      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low + cell);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\nvar bottomRow = Math.ceil(bottom / cell) * cell;\nMath.min(Math.max(bottomRow / H * 100, 0), 100)"
     }
   },
   {

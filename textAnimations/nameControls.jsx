@@ -11,7 +11,8 @@ var namesByLayer = {
     controls: ["Overshoot", "Pop Time", "Word Spacing", "Continuous Scale"]
   },
   // null in a list keeps that effect's own name.
-  ditherGradientBackground: { controls: ["Wipe"] }
+  ditherGradientBackground: { controls: ["Wipe"] },
+  clayClouds: { controls: ["Overshoot", "Stagger"] }
 };
 
 function reapply(group) {

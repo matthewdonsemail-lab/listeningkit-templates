@@ -477,6 +477,18 @@ const bluekeyScaleExpression = [
     { command: "layer.newLight", params: { kind: "Ambient", name: "ambient", color: "#ffffff", intensity: 55 } },
     { command: "layer.newLight", params: { kind: "Parallel", name: "key", color: "#fff1dc", intensity: 110, castsShadows: true, position: [-40, -960, -1700] } },
     { command: "layer.newLight", params: { kind: "Parallel", name: "fill", color: "#a8d1ff", intensity: 30, position: [2260, 840, -1000] } },
+    // Slide in and out: the controls null's "in" marker (start, and how long until the last cloud has landed)
+    // and "out" marker (start, and how long until the last cloud has left), with Overshoot and Stagger (the
+    // most seconds one cloud starts after another) sliders.
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    fx("controls", "Slider Control"),
+    set("controls", "effects/#1/slider", 1.7),
+    set("controls", "effects/#2/slider", 0.35),
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 0, comment: "in" } },
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 3.6, comment: "out" } },
+    { command: "markers.set", params: { layer: "controls", index: 0, duration: 1.3 } },
+    { command: "markers.set", params: { layer: "controls", index: 1, duration: 1.3 } },
   ];
 
   let n = 0;
@@ -505,13 +517,24 @@ const bluekeyScaleExpression = [
         { command: "layer.setSwitch", params: { layers: [name], switch: "threeD", value: true } },
         set(name, "transform/position", [round(960 + xUnits * unit), round(540 - yUnits * unit), round(zPx)]),
         set(name, "transform/scale", [100, round(100 * squash), 100]),
-        // Drift right at the layer's speed and wrap at the edge, bob, and turn slowly, as on the site.
+        // Drift right at the layer's speed and wrap at the edge, bob, and turn slowly, as on the site. On top of
+        // that, slide in from off the left with overshoot at the controls' "in" marker, and wind up and slide
+        // back out to the left at its "out" marker, each cloud a little after the last (Stagger).
         expr(name, "transform/position", [
           `var unit = ${round(unit)}, speed = ${layer.speed}, edge = ${round(edge)};`,
           `var x0 = ${round(xUnits)}, y0 = ${round(yUnits)}, phase = ${round(phase)};`,
           `var x = x0 + speed * time + edge;`,
           `x = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;`,
           `var y = y0 + Math.sin(time * 0.5 + phase) * 0.08;`,
+          `var c = thisComp.layer("controls"), ov = c.effect("Overshoot")("Slider"), stagger = Math.max(c.effect("Stagger")("Slider"), 0);`,
+          `function markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }`,
+          `var delay = stagger * ${((n * 7) % 10) / 10};`,
+          `function progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }`,
+          `function backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }`,
+          `function backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }`,
+          `var mIn = markerKey("in"), mOut = markerKey("out"), away = x + edge;`,
+          `if (mIn) x -= away * (1 - backOut(progress(mIn)));`,
+          `if (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));`,
           `[960 + x * unit, 540 - y * unit, ${round(zPx)}]`,
         ].join("\n")),
         expr(name, "transform/rotationY", `${round((turn * 180) / Math.PI)} + ${round((spin * 180) / Math.PI)} * time`),
@@ -582,9 +605,10 @@ const bluekeyScaleExpression = [
     `var p = Math.min(Math.max(thisComp.layer("controls").effect("Wipe")("Slider"), 0), 100) / 100;`,
     `var cell = Math.max(thisComp.layer("upper").effect(2)("cell_size"), 1);`,
     `var up = 378, low = 491, H = thisComp.height;`,
-    `var top = H - p * (H + up + low);`,
+    `var top = H - p * (H + up + low + cell);`,
     `var split = Math.round((top + up) / cell) * cell;`,
     `var bottom = split + low;`,
+    `var bottomRow = Math.ceil(bottom / cell) * cell;`,
   ];
   const at = (result) => [...geometry, result].join("\n");
 
@@ -626,6 +650,15 @@ const bluekeyScaleExpression = [
     expr("lower", "effects/#1/start", at(`[thisComp.width / 2, split]`)),
     expr("lower", "effects/#1/end", at(`[thisComp.width / 2, bottom]`)),
     expr("lower", "effects/#4/completion", at(`Math.min(Math.max(split / H * 100, 0), 100)`)),
+
+    // The dither leaves a dot in every tile even in pure white, so a clean Bottom Color layer covers everything
+    // past the end of the fade (snapped to the pixel rows); at Wipe 100 that's the whole frame.
+    { command: "layer.newSolid", params: { name: "clear", color: "#ffffff", width: 1920, height: 1080 } },
+    fx("clear", "Fill"),
+    expr("clear", "effects/#1/color", `thisComp.layer("lower").effect(3)(2)`),
+    fx("clear", "Linear Wipe"),
+    set("clear", "effects/#2/angle", 180),
+    expr("clear", "effects/#2/completion", at(`Math.min(Math.max(bottomRow / H * 100, 0), 100)`)),
 
     { command: "essential.setName", params: { comp: name, name } },
     { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Wipe" } },
