@@ -118,6 +118,20 @@ the end of the fade; at Wipe 100 the frame is clean white.
 Essential Graphics: Wipe, Top Color, Middle Color, Bottom Color, Pixel Size. The lower band follows the upper
 band's Middle Color and Pixel Size by expression. cloudBackground and introCard use this precomp, so they wipe too.
 
+## brickTextBackground
+
+A wall of blue rounded bricks filling the frame (8 rows in a running bond), each holding one word picked at
+random from a sentence.
+
+- **Sentence** — the `sentence` guide layer (not rendered). Type any sentence; every brick re-picks its words from it.
+- **Build** (0–100, on `controls`) — the bricks pop in one by one in a fixed random order with overshoot; at 100 the
+  wall fills the whole comp. Keyframed 0 → 100 over the first 2.5 s. **Overshoot** sets the pop.
+- **Scramble** (checkbox) — every brick swaps to another random word every **Scramble Every** seconds, each at its
+  own moment.
+- **Brick Color** — the bricks' colour. Words are Satoshi Bold in white and shrink to fit their brick.
+
+All of these are in Essential Graphics.
+
 ## Building
 
 - `node typewriterVariations.mjs` writes every generated effect's `effect.json` (overshoot variations, presets, cvBluekey). Edit the
