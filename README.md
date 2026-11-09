@@ -20,7 +20,7 @@ EffectCraft to see every comp, or import a single `.ectemplate` from `textAnimat
 | `fadeUpCharacters` | Letters fade up into place. |
 | `cvBluekey` | The ListeningKit sticker: pops in over 4 frames, wobbles and bobs. |
 | `introCard` | A title card: "Introducing", "listening kit" and a word-by-word subtext with highlighted, dash-underlined words. |
-| `cloudBackground` | White clouds dithered into dots over the ditherGradientBackground sky. |
+| `cloudBackground` | 3D clay clouds drifting in depth layers, clay-dithered white and light blue, over the ditherGradientBackground sky. |
 | `ditherGradientBackground` | Brand blue breaking into light blue, then white, in big square pixels. |
 
 Every text template uses the cv-bluekey look: Schoolbell in brand blue `#2a8cff`, a white outline inside a navy
@@ -64,8 +64,6 @@ To change a template or add one, edit `typewriterVariations.mjs` and run both co
 
 - Schoolbell font by Font Diner, from Google Fonts, under the Apache License 2.0.
 - Satoshi font by the Indian Type Foundry, from [Fontshare](https://www.fontshare.com/fonts/satoshi), under the ITF Free Font License.
-- The cloud in `cloudBackground` is the Twemoji cloud (`assets/twemoji-cloud.svg`) by Twitter, Inc. and other
-  contributors, under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ## License
 

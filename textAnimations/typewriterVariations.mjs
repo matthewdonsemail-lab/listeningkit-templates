@@ -432,48 +432,121 @@ const bluekeyScaleExpression = [
   writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
 }
 
-// cloudBackground: the ListeningKit social card background as a template precomp. A blue gradient sky,
-// a "clouds" precomp of white clouds (the site's twemoji cloud) fading out at their bottoms, run through
-// Craft Halftone & Dither so the fades break into dots, over the ditherGradientBackground precomp as the
-// sky. Built after ditherGradientBackground and before introCard, which uses it as its bottom layer.
+// cloudBackground: 3D clay clouds drifting over the ditherGradientBackground sky, rebuilt from log-cli's landing
+// page hero (site/apps/web/src/landing/ClayClouds.tsx). That page loads Claybound's cloud.glb, which isn't
+// licensed to ListeningKit, so each cloud here is our own: a cluster of six 3D spheres under a null.
+//
+//   clayClouds — an Advanced 3D comp: a 30° camera, ambient + warm key (casting shadows) + blue fill lights, and
+//     30 clouds in 4 depth layers (12 far and small ... 3 near and big), as on the site. Each cloud drifts right
+//     at its layer's speed and wraps around, bobs gently and turns slowly (expressions on its null). Far clouds
+//     are tinted toward the sky to stand in for the site's fog.
+//   cloudBackground — the ditherGradientBackground precomp as the sky, then clayClouds run through the site's
+//     clay dither: Black & White, Levels (black point 0.3, white point 0.92), Craft Halftone & Dither (3 px
+//     cells), Tint (shade light blue #9ecbff, lit white).
+// Positions are generated from a fixed seed, so every build is the same.
 {
   const plugins = { command: "effect.plugins.load", params: { folder: `${process.env.APPDATA.replace(/\\/g, "/")}/EffectCraft/Plug-ins` } };
   const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
   const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
-  // [x, y, width] in comp pixels; the middle stays open for the card's text.
-  const clouds = [[420, 170, 560], [1520, 210, 520], [110, 470, 380], [1830, 520, 380], [1000, 90, 420], [330, 900, 460], [1640, 930, 480]];
+
+  let seed = 20261110;
+  const random = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
+  const round = (n) => Math.round(n * 100) / 100;
+
+  // The site's scene in its own units: camera at z 12 with a 30° field of view, clouds in layers at z -16 ... -1.
+  const layers = [
+    { count: 12, z: -16, scale: 0.75, speed: 0.05, fog: 0.35 },
+    { count: 9, z: -10, scale: 1.0, speed: 0.08, fog: 0.2 },
+    { count: 6, z: -5, scale: 1.35, speed: 0.13, fog: 0.08 },
+    { count: 3, z: -1, scale: 1.9, speed: 0.22, fog: 0 },
+  ];
+  const cameraZ = 12;
+  const unit = 540 / Math.tan((15 * Math.PI) / 180) / cameraZ; // px per site unit at z 0
+  const halfHeight = (z) => Math.tan((15 * Math.PI) / 180) * (cameraZ - z);
+  const halfWidth = (z) => halfHeight(z) * (1920 / 1080);
+  const sky = [0.353, 0.651, 1]; // the site's fog colour #5aa6ff
+  // One cloud: six puffs [x, y, radius] as fractions of its width (y down).
+  const puffs = [[0, -0.05, 0.3], [-0.3, 0.08, 0.22], [0.3, 0.06, 0.24], [-0.12, 0.14, 0.22], [0.16, 0.15, 0.22], [0.06, -0.2, 0.2]];
+
   const steps = [
     plugins,
-    { command: "file.import", params: { paths: [`${process.cwd().replace(/\\/g, "/")}/assets/twemoji-cloud.svg`] } },
-    { command: "comp.new", params: { name: "clouds", width: 1920, height: 1080, frameRate: 30, duration: 5, open: true } },
+    { command: "comp.new", params: { name: "clayClouds", width: 1920, height: 1080, frameRate: 30, duration: 5, open: true } },
+    { command: "comp.settings", params: { comp: "clayClouds", renderer: "advanced3D" } },
+    { command: "layer.newCamera", params: { name: "camera", type: "oneNode", angleOfView: 30, position: [960, 540, -cameraZ * unit] } },
+    { command: "layer.newLight", params: { kind: "Ambient", name: "ambient", color: "#ffffff", intensity: 55 } },
+    { command: "layer.newLight", params: { kind: "Parallel", name: "key", color: "#fff1dc", intensity: 110, castsShadows: true, position: [-40, -960, -1700] } },
+    { command: "layer.newLight", params: { kind: "Parallel", name: "fill", color: "#a8d1ff", intensity: 30, position: [2260, 840, -1000] } },
   ];
-  clouds.forEach(([x, y, w], k) => {
-    const layer = `cloud ${k + 1}`;
-    const s = (w / 36) * 100;
-    steps.push(
-      { command: "layer.addItem", params: { item: "twemoji-cloud.svg", position: [x, y] } },
-      { command: "layer.rename", params: { layer: "twemoji-cloud.svg", name: layer } },
-      set(layer, "transform/scale", [s, s, 100]),
-      { command: "layer.setSwitch", params: { layers: [layer], switch: "collapse", value: true } },
-      fx(layer, "Fill"),
-      set(layer, "effects/#1/color", [1, 1, 1, 1]),
-      fx(layer, "Linear Wipe"),
-      set(layer, "effects/#2/completion", 30),
-      set(layer, "effects/#2/angle", 0),
-      set(layer, "effects/#2/feather", 12),
-    );
-  });
+
+  let n = 0;
+  for (const layer of layers) {
+    const zPx = -layer.z * unit;
+    const edge = halfWidth(layer.z) + 2; // site units either side of centre before a cloud wraps
+    for (let i = 0; i < layer.count; i++) {
+      n += 1;
+      const name = `cloud ${String(n).padStart(2, "0")}`;
+      const s = layer.scale * (0.6 + random() * 0.7);
+      const squash = 0.8 + random() * 0.3;
+      const half = halfHeight(layer.z);
+      const minY = half - 0.63 * 2 * half + 0.5 * s;
+      const maxY = half - 0.55 * s;
+      const yUnits = minY + random() * Math.max(0, maxY - minY);
+      const span = edge * 2;
+      const xUnits = -edge + (span / layer.count) * (i + random() * 0.6);
+      const phase = random() * Math.PI * 2;
+      const spin = (random() - 0.5) * 0.08;
+      const turn = (random() - 0.5) * 0.9;
+      const widthPx = 2 * s * unit;
+      const colour = sky.map((c) => round(1 + (c - 1) * layer.fog));
+
+      steps.push(
+        { command: "layer.newNull", params: { name } },
+        { command: "layer.setSwitch", params: { layers: [name], switch: "threeD", value: true } },
+        set(name, "transform/position", [round(960 + xUnits * unit), round(540 - yUnits * unit), round(zPx)]),
+        set(name, "transform/scale", [100, round(100 * squash), 100]),
+        // Drift right at the layer's speed and wrap at the edge, bob, and turn slowly, as on the site.
+        expr(name, "transform/position", [
+          `var unit = ${round(unit)}, speed = ${layer.speed}, edge = ${round(edge)};`,
+          `var x0 = ${round(xUnits)}, y0 = ${round(yUnits)}, phase = ${round(phase)};`,
+          `var x = x0 + speed * time + edge;`,
+          `x = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;`,
+          `var y = y0 + Math.sin(time * 0.5 + phase) * 0.08;`,
+          `[960 + x * unit, 540 - y * unit, ${round(zPx)}]`,
+        ].join("\n")),
+        expr(name, "transform/rotationY", `${round((turn * 180) / Math.PI)} + ${round((spin * 180) / Math.PI)} * time`),
+      );
+      puffs.forEach(([dx, dy, r], k) => {
+        const puff = `${name} puff ${k + 1}`;
+        steps.push(
+          { command: "layer.new3dPrimitive", params: { kind: "sphere", name: puff, radius: round((r * widthPx) / 1.9), position: [round(960 + xUnits * unit + (dx * widthPx) / 1.9), round(540 - yUnits * unit + (dy * widthPx) / 1.9), round(zPx)], baseColor: colour, roughness: 0.85, metallic: 0, castsShadows: true, acceptsShadows: true } },
+          { command: "layer.setParent", params: { layers: [puff], parent: name } },
+        );
+      });
+    }
+  }
+
   steps.push(
     { command: "comp.new", params: { name: "cloudBackground", width: 1920, height: 1080, frameRate: 30, duration: 5, open: true } },
-    // The sky is the ditherGradientBackground precomp (built first by build.sh); its colours and pixel
-    // size are set in that template.
+    // The sky is the ditherGradientBackground precomp (built first by build.sh).
     { command: "layer.addItem", params: { item: "ditherGradientBackground", time: 0 } },
     { command: "layer.rename", params: { layer: "ditherGradientBackground", name: "sky" } },
-    { command: "layer.addItem", params: { item: "clouds" } },
-    fx("clouds", "Craft Halftone & Dither"),
-    set("clouds", "effects/#1/cell_size", 6),
+    { command: "layer.addItem", params: { item: "clayClouds", time: 0 } },
+    fx("clayClouds", "Black & White"),
+    fx("clayClouds", "Levels"),
+    set("clayClouds", "effects/#2/inBlack", 0.3),
+    set("clayClouds", "effects/#2/inWhite", 0.92),
+    fx("clayClouds", "Craft Halftone & Dither"),
+    set("clayClouds", "effects/#3/cell_size", 3),
+    set("clayClouds", "effects/#3/contrast", 1),
+    set("clayClouds", "effects/#3/dither_spread", 1),
+    fx("clayClouds", "Tint"),
+    set("clayClouds", "effects/#4/black", [0.62, 0.8, 1, 1]),
+    set("clayClouds", "effects/#4/white", [1, 1, 1, 1]),
     { command: "essential.setName", params: { comp: "cloudBackground", name: "cloudBackground" } },
-    { command: "essential.addProperty", params: { comp: "cloudBackground", layer: "clouds", path: "effects/#1/cell_size", name: "Cloud Dot Size" } },
+    { command: "essential.addProperty", params: { comp: "cloudBackground", layer: "clayClouds", path: "effects/#3/cell_size", name: "Cloud Dither Size" } },
+    { command: "essential.addProperty", params: { comp: "cloudBackground", layer: "clayClouds", path: "effects/#4/black", name: "Cloud Shade" } },
+    { command: "essential.addProperty", params: { comp: "cloudBackground", layer: "clayClouds", path: "effects/#4/white", name: "Cloud Lit" } },
   );
   mkdirSync("effects/cloudBackground", { recursive: true });
   writeFileSync("effects/cloudBackground/effect.json", JSON.stringify(steps, null, 2) + "\n");

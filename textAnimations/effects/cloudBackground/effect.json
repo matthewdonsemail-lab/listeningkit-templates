@@ -6,17 +6,9 @@
     }
   },
   {
-    "command": "file.import",
-    "params": {
-      "paths": [
-        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/twemoji-cloud.svg"
-      ]
-    }
-  },
-  {
     "command": "comp.new",
     "params": {
-      "name": "clouds",
+      "name": "clayClouds",
       "width": 1920,
       "height": 1080,
       "frameRate": 30,
@@ -25,661 +17,7321 @@
     }
   },
   {
-    "command": "layer.addItem",
+    "command": "comp.settings",
     "params": {
-      "item": "twemoji-cloud.svg",
+      "comp": "clayClouds",
+      "renderer": "advanced3D"
+    }
+  },
+  {
+    "command": "layer.newCamera",
+    "params": {
+      "name": "camera",
+      "type": "oneNode",
+      "angleOfView": 30,
       "position": [
-        420,
-        170
+        960,
+        540,
+        -2015.3074360871938
       ]
     }
   },
   {
-    "command": "layer.rename",
+    "command": "layer.newLight",
     "params": {
-      "layer": "twemoji-cloud.svg",
-      "name": "cloud 1"
+      "kind": "Ambient",
+      "name": "ambient",
+      "color": "#ffffff",
+      "intensity": 55
     }
   },
   {
-    "command": "prop.set",
+    "command": "layer.newLight",
     "params": {
-      "layer": "cloud 1",
-      "path": "transform/scale",
-      "value": [
-        1555.5555555555554,
-        1555.5555555555554,
-        100
+      "kind": "Parallel",
+      "name": "key",
+      "color": "#fff1dc",
+      "intensity": 110,
+      "castsShadows": true,
+      "position": [
+        -40,
+        -960,
+        -1700
       ]
+    }
+  },
+  {
+    "command": "layer.newLight",
+    "params": {
+      "kind": "Parallel",
+      "name": "fill",
+      "color": "#a8d1ff",
+      "intensity": 30,
+      "position": [
+        2260,
+        840,
+        -1000
+      ]
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 01"
     }
   },
   {
     "command": "layer.setSwitch",
     "params": {
       "layers": [
-        "cloud 1"
+        "cloud 01"
       ],
-      "switch": "collapse",
+      "switch": "threeD",
       "value": true
     }
   },
   {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Fill",
-      "layers": [
-        "cloud 1"
-      ]
-    }
-  },
-  {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 1",
-      "path": "effects/#1/color",
+      "layer": "cloud 01",
+      "path": "transform/position",
       "value": [
-        1,
-        1,
-        1,
-        1
-      ]
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Linear Wipe",
-      "layers": [
-        "cloud 1"
+        -1531.04,
+        159.72,
+        2687.08
       ]
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 1",
-      "path": "effects/#2/completion",
-      "value": 30
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 1",
-      "path": "effects/#2/angle",
-      "value": 0
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 1",
-      "path": "effects/#2/feather",
-      "value": 12
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "twemoji-cloud.svg",
-      "position": [
-        1520,
-        210
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "twemoji-cloud.svg",
-      "name": "cloud 2"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 2",
+      "layer": "cloud 01",
       "path": "transform/scale",
       "value": [
-        1444.4444444444446,
-        1444.4444444444446,
+        100,
+        87.26,
         100
       ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 01",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -14.83, y0 = 2.26, phase = 3.42;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 01",
+      "path": "transform/rotationY",
+      "expression": "-22.24 + 1.14 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 01 puff 1",
+      "radius": 37.19,
+      "position": [
+        -1531.04,
+        153.52,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 01 puff 1"
+      ],
+      "parent": "cloud 01"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 01 puff 2",
+      "radius": 27.27,
+      "position": [
+        -1568.23,
+        169.64,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 01 puff 2"
+      ],
+      "parent": "cloud 01"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 01 puff 3",
+      "radius": 29.75,
+      "position": [
+        -1493.86,
+        167.16,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 01 puff 3"
+      ],
+      "parent": "cloud 01"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 01 puff 4",
+      "radius": 27.27,
+      "position": [
+        -1545.92,
+        177.07,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 01 puff 4"
+      ],
+      "parent": "cloud 01"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 01 puff 5",
+      "radius": 27.27,
+      "position": [
+        -1511.21,
+        178.31,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 01 puff 5"
+      ],
+      "parent": "cloud 01"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 01 puff 6",
+      "radius": 24.79,
+      "position": [
+        -1523.61,
+        134.93,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 01 puff 6"
+      ],
+      "parent": "cloud 01"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 02"
     }
   },
   {
     "command": "layer.setSwitch",
     "params": {
       "layers": [
-        "cloud 2"
+        "cloud 02"
       ],
-      "switch": "collapse",
+      "switch": "threeD",
       "value": true
     }
   },
   {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Fill",
-      "layers": [
-        "cloud 2"
-      ]
-    }
-  },
-  {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 2",
-      "path": "effects/#1/color",
+      "layer": "cloud 02",
+      "path": "transform/position",
       "value": [
-        1,
-        1,
-        1,
-        1
-      ]
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Linear Wipe",
-      "layers": [
-        "cloud 2"
+        -1169.14,
+        -401.64,
+        2687.08
       ]
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 2",
-      "path": "effects/#2/completion",
-      "value": 30
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 2",
-      "path": "effects/#2/angle",
-      "value": 0
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 2",
-      "path": "effects/#2/feather",
-      "value": 12
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "twemoji-cloud.svg",
-      "position": [
-        110,
-        470
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "twemoji-cloud.svg",
-      "name": "cloud 3"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 3",
+      "layer": "cloud 02",
       "path": "transform/scale",
       "value": [
-        1055.5555555555554,
-        1055.5555555555554,
+        100,
+        103.54,
         100
       ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 02",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -12.68, y0 = 5.61, phase = 2.75;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 02",
+      "path": "transform/rotationY",
+      "expression": "-3.23 + 0.49 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 02 puff 1",
+      "radius": 39.89,
+      "position": [
+        -1169.14,
+        -408.29,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 02 puff 1"
+      ],
+      "parent": "cloud 02"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 02 puff 2",
+      "radius": 29.25,
+      "position": [
+        -1209.03,
+        -391,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 02 puff 2"
+      ],
+      "parent": "cloud 02"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 02 puff 3",
+      "radius": 31.91,
+      "position": [
+        -1129.25,
+        -393.66,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 02 puff 3"
+      ],
+      "parent": "cloud 02"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 02 puff 4",
+      "radius": 29.25,
+      "position": [
+        -1185.1,
+        -383.02,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 02 puff 4"
+      ],
+      "parent": "cloud 02"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 02 puff 5",
+      "radius": 29.25,
+      "position": [
+        -1147.86,
+        -381.69,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 02 puff 5"
+      ],
+      "parent": "cloud 02"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 02 puff 6",
+      "radius": 26.59,
+      "position": [
+        -1161.16,
+        -428.23,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 02 puff 6"
+      ],
+      "parent": "cloud 02"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 03"
     }
   },
   {
     "command": "layer.setSwitch",
     "params": {
       "layers": [
-        "cloud 3"
+        "cloud 03"
       ],
-      "switch": "collapse",
+      "switch": "threeD",
       "value": true
     }
   },
   {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Fill",
-      "layers": [
-        "cloud 3"
-      ]
-    }
-  },
-  {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 3",
-      "path": "effects/#1/color",
+      "layer": "cloud 03",
+      "path": "transform/position",
       "value": [
-        1,
-        1,
-        1,
-        1
-      ]
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Linear Wipe",
-      "layers": [
-        "cloud 3"
+        -629.48,
+        716.28,
+        2687.08
       ]
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 3",
-      "path": "effects/#2/completion",
-      "value": 30
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 3",
-      "path": "effects/#2/angle",
-      "value": 0
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 3",
-      "path": "effects/#2/feather",
-      "value": 12
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "twemoji-cloud.svg",
-      "position": [
-        1830,
-        520
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "twemoji-cloud.svg",
-      "name": "cloud 4"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 4",
+      "layer": "cloud 03",
       "path": "transform/scale",
       "value": [
-        1055.5555555555554,
-        1055.5555555555554,
+        100,
+        83.72,
         100
       ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 03",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -9.46, y0 = -1.05, phase = 6.05;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 03",
+      "path": "transform/rotationY",
+      "expression": "22.53 + 0.08 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 03 puff 1",
+      "radius": 51.01,
+      "position": [
+        -629.48,
+        707.78,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 03 puff 1"
+      ],
+      "parent": "cloud 03"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 03 puff 2",
+      "radius": 37.41,
+      "position": [
+        -680.49,
+        729.88,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 03 puff 2"
+      ],
+      "parent": "cloud 03"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 03 puff 3",
+      "radius": 40.81,
+      "position": [
+        -578.47,
+        726.48,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 03 puff 3"
+      ],
+      "parent": "cloud 03"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 03 puff 4",
+      "radius": 37.41,
+      "position": [
+        -649.88,
+        740.08,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 03 puff 4"
+      ],
+      "parent": "cloud 03"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 03 puff 5",
+      "radius": 37.41,
+      "position": [
+        -602.28,
+        741.78,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 03 puff 5"
+      ],
+      "parent": "cloud 03"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 03 puff 6",
+      "radius": 34.01,
+      "position": [
+        -619.28,
+        682.27,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 03 puff 6"
+      ],
+      "parent": "cloud 03"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 04"
     }
   },
   {
     "command": "layer.setSwitch",
     "params": {
       "layers": [
-        "cloud 4"
+        "cloud 04"
       ],
-      "switch": "collapse",
+      "switch": "threeD",
       "value": true
     }
   },
   {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Fill",
-      "layers": [
-        "cloud 4"
-      ]
-    }
-  },
-  {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 4",
-      "path": "effects/#1/color",
+      "layer": "cloud 04",
+      "path": "transform/position",
       "value": [
-        1,
-        1,
-        1,
-        1
-      ]
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Linear Wipe",
-      "layers": [
-        "cloud 4"
+        -288.13,
+        -118.54,
+        2687.08
       ]
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 4",
-      "path": "effects/#2/completion",
-      "value": 30
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 4",
-      "path": "effects/#2/angle",
-      "value": 0
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 4",
-      "path": "effects/#2/feather",
-      "value": 12
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "twemoji-cloud.svg",
-      "position": [
-        1000,
-        90
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "twemoji-cloud.svg",
-      "name": "cloud 5"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 5",
+      "layer": "cloud 04",
       "path": "transform/scale",
       "value": [
-        1166.6666666666665,
-        1166.6666666666665,
+        100,
+        100.98,
         100
       ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 04",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -7.43, y0 = 3.92, phase = 1.85;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 04",
+      "path": "transform/rotationY",
+      "expression": "-17.42 + -1.54 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 04 puff 1",
+      "radius": 38.44,
+      "position": [
+        -288.13,
+        -124.95,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 04 puff 1"
+      ],
+      "parent": "cloud 04"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 04 puff 2",
+      "radius": 28.19,
+      "position": [
+        -326.57,
+        -108.29,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 04 puff 2"
+      ],
+      "parent": "cloud 04"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 04 puff 3",
+      "radius": 30.75,
+      "position": [
+        -249.69,
+        -110.86,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 04 puff 3"
+      ],
+      "parent": "cloud 04"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 04 puff 4",
+      "radius": 28.19,
+      "position": [
+        -303.5,
+        -100.61,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 04 puff 4"
+      ],
+      "parent": "cloud 04"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 04 puff 5",
+      "radius": 28.19,
+      "position": [
+        -267.63,
+        -99.33,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 04 puff 5"
+      ],
+      "parent": "cloud 04"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 04 puff 6",
+      "radius": 25.62,
+      "position": [
+        -280.44,
+        -144.17,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 04 puff 6"
+      ],
+      "parent": "cloud 04"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 05"
     }
   },
   {
     "command": "layer.setSwitch",
     "params": {
       "layers": [
-        "cloud 5"
+        "cloud 05"
       ],
-      "switch": "collapse",
+      "switch": "threeD",
       "value": true
     }
   },
   {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Fill",
-      "layers": [
-        "cloud 5"
-      ]
-    }
-  },
-  {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 5",
-      "path": "effects/#1/color",
+      "layer": "cloud 05",
+      "path": "transform/position",
       "value": [
-        1,
-        1,
-        1,
-        1
-      ]
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Linear Wipe",
-      "layers": [
-        "cloud 5"
+        155.9,
+        -410,
+        2687.08
       ]
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 5",
-      "path": "effects/#2/completion",
-      "value": 30
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 5",
-      "path": "effects/#2/angle",
-      "value": 0
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 5",
-      "path": "effects/#2/feather",
-      "value": 12
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "twemoji-cloud.svg",
-      "position": [
-        330,
-        900
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "twemoji-cloud.svg",
-      "name": "cloud 6"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 6",
+      "layer": "cloud 05",
       "path": "transform/scale",
       "value": [
-        1277.7777777777778,
-        1277.7777777777778,
+        100,
+        94.9,
         100
       ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 05",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -4.79, y0 = 5.66, phase = 1.78;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 05",
+      "path": "transform/rotationY",
+      "expression": "20.38 + 0.3 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 05 puff 1",
+      "radius": 46.39,
+      "position": [
+        155.9,
+        -417.74,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 05 puff 1"
+      ],
+      "parent": "cloud 05"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 05 puff 2",
+      "radius": 34.02,
+      "position": [
+        109.51,
+        -397.64,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 05 puff 2"
+      ],
+      "parent": "cloud 05"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 05 puff 3",
+      "radius": 37.11,
+      "position": [
+        202.28,
+        -400.73,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 05 puff 3"
+      ],
+      "parent": "cloud 05"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 05 puff 4",
+      "radius": 34.02,
+      "position": [
+        137.34,
+        -388.36,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 05 puff 4"
+      ],
+      "parent": "cloud 05"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 05 puff 5",
+      "radius": 34.02,
+      "position": [
+        180.64,
+        -386.81,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 05 puff 5"
+      ],
+      "parent": "cloud 05"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 05 puff 6",
+      "radius": 30.92,
+      "position": [
+        165.17,
+        -440.93,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 05 puff 6"
+      ],
+      "parent": "cloud 05"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 06"
     }
   },
   {
     "command": "layer.setSwitch",
     "params": {
       "layers": [
-        "cloud 6"
+        "cloud 06"
       ],
-      "switch": "collapse",
+      "switch": "threeD",
       "value": true
     }
   },
   {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Fill",
-      "layers": [
-        "cloud 6"
-      ]
-    }
-  },
-  {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 6",
-      "path": "effects/#1/color",
+      "layer": "cloud 06",
+      "path": "transform/position",
       "value": [
-        1,
-        1,
-        1,
-        1
-      ]
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Linear Wipe",
-      "layers": [
-        "cloud 6"
+        597.46,
+        545.42,
+        2687.08
       ]
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 6",
-      "path": "effects/#2/completion",
-      "value": 30
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 6",
-      "path": "effects/#2/angle",
-      "value": 0
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 6",
-      "path": "effects/#2/feather",
-      "value": 12
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "twemoji-cloud.svg",
-      "position": [
-        1640,
-        930
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "twemoji-cloud.svg",
-      "name": "cloud 7"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "cloud 7",
+      "layer": "cloud 06",
       "path": "transform/scale",
       "value": [
-        1333.3333333333335,
-        1333.3333333333335,
+        100,
+        93.8,
         100
       ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 06",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = -2.16, y0 = -0.03, phase = 6.19;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 06",
+      "path": "transform/rotationY",
+      "expression": "-20.86 + 0.58 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 06 puff 1",
+      "radius": 39.41,
+      "position": [
+        597.46,
+        538.85,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 06 puff 1"
+      ],
+      "parent": "cloud 06"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 06 puff 2",
+      "radius": 28.9,
+      "position": [
+        558.05,
+        555.93,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 06 puff 2"
+      ],
+      "parent": "cloud 06"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 06 puff 3",
+      "radius": 31.53,
+      "position": [
+        636.87,
+        553.3,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 06 puff 3"
+      ],
+      "parent": "cloud 06"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 06 puff 4",
+      "radius": 28.9,
+      "position": [
+        581.7,
+        563.81,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 06 puff 4"
+      ],
+      "parent": "cloud 06"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 06 puff 5",
+      "radius": 28.9,
+      "position": [
+        618.48,
+        565.12,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 06 puff 5"
+      ],
+      "parent": "cloud 06"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 06 puff 6",
+      "radius": 26.27,
+      "position": [
+        605.34,
+        519.15,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 06 puff 6"
+      ],
+      "parent": "cloud 06"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 07"
     }
   },
   {
     "command": "layer.setSwitch",
     "params": {
       "layers": [
-        "cloud 7"
+        "cloud 07"
       ],
-      "switch": "collapse",
+      "switch": "threeD",
       "value": true
     }
   },
   {
-    "command": "effect.apply",
+    "command": "prop.set",
     "params": {
-      "effect": "Fill",
-      "layers": [
-        "cloud 7"
+      "layer": "cloud 07",
+      "path": "transform/position",
+      "value": [
+        1035.35,
+        -388.53,
+        2687.08
       ]
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 7",
-      "path": "effects/#1/color",
+      "layer": "cloud 07",
+      "path": "transform/scale",
       "value": [
-        1,
+        100,
+        96.41,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 07",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 0.45, y0 = 5.53, phase = 3.28;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 07",
+      "path": "transform/rotationY",
+      "expression": "7.97 + 1.47 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 07 puff 1",
+      "radius": 44.28,
+      "position": [
+        1035.35,
+        -395.91,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 07 puff 1"
+      ],
+      "parent": "cloud 07"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 07 puff 2",
+      "radius": 32.48,
+      "position": [
+        991.06,
+        -376.72,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 07 puff 2"
+      ],
+      "parent": "cloud 07"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 07 puff 3",
+      "radius": 35.43,
+      "position": [
+        1079.63,
+        -379.67,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 07 puff 3"
+      ],
+      "parent": "cloud 07"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 07 puff 4",
+      "radius": 32.48,
+      "position": [
+        1017.63,
+        -367.86,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 07 puff 4"
+      ],
+      "parent": "cloud 07"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 07 puff 5",
+      "radius": 32.48,
+      "position": [
+        1058.97,
+        -366.38,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 07 puff 5"
+      ],
+      "parent": "cloud 07"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 07 puff 6",
+      "radius": 29.52,
+      "position": [
+        1044.2,
+        -418.05,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 07 puff 6"
+      ],
+      "parent": "cloud 07"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 08"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 08"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 08",
+      "path": "transform/position",
+      "value": [
+        1602.75,
+        91.07,
+        2687.08
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 08",
+      "path": "transform/scale",
+      "value": [
+        100,
+        104.79,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 08",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 3.83, y0 = 2.67, phase = 2.2;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 08",
+      "path": "transform/rotationY",
+      "expression": "17.43 + -0.47 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 08 puff 1",
+      "radius": 40.83,
+      "position": [
+        1602.75,
+        84.27,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 08 puff 1"
+      ],
+      "parent": "cloud 08"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 08 puff 2",
+      "radius": 29.94,
+      "position": [
+        1561.93,
+        101.96,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 08 puff 2"
+      ],
+      "parent": "cloud 08"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 08 puff 3",
+      "radius": 32.66,
+      "position": [
+        1643.58,
+        99.23,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 08 puff 3"
+      ],
+      "parent": "cloud 08"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 08 puff 4",
+      "radius": 29.94,
+      "position": [
+        1586.42,
+        110.12,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 08 puff 4"
+      ],
+      "parent": "cloud 08"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 08 puff 5",
+      "radius": 29.94,
+      "position": [
+        1624.53,
+        111.48,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 08 puff 5"
+      ],
+      "parent": "cloud 08"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 08 puff 6",
+      "radius": 27.22,
+      "position": [
+        1610.92,
+        63.85,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 08 puff 6"
+      ],
+      "parent": "cloud 08"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 09"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 09"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 09",
+      "path": "transform/position",
+      "value": [
+        2064.1,
+        537.37,
+        2687.08
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 09",
+      "path": "transform/scale",
+      "value": [
+        100,
+        96.49,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 09",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 6.57, y0 = 0.02, phase = 1.64;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 09",
+      "path": "transform/rotationY",
+      "expression": "-3.79 + 1.59 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 09 puff 1",
+      "radius": 50.05,
+      "position": [
+        2064.1,
+        529.03,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 09 puff 1"
+      ],
+      "parent": "cloud 09"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 09 puff 2",
+      "radius": 36.7,
+      "position": [
+        2014.05,
+        550.72,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 09 puff 2"
+      ],
+      "parent": "cloud 09"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 09 puff 3",
+      "radius": 40.04,
+      "position": [
+        2114.14,
+        547.38,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 09 puff 3"
+      ],
+      "parent": "cloud 09"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 09 puff 4",
+      "radius": 36.7,
+      "position": [
+        2044.08,
+        560.73,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 09 puff 4"
+      ],
+      "parent": "cloud 09"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 09 puff 5",
+      "radius": 36.7,
+      "position": [
+        2090.79,
+        562.4,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 09 puff 5"
+      ],
+      "parent": "cloud 09"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 09 puff 6",
+      "radius": 33.36,
+      "position": [
+        2074.11,
+        504.01,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 09 puff 6"
+      ],
+      "parent": "cloud 09"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 10"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 10"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 10",
+      "path": "transform/position",
+      "value": [
+        2502.08,
+        528.66,
+        2687.08
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 10",
+      "path": "transform/scale",
+      "value": [
+        100,
+        96.71,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 10",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 9.18, y0 = 0.07, phase = 1.24;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 10",
+      "path": "transform/rotationY",
+      "expression": "14.16 + -1.42 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 10 puff 1",
+      "radius": 45.1,
+      "position": [
+        2502.08,
+        521.14,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 10 puff 1"
+      ],
+      "parent": "cloud 10"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 10 puff 2",
+      "radius": 33.08,
+      "position": [
+        2456.98,
+        540.69,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 10 puff 2"
+      ],
+      "parent": "cloud 10"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 10 puff 3",
+      "radius": 36.08,
+      "position": [
+        2547.19,
+        537.68,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 10 puff 3"
+      ],
+      "parent": "cloud 10"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 10 puff 4",
+      "radius": 33.08,
+      "position": [
+        2484.04,
+        549.71,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 10 puff 4"
+      ],
+      "parent": "cloud 10"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 10 puff 5",
+      "radius": 33.08,
+      "position": [
+        2526.14,
+        551.21,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 10 puff 5"
+      ],
+      "parent": "cloud 10"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 10 puff 6",
+      "radius": 30.07,
+      "position": [
+        2511.1,
+        498.59,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 10 puff 6"
+      ],
+      "parent": "cloud 10"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 11"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 11"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 11",
+      "path": "transform/position",
+      "value": [
+        2684.82,
+        761.08,
+        2687.08
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 11",
+      "path": "transform/scale",
+      "value": [
+        100,
+        81.97,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 11",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 10.27, y0 = -1.32, phase = 0.42;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 11",
+      "path": "transform/rotationY",
+      "expression": "22.98 + -0.06 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 11 puff 1",
+      "radius": 39.04,
+      "position": [
+        2684.82,
+        754.57,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 11 puff 1"
+      ],
+      "parent": "cloud 11"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 11 puff 2",
+      "radius": 28.63,
+      "position": [
+        2645.78,
+        771.49,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 11 puff 2"
+      ],
+      "parent": "cloud 11"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 11 puff 3",
+      "radius": 31.23,
+      "position": [
+        2723.86,
+        768.89,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 11 puff 3"
+      ],
+      "parent": "cloud 11"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 11 puff 4",
+      "radius": 28.63,
+      "position": [
+        2669.21,
+        779.3,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 11 puff 4"
+      ],
+      "parent": "cloud 11"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 11 puff 5",
+      "radius": 28.63,
+      "position": [
+        2705.64,
+        780.6,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 11 puff 5"
+      ],
+      "parent": "cloud 11"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 11 puff 6",
+      "radius": 26.03,
+      "position": [
+        2692.63,
+        735.05,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 11 puff 6"
+      ],
+      "parent": "cloud 11"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 12"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 12"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 12",
+      "path": "transform/position",
+      "value": [
+        3327.94,
+        -554.59,
+        2687.08
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 12",
+      "path": "transform/scale",
+      "value": [
+        100,
+        103.25,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 12",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.05, edge = 15.34;\nvar x0 = 14.1, y0 = 6.52, phase = 3.52;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 2687.08]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 12",
+      "path": "transform/rotationY",
+      "expression": "-14.82 + -0.87 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 12 puff 1",
+      "radius": 36.08,
+      "position": [
+        3327.94,
+        -560.61,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 12 puff 1"
+      ],
+      "parent": "cloud 12"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 12 puff 2",
+      "radius": 26.46,
+      "position": [
+        3291.86,
+        -544.97,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 12 puff 2"
+      ],
+      "parent": "cloud 12"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 12 puff 3",
+      "radius": 28.87,
+      "position": [
+        3364.02,
+        -547.38,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 12 puff 3"
+      ],
+      "parent": "cloud 12"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 12 puff 4",
+      "radius": 26.46,
+      "position": [
+        3313.51,
+        -537.75,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 12 puff 4"
+      ],
+      "parent": "cloud 12"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 12 puff 5",
+      "radius": 26.46,
+      "position": [
+        3347.18,
+        -536.55,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 12 puff 5"
+      ],
+      "parent": "cloud 12"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 12 puff 6",
+      "radius": 24.06,
+      "position": [
+        3335.16,
+        -578.65,
+        2687.08
+      ],
+      "baseColor": [
+        0.77,
+        0.88,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 12 puff 6"
+      ],
+      "parent": "cloud 12"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 13"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 13"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 13",
+      "path": "transform/position",
+      "value": [
+        -1128.59,
+        -326.49,
+        1679.42
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 13",
+      "path": "transform/scale",
+      "value": [
+        100,
+        97.95,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 13",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -12.44, y0 = 5.16, phase = 3.72;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 13",
+      "path": "transform/rotationY",
+      "expression": "-14.69 + -1.05 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 13 puff 1",
+      "radius": 57.1,
+      "position": [
+        -1128.59,
+        -336,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 13 puff 1"
+      ],
+      "parent": "cloud 13"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 13 puff 2",
+      "radius": 41.87,
+      "position": [
+        -1185.68,
+        -311.26,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 13 puff 2"
+      ],
+      "parent": "cloud 13"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 13 puff 3",
+      "radius": 45.68,
+      "position": [
+        -1071.49,
+        -315.07,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 13 puff 3"
+      ],
+      "parent": "cloud 13"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 13 puff 4",
+      "radius": 41.87,
+      "position": [
+        -1151.42,
+        -299.84,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 13 puff 4"
+      ],
+      "parent": "cloud 13"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 13 puff 5",
+      "radius": 41.87,
+      "position": [
+        -1098.13,
+        -297.94,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 13 puff 5"
+      ],
+      "parent": "cloud 13"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 13 puff 6",
+      "radius": 38.06,
+      "position": [
+        -1117.17,
+        -364.55,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 13 puff 6"
+      ],
+      "parent": "cloud 13"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 14"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 14"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 14",
+      "path": "transform/position",
+      "value": [
+        -484.59,
+        -249.05,
+        1679.42
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 14",
+      "path": "transform/scale",
+      "value": [
+        100,
+        94.17,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 14",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -8.6, y0 = 4.7, phase = 0.62;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 14",
+      "path": "transform/rotationY",
+      "expression": "-24.91 + -0.13 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 14 puff 1",
+      "radius": 62.12,
+      "position": [
+        -484.59,
+        -259.4,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 14 puff 1"
+      ],
+      "parent": "cloud 14"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 14 puff 2",
+      "radius": 45.56,
+      "position": [
+        -546.71,
+        -232.48,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 14 puff 2"
+      ],
+      "parent": "cloud 14"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 14 puff 3",
+      "radius": 49.7,
+      "position": [
+        -422.47,
+        -236.62,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 14 puff 3"
+      ],
+      "parent": "cloud 14"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 14 puff 4",
+      "radius": 45.56,
+      "position": [
+        -509.44,
+        -220.06,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 14 puff 4"
+      ],
+      "parent": "cloud 14"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 14 puff 5",
+      "radius": 45.56,
+      "position": [
+        -451.46,
+        -217.99,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 14 puff 5"
+      ],
+      "parent": "cloud 14"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 14 puff 6",
+      "radius": 41.42,
+      "position": [
+        -472.17,
+        -290.46,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 14 puff 6"
+      ],
+      "parent": "cloud 14"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 15"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 15"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 15",
+      "path": "transform/position",
+      "value": [
+        -11.01,
+        -361.09,
+        1679.42
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 15",
+      "path": "transform/scale",
+      "value": [
+        100,
+        96.18,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 15",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -5.78, y0 = 5.37, phase = 5.51;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 15",
+      "path": "transform/rotationY",
+      "expression": "7.22 + -0.6 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 15 puff 1",
+      "radius": 50.2,
+      "position": [
+        -11.01,
+        -369.45,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 15 puff 1"
+      ],
+      "parent": "cloud 15"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 15 puff 2",
+      "radius": 36.81,
+      "position": [
+        -61.21,
+        -347.7,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 15 puff 2"
+      ],
+      "parent": "cloud 15"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 15 puff 3",
+      "radius": 40.16,
+      "position": [
+        39.19,
+        -351.05,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 15 puff 3"
+      ],
+      "parent": "cloud 15"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 15 puff 4",
+      "radius": 36.81,
+      "position": [
+        -31.09,
+        -337.66,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 15 puff 4"
+      ],
+      "parent": "cloud 15"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 15 puff 5",
+      "radius": 36.81,
+      "position": [
+        15.76,
+        -335.99,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 15 puff 5"
+      ],
+      "parent": "cloud 15"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 15 puff 6",
+      "radius": 33.47,
+      "position": [
+        -0.97,
+        -394.55,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 15 puff 6"
+      ],
+      "parent": "cloud 15"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 16"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 16"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 16",
+      "path": "transform/position",
+      "value": [
+        478.12,
+        -328.09,
+        1679.42
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 16",
+      "path": "transform/scale",
+      "value": [
+        100,
+        101.79,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 16",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -2.87, y0 = 5.17, phase = 6.21;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 16",
+      "path": "transform/rotationY",
+      "expression": "12.75 + -1.71 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 16 puff 1",
+      "radius": 57.29,
+      "position": [
+        478.12,
+        -337.64,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 16 puff 1"
+      ],
+      "parent": "cloud 16"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 16 puff 2",
+      "radius": 42.01,
+      "position": [
+        420.83,
+        -312.82,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 16 puff 2"
+      ],
+      "parent": "cloud 16"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 16 puff 3",
+      "radius": 45.83,
+      "position": [
+        535.41,
+        -316.63,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 16 puff 3"
+      ],
+      "parent": "cloud 16"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 16 puff 4",
+      "radius": 42.01,
+      "position": [
+        455.21,
+        -301.36,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 16 puff 4"
+      ],
+      "parent": "cloud 16"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 16 puff 5",
+      "radius": 42.01,
+      "position": [
+        508.68,
+        -299.45,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 16 puff 5"
+      ],
+      "parent": "cloud 16"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 16 puff 6",
+      "radius": 38.19,
+      "position": [
+        489.58,
+        -366.28,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 16 puff 6"
+      ],
+      "parent": "cloud 16"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 17"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 17"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 17",
+      "path": "transform/position",
+      "value": [
+        854.68,
+        618.75,
+        1679.42
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 17",
+      "path": "transform/scale",
+      "value": [
+        100,
+        85.23,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 17",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = -0.63, y0 = -0.47, phase = 6;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 17",
+      "path": "transform/rotationY",
+      "expression": "-5.28 + 2.12 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 17 puff 1",
+      "radius": 65.44,
+      "position": [
+        854.68,
+        607.85,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 17 puff 1"
+      ],
+      "parent": "cloud 17"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 17 puff 2",
+      "radius": 47.99,
+      "position": [
+        789.23,
+        636.21,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 17 puff 2"
+      ],
+      "parent": "cloud 17"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 17 puff 3",
+      "radius": 52.36,
+      "position": [
+        920.12,
+        631.84,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 17 puff 3"
+      ],
+      "parent": "cloud 17"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 17 puff 4",
+      "radius": 47.99,
+      "position": [
+        828.5,
+        649.3,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 17 puff 4"
+      ],
+      "parent": "cloud 17"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 17 puff 5",
+      "radius": 47.99,
+      "position": [
+        889.58,
+        651.48,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 17 puff 5"
+      ],
+      "parent": "cloud 17"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 17 puff 6",
+      "radius": 43.63,
+      "position": [
+        867.77,
+        575.13,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 17 puff 6"
+      ],
+      "parent": "cloud 17"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 18"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 18"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 18",
+      "path": "transform/position",
+      "value": [
+        1212.06,
+        -5.24,
+        1679.42
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 18",
+      "path": "transform/scale",
+      "value": [
+        100,
+        82.21,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 18",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 1.5, y0 = 3.25, phase = 1.25;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 18",
+      "path": "transform/rotationY",
+      "expression": "4.52 + 0.86 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 18 puff 1",
+      "radius": 63.53,
+      "position": [
+        1212.06,
+        -15.83,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 18 puff 1"
+      ],
+      "parent": "cloud 18"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 18 puff 2",
+      "radius": 46.59,
+      "position": [
+        1148.53,
+        11.7,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 18 puff 2"
+      ],
+      "parent": "cloud 18"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 18 puff 3",
+      "radius": 50.82,
+      "position": [
+        1275.59,
+        7.46,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 18 puff 3"
+      ],
+      "parent": "cloud 18"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 18 puff 4",
+      "radius": 46.59,
+      "position": [
+        1186.64,
+        24.4,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 18 puff 4"
+      ],
+      "parent": "cloud 18"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 18 puff 5",
+      "radius": 46.59,
+      "position": [
+        1245.94,
+        26.52,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 18 puff 5"
+      ],
+      "parent": "cloud 18"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 18 puff 6",
+      "radius": 42.35,
+      "position": [
+        1224.76,
+        -47.6,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 18 puff 6"
+      ],
+      "parent": "cloud 18"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 19"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 19"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 19",
+      "path": "transform/position",
+      "value": [
+        1741.33,
+        -201.39,
+        1679.42
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 19",
+      "path": "transform/scale",
+      "value": [
+        100,
+        105.94,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 19",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 4.65, y0 = 4.41, phase = 2.91;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 19",
+      "path": "transform/rotationY",
+      "expression": "-23.43 + -0.76 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 19 puff 1",
+      "radius": 39.35,
+      "position": [
+        1741.33,
+        -207.95,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 19 puff 1"
+      ],
+      "parent": "cloud 19"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 19 puff 2",
+      "radius": 28.86,
+      "position": [
+        1701.98,
+        -190.9,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 19 puff 2"
+      ],
+      "parent": "cloud 19"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 19 puff 3",
+      "radius": 31.48,
+      "position": [
+        1780.69,
+        -193.52,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 19 puff 3"
+      ],
+      "parent": "cloud 19"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 19 puff 4",
+      "radius": 28.86,
+      "position": [
+        1725.59,
+        -183.03,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 19 puff 4"
+      ],
+      "parent": "cloud 19"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 19 puff 5",
+      "radius": 28.86,
+      "position": [
+        1762.32,
+        -181.71,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 19 puff 5"
+      ],
+      "parent": "cloud 19"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 19 puff 6",
+      "radius": 26.24,
+      "position": [
+        1749.2,
+        -227.63,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 19 puff 6"
+      ],
+      "parent": "cloud 19"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 20"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 20"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 20",
+      "path": "transform/position",
+      "value": [
+        2191.19,
+        543.37,
+        1679.42
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 20",
+      "path": "transform/scale",
+      "value": [
+        100,
+        101.69,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 20",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 7.33, y0 = -0.02, phase = 5.96;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 20",
+      "path": "transform/rotationY",
+      "expression": "10.12 + -1.69 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 20 puff 1",
+      "radius": 56.44,
+      "position": [
+        2191.19,
+        533.96,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 20 puff 1"
+      ],
+      "parent": "cloud 20"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 20 puff 2",
+      "radius": 41.39,
+      "position": [
+        2134.75,
+        558.42,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 20 puff 2"
+      ],
+      "parent": "cloud 20"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 20 puff 3",
+      "radius": 45.15,
+      "position": [
+        2247.63,
+        554.65,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 20 puff 3"
+      ],
+      "parent": "cloud 20"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 20 puff 4",
+      "radius": 41.39,
+      "position": [
+        2168.62,
+        569.71,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 20 puff 4"
+      ],
+      "parent": "cloud 20"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 20 puff 5",
+      "radius": 41.39,
+      "position": [
+        2221.29,
+        571.59,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 20 puff 5"
+      ],
+      "parent": "cloud 20"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 20 puff 6",
+      "radius": 37.63,
+      "position": [
+        2202.48,
+        505.74,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 20 puff 6"
+      ],
+      "parent": "cloud 20"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 21"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 21"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 21",
+      "path": "transform/position",
+      "value": [
+        2804.49,
+        -349.33,
+        1679.42
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 21",
+      "path": "transform/scale",
+      "value": [
+        100,
+        83.92,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 21",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.08, edge = 12.48;\nvar x0 = 10.98, y0 = 5.3, phase = 4.24;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 1679.42]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 21",
+      "path": "transform/rotationY",
+      "expression": "-23.59 + 0.48 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 21 puff 1",
+      "radius": 50.61,
+      "position": [
+        2804.49,
+        -357.76,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 21 puff 1"
+      ],
+      "parent": "cloud 21"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 21 puff 2",
+      "radius": 37.11,
+      "position": [
+        2753.88,
+        -335.83,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 21 puff 2"
+      ],
+      "parent": "cloud 21"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 21 puff 3",
+      "radius": 40.49,
+      "position": [
+        2855.09,
+        -339.21,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 21 puff 3"
+      ],
+      "parent": "cloud 21"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 21 puff 4",
+      "radius": 37.11,
+      "position": [
+        2784.24,
+        -325.71,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 21 puff 4"
+      ],
+      "parent": "cloud 21"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 21 puff 5",
+      "radius": 37.11,
+      "position": [
+        2831.48,
+        -324.02,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 21 puff 5"
+      ],
+      "parent": "cloud 21"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 21 puff 6",
+      "radius": 33.74,
+      "position": [
+        2814.61,
+        -383.06,
+        1679.42
+      ],
+      "baseColor": [
+        0.87,
+        0.93,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 21 puff 6"
+      ],
+      "parent": "cloud 21"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 22"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 22"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 22",
+      "path": "transform/position",
+      "value": [
+        -690.71,
+        103.49,
+        839.71
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 22",
+      "path": "transform/scale",
+      "value": [
+        100,
+        80.17,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 22",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = -9.83, y0 = 2.6, phase = 4.28;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 22",
+      "path": "transform/rotationY",
+      "expression": "16.39 + -0.05 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 22 puff 1",
+      "radius": 65.3,
+      "position": [
+        -690.71,
+        92.61,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 22 puff 1"
+      ],
+      "parent": "cloud 22"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 22 puff 2",
+      "radius": 47.89,
+      "position": [
+        -756.01,
+        120.91,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 22 puff 2"
+      ],
+      "parent": "cloud 22"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 22 puff 3",
+      "radius": 52.24,
+      "position": [
+        -625.41,
+        116.55,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 22 puff 3"
+      ],
+      "parent": "cloud 22"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 22 puff 4",
+      "radius": 47.89,
+      "position": [
+        -716.83,
+        133.97,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 22 puff 4"
+      ],
+      "parent": "cloud 22"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 22 puff 5",
+      "radius": 47.89,
+      "position": [
+        -655.88,
+        136.14,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 22 puff 5"
+      ],
+      "parent": "cloud 22"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 22 puff 6",
+      "radius": 43.54,
+      "position": [
+        -677.65,
+        59.96,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 22 puff 6"
+      ],
+      "parent": "cloud 22"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 23"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 23"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 23",
+      "path": "transform/position",
+      "value": [
+        120.03,
+        224.62,
+        839.71
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 23",
+      "path": "transform/scale",
+      "value": [
+        100,
+        95.03,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 23",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = -5, y0 = 1.88, phase = 4.46;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 23",
+      "path": "transform/rotationY",
+      "expression": "-20.09 + 1.87 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 23 puff 1",
+      "radius": 57.6,
+      "position": [
+        120.03,
+        215.02,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 23 puff 1"
+      ],
+      "parent": "cloud 23"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 23 puff 2",
+      "radius": 42.24,
+      "position": [
+        62.44,
+        239.98,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 23 puff 2"
+      ],
+      "parent": "cloud 23"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 23 puff 3",
+      "radius": 46.08,
+      "position": [
+        177.63,
+        236.14,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 23 puff 3"
+      ],
+      "parent": "cloud 23"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 23 puff 4",
+      "radius": 42.24,
+      "position": [
+        96.99,
+        251.5,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 23 puff 4"
+      ],
+      "parent": "cloud 23"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 23 puff 5",
+      "radius": 42.24,
+      "position": [
+        150.75,
+        253.42,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 23 puff 5"
+      ],
+      "parent": "cloud 23"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 23 puff 6",
+      "radius": 38.4,
+      "position": [
+        131.55,
+        186.23,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 23 puff 6"
+      ],
+      "parent": "cloud 23"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 24"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 24"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 24",
+      "path": "transform/position",
+      "value": [
+        522.94,
+        59.34,
+        839.71
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 24",
+      "path": "transform/scale",
+      "value": [
+        100,
+        86.03,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 24",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = -2.6, y0 = 2.86, phase = 6.28;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 24",
+      "path": "transform/rotationY",
+      "expression": "-6.03 + -1.99 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 24 puff 1",
+      "radius": 72.54,
+      "position": [
+        522.94,
+        47.25,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 24 puff 1"
+      ],
+      "parent": "cloud 24"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 24 puff 2",
+      "radius": 53.2,
+      "position": [
+        450.39,
+        78.69,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 24 puff 2"
+      ],
+      "parent": "cloud 24"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 24 puff 3",
+      "radius": 58.04,
+      "position": [
+        595.48,
+        73.85,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 24 puff 3"
+      ],
+      "parent": "cloud 24"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 24 puff 4",
+      "radius": 53.2,
+      "position": [
+        493.92,
+        93.2,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 24 puff 4"
+      ],
+      "parent": "cloud 24"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 24 puff 5",
+      "radius": 53.2,
+      "position": [
+        561.63,
+        95.62,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 24 puff 5"
+      ],
+      "parent": "cloud 24"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 24 puff 6",
+      "radius": 48.36,
+      "position": [
+        537.45,
+        10.98,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 24 puff 6"
+      ],
+      "parent": "cloud 24"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 25"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 25"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 25",
+      "path": "transform/position",
+      "value": [
+        1049.96,
+        282.74,
+        839.71
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 25",
+      "path": "transform/scale",
+      "value": [
+        100,
+        95.88,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 25",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = 0.54, y0 = 1.53, phase = 4.52;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 25",
+      "path": "transform/rotationY",
+      "expression": "14.46 + -1.67 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 25 puff 1",
+      "radius": 80.69,
+      "position": [
+        1049.96,
+        269.29,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 25 puff 1"
+      ],
+      "parent": "cloud 25"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 25 puff 2",
+      "radius": 59.17,
+      "position": [
+        969.28,
+        304.25,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 25 puff 2"
+      ],
+      "parent": "cloud 25"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 25 puff 3",
+      "radius": 64.55,
+      "position": [
+        1130.65,
+        298.87,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 25 puff 3"
+      ],
+      "parent": "cloud 25"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 25 puff 4",
+      "radius": 59.17,
+      "position": [
+        1017.69,
+        320.39,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 25 puff 4"
+      ],
+      "parent": "cloud 25"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 25 puff 5",
+      "radius": 59.17,
+      "position": [
+        1093,
+        323.08,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 25 puff 5"
+      ],
+      "parent": "cloud 25"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 25 puff 6",
+      "radius": 53.79,
+      "position": [
+        1066.1,
+        228.95,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 25 puff 6"
+      ],
+      "parent": "cloud 25"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 26"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 26"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 26",
+      "path": "transform/position",
+      "value": [
+        1664.38,
+        382.81,
+        839.71
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 26",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100.73,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 26",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = 4.19, y0 = 0.94, phase = 5.39;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 26",
+      "path": "transform/rotationY",
+      "expression": "10.34 + -1.95 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 26 puff 1",
+      "radius": 77.45,
+      "position": [
+        1664.38,
+        369.9,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 26 puff 1"
+      ],
+      "parent": "cloud 26"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 26 puff 2",
+      "radius": 56.8,
+      "position": [
+        1586.93,
+        403.46,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 26 puff 2"
+      ],
+      "parent": "cloud 26"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 26 puff 3",
+      "radius": 61.96,
+      "position": [
+        1741.84,
+        398.3,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 26 puff 3"
+      ],
+      "parent": "cloud 26"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 26 puff 4",
+      "radius": 56.8,
+      "position": [
+        1633.4,
+        418.95,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 26 puff 4"
+      ],
+      "parent": "cloud 26"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 26 puff 5",
+      "radius": 56.8,
+      "position": [
+        1705.69,
+        421.53,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 26 puff 5"
+      ],
+      "parent": "cloud 26"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 26 puff 6",
+      "radius": 51.64,
+      "position": [
+        1679.88,
+        331.17,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 26 puff 6"
+      ],
+      "parent": "cloud 26"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 27"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 27"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 27",
+      "path": "transform/position",
+      "value": [
+        2283,
+        588.61,
+        839.71
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 27",
+      "path": "transform/scale",
+      "value": [
+        100,
+        97.07,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 27",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.13, edge = 10.1;\nvar x0 = 7.88, y0 = -0.29, phase = 1.29;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 839.71]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 27",
+      "path": "transform/rotationY",
+      "expression": "-21.73 + -1.95 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 27 puff 1",
+      "radius": 51.7,
+      "position": [
+        2283,
+        580,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 27 puff 1"
+      ],
+      "parent": "cloud 27"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 27 puff 2",
+      "radius": 37.92,
+      "position": [
+        2231.3,
+        602.4,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 27 puff 2"
+      ],
+      "parent": "cloud 27"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 27 puff 3",
+      "radius": 41.36,
+      "position": [
+        2334.71,
+        598.96,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 27 puff 3"
+      ],
+      "parent": "cloud 27"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 27 puff 4",
+      "radius": 37.92,
+      "position": [
+        2262.32,
+        612.74,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 27 puff 4"
+      ],
+      "parent": "cloud 27"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 27 puff 5",
+      "radius": 37.92,
+      "position": [
+        2310.58,
+        614.47,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 27 puff 5"
+      ],
+      "parent": "cloud 27"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 27 puff 6",
+      "radius": 34.47,
+      "position": [
+        2293.34,
+        554.15,
+        839.71
+      ],
+      "baseColor": [
+        0.95,
+        0.97,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 27 puff 6"
+      ],
+      "parent": "cloud 27"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 28"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 28"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 28",
+      "path": "transform/position",
+      "value": [
+        -206.94,
+        411.8,
+        167.94
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 28",
+      "path": "transform/scale",
+      "value": [
+        100,
+        105.97,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 28",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.22, edge = 8.19;\nvar x0 = -6.95, y0 = 0.76, phase = 5;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 167.94]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 28",
+      "path": "transform/rotationY",
+      "expression": "1.82 + -1 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 28 puff 1",
+      "radius": 115.18,
+      "position": [
+        -206.94,
+        392.6,
+        167.94
+      ],
+      "baseColor": [
         1,
         1,
         1
-      ]
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
     }
   },
   {
-    "command": "effect.apply",
+    "command": "layer.setParent",
     "params": {
-      "effect": "Linear Wipe",
       "layers": [
-        "cloud 7"
+        "cloud 28 puff 1"
+      ],
+      "parent": "cloud 28"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 28 puff 2",
+      "radius": 84.47,
+      "position": [
+        -322.13,
+        442.52,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 28 puff 2"
+      ],
+      "parent": "cloud 28"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 28 puff 3",
+      "radius": 92.15,
+      "position": [
+        -91.76,
+        434.84,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 28 puff 3"
+      ],
+      "parent": "cloud 28"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 28 puff 4",
+      "radius": 84.47,
+      "position": [
+        -253.02,
+        465.55,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 28 puff 4"
+      ],
+      "parent": "cloud 28"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 28 puff 5",
+      "radius": 84.47,
+      "position": [
+        -145.51,
+        469.39,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 28 puff 5"
+      ],
+      "parent": "cloud 28"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 28 puff 6",
+      "radius": 76.79,
+      "position": [
+        -183.91,
+        335.01,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 28 puff 6"
+      ],
+      "parent": "cloud 28"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 29"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 29"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 29",
+      "path": "transform/position",
+      "value": [
+        895.69,
+        364.97,
+        167.94
       ]
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 7",
-      "path": "effects/#2/completion",
-      "value": 30
+      "layer": "cloud 29",
+      "path": "transform/scale",
+      "value": [
+        100,
+        97.71,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 29",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.22, edge = 8.19;\nvar x0 = -0.38, y0 = 1.04, phase = 1.55;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 167.94]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 29",
+      "path": "transform/rotationY",
+      "expression": "10.3 + 2.14 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 29 puff 1",
+      "radius": 126.38,
+      "position": [
+        895.69,
+        343.91,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 29 puff 1"
+      ],
+      "parent": "cloud 29"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 29 puff 2",
+      "radius": 92.68,
+      "position": [
+        769.31,
+        398.67,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 29 puff 2"
+      ],
+      "parent": "cloud 29"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 29 puff 3",
+      "radius": 101.11,
+      "position": [
+        1022.07,
+        390.25,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 29 puff 3"
+      ],
+      "parent": "cloud 29"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 29 puff 4",
+      "radius": 92.68,
+      "position": [
+        845.14,
+        423.95,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 29 puff 4"
+      ],
+      "parent": "cloud 29"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 29 puff 5",
+      "radius": 92.68,
+      "position": [
+        963.09,
+        428.16,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 29 puff 5"
+      ],
+      "parent": "cloud 29"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 29 puff 6",
+      "radius": 84.26,
+      "position": [
+        920.97,
+        280.72,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 29 puff 6"
+      ],
+      "parent": "cloud 29"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "cloud 30"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 30"
+      ],
+      "switch": "threeD",
+      "value": true
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 7",
-      "path": "effects/#2/angle",
-      "value": 0
+      "layer": "cloud 30",
+      "path": "transform/position",
+      "value": [
+        1938.01,
+        402.6,
+        167.94
+      ]
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "cloud 7",
-      "path": "effects/#2/feather",
-      "value": 12
+      "layer": "cloud 30",
+      "path": "transform/scale",
+      "value": [
+        100,
+        91.74,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 30",
+      "path": "transform/position",
+      "expression": "var unit = 167.94, speed = 0.22, edge = 8.19;\nvar x0 = 5.82, y0 = 0.82, phase = 2.59;\nvar x = x0 + speed * time + edge;\nx = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;\nvar y = y0 + Math.sin(time * 0.5 + phase) * 0.08;\n[960 + x * unit, 540 - y * unit, 167.94]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "cloud 30",
+      "path": "transform/rotationY",
+      "expression": "-17.37 + -1.76 * time"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 30 puff 1",
+      "radius": 79.21,
+      "position": [
+        1938.01,
+        389.4,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 30 puff 1"
+      ],
+      "parent": "cloud 30"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 30 puff 2",
+      "radius": 58.09,
+      "position": [
+        1858.8,
+        423.73,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 30 puff 2"
+      ],
+      "parent": "cloud 30"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 30 puff 3",
+      "radius": 63.37,
+      "position": [
+        2017.22,
+        418.45,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 30 puff 3"
+      ],
+      "parent": "cloud 30"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 30 puff 4",
+      "radius": 58.09,
+      "position": [
+        1906.33,
+        439.57,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 30 puff 4"
+      ],
+      "parent": "cloud 30"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 30 puff 5",
+      "radius": 58.09,
+      "position": [
+        1980.25,
+        442.21,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 30 puff 5"
+      ],
+      "parent": "cloud 30"
+    }
+  },
+  {
+    "command": "layer.new3dPrimitive",
+    "params": {
+      "kind": "sphere",
+      "name": "cloud 30 puff 6",
+      "radius": 52.8,
+      "position": [
+        1953.85,
+        349.8,
+        167.94
+      ],
+      "baseColor": [
+        1,
+        1,
+        1
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "castsShadows": true,
+      "acceptsShadows": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "cloud 30 puff 6"
+      ],
+      "parent": "cloud 30"
     }
   },
   {
@@ -710,7 +7362,42 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "clouds"
+      "item": "clayClouds",
+      "time": 0
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Black & White",
+      "layers": [
+        "clayClouds"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Levels",
+      "layers": [
+        "clayClouds"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clayClouds",
+      "path": "effects/#2/inBlack",
+      "value": 0.3
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clayClouds",
+      "path": "effects/#2/inWhite",
+      "value": 0.92
     }
   },
   {
@@ -718,16 +7405,67 @@
     "params": {
       "effect": "Craft Halftone & Dither",
       "layers": [
-        "clouds"
+        "clayClouds"
       ]
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "clouds",
-      "path": "effects/#1/cell_size",
-      "value": 6
+      "layer": "clayClouds",
+      "path": "effects/#3/cell_size",
+      "value": 3
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clayClouds",
+      "path": "effects/#3/contrast",
+      "value": 1
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clayClouds",
+      "path": "effects/#3/dither_spread",
+      "value": 1
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "clayClouds"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clayClouds",
+      "path": "effects/#4/black",
+      "value": [
+        0.62,
+        0.8,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clayClouds",
+      "path": "effects/#4/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
     }
   },
   {
@@ -741,9 +7479,27 @@
     "command": "essential.addProperty",
     "params": {
       "comp": "cloudBackground",
-      "layer": "clouds",
-      "path": "effects/#1/cell_size",
-      "name": "Cloud Dot Size"
+      "layer": "clayClouds",
+      "path": "effects/#3/cell_size",
+      "name": "Cloud Dither Size"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "cloudBackground",
+      "layer": "clayClouds",
+      "path": "effects/#4/black",
+      "name": "Cloud Shade"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "cloudBackground",
+      "layer": "clayClouds",
+      "path": "effects/#4/white",
+      "name": "Cloud Lit"
     }
   }
 ]

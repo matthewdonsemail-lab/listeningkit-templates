@@ -81,14 +81,19 @@ and moves the underlines with it.
 
 ## cloudBackground
 
-White clouds dithered into dots over the ditherGradientBackground sky, as its own template precomp:
+3D clay clouds drifting over the ditherGradientBackground sky, rebuilt from log-cli's landing page hero
+(`site/apps/web/src/landing/ClayClouds.tsx`). The site uses Claybound's `cloud.glb`, which isn't licensed to
+ListeningKit, so each cloud here is our own: six 3D spheres under a null.
 
-- `sky` — the ditherGradientBackground precomp (its colours and pixel size are set in that template).
-- `clouds` — a precomp of seven white clouds (the site's twemoji cloud, `assets/twemoji-cloud.svg`, with Fill
-  and a feathered Linear Wipe so their bottoms fade), run through Craft Halftone & Dither so the fades break
-  into dots.
+- `clayClouds` — an Advanced 3D comp with a 30° camera, ambient, warm key (casting shadows) and blue fill lights,
+  and 30 clouds in 4 depth layers (12 far and small down to 3 near and big), as on the site. Each cloud drifts
+  right at its layer's speed and wraps around, bobs and turns slowly (expressions on its null). Far clouds are
+  tinted toward the sky to stand in for the site's fog. Positions come from a fixed seed.
+- `cloudBackground` — `sky` (the ditherGradientBackground precomp), then `clayClouds` through the site's clay
+  dither: Black & White, Levels (black 0.3, white 0.92), Craft Halftone & Dither (3 px cells), Tint (shade
+  light blue, lit white).
 
-Essential Graphics: Cloud Dot Size. Move or scale clouds inside the `clouds` precomp.
+Essential Graphics: Cloud Dither Size, Cloud Shade, Cloud Lit.
 build.sh builds ditherGradientBackground, then cloudBackground, then the rest, because introCard uses cloudBackground.
 
 ## ditherGradientBackground
