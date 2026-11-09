@@ -170,6 +170,16 @@
     }
   },
   {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "sentence"
+      ],
+      "switch": "video",
+      "value": false
+    }
+  },
+  {
     "command": "layer.newShape",
     "params": {
       "kind": "rounded",

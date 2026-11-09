@@ -215974,7 +215974,7 @@
             "out_point": 1270080000000,
             "stretch": 100.0,
             "switches": {
-              "video": true,
+              "video": false,
               "audio": true,
               "solo": false,
               "locked": false,

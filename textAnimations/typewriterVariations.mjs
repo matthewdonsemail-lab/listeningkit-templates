@@ -729,6 +729,8 @@ const bluekeyScaleExpression = [
     set("controls", "effects/#5/color", [0.165, 0.549, 1, 1]),
     { command: "layer.newText", params: { text: "Listen to your competitors across Twitter Reddit and Facebook help their customers and get new customers", name: "sentence", position: [960, 540], font: "Satoshi", style: "Bold", size: 40, fill: [0, 0, 0], justify: "center" } },
     { command: "layer.setSwitch", params: { layers: ["sentence"], switch: "guide", value: true } },
+    // Hidden: EffectCraft still draws guide layers in the viewer. The bricks read its text either way.
+    { command: "layer.setSwitch", params: { layers: ["sentence"], switch: "video", value: false } },
   ];
 
   bricks.forEach((b, i) => {
