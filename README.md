@@ -47,6 +47,42 @@ Every text template uses the cv-bluekey look: Schoolbell in brand blue `#2a8cff`
 - **Craft plug-ins:** both backgrounds use the "Craft Halftone & Dither" effect plug-in (by qwertyonek).
   Without it they show the plain gradients, with no dither.
 
+## How it works
+
+Nothing here is drawn by hand. Every template is generated from code, then built by EffectCraft's own command-line
+tool, so the whole project can be rebuilt from scratch and every change is reviewable in git.
+
+```
+typewriterVariations.mjs ──► effects/<name>/effect.json ──► build.sh ──► textAnimations.ecproj
+   (the templates, in JS)      (EffectCraft CLI commands)     (effectcraft-cli)   + effects/<name>/<name>.ectemplate
+```
+
+1. **`typewriterVariations.mjs`** describes every template. It writes each one as a list of EffectCraft CLI commands
+   (new comp, new layer, set a property, add an expression, add a marker, add an Essential Graphics control…) to
+   `effects/<name>/effect.json`. Random-looking layouts (clouds, bricks) use a fixed seed, so every build is the same.
+2. **`build.sh`** runs those commands with `effectcraft-cli`:
+   - builds the precomps other templates use first (`ditherGradientBackground` → `cloudBackground` → `introCard`),
+     then everything else, into one `textAnimations.ecproj`;
+   - runs `nameControls.jsx`, which names the slider controls (the expressions read them by name, e.g.
+     `effect("Pop Time")`) and re-applies the expressions so they pick the names up;
+   - closes every comp tab and leaves the light `typewriterOvershoot` open, so the project opens fast;
+   - sorts the Project panel into folders with `organize.json` (Text Animations, Title Cards, Backgrounds, Agent
+     Windows, Assets);
+   - exports each comp as `effects/<name>/<name>.ectemplate`, with its Essential Graphics controls.
+3. **The templates are driven by expressions**, not keyframes, wherever they need to react to their controls: `in` /
+   `out` markers set timing, sliders set overshoot, speed, spacing and colours, and text layers read their words
+   from Essential Graphics. Change a control and the animation follows.
+
+House rules the generator follows:
+
+- **Keep comps light.** No per-frame layout chains (a layer re-measuring other layers' text every frame), no
+  full-frame plug-in effects on busy comps, and keep layer counts low. `effects/brickTextBackground/NOTES.md` is
+  the case study of a version that broke this and was removed.
+- **Build from layers, not images.** Backgrounds and windows are shapes, text, solids and effects; the only files
+  imported are the brand marks in `textAnimations/assets/`.
+- **ASCII command files.** `effectcraft-cli` reads command files in the Windows code page, so the generator writes
+  every non-ASCII character (✻, ·, “ ”…) as a `\u` escape.
+
 ## Rebuilding
 
 Each template is a list of EffectCraft CLI commands in `textAnimations/effects/<name>/effect.json`, so the
@@ -62,7 +98,8 @@ bash build.sh                   # builds textAnimations.ecproj and exports each 
 `C:\Program Files\ArtCraft\EffectCraft\effectcraft-cli.exe`. Set `EFFECTCRAFT_CLI` to use another path.
 Close the project in EffectCraft before rebuilding.
 
-To change a template or add one, edit `typewriterVariations.mjs` and run both commands again.
+To change a template or add one, edit `typewriterVariations.mjs` and run both commands again. A new template also
+needs its comp added to `organize.json`, and its slider names to `nameControls.jsx` if it has sliders.
 
 ## Credits
 
