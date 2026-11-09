@@ -828,6 +828,19 @@ const bluekeyScaleExpression = [
   // The window: 1400 × 800, centred; sidebar 330 wide; feed column from x 620 to 1630.
   const L = 260, T = 140, W = 1400, H = 800, side = 330, feedX = 620, feedW = 1010;
 
+  // The prompt is typed into the input box first (the hint hides while it's there), then sent: the box clears and the
+  // prompt pops in as a bubble at the top. The tool call and the reply follow.
+  const round = (v) => Math.round(v * 100) / 100;
+  const typeFrom = 0.3, cps = 32, sent = round(typeFrom + prompt.length / cps + 0.35);
+  const typedInInput = (name, x, y, fill) => [
+    text(name, " ", x, y, { size: 22, fill }),
+    expr(name, "text/sourceText", [
+      `var s = String(thisComp.layer("prompt").text.sourceText);`,
+      `time >= ${round(sent)} ? "" : s.slice(0, Math.max(0, Math.floor((time - ${typeFrom}) * ${cps})))`,
+    ].join("\n")),
+    expr("input hint", "transform/opacity", `time < ${typeFrom} || time >= ${round(sent)} ? 100 : 0`),
+  ];
+
   // ---- Claude Code ----
   {
     const name = "claudeCode";
@@ -854,8 +867,7 @@ const bluekeyScaleExpression = [
       ...rect("prompt bubble", feedX + feedW - 240, T + 125, 480, 58, "#E5E0D6", { round: 26 }),
       text("prompt", prompt, feedX + feedW - 240, T + 133, { justify: "center", size: 23 }),
       parent("prompt", "prompt bubble"),
-      pop("prompt bubble", 0.3),
-      type("prompt", 0.45, 32),
+      pop("prompt bubble", sent),
       // The log tool call card.
       ...rect("tool card", feedX + feedW / 2, T + 250, feedW, 140, "#F7F5EF", { stroke: "#E5E0D6", round: 12 }),
       text("tool name", "log · twitterDms", feedX + 24, T + 215, { size: 21 }),
@@ -864,13 +876,14 @@ const bluekeyScaleExpression = [
       ...rect("tool line", feedX + feedW / 2, T + 232, feedW, 2, "#E5E0D6"),
       ...toolLines.map((line, k) => text(`tool result ${k + 1}`, line, feedX + 24, T + 262 + k * 25, { ...mono, fill: "#5b5950" })),
       ...["tool name", "tool args", "tool check", "tool line", "tool result 1", "tool result 2", "tool result 3"].map((child) => parent(child, "tool card")),
-      pop("tool card", 1.6),
+      pop("tool card", sent + 0.5),
       // The reply types on word by word.
       text("reply", reply, feedX, T + 360, { font: "Georgia", style: "Regular", size: 24, box: [feedX, T + 340, feedW, 110] }),
-      type("reply", 2.4, 9, true),
+      type("reply", sent + 1.3, 9, true),
       // The input box.
       ...rect("input", feedX + feedW / 2, T + H - 80, feedW, 100, "#FFFFFF", { stroke: "#E5E0D6", round: 24 }),
       text("input hint", "Reply to Claude…", feedX + 24, T + H - 100, { fill: "#9a9893" }),
+      ...typedInInput("input typing", feedX + 24, T + H - 100, "#1a1a18"),
       text("input plus", "+", feedX + 24, T + H - 52, { size: 24, fill: "#5b5950" }),
       text("model", "Opus 5.5  ▾", feedX + feedW - 170, T + H - 52, { size: 20 }),
       ...rect("send", feedX + feedW - 40, T + H - 60, 40, 40, "#c96442", { round: 8 }),
@@ -907,8 +920,7 @@ const bluekeyScaleExpression = [
       ...rect("prompt bubble", feedX + feedW - 240, T + 125, 480, 58, "#f3f3f3", { round: 29 }),
       text("prompt", prompt, feedX + feedW - 240, T + 133, { justify: "center", size: 23, fill: "#0d0d0d" }),
       parent("prompt", "prompt bubble"),
-      pop("prompt bubble", 0.3),
-      type("prompt", 0.45, 32),
+      pop("prompt bubble", sent),
       // "Called log.twitterDms" with its result box.
       ...rect("tool", feedX + feedW / 2, T + 262, feedW, 150, "#FFFFFF"),
       text("tool called", ">_  Called", feedX, T + 205, { font: "JetBrains Mono", style: "Regular", size: 19, fill: "#5d5d5d" }),
@@ -918,12 +930,13 @@ const bluekeyScaleExpression = [
       text("tool args", toolArgs, feedX + 18, T + 252, { ...mono, fill: "#8f8f8f" }),
       ...toolLines.map((line, k) => text(`tool result ${k + 1}`, line, feedX + 18, T + 277 + k * 24, { ...mono, fill: "#5d5d5d" })),
       ...["tool called", "tool chip", "tool name", "tool box", "tool args", "tool result 1", "tool result 2", "tool result 3"].map((child) => parent(child, "tool")),
-      pop("tool", 1.6),
+      pop("tool", sent + 0.5),
       text("reply", reply, feedX, T + 380, { style: "Regular", size: 23, fill: "#0d0d0d", box: [feedX, T + 360, feedW, 110] }),
-      type("reply", 2.4, 9, true),
+      type("reply", sent + 1.3, 9, true),
       ...rect("input", feedX + feedW / 2, T + H - 70, feedW, 72, "#FFFFFF", { stroke: "#e5e5e5", round: 36 }),
       text("input plus", "+", feedX + 28, T + H - 61, { size: 24, fill: "#5d5d5d" }),
       text("input hint", "Ask Codex anything", feedX + 62, T + H - 62, { fill: "#8f8f8f" }),
+      ...typedInInput("input typing", feedX + 62, T + H - 62, "#0d0d0d"),
       ...rect("send", feedX + feedW - 40, T + H - 70, 44, 44, "#0d0d0d", { round: 22 }),
       text("send arrow", "↑", feedX + feedW - 40, T + H - 62, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#FFFFFF", justify: "center" }),
       { command: "essential.setName", params: { comp: name, name } },

@@ -434,15 +434,7 @@
     "params": {
       "layer": "prompt bubble",
       "path": "transform/scale",
-      "expression": "var t = Math.min(Math.max((time - 0.3) / 0.35, 0), 1), u = t - 1, ov = 1.7;\nvar s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s]"
-    }
-  },
-  {
-    "command": "prop.setExpression",
-    "params": {
-      "layer": "prompt",
-      "path": "text/sourceText",
-      "expression": "var s = String(value);\ns.slice(0, Math.max(0, Math.floor((time - 0.45) * 32)))"
+      "expression": "var t = Math.min(Math.max((time - 1.74) / 0.35, 0), 1), u = t - 1, ov = 1.7;\nvar s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s]"
     }
   },
   {
@@ -726,7 +718,7 @@
     "params": {
       "layer": "tool",
       "path": "transform/scale",
-      "expression": "var t = Math.min(Math.max((time - 1.6) / 0.35, 0), 1), u = t - 1, ov = 1.7;\nvar s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s]"
+      "expression": "var t = Math.min(Math.max((time - 2.24) / 0.35, 0), 1), u = t - 1, ov = 1.7;\nvar s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s]"
     }
   },
   {
@@ -760,7 +752,7 @@
     "params": {
       "layer": "reply",
       "path": "text/sourceText",
-      "expression": "var s = String(value), w = s.split(\" \");\nvar n = Math.max(0, Math.floor((time - 2.4) * 9));\nw.slice(0, n).join(\" \")"
+      "expression": "var s = String(value), w = s.split(\" \");\nvar n = Math.max(0, Math.floor((time - 3.04) * 9));\nw.slice(0, n).join(\" \")"
     }
   },
   {
@@ -835,6 +827,42 @@
         0.561
       ],
       "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": " ",
+      "name": "input typing",
+      "position": [
+        682,
+        878
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.051,
+        0.051,
+        0.051
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "input typing",
+      "path": "text/sourceText",
+      "expression": "var s = String(thisComp.layer(\"prompt\").text.sourceText);\ntime >= 1.74 ? \"\" : s.slice(0, Math.max(0, Math.floor((time - 0.3) * 32)))"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "input hint",
+      "path": "transform/opacity",
+      "expression": "time < 0.3 || time >= 1.74 ? 100 : 0"
     }
   },
   {

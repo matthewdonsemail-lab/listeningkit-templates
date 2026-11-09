@@ -145,8 +145,9 @@ window centred, 6 s), from plain shapes and text so they stay light:
 - **terminal** — the navy "Paste this into your terminal" box (`landing/useCases/UseCasesPage.tsx`): the install
   line and `claude mcp add log -- logMcp` after blue `$` prompts, then "then say to your agent:" and the ask in green.
 
-They play the start of the site's session: the prompt bubble pops in and types, the tool call pops in at 1.6 s, and
-the reply types on word by word from 2.4 s. The terminal pops in and types its lines one after another.
+They play the start of the site's session: the prompt is typed into the input box at the bottom (the hint hides while
+it's there), then sent at 1.74 s: the box clears and the prompt pops in as a bubble at the top. The tool call pops in
+at 2.24 s and the reply types on word by word from 3.04 s. The terminal pops in and types its lines one after another.
 Essential Graphics: Prompt, Tool, Reply (the windows); Install, Command, Ask (the terminal).
 
 ## Building
