@@ -13,7 +13,7 @@ var namesByLayer = {
   // null in a list keeps that effect's own name.
   ditherGradientBackground: { controls: ["Wipe"] },
   clayClouds: { controls: ["Overshoot", "Stagger"] },
-  brickTextBackground: { controls: ["Build", "Overshoot", "Scramble", "Scramble Every", "Dark Color", "Light Color", "Shade Variation", "Dither Size"] }
+  brickTextBackground: { controls: ["Build", "Overshoot", "Scramble", "Scramble Every", "Brick Color", "Shade Variation", "Light Color", "Gradient Height", "Dither Size", "Zoom", "Padding X", "Padding Y", "Gap"] }
 };
 
 function reapply(group) {

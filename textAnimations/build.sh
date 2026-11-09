@@ -15,6 +15,12 @@ for f in effects/*/effect.json; do [[ " ${first[*]} " == *" $f "* ]] || args+=(-
 "$CLI" --empty run "${args[@]}" --save-as "$PROJECT"
 "$CLI" script nameControls.jsx "$PROJECT"
 
+# Open on a light comp: close every comp tab (the heavy ones, like brickTextBackground, lag the viewer) and
+# leave only typewriterOvershoot open.
+close=()
+for dir in effects/*/; do close+=(comp.close "{\"comp\":\"$(basename "$dir")\"}"); done
+"$CLI" --project "$PROJECT" run "${close[@]}" comp.close '{"comp":"clayClouds"}' comp.open '{"comp":"typewriterOvershoot"}' --save
+
 for dir in effects/*/; do
   name="$(basename "$dir")"
   "$CLI" --project "$PROJECT" exec essential.exportTemplate \
