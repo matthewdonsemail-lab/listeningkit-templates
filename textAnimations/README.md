@@ -120,20 +120,17 @@ band's Middle Color and Pixel Size by expression. cloudBackground and introCard 
 
 ## brickTextBackground
 
-A wall of rounded bricks filling the frame (9 rows of 8), each wrapped around one word picked at random from a
-sentence. Every brick is the same height and as wide as its word plus padding, laid end to end in rows (every other
-row shifted). Each brick is its own shade of Brick Color; words are white Satoshi Bold.
+A wall of blue rounded bricks filling the frame (8 rows of same-size bricks in a running bond), each holding one word
+picked at random from a sentence.
 
 - **Sentence** — the `sentence` guide layer (not rendered). Type any sentence; every brick picks its words from it.
-- **Build** (0–100) — the bricks pop in one by one in a fixed random order with overshoot; at 100 the wall fills the
-  comp. Keyframed 0 → 100 over the first 2.5 s. **Overshoot** sets the pop.
-- **Scramble** (checkbox, on by default) — every brick swaps to another random word every **Scramble Every** seconds,
-  and its row reflows to the new widths.
-- **Brick Color**, **Shade Variation** (how different the bricks are; 0 = all the same).
-- **Zoom** (text size; everything scales with it), **Padding X**, **Padding Y**, **Gap**.
+- **Build** (0–100, on `controls`) — the bricks pop in one by one in a fixed random order with overshoot; at 100 the
+  wall fills the whole comp. Keyframed 0 → 100 over the first 2.5 s. **Overshoot** sets the pop.
+- **Scramble** (checkbox, off by default) — every brick swaps to another random word every **Scramble Every** seconds.
+- **Brick Color** — the bricks' colour. Words are Satoshi Bold in white and shrink to fit their brick.
 
-All on `controls` and in Essential Graphics. Each brick measures its word once a frame into its own width slider,
-and the rest of its row reads those numbers, so the layout stays cheap.
+All of these are in Essential Graphics. `effects/brickTextBackground/NOTES.md` explains a heavier version that was
+removed, and why it was too heavy.
 
 ## Building
 
