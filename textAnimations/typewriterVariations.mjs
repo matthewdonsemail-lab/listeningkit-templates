@@ -552,40 +552,46 @@ const bluekeyScaleExpression = [
   writeFileSync("effects/cloudBackground/effect.json", JSON.stringify(steps, null, 2) + "\n");
 }
 
-// ditherGradientBackground: brand blue at the top breaking into light blue, then into white, in big square
-// pixels (ordered/Bayer dither). Two bands, each a black-to-white Gradient Ramp run through Craft Halftone &
-// Dither (18 px cells) and then Tint, so the dither's black and white become the band's two colours:
-//   upper — Top Color (blue) to Middle Color (light blue), from y 320 to 702.
-//   lower — Middle Color to Bottom Color (white), from y 702 down, wiped so it only covers below 702.
-// The band positions follow the Gradient Amount slider (see gradientGeometry).
-// Essential Graphics: Top Color, Middle Color, Bottom Color, Pixel Size, Gradient Amount.
+// ditherGradientBackground: brand blue breaking into light blue, then into white, in big square pixels
+// (ordered/Bayer dither), wiping up the frame from fully blue to fully white. Two bands, each a black-to-white
+// Gradient Ramp run through Craft Halftone & Dither (18 px cells) and then Tint, so the dither's black and white
+// become the band's two colours:
+//   upper — Top Color (blue) to Middle Color (light blue) over 378 px.
+//   lower — Middle Color to Bottom Color (white) over the next 491 px, wiped so it only covers below the split.
+// The "controls" null's Wipe slider moves both bands together: 0 is fully blue (the fade sits below the frame),
+// 100 is fully white (the fade has gone off the top). It's keyframed 0 → 100 over the comp with easy ease, so the
+// fade comes up slowly, speeds up, and settles on white at the end; retime or reshape it by moving the keys.
+// Essential Graphics: Wipe, Top Color, Middle Color, Bottom Color, Pixel Size.
 {
   const name = "ditherGradientBackground";
   const plugins = { command: "effect.plugins.load", params: { folder: `${process.env.APPDATA.replace(/\\/g, "/")}/EffectCraft/Plug-ins` } };
   const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const key = (layer, path, value, time) => ({ command: "prop.addKey", params: { layer, path, value, time } });
+  const ease = (layer, path, time, side) => ({ command: "keys.setEase", params: { layer, path, time, side, speed: 0, influence: 60 } });
   const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
   const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
   const blue = [0.165, 0.549, 1, 1];
   const lightBlue = [0.56, 0.77, 1, 1];
   const white = [1, 1, 1, 1];
-  const split = 702; // a multiple of the 18 px cell, so the cut falls between pixel rows
-  // Where the bands sit, from the Gradient Amount slider: the gradient covers that % of the frame from the
-  // bottom; the split between the bands is halfway down it, snapped to the pixel grid; the lower band's ramp
-  // runs a little past the bottom so some light pixels are left there.
-  const gradientGeometry = [
-    `var u = thisComp.layer("upper"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)("cell_size"), 1);`,
-    `var g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;`,
-    `var top = thisComp.height - g;`,
-    `var split = Math.round((top + g * 0.5) / cell) * cell;`,
-    `var bottom = thisComp.height + g * 0.15;`,
+  const duration = 5;
+  const lastFrame = duration - 1 / 30;
+  // Where the bands sit, from the Wipe slider. The fade is 378 px (upper) + 491 px (lower) tall; Wipe moves its top
+  // edge from the bottom of the frame (0) to the fade's full height above the top (100). The split between the
+  // bands is snapped to the pixel grid so it falls between pixel rows.
+  const geometry = [
+    `var p = Math.min(Math.max(thisComp.layer("controls").effect("Wipe")("Slider"), 0), 100) / 100;`,
+    `var cell = Math.max(thisComp.layer("upper").effect(2)("cell_size"), 1);`,
+    `var up = 378, low = 491, H = thisComp.height;`,
+    `var top = H - p * (H + up + low);`,
+    `var split = Math.round((top + up) / cell) * cell;`,
+    `var bottom = split + low;`,
   ];
+  const at = (result) => [...geometry, result].join("\n");
 
-  const band = (layer, y0, y1, black, whiteTo) => [
+  const band = (layer, black, whiteTo) => [
     { command: "layer.newSolid", params: { name: layer, color: "#000000", width: 1920, height: 1080 } },
     fx(layer, "Gradient Ramp"),
-    set(layer, "effects/#1/start", [960, y0]),
     set(layer, "effects/#1/startColor", [0, 0, 0, 1]),
-    set(layer, "effects/#1/end", [960, y1]),
     set(layer, "effects/#1/endColor", [1, 1, 1, 1]),
     fx(layer, "Craft Halftone & Dither"),
     set(layer, "effects/#2/cell_size", 18),
@@ -598,30 +604,35 @@ const bluekeyScaleExpression = [
 
   const steps = [
     plugins,
-    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 5, open: true } },
-    ...band("upper", 320, split, blue, lightBlue),
-    ...band("lower", split, 1200, lightBlue, white),
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, open: true } },
+    ...band("upper", blue, lightBlue),
+    ...band("lower", lightBlue, white),
     fx("lower", "Linear Wipe"),
-    set("lower", "effects/#4/completion", (split / 1080) * 100),
     set("lower", "effects/#4/angle", 180),
     // The lower band follows the upper one's Middle Color and pixel size.
     expr("lower", "effects/#3/black", `thisComp.layer("upper").effect(3)(2)`),
     expr("lower", "effects/#2/cell_size", `thisComp.layer("upper").effect(2)("cell_size")`),
-    // Gradient Amount (upper's 4th effect): how much of the frame, from the bottom, the gradient takes up.
-    // 70 is the original look; 0 is solid Top Color, 100 starts the fade at the very top.
-    fx("upper", "Slider Control"),
-    set("upper", "effects/#4/slider", 70),
-    expr("upper", "effects/#1/start", [...gradientGeometry, `[thisComp.width / 2, top]`].join("\n")),
-    expr("upper", "effects/#1/end", [...gradientGeometry, `[thisComp.width / 2, split]`].join("\n")),
-    expr("lower", "effects/#1/start", [...gradientGeometry, `[thisComp.width / 2, split]`].join("\n")),
-    expr("lower", "effects/#1/end", [...gradientGeometry, `[thisComp.width / 2, bottom]`].join("\n")),
-    expr("lower", "effects/#4/completion", [...gradientGeometry, `split / thisComp.height * 100`].join("\n")),
+
+    // The controls null and its Wipe slider, keyframed fully blue → fully white with easy ease.
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    key("controls", "effects/#1/slider", 0, 0),
+    key("controls", "effects/#1/slider", 100, lastFrame),
+    ease("controls", "effects/#1/slider", 0, "out"),
+    ease("controls", "effects/#1/slider", lastFrame, "in"),
+
+    expr("upper", "effects/#1/start", at(`[thisComp.width / 2, top]`)),
+    expr("upper", "effects/#1/end", at(`[thisComp.width / 2, split]`)),
+    expr("lower", "effects/#1/start", at(`[thisComp.width / 2, split]`)),
+    expr("lower", "effects/#1/end", at(`[thisComp.width / 2, bottom]`)),
+    expr("lower", "effects/#4/completion", at(`Math.min(Math.max(split / H * 100, 0), 100)`)),
+
     { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Wipe" } },
     { command: "essential.addProperty", params: { comp: name, layer: "upper", path: "effects/#3/black", name: "Top Color" } },
     { command: "essential.addProperty", params: { comp: name, layer: "upper", path: "effects/#3/white", name: "Middle Color" } },
     { command: "essential.addProperty", params: { comp: name, layer: "lower", path: "effects/#3/white", name: "Bottom Color" } },
     { command: "essential.addProperty", params: { comp: name, layer: "upper", path: "effects/#2/cell_size", name: "Pixel Size" } },
-    { command: "essential.addProperty", params: { comp: name, layer: "upper", path: "effects/#4/slider", name: "Gradient Amount" } },
   ];
   mkdirSync(`effects/${name}`, { recursive: true });
   writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");

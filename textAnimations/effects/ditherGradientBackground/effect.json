@@ -38,34 +38,12 @@
     "command": "prop.set",
     "params": {
       "layer": "upper",
-      "path": "effects/#1/start",
-      "value": [
-        960,
-        320
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "upper",
       "path": "effects/#1/startColor",
       "value": [
         0,
         0,
         0,
         1
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "upper",
-      "path": "effects/#1/end",
-      "value": [
-        960,
-        702
       ]
     }
   },
@@ -172,34 +150,12 @@
     "command": "prop.set",
     "params": {
       "layer": "lower",
-      "path": "effects/#1/start",
-      "value": [
-        960,
-        702
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "lower",
       "path": "effects/#1/startColor",
       "value": [
         0,
         0,
         0,
         1
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "lower",
-      "path": "effects/#1/end",
-      "value": [
-        960,
-        1200
       ]
     }
   },
@@ -297,14 +253,6 @@
     "command": "prop.set",
     "params": {
       "layer": "lower",
-      "path": "effects/#4/completion",
-      "value": 65
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "lower",
       "path": "effects/#4/angle",
       "value": 180
     }
@@ -326,20 +274,58 @@
     }
   },
   {
+    "command": "layer.newNull",
+    "params": {
+      "name": "controls"
+    }
+  },
+  {
     "command": "effect.apply",
     "params": {
       "effect": "Slider Control",
       "layers": [
-        "upper"
+        "controls"
       ]
     }
   },
   {
-    "command": "prop.set",
+    "command": "prop.addKey",
     "params": {
-      "layer": "upper",
-      "path": "effects/#4/slider",
-      "value": 70
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "value": 0,
+      "time": 0
+    }
+  },
+  {
+    "command": "prop.addKey",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "value": 100,
+      "time": 4.966666666666667
+    }
+  },
+  {
+    "command": "keys.setEase",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "time": 0,
+      "side": "out",
+      "speed": 0,
+      "influence": 60
+    }
+  },
+  {
+    "command": "keys.setEase",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "time": 4.966666666666667,
+      "side": "in",
+      "speed": 0,
+      "influence": 60
     }
   },
   {
@@ -347,7 +333,7 @@
     "params": {
       "layer": "upper",
       "path": "effects/#1/start",
-      "expression": "var u = thisComp.layer(\"upper\"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)(\"cell_size\"), 1);\nvar g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;\nvar top = thisComp.height - g;\nvar split = Math.round((top + g * 0.5) / cell) * cell;\nvar bottom = thisComp.height + g * 0.15;\n[thisComp.width / 2, top]"
+      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\n[thisComp.width / 2, top]"
     }
   },
   {
@@ -355,7 +341,7 @@
     "params": {
       "layer": "upper",
       "path": "effects/#1/end",
-      "expression": "var u = thisComp.layer(\"upper\"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)(\"cell_size\"), 1);\nvar g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;\nvar top = thisComp.height - g;\nvar split = Math.round((top + g * 0.5) / cell) * cell;\nvar bottom = thisComp.height + g * 0.15;\n[thisComp.width / 2, split]"
+      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\n[thisComp.width / 2, split]"
     }
   },
   {
@@ -363,7 +349,7 @@
     "params": {
       "layer": "lower",
       "path": "effects/#1/start",
-      "expression": "var u = thisComp.layer(\"upper\"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)(\"cell_size\"), 1);\nvar g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;\nvar top = thisComp.height - g;\nvar split = Math.round((top + g * 0.5) / cell) * cell;\nvar bottom = thisComp.height + g * 0.15;\n[thisComp.width / 2, split]"
+      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\n[thisComp.width / 2, split]"
     }
   },
   {
@@ -371,7 +357,7 @@
     "params": {
       "layer": "lower",
       "path": "effects/#1/end",
-      "expression": "var u = thisComp.layer(\"upper\"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)(\"cell_size\"), 1);\nvar g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;\nvar top = thisComp.height - g;\nvar split = Math.round((top + g * 0.5) / cell) * cell;\nvar bottom = thisComp.height + g * 0.15;\n[thisComp.width / 2, bottom]"
+      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\n[thisComp.width / 2, bottom]"
     }
   },
   {
@@ -379,7 +365,7 @@
     "params": {
       "layer": "lower",
       "path": "effects/#4/completion",
-      "expression": "var u = thisComp.layer(\"upper\"), amount = u.effect(4)(1), cell = Math.max(u.effect(2)(\"cell_size\"), 1);\nvar g = Math.max(Math.min(amount, 100), 0.1) / 100 * thisComp.height;\nvar top = thisComp.height - g;\nvar split = Math.round((top + g * 0.5) / cell) * cell;\nvar bottom = thisComp.height + g * 0.15;\nsplit / thisComp.height * 100"
+      "expression": "var p = Math.min(Math.max(thisComp.layer(\"controls\").effect(\"Wipe\")(\"Slider\"), 0), 100) / 100;\nvar cell = Math.max(thisComp.layer(\"upper\").effect(2)(\"cell_size\"), 1);\nvar up = 378, low = 491, H = thisComp.height;\nvar top = H - p * (H + up + low);\nvar split = Math.round((top + up) / cell) * cell;\nvar bottom = split + low;\nMath.min(Math.max(split / H * 100, 0), 100)"
     }
   },
   {
@@ -387,6 +373,15 @@
     "params": {
       "comp": "ditherGradientBackground",
       "name": "ditherGradientBackground"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "ditherGradientBackground",
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "name": "Wipe"
     }
   },
   {
@@ -423,15 +418,6 @@
       "layer": "upper",
       "path": "effects/#2/cell_size",
       "name": "Pixel Size"
-    }
-  },
-  {
-    "command": "essential.addProperty",
-    "params": {
-      "comp": "ditherGradientBackground",
-      "layer": "upper",
-      "path": "effects/#4/slider",
-      "name": "Gradient Amount"
     }
   }
 ]

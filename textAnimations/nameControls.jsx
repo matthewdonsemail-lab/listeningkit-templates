@@ -10,8 +10,8 @@ var namesByLayer = {
     "listening kit": ["Letter Overshoot", "Pop Time", "Whole Overshoot", "Continuous Scale"],
     controls: ["Overshoot", "Pop Time", "Word Spacing", "Continuous Scale"]
   },
-  // null keeps an effect's own name (the ramp, dither and tint before the slider).
-  ditherGradientBackground: { upper: [null, null, null, "Gradient Amount"] }
+  // null in a list keeps that effect's own name.
+  ditherGradientBackground: { controls: ["Wipe"] }
 };
 
 function reapply(group) {
