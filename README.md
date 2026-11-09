@@ -22,7 +22,7 @@ EffectCraft to see every comp, or import a single `.ectemplate` from `textAnimat
 | `introCard` | A title card: "Introducing", "listening kit" and a word-by-word subtext with highlighted, dash-underlined words. |
 | `claudeCode` | The Claude Code window from the landing page, playing a prompt, a log tool call and the reply. |
 | `codex` | The Codex window from the landing page, playing the same session. |
-| `terminal` | The navy "Paste this into your terminal" box, typing the install and connect commands. |
+| `terminal` | The Claude Code CLI window: welcome box, then a typed prompt, a log tool call, its result and the reply. |
 | `cloudBackground` | 3D clay clouds drifting in depth layers, clay-dithered white and light blue, over the ditherGradientBackground sky. |
 | `brickTextBackground` | A wall of blue word bricks built from your sentence: Build pops them in until they fill the frame, Scramble swaps the words. |
 | `ditherGradientBackground` | Brand blue breaking into light blue, then white, in big square pixels, wiping from fully blue to fully white on a Wipe slider. |

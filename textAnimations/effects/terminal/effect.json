@@ -14,145 +14,370 @@
     "command": "layer.newShape",
     "params": {
       "kind": "rounded",
-      "name": "shadow",
+      "name": "window",
       "size": [
-        1240,
-        400
+        1400,
+        820
       ],
       "fill": [
-        0.024,
-        0.102,
-        0.2
+        0.051,
+        0.067,
+        0.09
       ],
       "position": [
         960,
-        546
-      ]
+        540
+      ],
+      "stroke": [
+        0.165,
+        0.204,
+        0.259
+      ],
+      "strokeWidth": 2
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "shadow",
+      "layer": "window",
       "path": "contents/group/contents/rect/roundness",
-      "value": 24
+      "value": 22
     }
   },
   {
     "command": "layer.newShape",
     "params": {
       "kind": "rounded",
-      "name": "box",
+      "name": "bar",
       "size": [
-        1240,
-        400
+        1400,
+        54
       ],
       "fill": [
-        0.051,
-        0.165,
-        0.298
+        0.086,
+        0.106,
+        0.133
       ],
       "position": [
         960,
-        540
+        157
       ]
     }
   },
   {
     "command": "prop.set",
     "params": {
-      "layer": "box",
+      "layer": "bar",
       "path": "contents/group/contents/rect/roundness",
-      "value": 24
+      "value": 22
     }
   },
   {
-    "command": "layer.newText",
+    "command": "layer.newShape",
     "params": {
-      "text": "PASTE THIS INTO YOUR TERMINAL",
-      "name": "label",
-      "position": [
-        380,
-        405
+      "kind": "rounded",
+      "name": "bar square",
+      "size": [
+        1400,
+        26
       ],
-      "font": "JetBrains Mono",
-      "style": "Regular",
-      "size": 16,
       "fill": [
-        0.525,
-        0.576,
-        0.647
+        0.086,
+        0.106,
+        0.133
       ],
-      "justify": "left"
-    }
-  },
-  {
-    "command": "layer.setText",
-    "params": {
-      "layer": "label",
-      "tracking": 180
-    }
-  },
-  {
-    "command": "prop.setExpression",
-    "params": {
-      "layer": "box",
-      "path": "transform/scale",
-      "expression": "var t = Math.min(Math.max((time - 0) / 0.35, 0), 1), u = t - 1, ov = 1.7;\nvar s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s]"
-    }
-  },
-  {
-    "command": "prop.setExpression",
-    "params": {
-      "layer": "shadow",
-      "path": "transform/scale",
-      "expression": "var t = Math.min(Math.max((time - 0) / 0.35, 0), 1), u = t - 1, ov = 1.7;\nvar s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s]"
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "$ ",
-      "name": "line 1 prompt",
       "position": [
-        380,
-        470
+        960,
+        171
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "bar square",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "bar line",
+      "size": [
+        1400,
+        2
       ],
-      "font": "JetBrains Mono",
-      "style": "Regular",
-      "size": 26,
       "fill": [
-        0.361,
-        0.655,
-        1
+        0.133,
+        0.169,
+        0.216
       ],
-      "justify": "left"
-    }
-  },
-  {
-    "command": "prop.setExpression",
-    "params": {
-      "layer": "line 1 prompt",
-      "path": "transform/opacity",
-      "expression": "time >= 0.6 ? 100 : 0"
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "curl -fsSL https://log.listeningkit.com/install.sh | sh",
-      "name": "line 1",
       "position": [
-        412,
-        470
+        960,
+        184
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "bar line",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "light 1",
+      "size": [
+        16,
+        16
       ],
-      "font": "JetBrains Mono",
-      "style": "Regular",
-      "size": 26,
       "fill": [
         1,
-        1,
-        1
+        0.373,
+        0.341
+      ],
+      "position": [
+        290,
+        157
+      ]
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "light 2",
+      "size": [
+        16,
+        16
+      ],
+      "fill": [
+        0.996,
+        0.737,
+        0.18
+      ],
+      "position": [
+        318,
+        157
+      ]
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "light 3",
+      "size": [
+        16,
+        16
+      ],
+      "fill": [
+        0.157,
+        0.784,
+        0.251
+      ],
+      "position": [
+        346,
+        157
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "matt \u2014 claude \u2014 ~/log",
+      "name": "title",
+      "position": [
+        960,
+        164
+      ],
+      "font": "Consolas",
+      "style": "Regular",
+      "size": 20,
+      "fill": [
+        0.545,
+        0.596,
+        0.663
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "welcome",
+      "size": [
+        1328,
+        150
+      ],
+      "fill": [
+        0.051,
+        0.067,
+        0.09
+      ],
+      "position": [
+        960,
+        289
+      ],
+      "stroke": [
+        0.851,
+        0.467,
+        0.341
+      ],
+      "strokeWidth": 2
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "welcome",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "\u273b",
+      "name": "welcome star",
+      "position": [
+        324,
+        252
+      ],
+      "font": "Consolas",
+      "style": "Bold",
+      "size": 22,
+      "fill": [
+        0.851,
+        0.467,
+        0.341
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Welcome to",
+      "name": "welcome to",
+      "position": [
+        348.1912,
+        252
+      ],
+      "font": "Consolas",
+      "style": "Bold",
+      "size": 22,
+      "fill": [
+        0.788,
+        0.82,
+        0.851
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Claude Code",
+      "name": "welcome claude",
+      "position": [
+        481.2428,
+        252
+      ],
+      "font": "Consolas",
+      "style": "Bold",
+      "size": 22,
+      "fill": [
+        0.851,
+        0.467,
+        0.341
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "!",
+      "name": "welcome bang",
+      "position": [
+        614.2944,
+        252
+      ],
+      "font": "Consolas",
+      "style": "Bold",
+      "size": 22,
+      "fill": [
+        0.788,
+        0.82,
+        0.851
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "/help for help, /status for your current setup",
+      "name": "welcome help",
+      "position": [
+        324,
+        287
+      ],
+      "font": "Consolas",
+      "style": "Regular",
+      "size": 22,
+      "fill": [
+        0.49,
+        0.522,
+        0.565
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "cwd: ~/your-marketing",
+      "name": "welcome cwd",
+      "position": [
+        324,
+        322
+      ],
+      "font": "Consolas",
+      "style": "Regular",
+      "size": 22,
+      "fill": [
+        0.49,
+        0.522,
+        0.565
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "> check my twitter whos waiting on me",
+      "name": "prompt",
+      "position": [
+        300,
+        430
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 30,
+      "fill": [
+        0.949,
+        0.961,
+        0.98
       ],
       "justify": "left"
     }
@@ -160,27 +385,27 @@
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 1",
+      "layer": "prompt",
       "path": "text/sourceText",
-      "expression": "var s = String(value);\ns.slice(0, Math.max(0, Math.floor((time - 0.75) * 38)))"
+      "expression": "var s = String(value);\ns.slice(0, Math.max(0, Math.floor((time - 0.5) * 40)))"
     }
   },
   {
     "command": "layer.newText",
     "params": {
-      "text": "$ ",
-      "name": "line 2 prompt",
+      "text": "\u25cf log \u00b7 twitterDms (account=you, waiting=true)",
+      "name": "tool",
       "position": [
-        380,
-        515
+        300,
+        500
       ],
       "font": "JetBrains Mono",
       "style": "Regular",
-      "size": 26,
+      "size": 30,
       "fill": [
-        0.361,
-        0.655,
-        1
+        0.851,
+        0.529,
+        0.4
       ],
       "justify": "left"
     }
@@ -188,55 +413,27 @@
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 2 prompt",
+      "layer": "tool",
       "path": "transform/opacity",
-      "expression": "time >= 2.2 ? 100 : 0"
+      "expression": "time >= 1.83 ? 100 : 0"
     }
   },
   {
     "command": "layer.newText",
     "params": {
-      "text": "claude mcp add log -- logMcp",
-      "name": "line 2",
+      "text": "  \u2514 6 conversations waiting on a reply, newest first",
+      "name": "result",
       "position": [
-        412,
-        515
+        300,
+        546
       ],
       "font": "JetBrains Mono",
       "style": "Regular",
-      "size": 26,
+      "size": 30,
       "fill": [
-        1,
-        1,
-        1
-      ],
-      "justify": "left"
-    }
-  },
-  {
-    "command": "prop.setExpression",
-    "params": {
-      "layer": "line 2",
-      "path": "text/sourceText",
-      "expression": "var s = String(value);\ns.slice(0, Math.max(0, Math.floor((time - 2.35) * 38)))"
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "then say to your agent:",
-      "name": "line 3",
-      "position": [
-        380,
-        585
-      ],
-      "font": "JetBrains Mono",
-      "style": "Regular",
-      "size": 26,
-      "fill": [
-        0.604,
+        0.6,
         0.651,
-        0.71
+        0.722
       ],
       "justify": "left"
     }
@@ -244,27 +441,27 @@
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 3",
-      "path": "text/sourceText",
-      "expression": "var s = String(value);\ns.slice(0, Math.max(0, Math.floor((time - 3.35) * 38)))"
+      "layer": "result",
+      "path": "transform/opacity",
+      "expression": "time >= 1.98 ? 100 : 0"
     }
   },
   {
     "command": "layer.newText",
     "params": {
-      "text": "\u201ccheck my twitter whos waiting on me\u201d",
-      "name": "line 4",
+      "text": "\u25cf 6 people are waiting on you, 2 more opened and didn\u2019t reply",
+      "name": "reply",
       "position": [
-        380,
-        630
+        300,
+        616
       ],
       "font": "JetBrains Mono",
       "style": "Regular",
-      "size": 26,
+      "size": 30,
       "fill": [
-        0.482,
-        0.89,
-        0.643
+        0.165,
+        0.549,
+        1
       ],
       "justify": "left"
     }
@@ -272,9 +469,179 @@
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 4",
-      "path": "text/sourceText",
-      "expression": "var s = String(value);\ns.slice(0, Math.max(0, Math.floor((time - 3.85) * 38)))"
+      "layer": "reply",
+      "path": "transform/opacity",
+      "expression": "time >= 2.23 ? 100 : 0"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "bar"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "bar square"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "bar line"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "light 1"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "light 2"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "light 3"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "title"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "welcome"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "welcome star"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "welcome to"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "welcome claude"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "welcome bang"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "welcome help"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "welcome cwd"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "prompt"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tool"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "result"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "reply"
+      ],
+      "parent": "window"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "window",
+      "path": "transform/scale",
+      "expression": "var t = Math.min(Math.max((time - 0) / 0.35, 0), 1), u = t - 1, ov = 1.7;\nvar s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s]"
     }
   },
   {
@@ -288,27 +655,36 @@
     "command": "essential.addProperty",
     "params": {
       "comp": "terminal",
-      "layer": "line 1",
+      "layer": "prompt",
       "path": "text/sourceText",
-      "name": "Install"
+      "name": "Prompt"
     }
   },
   {
     "command": "essential.addProperty",
     "params": {
       "comp": "terminal",
-      "layer": "line 2",
+      "layer": "tool",
       "path": "text/sourceText",
-      "name": "Command"
+      "name": "Tool"
     }
   },
   {
     "command": "essential.addProperty",
     "params": {
       "comp": "terminal",
-      "layer": "line 4",
+      "layer": "result",
       "path": "text/sourceText",
-      "name": "Ask"
+      "name": "Result"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "terminal",
+      "layer": "reply",
+      "path": "text/sourceText",
+      "name": "Reply"
     }
   }
 ]

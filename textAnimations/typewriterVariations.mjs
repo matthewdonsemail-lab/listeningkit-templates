@@ -828,6 +828,15 @@ const bluekeyScaleExpression = [
   // The window: 1400 × 800, centred; sidebar 330 wide; feed column from x 620 to 1630.
   const L = 260, T = 140, W = 1400, H = 800, side = 330, feedX = 620, feedW = 1010;
 
+  // A brand mark from assets/ (the 24×24 SVGs from log-cli's BrandMark.tsx), sized to px and kept sharp.
+  const brandMark = (file, x, y, px) => [
+    { command: "file.import", params: { paths: [`${process.cwd().replace(/\\/g, "/")}/assets/${file}`] } },
+    { command: "layer.addItem", params: { item: file, position: [x, y] } },
+    { command: "layer.rename", params: { layer: file, name: "mark" } },
+    set("mark", "transform/scale", [(px / 24) * 100, (px / 24) * 100]),
+    { command: "layer.setSwitch", params: { layers: ["mark"], switch: "collapse", value: true } },
+  ];
+
   // The prompt is typed into the input box first (the hint hides while it's there), then sent: the box clears and the
   // prompt pops in as a bubble at the top. The tool call and the reply follow.
   const round = (v) => Math.round(v * 100) / 100;
@@ -850,7 +859,7 @@ const bluekeyScaleExpression = [
       ...rect("sidebar", L + side / 2, T + H / 2, side, H, "#EAE4D3", { round: 18 }),
       ...rect("sidebar edge", L + side - 10, T + H / 2, 20, H, "#EAE4D3"),
       ...rect("sidebar line", L + side, T + H / 2, 2, H, "#DCD4C2"),
-      text("mark", "✳", L + 32, T + 66, { font: "Segoe UI Symbol", style: "Regular", size: 30, fill: "#c96442" }),
+      ...brandMark("claude.svg", L + 46, T + 58, 30),
       text("brand", "Claude", L + 70, T + 66, { font: "Georgia", style: "Regular", size: 30 }),
       text("new plus", "+", L + 32, T + 125, { size: 24, fill: "#c96442" }),
       text("new session", "New session", L + 58, T + 125, { fill: "#3d3a35" }),
@@ -906,7 +915,7 @@ const bluekeyScaleExpression = [
       ...rect("sidebar", L + side / 2, T + H / 2, side, H, "#f9f9f9", { round: 18 }),
       ...rect("sidebar edge", L + side - 10, T + H / 2, 20, H, "#f9f9f9"),
       ...rect("sidebar line", L + side, T + H / 2, 2, H, "#ececec"),
-      ...rect("mark", L + 46, T + 58, 28, 28, "#0d0d0d", { round: 8 }),
+      ...brandMark("codex.svg", L + 46, T + 58, 30),
       text("brand", "Codex", L + 72, T + 66, { style: "Bold", size: 24, fill: "#0d0d0d" }),
       text("new thread", "✎  New thread", L + 32, T + 125, { font: "Segoe UI", style: "Regular", fill: "#0d0d0d" }),
       text("project", "your-marketing", L + 32, T + 185, { size: 18, fill: "#8f8f8f" }),
@@ -949,39 +958,56 @@ const bluekeyScaleExpression = [
   }
 
   // ---- Terminal ----
+  // The Claude Code CLI window from the rea-looksmaxxing project (log-hyperframes/effectcraft/scene2/assets.html,
+  // #window): a near-black window with a title bar and traffic lights, the orange-bordered "Welcome to Claude Code"
+  // box, then the session in JetBrains Mono: the prompt typed after ">", an orange ● tool line, a grey └ result and a
+  // blue ● reply.
   {
     const name = "terminal";
-    const x0 = 380, size = 26;
-    const lines = [
-      { prompt: true, text: "curl -fsSL https://log.listeningkit.com/install.sh | sh", fill: "#FFFFFF", y: 470, t0: 0.6 },
-      { prompt: true, text: "claude mcp add log -- logMcp", fill: "#FFFFFF", y: 515, t0: 2.2 },
-      { prompt: false, text: "then say to your agent:", fill: "#9aa6b5", y: 585, t0: 3.2 },
-      { prompt: false, text: `“${prompt}”`, fill: "#7BE3A4", y: 630, t0: 3.7 },
-    ];
+    const left = 260, top = 130, width = 1400, height = 820;
+    const consolas = { font: "Consolas", style: "Regular", size: 22 };
+    const cw = 22 * 0.5498; // Consolas advance at 22 px
+    const bodyX = 300, line = { font: "JetBrains Mono", style: "Regular", size: 30 };
+    const typeAt = 0.5, typeRate = 40;
+    const ask = `> ${prompt}`;
+    const shown = round(typeAt + ask.length / typeRate + 0.4);
     const steps = [
       { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 6, open: true } },
-      ...rect("shadow", 960, 546, 1240, 400, "#061a33", { round: 24 }),
-      ...rect("box", 960, 540, 1240, 400, "#0D2A4C", { round: 24 }),
-      text("label", "PASTE THIS INTO YOUR TERMINAL", x0, 405, { font: "JetBrains Mono", style: "Regular", size: 16, fill: "#8693a5" }),
-      { command: "layer.setText", params: { layer: "label", tracking: 180 } },
-      pop("box", 0),
-      pop("shadow", 0),
+      ...rect("window", 960, 540, width, height, "#0d1117", { stroke: "#2a3442", round: 22 }),
+      ...rect("bar", 960, top + 27, width, 54, "#161b22", { round: 22 }),
+      ...rect("bar square", 960, top + 41, width, 26, "#161b22"),
+      ...rect("bar line", 960, top + 54, width, 2, "#222b37"),
+      ...["#ff5f57", "#febc2e", "#28c840"].map((fill, k) => [
+        { command: "layer.newShape", params: { kind: "ellipse", name: `light ${k + 1}`, size: [16, 16], fill: hex(fill), position: [left + 30 + k * 28, top + 27] } },
+      ]).flat(),
+      text("title", "matt — claude — ~/log", 960, top + 34, { ...consolas, size: 20, fill: "#8b98a9", justify: "center" }),
+      ...rect("welcome", 960, top + 54 + 30 + 75, width - 72, 150, "#0d1117", { stroke: "#d97757", round: 12 }),
+      text("welcome star", "✻", left + 64, top + 122, { ...consolas, style: "Bold", fill: "#d97757" }),
+      text("welcome to", "Welcome to", left + 64 + 2 * cw, top + 122, { ...consolas, style: "Bold", fill: "#c9d1d9" }),
+      text("welcome claude", "Claude Code", left + 64 + 13 * cw, top + 122, { ...consolas, style: "Bold", fill: "#d97757" }),
+      text("welcome bang", "!", left + 64 + 24 * cw, top + 122, { ...consolas, style: "Bold", fill: "#c9d1d9" }),
+      text("welcome help", "/help for help, /status for your current setup", left + 64, top + 157, { ...consolas, fill: "#7d8590" }),
+      text("welcome cwd", "cwd: ~/your-marketing", left + 64, top + 192, { ...consolas, fill: "#7d8590" }),
+      // The session.
+      text("prompt", ask, bodyX, 430, { ...line, fill: "#f2f5fa" }),
+      type("prompt", typeAt, typeRate),
+      text("tool", "● log · twitterDms (account=you, waiting=true)", bodyX, 500, { ...line, fill: "#d98766" }),
+      appearAt("tool", shown),
+      text("result", "  └ 6 conversations waiting on a reply, newest first", bodyX, 546, { ...line, fill: "#99a6b8" }),
+      appearAt("result", round(shown + 0.15)),
+      text("reply", "● 6 people are waiting on you, 2 more opened and didn’t reply", bodyX, 616, { ...line, fill: "#2a8cff" }),
+      appearAt("reply", round(shown + 0.4)),
     ];
-    lines.forEach((line, k) => {
-      const layer = `line ${k + 1}`;
-      if (line.prompt) {
-        steps.push(text(`${layer} prompt`, "$ ", x0, line.y, { font: "JetBrains Mono", style: "Regular", size, fill: "#5CA7FF" }), appearAt(`${layer} prompt`, line.t0));
-      }
-      steps.push(
-        text(layer, line.text, x0 + (line.prompt ? 32 : 0), line.y, { font: "JetBrains Mono", style: "Regular", size, fill: line.fill }),
-        type(layer, line.t0 + 0.15, 38),
-      );
-    });
+    // Everything rides on the window, which pops in.
+    const children = ["bar", "bar square", "bar line", "light 1", "light 2", "light 3", "title", "welcome", "welcome star", "welcome to", "welcome claude", "welcome bang", "welcome help", "welcome cwd", "prompt", "tool", "result", "reply"];
     steps.push(
+      ...children.map((child) => parent(child, "window")),
+      pop("window", 0),
       { command: "essential.setName", params: { comp: name, name } },
-      essText(name, "line 1", "Install"),
-      essText(name, "line 2", "Command"),
-      essText(name, "line 4", "Ask"),
+      essText(name, "prompt", "Prompt"),
+      essText(name, "tool", "Tool"),
+      essText(name, "result", "Result"),
+      essText(name, "reply", "Reply"),
     );
     mkdirSync(`effects/${name}`, { recursive: true });
     writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");

@@ -129,19 +129,17 @@
     }
   },
   {
-    "command": "layer.newShape",
+    "command": "file.import",
     "params": {
-      "kind": "rounded",
-      "name": "mark",
-      "size": [
-        28,
-        28
-      ],
-      "fill": [
-        0.051,
-        0.051,
-        0.051
-      ],
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/codex.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "codex.svg",
       "position": [
         306,
         198
@@ -149,11 +147,31 @@
     }
   },
   {
+    "command": "layer.rename",
+    "params": {
+      "layer": "codex.svg",
+      "name": "mark"
+    }
+  },
+  {
     "command": "prop.set",
     "params": {
       "layer": "mark",
-      "path": "contents/group/contents/rect/roundness",
-      "value": 8
+      "path": "transform/scale",
+      "value": [
+        125,
+        125
+      ]
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "mark"
+      ],
+      "switch": "collapse",
+      "value": true
     }
   },
   {

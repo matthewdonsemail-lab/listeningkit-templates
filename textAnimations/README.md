@@ -142,13 +142,18 @@ window centred, 6 s), from plain shapes and text so they stay light:
   card with its result, the reply in serif; the "Reply to Claude…" box with Opus 5.5 and the orange send button.
 - **codex** — the white Codex window from the same file: New thread, the your-marketing recents, the thread title
   and branch, the prompt pill, "Called log.twitterDms" with its result box, the reply, and "Ask Codex anything".
-- **terminal** — the navy "Paste this into your terminal" box (`landing/useCases/UseCasesPage.tsx`): the install
-  line and `claude mcp add log -- logMcp` after blue `$` prompts, then "then say to your agent:" and the ask in green.
+- **terminal** — the Claude Code CLI window from the rea-looksmaxxing project (`log-hyperframes/effectcraft/scene2`):
+  near-black with a title bar, traffic lights and "matt — claude — ~/log", the orange-bordered "Welcome to Claude
+  Code" box, then the session in JetBrains Mono: the prompt typed after `>`, an orange ● log tool line, a grey └
+  result and a blue ● reply. The window pops in.
+
+The Claude and Codex marks are the real ones from log-cli's `BrandMark.tsx`, saved as `assets/claude.svg` and
+`assets/codex.svg`.
 
 They play the start of the site's session: the prompt is typed into the input box at the bottom (the hint hides while
 it's there), then sent at 1.74 s: the box clears and the prompt pops in as a bubble at the top. The tool call pops in
 at 2.24 s and the reply types on word by word from 3.04 s. The terminal pops in and types its lines one after another.
-Essential Graphics: Prompt, Tool, Reply (the windows); Install, Command, Ask (the terminal).
+Essential Graphics: Prompt, Tool, Reply (and Result on the terminal).
 
 ## Building
 

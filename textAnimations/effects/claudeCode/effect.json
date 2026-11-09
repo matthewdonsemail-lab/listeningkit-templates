@@ -129,23 +129,49 @@
     }
   },
   {
-    "command": "layer.newText",
+    "command": "file.import",
     "params": {
-      "text": "\u2733",
-      "name": "mark",
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/claude.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "claude.svg",
       "position": [
-        292,
-        206
+        306,
+        198
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "claude.svg",
+      "name": "mark"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "mark",
+      "path": "transform/scale",
+      "value": [
+        125,
+        125
+      ]
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "mark"
       ],
-      "font": "Segoe UI Symbol",
-      "style": "Regular",
-      "size": 30,
-      "fill": [
-        0.788,
-        0.392,
-        0.259
-      ],
-      "justify": "left"
+      "switch": "collapse",
+      "value": true
     }
   },
   {
