@@ -711,11 +711,12 @@ const bluekeyScaleExpression = [
     `var c = thisComp.layer("controls");`,
     `var f = Math.max(c.effect("Zoom")("Slider"), 1) / ${base}, px = c.effect("Padding X")("Slider"), py = c.effect("Padding Y")("Slider"), gap = c.effect("Gap")("Slider");`,
     `var rowH = ${base} * f + 2 * py;`,
-    `function brickW(word) { return thisComp.layer(word).sourceRectAtTime(time, false).width * f + 2 * px; }`,
+    // Each brick measures its own word once, into its Width slider; everything else reads those numbers.
+    `function brickW(brick) { return thisComp.layer(brick).effect(1)(1); }`,
   ];
   const place = (r, j) => [
     ...metrics,
-    `var row = ${JSON.stringify(Array.from({ length: perRow }, (_, k) => `word ${id(r, k)}`))}, j = ${j}, r = ${r};`,
+    `var row = ${JSON.stringify(Array.from({ length: perRow }, (_, k) => `brick ${id(r, k)}`))}, j = ${j}, r = ${r};`,
     `var x = -(r % 2) * 70 * f;`,
     `for (var k = 0; k < j; k++) x += brickW(row[k]) + gap;`,
     `x += brickW(row[j]) / 2;`,
@@ -766,7 +767,9 @@ const bluekeyScaleExpression = [
     const word = `word ${id(b.r, b.j)}`;
     steps.push(
       { command: "layer.newShape", params: { kind: "rounded", name: brick, size: [100, 60], fill: [0.165, 0.549, 1], position: [960, 540] } },
-      expr(brick, "contents/group/contents/rect/size", [...metrics, `[brickW("${word}"), rowH]`].join("\n")),
+      fx(brick, "Slider Control"),
+      expr(brick, "effects/#1/slider", [...metrics, `thisComp.layer("${word}").sourceRectAtTime(time, false).width * f + 2 * px`].join("\n")),
+      expr(brick, "contents/group/contents/rect/size", [...metrics, `[effect(1)(1), rowH]`].join("\n")),
       expr(brick, "contents/group/contents/rect/roundness", [...metrics, `10 * f`].join("\n")),
       // Its own shade of Brick Color: up to Shade Variation % lighter or darker.
       expr(brick, "contents/group/contents/fill/color", [
@@ -788,8 +791,9 @@ const bluekeyScaleExpression = [
         `var tick = c.effect("Scramble")("Checkbox") == 1 ? Math.floor(time / every + rnd(k0 * 3.7)) : 0;`,
         `list.length ? list[mix(k0 * 7919 + tick * 104729) % list.length] : ""`,
       ].join("\n")),
-      // Centred on its brick (on the cap height, so every word sits at the same height) and popping with it.
-      expr(word, "transform/anchor", [`var r = sourceRectAtTime(time, false);`, `[r.left + r.width / 2, ${-Math.round(base * 0.35)}, 0]`].join("\n")),
+      // Centred on its brick (centre-justified, anchored on the cap height so every word sits at the same height)
+      // and popping with it.
+      set(word, "transform/anchor", [0, -Math.round(base * 0.35), 0]),
       expr(word, "transform/position", `thisComp.layer("${brick}").transform.position`),
       expr(word, "transform/scale", [...metrics, `var s = thisComp.layer("${brick}").transform.scale[0] / 100;`, `[100 * f * s, 100 * f * s, 100]`].join("\n")),
     );
