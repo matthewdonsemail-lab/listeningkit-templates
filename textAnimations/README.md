@@ -120,23 +120,20 @@ band's Middle Color and Pixel Size by expression. cloudBackground and introCard 
 
 ## brickTextBackground
 
-A wall of small rounded bricks filling the frame (9 rows of 8 bricks), each holding one word
-picked at random from a sentence. Every brick is its own shade, and a gradient runs across the wall (darker
-top-left to lighter bottom-right), dithered into Dark Color / Light Color pixels like ditherGradientBackground.
-
-How it's built: `brickShapes` holds the bricks in grey (each its own shade) with the gradient multiplied over them.
-In brickTextBackground, `bricks` is that precomp through Craft Halftone & Dither and Tint, matted by `brick shapes`
-(the same precomp) so only the bricks show. The words sit on top: white Satoshi Bold with a navy outline,
-shrinking to fit and popping with their brick.
+A wall of rounded bricks filling the frame (9 rows of 8), each wrapped around one word picked at random from a
+sentence. Every brick is the same height and as wide as its word plus padding, laid end to end in rows (every other
+row shifted). Each brick is its own shade of Brick Color; words are white Satoshi Bold.
 
 - **Sentence** — the `sentence` guide layer (not rendered). Type any sentence; every brick picks its words from it.
 - **Build** (0–100) — the bricks pop in one by one in a fixed random order with overshoot; at 100 the wall fills the
   comp. Keyframed 0 → 100 over the first 2.5 s. **Overshoot** sets the pop.
-- **Scramble** (checkbox) — every brick swaps to another random word every **Scramble Every** seconds.
-- **Dark Color**, **Light Color** — the dither's two blues. **Shade Variation** — how different the bricks are
-  (0 = all the same). **Dither Size** — the dither's pixel size.
+- **Scramble** (checkbox, on by default) — every brick swaps to another random word every **Scramble Every** seconds,
+  and its row reflows to the new widths.
+- **Brick Color**, **Shade Variation** (how different the bricks are; 0 = all the same).
+- **Zoom** (text size; everything scales with it), **Padding X**, **Padding Y**, **Gap**.
 
-All of these are on `controls` and in Essential Graphics.
+All on `controls` and in Essential Graphics. Each brick measures its word once a frame into its own width slider,
+and the rest of its row reads those numbers, so the layout stays cheap.
 
 ## Building
 

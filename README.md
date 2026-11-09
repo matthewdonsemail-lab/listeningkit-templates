@@ -21,7 +21,7 @@ EffectCraft to see every comp, or import a single `.ectemplate` from `textAnimat
 | `cvBluekey` | The ListeningKit sticker: pops in over 4 frames, wobbles and bobs. |
 | `introCard` | A title card: "Introducing", "listening kit" and a word-by-word subtext with highlighted, dash-underlined words. |
 | `cloudBackground` | 3D clay clouds drifting in depth layers, clay-dithered white and light blue, over the ditherGradientBackground sky. |
-| `brickTextBackground` | A wall of small, individually shaded word bricks built from your sentence, dithered with a gradient across them: Build pops them in until they fill the frame, Scramble swaps the words. |
+| `brickTextBackground` | A wall of shaded word bricks built from your sentence, each wrapping its word: Build pops them in until they fill the frame, Scramble swaps the words. |
 | `ditherGradientBackground` | Brand blue breaking into light blue, then white, in big square pixels, wiping from fully blue to fully white on a Wipe slider. |
 
 Every text template uses the cv-bluekey look: Schoolbell in brand blue `#2a8cff`, a white outline inside a navy

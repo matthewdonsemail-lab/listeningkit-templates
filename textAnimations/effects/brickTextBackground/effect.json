@@ -125,28 +125,6 @@
   {
     "command": "effect.apply",
     "params": {
-      "effect": "Color Control",
-      "layers": [
-        "controls"
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "controls",
-      "path": "effects/#7/color",
-      "value": [
-        0.62,
-        0.8,
-        1,
-        1
-      ]
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
       "effect": "Slider Control",
       "layers": [
         "controls"
@@ -157,41 +135,7 @@
     "command": "prop.set",
     "params": {
       "layer": "controls",
-      "path": "effects/#8/slider",
-      "value": 40
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Slider Control",
-      "layers": [
-        "controls"
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "controls",
-      "path": "effects/#9/slider",
-      "value": 6
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Slider Control",
-      "layers": [
-        "controls"
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "controls",
-      "path": "effects/#10/slider",
+      "path": "effects/#7/slider",
       "value": 56
     }
   },
@@ -208,7 +152,7 @@
     "command": "prop.set",
     "params": {
       "layer": "controls",
-      "path": "effects/#11/slider",
+      "path": "effects/#8/slider",
       "value": 30
     }
   },
@@ -225,7 +169,7 @@
     "command": "prop.set",
     "params": {
       "layer": "controls",
-      "path": "effects/#12/slider",
+      "path": "effects/#9/slider",
       "value": 30
     }
   },
@@ -242,7 +186,7 @@
     "command": "prop.set",
     "params": {
       "layer": "controls",
-      "path": "effects/#13/slider",
+      "path": "effects/#10/slider",
       "value": 8
     }
   },
@@ -9893,148 +9837,6 @@
     }
   },
   {
-    "command": "layer.newSolid",
-    "params": {
-      "name": "gradient",
-      "color": "#000000",
-      "width": 1920,
-      "height": 1080
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Gradient Ramp",
-      "layers": [
-        "gradient"
-      ]
-    }
-  },
-  {
-    "command": "prop.setExpression",
-    "params": {
-      "layer": "gradient",
-      "path": "effects/#1/start",
-      "expression": "[thisComp.width / 2, thisComp.height * (1 - thisComp.layer(\"controls\").effect(\"Gradient Height\")(\"Slider\") / 100)]"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "gradient",
-      "path": "effects/#1/startColor",
-      "value": [
-        0,
-        0,
-        0,
-        1
-      ]
-    }
-  },
-  {
-    "command": "prop.setExpression",
-    "params": {
-      "layer": "gradient",
-      "path": "effects/#1/end",
-      "expression": "[thisComp.width / 2, thisComp.height]"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "gradient",
-      "path": "effects/#1/endColor",
-      "value": [
-        1,
-        1,
-        1,
-        1
-      ]
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Craft Halftone & Dither",
-      "layers": [
-        "gradient"
-      ]
-    }
-  },
-  {
-    "command": "prop.setExpression",
-    "params": {
-      "layer": "gradient",
-      "path": "effects/#2/cell_size",
-      "expression": "thisComp.layer(\"controls\").effect(\"Dither Size\")(\"Slider\")"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "gradient",
-      "path": "effects/#2/contrast",
-      "value": 1
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "gradient",
-      "path": "effects/#2/dither_spread",
-      "value": 1
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Tint",
-      "layers": [
-        "gradient"
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "gradient",
-      "path": "effects/#3/black",
-      "value": [
-        0,
-        0,
-        0,
-        1
-      ]
-    }
-  },
-  {
-    "command": "prop.setExpression",
-    "params": {
-      "layer": "gradient",
-      "path": "effects/#3/white",
-      "expression": "thisComp.layer(\"controls\").effect(\"Light Color\")(\"Color\")"
-    }
-  },
-  {
-    "command": "layer.setBlendMode",
-    "params": {
-      "layers": [
-        "gradient"
-      ],
-      "mode": "Lighten"
-    }
-  },
-  {
-    "command": "layer.setSwitch",
-    "params": {
-      "layers": [
-        "gradient"
-      ],
-      "switch": "preserveTransparency",
-      "value": true
-    }
-  },
-  {
     "command": "essential.setName",
     "params": {
       "comp": "brickTextBackground",
@@ -10109,34 +9911,7 @@
     "params": {
       "comp": "brickTextBackground",
       "layer": "controls",
-      "path": "effects/#7/color",
-      "name": "Light Color"
-    }
-  },
-  {
-    "command": "essential.addProperty",
-    "params": {
-      "comp": "brickTextBackground",
-      "layer": "controls",
-      "path": "effects/#8/slider",
-      "name": "Gradient Height"
-    }
-  },
-  {
-    "command": "essential.addProperty",
-    "params": {
-      "comp": "brickTextBackground",
-      "layer": "controls",
-      "path": "effects/#9/slider",
-      "name": "Dither Size"
-    }
-  },
-  {
-    "command": "essential.addProperty",
-    "params": {
-      "comp": "brickTextBackground",
-      "layer": "controls",
-      "path": "effects/#10/slider",
+      "path": "effects/#7/slider",
       "name": "Zoom"
     }
   },
@@ -10145,7 +9920,7 @@
     "params": {
       "comp": "brickTextBackground",
       "layer": "controls",
-      "path": "effects/#11/slider",
+      "path": "effects/#8/slider",
       "name": "Padding X"
     }
   },
@@ -10154,7 +9929,7 @@
     "params": {
       "comp": "brickTextBackground",
       "layer": "controls",
-      "path": "effects/#12/slider",
+      "path": "effects/#9/slider",
       "name": "Padding Y"
     }
   },
@@ -10163,7 +9938,7 @@
     "params": {
       "comp": "brickTextBackground",
       "layer": "controls",
-      "path": "effects/#13/slider",
+      "path": "effects/#10/slider",
       "name": "Gap"
     }
   }

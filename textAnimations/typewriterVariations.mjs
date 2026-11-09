@@ -673,13 +673,12 @@ const bluekeyScaleExpression = [
 
 // brickTextBackground: a wall of rounded bricks filling the frame, each wrapped around one word picked at random
 // from a sentence. Every brick is the same height and as wide as its word plus padding, laid end to end in rows
-// (every other row shifted, like a running bond). Each brick is its own shade of Brick Color, and a dithered
-// gradient of Light Color rises from the bottom over the bricks (the bricks above it stay clean). Words are white.
+// (every other row shifted, like a running bond). Each brick is its own shade of Brick Color. Words are white.
 //   sentence — a guide text layer (not rendered) holding the sentence; add as many words as you like.
 //   controls — Build (0–100): the bricks pop in one by one in a fixed random order with overshoot; at 100 the wall
 //     fills the comp. Keyframed 0 → 100 over the first 2.5 s. Overshoot sets the pop. Scramble (checkbox) swaps every
 //     brick's word every Scramble Every seconds (the row reflows). Brick Color, Shade Variation (how different the
-//     bricks are), Light Color and Gradient Height (how far up the dither comes, % of the frame) and Dither Size.
+//     bricks are).
 //     Zoom is the text size (everything scales with it), Padding X / Padding Y the space inside a brick, Gap the
 //     space between bricks.
 {
@@ -741,13 +740,10 @@ const bluekeyScaleExpression = [
     ["Slider Control", "slider", 0.8], // 4 Scramble Every
     ["Color Control", "color", [0.165, 0.549, 1, 1]], // 5 Brick Color
     ["Slider Control", "slider", 30], // 6 Shade Variation
-    ["Color Control", "color", [0.62, 0.8, 1, 1]], // 7 Light Color
-    ["Slider Control", "slider", 40], // 8 Gradient Height
-    ["Slider Control", "slider", 6], // 9 Dither Size
-    ["Slider Control", "slider", 56], // 10 Zoom
-    ["Slider Control", "slider", 30], // 11 Padding X
-    ["Slider Control", "slider", 30], // 12 Padding Y
-    ["Slider Control", "slider", 8], // 13 Gap
+    ["Slider Control", "slider", 56], // 7 Zoom
+    ["Slider Control", "slider", 30], // 8 Padding X
+    ["Slider Control", "slider", 30], // 9 Padding Y
+    ["Slider Control", "slider", 8], // 10 Gap
   ];
   sliders.forEach(([effect, param, value], k) => {
     steps.push(fx("controls", effect));
@@ -799,32 +795,12 @@ const bluekeyScaleExpression = [
     );
   });
 
-  // The gradient from the bottom: dithered Light Color pixels over the bricks, more of them lower down. Lighten keeps
-  // the white words white and leaves everything above the gradient untouched; preserve transparency keeps it on
-  // the bricks and words only.
-  steps.push(
-    { command: "layer.newSolid", params: { name: "gradient", color: "#000000", width: 1920, height: 1080 } },
-    fx("gradient", "Gradient Ramp"),
-    expr("gradient", "effects/#1/start", `[thisComp.width / 2, thisComp.height * (1 - thisComp.layer("controls").effect("Gradient Height")("Slider") / 100)]`),
-    set("gradient", "effects/#1/startColor", [0, 0, 0, 1]),
-    expr("gradient", "effects/#1/end", `[thisComp.width / 2, thisComp.height]`),
-    set("gradient", "effects/#1/endColor", [1, 1, 1, 1]),
-    fx("gradient", "Craft Halftone & Dither"),
-    expr("gradient", "effects/#2/cell_size", `thisComp.layer("controls").effect("Dither Size")("Slider")`),
-    set("gradient", "effects/#2/contrast", 1),
-    set("gradient", "effects/#2/dither_spread", 1),
-    fx("gradient", "Tint"),
-    set("gradient", "effects/#3/black", [0, 0, 0, 1]),
-    expr("gradient", "effects/#3/white", `thisComp.layer("controls").effect("Light Color")("Color")`),
-    { command: "layer.setBlendMode", params: { layers: ["gradient"], mode: "Lighten" } },
-    { command: "layer.setSwitch", params: { layers: ["gradient"], switch: "preserveTransparency", value: true } },
-  );
 
   const ess = (path, label) => ({ command: "essential.addProperty", params: { comp: name, layer: "controls", path, name: label } });
   steps.push(
     { command: "essential.setName", params: { comp: name, name } },
     { command: "essential.addProperty", params: { comp: name, layer: "sentence", path: "text/sourceText", name: "Sentence" } },
-    ...[["slider", "Build"], ["slider", "Overshoot"], ["checkbox", "Scramble"], ["slider", "Scramble Every"], ["color", "Brick Color"], ["slider", "Shade Variation"], ["color", "Light Color"], ["slider", "Gradient Height"], ["slider", "Dither Size"], ["slider", "Zoom"], ["slider", "Padding X"], ["slider", "Padding Y"], ["slider", "Gap"]].map(([p, label], k) => ess(`effects/#${k + 1}/${p}`, label)),
+    ...[["slider", "Build"], ["slider", "Overshoot"], ["checkbox", "Scramble"], ["slider", "Scramble Every"], ["color", "Brick Color"], ["slider", "Shade Variation"], ["slider", "Zoom"], ["slider", "Padding X"], ["slider", "Padding Y"], ["slider", "Gap"]].map(([p, label], k) => ess(`effects/#${k + 1}/${p}`, label)),
   );
   mkdirSync(`effects/${name}`, { recursive: true });
   writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
