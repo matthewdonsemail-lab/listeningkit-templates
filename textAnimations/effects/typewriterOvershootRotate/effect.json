@@ -1,0 +1,381 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "typewriterOvershootRotate",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 4,
+      "background": "#FAF7F0",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "listening kit",
+      "name": "text",
+      "position": [
+        960,
+        540
+      ],
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 160,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center",
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 18,
+      "strokeOverFill": false
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.051,
+        0.165,
+        0.298,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/stroke/size",
+      "value": 5
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/blendMode",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 55
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/size",
+      "value": 28
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "effects/#1/slider",
+      "value": 2
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "effects/#2/slider",
+      "value": 0.28
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "effects/#3/slider",
+      "value": 1.7
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "effects/#4/slider",
+      "value": 6
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "text"
+      ],
+      "time": 0,
+      "comment": "in"
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "text"
+      ],
+      "time": 3,
+      "comment": "out"
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "text",
+      "index": 0,
+      "duration": 0.6
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "text",
+      "index": 1,
+      "duration": 0.5
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "text",
+      "properties": [
+        "scale",
+        "rotation"
+      ],
+      "name": "typeOn"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "text",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "text/animators/animator/properties/rotation",
+      "value": -20
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "text",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "var ov = effect(\"Letter Overshoot\")(\"Slider\"), pop = Math.max(effect(\"Pop Time\")(\"Slider\"), 0.001);\nfunction markerKey(name) { try { return thisLayer.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar n = Math.max(textTotal, 1), i = textIndex - 1;\nfunction progress(m) {\n  var p = Math.min(pop, m.duration > 0 ? m.duration : pop);\n  var gap = n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0;\n  return clamp((time - m.time - i * gap) / p);\n}\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar a = 100 * (1 - s);\n[a, a, a]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "text",
+      "path": "transform/anchor",
+      "expression": "var m; try { m = thisLayer.marker.key(\"in\"); } catch (e) { m = null; }\nvar r = sourceRectAtTime(m ? m.time + m.duration + 0.5 : time, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "text",
+      "path": "transform/scale",
+      "expression": "var ov = effect(\"Whole Overshoot\")(\"Slider\");\nfunction markerKey(name) { try { return thisLayer.marker.key(name); } catch (e) { return null; } }\nfunction progress(m) { return Math.min(Math.max((time - m.time) / Math.max(m.duration, 0.001), 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cs = 0; try { cs = effect(\"Continuous Scale\")(\"Slider\"); } catch (e) { cs = 0; }\ns *= Math.max(1 + (cs / 100) * Math.max(time - (mIn ? mIn.time : 0), 0), 0);\ns = Math.max(s, 0);\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "typewriterOvershootRotate",
+      "name": "typewriterOvershootRotate"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "typewriterOvershootRotate",
+      "layer": "text",
+      "path": "text/sourceText",
+      "name": "Text"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "typewriterOvershootRotate",
+      "layer": "text",
+      "path": "text/sourceText",
+      "name": "Font",
+      "as": "font"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "typewriterOvershootRotate",
+      "layer": "text",
+      "path": "transform/position",
+      "name": "Position"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "typewriterOvershootRotate",
+      "layer": "text",
+      "path": "effects/#1/slider",
+      "name": "Letter Overshoot"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "typewriterOvershootRotate",
+      "layer": "text",
+      "path": "effects/#2/slider",
+      "name": "Pop Time"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "typewriterOvershootRotate",
+      "layer": "text",
+      "path": "effects/#3/slider",
+      "name": "Whole Overshoot"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "typewriterOvershootRotate",
+      "layer": "text",
+      "path": "effects/#4/slider",
+      "name": "Continuous Scale"
+    }
+  }
+]

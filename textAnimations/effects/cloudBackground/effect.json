@@ -1,0 +1,856 @@
+[
+  {
+    "command": "effect.plugins.load",
+    "params": {
+      "folder": "C:/Users/0/AppData/Roaming/EffectCraft/Plug-ins"
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/twemoji-cloud.svg"
+      ]
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "clouds",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 5,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "twemoji-cloud.svg",
+      "position": [
+        420,
+        170
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "twemoji-cloud.svg",
+      "name": "cloud 1"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 1",
+      "path": "transform/scale",
+      "value": [
+        1555.5555555555554,
+        1555.5555555555554,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 1"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Fill",
+      "layers": [
+        "cloud 1"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 1",
+      "path": "effects/#1/color",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Linear Wipe",
+      "layers": [
+        "cloud 1"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 1",
+      "path": "effects/#2/completion",
+      "value": 30
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 1",
+      "path": "effects/#2/angle",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 1",
+      "path": "effects/#2/feather",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "twemoji-cloud.svg",
+      "position": [
+        1520,
+        210
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "twemoji-cloud.svg",
+      "name": "cloud 2"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 2",
+      "path": "transform/scale",
+      "value": [
+        1444.4444444444446,
+        1444.4444444444446,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 2"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Fill",
+      "layers": [
+        "cloud 2"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 2",
+      "path": "effects/#1/color",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Linear Wipe",
+      "layers": [
+        "cloud 2"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 2",
+      "path": "effects/#2/completion",
+      "value": 30
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 2",
+      "path": "effects/#2/angle",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 2",
+      "path": "effects/#2/feather",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "twemoji-cloud.svg",
+      "position": [
+        110,
+        470
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "twemoji-cloud.svg",
+      "name": "cloud 3"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 3",
+      "path": "transform/scale",
+      "value": [
+        1055.5555555555554,
+        1055.5555555555554,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 3"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Fill",
+      "layers": [
+        "cloud 3"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 3",
+      "path": "effects/#1/color",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Linear Wipe",
+      "layers": [
+        "cloud 3"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 3",
+      "path": "effects/#2/completion",
+      "value": 30
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 3",
+      "path": "effects/#2/angle",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 3",
+      "path": "effects/#2/feather",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "twemoji-cloud.svg",
+      "position": [
+        1830,
+        520
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "twemoji-cloud.svg",
+      "name": "cloud 4"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 4",
+      "path": "transform/scale",
+      "value": [
+        1055.5555555555554,
+        1055.5555555555554,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 4"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Fill",
+      "layers": [
+        "cloud 4"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 4",
+      "path": "effects/#1/color",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Linear Wipe",
+      "layers": [
+        "cloud 4"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 4",
+      "path": "effects/#2/completion",
+      "value": 30
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 4",
+      "path": "effects/#2/angle",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 4",
+      "path": "effects/#2/feather",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "twemoji-cloud.svg",
+      "position": [
+        1000,
+        90
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "twemoji-cloud.svg",
+      "name": "cloud 5"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 5",
+      "path": "transform/scale",
+      "value": [
+        1166.6666666666665,
+        1166.6666666666665,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 5"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Fill",
+      "layers": [
+        "cloud 5"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 5",
+      "path": "effects/#1/color",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Linear Wipe",
+      "layers": [
+        "cloud 5"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 5",
+      "path": "effects/#2/completion",
+      "value": 30
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 5",
+      "path": "effects/#2/angle",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 5",
+      "path": "effects/#2/feather",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "twemoji-cloud.svg",
+      "position": [
+        330,
+        900
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "twemoji-cloud.svg",
+      "name": "cloud 6"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 6",
+      "path": "transform/scale",
+      "value": [
+        1277.7777777777778,
+        1277.7777777777778,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 6"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Fill",
+      "layers": [
+        "cloud 6"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 6",
+      "path": "effects/#1/color",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Linear Wipe",
+      "layers": [
+        "cloud 6"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 6",
+      "path": "effects/#2/completion",
+      "value": 30
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 6",
+      "path": "effects/#2/angle",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 6",
+      "path": "effects/#2/feather",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "twemoji-cloud.svg",
+      "position": [
+        1640,
+        930
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "twemoji-cloud.svg",
+      "name": "cloud 7"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 7",
+      "path": "transform/scale",
+      "value": [
+        1333.3333333333335,
+        1333.3333333333335,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "cloud 7"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Fill",
+      "layers": [
+        "cloud 7"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 7",
+      "path": "effects/#1/color",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Linear Wipe",
+      "layers": [
+        "cloud 7"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 7",
+      "path": "effects/#2/completion",
+      "value": 30
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 7",
+      "path": "effects/#2/angle",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "cloud 7",
+      "path": "effects/#2/feather",
+      "value": 12
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "cloudBackground",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 5,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newSolid",
+    "params": {
+      "name": "gradient",
+      "color": "#2a8cff",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "gradient"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "gradient",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.17,
+        0.5,
+        0.96,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "gradient",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.42,
+        0.69,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "clouds"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Craft Halftone & Dither",
+      "layers": [
+        "clouds"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clouds",
+      "path": "effects/#1/cell_size",
+      "value": 6
+    }
+  },
+  {
+    "command": "layer.newSolid",
+    "params": {
+      "name": "haze",
+      "color": "#d9e9ff",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Linear Wipe",
+      "layers": [
+        "haze"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "haze",
+      "path": "effects/#1/completion",
+      "value": 66
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "haze",
+      "path": "effects/#1/angle",
+      "value": 180
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "haze",
+      "path": "effects/#1/feather",
+      "value": 220
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Craft Halftone & Dither",
+      "layers": [
+        "haze"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "haze",
+      "path": "effects/#2/cell_size",
+      "value": 14
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "cloudBackground",
+      "name": "cloudBackground"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "cloudBackground",
+      "layer": "gradient",
+      "path": "effects/#1/startColor",
+      "name": "Sky Top"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "cloudBackground",
+      "layer": "gradient",
+      "path": "effects/#1/endColor",
+      "name": "Sky Bottom"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "cloudBackground",
+      "layer": "haze",
+      "path": "effects/#1/completion",
+      "name": "Haze Height"
+    }
+  }
+]

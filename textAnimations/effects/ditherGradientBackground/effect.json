@@ -1,0 +1,371 @@
+[
+  {
+    "command": "effect.plugins.load",
+    "params": {
+      "folder": "C:/Users/0/AppData/Roaming/EffectCraft/Plug-ins"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "ditherGradientBackground",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 5,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newSolid",
+    "params": {
+      "name": "upper",
+      "color": "#000000",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "upper"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#1/start",
+      "value": [
+        960,
+        320
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#1/startColor",
+      "value": [
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#1/end",
+      "value": [
+        960,
+        702
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#1/endColor",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Craft Halftone & Dither",
+      "layers": [
+        "upper"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#2/cell_size",
+      "value": 18
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#2/contrast",
+      "value": 1
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#2/dither_spread",
+      "value": 1
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "upper"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#3/black",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "upper",
+      "path": "effects/#3/white",
+      "value": [
+        0.56,
+        0.77,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newSolid",
+    "params": {
+      "name": "lower",
+      "color": "#000000",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "lower"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#1/start",
+      "value": [
+        960,
+        702
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#1/startColor",
+      "value": [
+        0,
+        0,
+        0,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#1/end",
+      "value": [
+        960,
+        1200
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#1/endColor",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Craft Halftone & Dither",
+      "layers": [
+        "lower"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#2/cell_size",
+      "value": 18
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#2/contrast",
+      "value": 1
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#2/dither_spread",
+      "value": 1
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "lower"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#3/black",
+      "value": [
+        0.56,
+        0.77,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#3/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Linear Wipe",
+      "layers": [
+        "lower"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#4/completion",
+      "value": 65
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#4/angle",
+      "value": 180
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#3/black",
+      "expression": "thisComp.layer(\"upper\").effect(3)(2)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "lower",
+      "path": "effects/#2/cell_size",
+      "expression": "thisComp.layer(\"upper\").effect(2)(\"cell_size\")"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "ditherGradientBackground",
+      "name": "ditherGradientBackground"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "ditherGradientBackground",
+      "layer": "upper",
+      "path": "effects/#3/black",
+      "name": "Top Color"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "ditherGradientBackground",
+      "layer": "upper",
+      "path": "effects/#3/white",
+      "name": "Middle Color"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "ditherGradientBackground",
+      "layer": "lower",
+      "path": "effects/#3/white",
+      "name": "Bottom Color"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "ditherGradientBackground",
+      "layer": "upper",
+      "path": "effects/#2/cell_size",
+      "name": "Pixel Size"
+    }
+  }
+]

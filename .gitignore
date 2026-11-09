@@ -1,0 +1,14 @@
+# EffectCraft auto-saves and backups
+EffectCraft Auto-Save/
+*.ecproj.bak
+*.lock
+
+# Renders
+*.mp4
+*.mov
+renders/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

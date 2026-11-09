@@ -1,0 +1,1652 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "introCard",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 5,
+      "background": "#FAF7F0",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "cloudBackground",
+      "time": 0
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "cloudBackground",
+      "name": "background"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Introducing",
+      "name": "introducing",
+      "position": [
+        960,
+        420
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 96,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "introducing"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "introducing"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "introducing"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "introducing"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "introducing",
+      "path": "effects/#1/slider",
+      "value": 2
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "introducing",
+      "path": "effects/#2/slider",
+      "value": 0.25
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "introducing",
+      "path": "effects/#3/slider",
+      "value": 1.7
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "introducing",
+      "path": "effects/#4/slider",
+      "value": 6
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "introducing"
+      ],
+      "time": 0,
+      "comment": "in"
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "introducing"
+      ],
+      "time": 4.2,
+      "comment": "out"
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "introducing",
+      "index": 0,
+      "duration": 0.5
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "introducing",
+      "index": 1,
+      "duration": 0.4
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "introducing",
+      "properties": [
+        "scale"
+      ],
+      "name": "typeOn"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "introducing",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "introducing",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "introducing",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "introducing",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "var ov = effect(\"Letter Overshoot\")(\"Slider\"), pop = Math.max(effect(\"Pop Time\")(\"Slider\"), 0.001);\nfunction markerKey(name) { try { return thisLayer.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar n = Math.max(textTotal, 1), i = textIndex - 1;\nfunction progress(m) {\n  var p = Math.min(pop, m.duration > 0 ? m.duration : pop);\n  var gap = n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0;\n  return clamp((time - m.time - i * gap) / p);\n}\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar a = 100 * (1 - s);\n[a, a, a]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "introducing",
+      "path": "transform/anchor",
+      "expression": "var m; try { m = thisLayer.marker.key(\"in\"); } catch (e) { m = null; }\nvar r = sourceRectAtTime(m ? m.time + m.duration + 0.5 : time, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "introducing",
+      "path": "transform/scale",
+      "expression": "var ov = effect(\"Whole Overshoot\")(\"Slider\");\nfunction markerKey(name) { try { return thisLayer.marker.key(name); } catch (e) { return null; } }\nfunction progress(m) { return Math.min(Math.max((time - m.time) / Math.max(m.duration, 0.001), 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cs = 0; try { cs = effect(\"Continuous Scale\")(\"Slider\"); } catch (e) { cs = 0; }\ns *= Math.max(1 + (cs / 100) * Math.max(time - (mIn ? mIn.time : 0), 0), 0);\ns = Math.max(s, 0);\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "listening kit",
+      "name": "listening kit",
+      "position": [
+        960,
+        530
+      ],
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 170,
+      "justify": "center",
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 18,
+      "strokeOverFill": false
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "listening kit"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.051,
+        0.165,
+        0.298,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "layerStyles/stroke/size",
+      "value": 5
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "listening kit"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "layerStyles/outerGlow/blendMode",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 55
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "layerStyles/outerGlow/size",
+      "value": 28
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "listening kit"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "listening kit"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "listening kit"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "listening kit"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "effects/#1/slider",
+      "value": 2
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "effects/#2/slider",
+      "value": 0.25
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "effects/#3/slider",
+      "value": 1.7
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "effects/#4/slider",
+      "value": 6
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "listening kit"
+      ],
+      "time": 0.55,
+      "comment": "in"
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "listening kit"
+      ],
+      "time": 4.3,
+      "comment": "out"
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "listening kit",
+      "index": 0,
+      "duration": 0.6
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "listening kit",
+      "index": 1,
+      "duration": 0.4
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "listening kit",
+      "properties": [
+        "scale"
+      ],
+      "name": "typeOn"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "listening kit",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "listening kit",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "listening kit",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "var ov = effect(\"Letter Overshoot\")(\"Slider\"), pop = Math.max(effect(\"Pop Time\")(\"Slider\"), 0.001);\nfunction markerKey(name) { try { return thisLayer.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar n = Math.max(textTotal, 1), i = textIndex - 1;\nfunction progress(m) {\n  var p = Math.min(pop, m.duration > 0 ? m.duration : pop);\n  var gap = n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0;\n  return clamp((time - m.time - i * gap) / p);\n}\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar a = 100 * (1 - s);\n[a, a, a]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "listening kit",
+      "path": "transform/anchor",
+      "expression": "var m; try { m = thisLayer.marker.key(\"in\"); } catch (e) { m = null; }\nvar r = sourceRectAtTime(m ? m.time + m.duration + 0.5 : time, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "listening kit",
+      "path": "transform/scale",
+      "expression": "var ov = effect(\"Whole Overshoot\")(\"Slider\");\nfunction markerKey(name) { try { return thisLayer.marker.key(name); } catch (e) { return null; } }\nfunction progress(m) { return Math.min(Math.max((time - m.time) / Math.max(m.duration, 0.001), 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cs = 0; try { cs = effect(\"Continuous Scale\")(\"Slider\"); } catch (e) { cs = 0; }\ns *= Math.max(1 + (cs / 100) * Math.max(time - (mIn ? mIn.time : 0), 0), 0);\ns = Math.max(s, 0);\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "controls"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "controls"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "controls"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "controls"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "controls"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "value": 2
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#2/slider",
+      "value": 0.3
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#3/slider",
+      "value": 18
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#4/slider",
+      "value": 6
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "controls"
+      ],
+      "time": 1,
+      "comment": "in"
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "controls"
+      ],
+      "time": 4.4,
+      "comment": "out"
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "controls",
+      "index": 0,
+      "duration": 1
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "controls",
+      "index": 1,
+      "duration": 0.4
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "no",
+      "name": "word 01",
+      "position": [
+        960,
+        666
+      ],
+      "size": 46,
+      "font": "Satoshi",
+      "style": "Black",
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 01",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -16, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 01",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(0) + lefts[0] + wordWidth(0) / 2, py = 650;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 01",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 0;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "dashboards",
+      "name": "word 02",
+      "position": [
+        960,
+        666
+      ],
+      "size": 46,
+      "font": "Satoshi",
+      "style": "Black",
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 02",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -16, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 02",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(1) + lefts[1] + wordWidth(1) / 2, py = 650;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 02",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 1;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": ",",
+      "name": "word 03",
+      "position": [
+        960,
+        666
+      ],
+      "size": 46,
+      "font": "Satoshi",
+      "style": "Bold",
+      "fill": [
+        0.193,
+        0.29,
+        0.403
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 03",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -16, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 03",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(2) + lefts[2] + wordWidth(2) / 2, py = 650;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 03",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 2;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "no",
+      "name": "word 04",
+      "position": [
+        960,
+        666
+      ],
+      "size": 46,
+      "font": "Satoshi",
+      "style": "Black",
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 04",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -16, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 04",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(3) + lefts[3] + wordWidth(3) / 2, py = 650;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 04",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 3;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "SaaS",
+      "name": "word 05",
+      "position": [
+        960,
+        666
+      ],
+      "size": 46,
+      "font": "Satoshi",
+      "style": "Black",
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 05",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -16, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 05",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(4) + lefts[4] + wordWidth(4) / 2, py = 650;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 05",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 4;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": ",",
+      "name": "word 06",
+      "position": [
+        960,
+        666
+      ],
+      "size": 46,
+      "font": "Satoshi",
+      "style": "Bold",
+      "fill": [
+        0.193,
+        0.29,
+        0.403
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 06",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -16, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 06",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(5) + lefts[5] + wordWidth(5) / 2, py = 650;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 06",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 5;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "just",
+      "name": "word 07",
+      "position": [
+        960,
+        722
+      ],
+      "size": 46,
+      "font": "Satoshi",
+      "style": "Bold",
+      "fill": [
+        0.193,
+        0.29,
+        0.403
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 07",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -16, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 07",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(6) + lefts[6] + wordWidth(6) / 2, py = 706;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 07",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 6;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "your",
+      "name": "word 08",
+      "position": [
+        960,
+        722
+      ],
+      "size": 46,
+      "font": "Satoshi",
+      "style": "Bold",
+      "fill": [
+        0.193,
+        0.29,
+        0.403
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 08",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -16, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 08",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(7) + lefts[7] + wordWidth(7) / 2, py = 706;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 08",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 7;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "accounts",
+      "name": "word 09",
+      "position": [
+        960,
+        722
+      ],
+      "size": 46,
+      "font": "Satoshi",
+      "style": "Bold",
+      "fill": [
+        0.193,
+        0.29,
+        0.403
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 09",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -16, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 09",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(8) + lefts[8] + wordWidth(8) / 2, py = 706;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 09",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 8;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "and",
+      "name": "word 10",
+      "position": [
+        960,
+        722
+      ],
+      "size": 46,
+      "font": "Satoshi",
+      "style": "Bold",
+      "fill": [
+        0.193,
+        0.29,
+        0.403
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 10",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -16, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 10",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(9) + lefts[9] + wordWidth(9) / 2, py = 706;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 10",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 9;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "your",
+      "name": "word 11",
+      "position": [
+        960,
+        722
+      ],
+      "size": 58,
+      "font": "Schoolbell",
+      "style": "Regular",
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 7,
+      "strokeOverFill": false
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "word 11"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 11",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.051,
+        0.165,
+        0.298,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 11",
+      "path": "layerStyles/stroke/size",
+      "value": 2
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "word 11"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 11",
+      "path": "layerStyles/outerGlow/blendMode",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 11",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 11",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 55
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 11",
+      "path": "layerStyles/outerGlow/size",
+      "value": 28
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 11",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 11",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -20, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 11",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(10) + lefts[10] + wordWidth(10) / 2, py = 702;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 11",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 10;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "agent.",
+      "name": "word 12",
+      "position": [
+        960,
+        722
+      ],
+      "size": 58,
+      "font": "Schoolbell",
+      "style": "Regular",
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 7,
+      "strokeOverFill": false
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "word 12"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 12",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.051,
+        0.165,
+        0.298,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 12",
+      "path": "layerStyles/stroke/size",
+      "value": 2
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "word 12"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 12",
+      "path": "layerStyles/outerGlow/blendMode",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 12",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 12",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 55
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 12",
+      "path": "layerStyles/outerGlow/size",
+      "value": 28
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "word 12",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 12",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(0, false);\n[r.left + r.width / 2, -20, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 12",
+      "path": "transform/position",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar px = start(11) + lefts[11] + wordWidth(11) / 2, py = 702;\n[cx + (px - cx) * grow, cy + (py - cy) * grow]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word 12",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar i = 11;\nfunction progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }\nvar s = mIn ? backOut(progress(mIn)) : 1;\nif (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\ns = Math.max(s, 0) * grow;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "none",
+      "name": "underline 1"
+    }
+  },
+  {
+    "command": "shape.newPath",
+    "params": {
+      "layer": "underline 1",
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          100,
+          0
+        ]
+      ],
+      "closed": false,
+      "fill": false,
+      "stroke": [
+        0.165,
+        0.549,
+        1
+      ],
+      "strokeWidth": 4,
+      "space": "layer"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "underline 1",
+      "path": "transform/position",
+      "value": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "underline 1",
+      "path": "transform/anchor",
+      "value": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "underline 1",
+      "path": "contents/group/contents/stroke/dashes/dash",
+      "value": 10
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "underline 1",
+      "path": "contents/group/contents/stroke/dashes/gap",
+      "value": 7
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "underline 1",
+      "path": "contents/group/contents/path/path",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar a = 0, b = 1;\nfunction reveal(m) { var q = wordGap(m); return clamp((time - m.time - a * q.g) / ((b - a) * q.g + q.p)); }\nvar v = mIn ? reveal(mIn) : 1;\nif (mOut && time >= mOut.time) v = 1 - reveal(mOut);\nvar x0 = start(a) + lefts[a], x1 = start(b) + lefts[b] + wordWidth(b), y = 678;\nx0 = cx + (x0 - cx) * grow; x1 = cx + (x1 - cx) * grow; y = cy + (y - cy) * grow;\ncreatePath([[x0, y], [x0 + (x1 - x0) * v, y]], [], [], false)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "underline 1",
+      "path": "contents/group/contents/stroke/width",
+      "expression": "var cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\n4 * grow"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "none",
+      "name": "underline 2"
+    }
+  },
+  {
+    "command": "shape.newPath",
+    "params": {
+      "layer": "underline 2",
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          100,
+          0
+        ]
+      ],
+      "closed": false,
+      "fill": false,
+      "stroke": [
+        0.165,
+        0.549,
+        1
+      ],
+      "strokeWidth": 4,
+      "space": "layer"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "underline 2",
+      "path": "transform/position",
+      "value": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "underline 2",
+      "path": "transform/anchor",
+      "value": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "underline 2",
+      "path": "contents/group/contents/stroke/dashes/dash",
+      "value": 10
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "underline 2",
+      "path": "contents/group/contents/stroke/dashes/gap",
+      "value": 7
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "underline 2",
+      "path": "contents/group/contents/path/path",
+      "expression": "var names = [\"word 01\",\"word 02\",\"word 03\",\"word 04\",\"word 05\",\"word 06\",\"word 07\",\"word 08\",\"word 09\",\"word 10\",\"word 11\",\"word 12\"], space = [0,1,0,1,1,0,0,1,1,1,1,1], lines = [0,0,0,0,0,0,1,1,1,1,1,1];\nvar gap = thisComp.layer(\"controls\").effect(\"Word Spacing\")(\"Slider\");\nfunction wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }\nvar lefts = [], totals = [];\nfor (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }\nfunction start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }\nvar c = thisComp.layer(\"controls\"), ov = c.effect(\"Overshoot\")(\"Slider\"), pop = Math.max(c.effect(\"Pop Time\")(\"Slider\"), 0.001), n = 12;\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nfunction wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\nvar a = 3, b = 4;\nfunction reveal(m) { var q = wordGap(m); return clamp((time - m.time - a * q.g) / ((b - a) * q.g + q.p)); }\nvar v = mIn ? reveal(mIn) : 1;\nif (mOut && time >= mOut.time) v = 1 - reveal(mOut);\nvar x0 = start(a) + lefts[a], x1 = start(b) + lefts[b] + wordWidth(b), y = 678;\nx0 = cx + (x0 - cx) * grow; x1 = cx + (x1 - cx) * grow; y = cy + (y - cy) * grow;\ncreatePath([[x0, y], [x0 + (x1 - x0) * v, y]], [], [], false)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "underline 2",
+      "path": "contents/group/contents/stroke/width",
+      "expression": "var cc = thisComp.layer(\"controls\"), gcs = cc.effect(\"Continuous Scale\")(\"Slider\");\nvar gIn; try { gIn = cc.marker.key(\"in\"); } catch (e) { gIn = null; }\nvar grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);\nvar cx = thisComp.width / 2, cy = 678;\n4 * grow"
+    }
+  },
+  {
+    "command": "layer.arrange",
+    "params": {
+      "layers": [
+        "listening kit"
+      ],
+      "to": "front"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "introCard",
+      "name": "introCard"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "introducing",
+      "path": "text/sourceText",
+      "name": "Introducing"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "listening kit",
+      "path": "text/sourceText",
+      "name": "Brand"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "word 01",
+      "path": "text/sourceText",
+      "name": "Subtext 01"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "word 02",
+      "path": "text/sourceText",
+      "name": "Subtext 02"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "word 04",
+      "path": "text/sourceText",
+      "name": "Subtext 04"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "word 05",
+      "path": "text/sourceText",
+      "name": "Subtext 05"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "word 07",
+      "path": "text/sourceText",
+      "name": "Subtext 07"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "word 08",
+      "path": "text/sourceText",
+      "name": "Subtext 08"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "word 09",
+      "path": "text/sourceText",
+      "name": "Subtext 09"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "word 10",
+      "path": "text/sourceText",
+      "name": "Subtext 10"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "word 11",
+      "path": "text/sourceText",
+      "name": "Subtext 11"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "word 12",
+      "path": "text/sourceText",
+      "name": "Subtext 12"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "introducing",
+      "path": "effects/#4/slider",
+      "name": "Introducing Continuous Scale"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "listening kit",
+      "path": "effects/#4/slider",
+      "name": "Brand Continuous Scale"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "controls",
+      "path": "effects/#4/slider",
+      "name": "Subtext Continuous Scale"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "name": "Subtext Overshoot"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "controls",
+      "path": "effects/#2/slider",
+      "name": "Subtext Pop Time"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "introCard",
+      "layer": "controls",
+      "path": "effects/#3/slider",
+      "name": "Word Spacing"
+    }
+  }
+]

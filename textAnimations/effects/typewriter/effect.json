@@ -1,0 +1,208 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "typewriter",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 4,
+      "background": "#FAF7F0",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "listening kit",
+      "name": "text",
+      "position": [
+        960,
+        540
+      ],
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 160,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center",
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 18,
+      "strokeOverFill": false
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.051,
+        0.165,
+        0.298,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/stroke/size",
+      "value": 5
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/blendMode",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 55
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/size",
+      "value": 28
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "layer.applyTextPreset",
+    "params": {
+      "layer": "text",
+      "preset": "typewriter"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "effects/#1/slider",
+      "value": 6
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "text",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "text",
+      "path": "transform/scale",
+      "expression": "var cs = 0; try { cs = effect(\"Continuous Scale\")(\"Slider\"); } catch (e) { cs = 0; }\nvar s = Math.max(1 + (cs / 100) * Math.max(time - inPoint, 0), 0);\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "typewriter",
+      "name": "typewriter"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "typewriter",
+      "layer": "text",
+      "path": "text/sourceText",
+      "name": "Text"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "typewriter",
+      "layer": "text",
+      "path": "text/sourceText",
+      "name": "Font",
+      "as": "font"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "typewriter",
+      "layer": "text",
+      "path": "transform/position",
+      "name": "Position"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "typewriter",
+      "layer": "text",
+      "path": "effects/#1/slider",
+      "name": "Continuous Scale"
+    }
+  }
+]

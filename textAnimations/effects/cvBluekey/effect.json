@@ -1,0 +1,281 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "cvBluekey",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 4,
+      "background": "#FAF7F0",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "listening kit",
+      "name": "text",
+      "position": [
+        960,
+        540
+      ],
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 160,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 18,
+      "strokeOverFill": false,
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.051,
+        0.165,
+        0.298,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/stroke/size",
+      "value": 5
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/blendMode",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 55
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "layerStyles/outerGlow/size",
+      "value": 28
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "text"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "effects/#1/slider",
+      "value": 6
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "effects/#2/slider",
+      "value": 2
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "text",
+      "path": "effects/#3/slider",
+      "value": 6
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "text"
+      ],
+      "time": 0,
+      "comment": "in"
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "text"
+      ],
+      "time": 3,
+      "comment": "out"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "text",
+      "path": "transform/anchor",
+      "expression": "var m; try { m = thisLayer.marker.key(\"in\"); } catch (e) { m = null; }\nvar r = sourceRectAtTime(m ? m.time + m.duration + 0.5 : time, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "text",
+      "path": "transform/scale",
+      "expression": "var cs = effect(\"Continuous Scale\")(\"Slider\"), f = thisComp.frameDuration;\nfunction markerKey(name) { try { return thisLayer.marker.key(name); } catch (e) { return null; } }\nvar keys = [[0, 0], [2 * f, 126], [3 * f, 94], [4 * f, 100]];\nfunction pop(t) {\n  if (t <= 0) return 0;\n  for (var j = 1; j < keys.length; j++) if (t <= keys[j][0]) return keys[j - 1][1] + (keys[j][1] - keys[j - 1][1]) * (t - keys[j - 1][0]) / (keys[j][0] - keys[j - 1][0]);\n  return 100;\n}\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar p = mIn ? pop(time - mIn.time) : 100;\nif (mOut && time >= mOut.time) p = pop(mOut.time + 4 * f - time);\nvar s = (p / 100) * Math.max(1 + (cs / 100) * Math.max(time - (mIn ? mIn.time : 0), 0), 0);\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "text",
+      "path": "transform/rotation",
+      "expression": "-3 + effect(\"Wobble\")(\"Slider\") * Math.cos(time * 2 * Math.PI * 2.5)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "text",
+      "path": "transform/position",
+      "expression": "value + [0, effect(\"Bob\")(\"Slider\") * Math.cos(time * 2 * Math.PI * 2), 0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "cvBluekey",
+      "name": "cvBluekey"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "cvBluekey",
+      "layer": "text",
+      "path": "text/sourceText",
+      "name": "Text"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "cvBluekey",
+      "layer": "text",
+      "path": "text/sourceText",
+      "name": "Font",
+      "as": "font"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "cvBluekey",
+      "layer": "text",
+      "path": "transform/position",
+      "name": "Position"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "cvBluekey",
+      "layer": "text",
+      "path": "effects/#1/slider",
+      "name": "Continuous Scale"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "cvBluekey",
+      "layer": "text",
+      "path": "effects/#2/slider",
+      "name": "Wobble"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "cvBluekey",
+      "layer": "text",
+      "path": "effects/#3/slider",
+      "name": "Bob"
+    }
+  }
+]
