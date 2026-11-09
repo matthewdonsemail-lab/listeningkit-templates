@@ -120,7 +120,7 @@ band's Middle Color and Pixel Size by expression. cloudBackground and introCard 
 
 ## brickTextBackground
 
-A wall of small rounded bricks filling the frame (12 rows in a running bond, 126 bricks), each holding one word
+A wall of small rounded bricks filling the frame (9 rows of 8 bricks), each holding one word
 picked at random from a sentence. Every brick is its own shade, and a gradient runs across the wall (darker
 top-left to lighter bottom-right), dithered into Dark Color / Light Color pixels like ditherGradientBackground.
 

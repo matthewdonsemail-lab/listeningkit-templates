@@ -695,7 +695,7 @@ const bluekeyScaleExpression = [
   let seed = 424242;
   const random = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
 
-  const rows = 16, perRow = 13, base = 40; // text is set at 40 px and scaled by Zoom
+  const rows = 9, perRow = 8, base = 40; // text is set at 40 px and scaled by Zoom
   const id = (r, j) => `${String(r + 1).padStart(2, "0")}-${String(j + 1).padStart(2, "0")}`;
   const bricks = [];
   for (let r = 0; r < rows; r++) for (let j = 0; j < perRow; j++) bricks.push({ r, j, shade: round(random()) });
@@ -743,9 +743,9 @@ const bluekeyScaleExpression = [
     ["Color Control", "color", [0.62, 0.8, 1, 1]], // 7 Light Color
     ["Slider Control", "slider", 40], // 8 Gradient Height
     ["Slider Control", "slider", 6], // 9 Dither Size
-    ["Slider Control", "slider", 40], // 10 Zoom
-    ["Slider Control", "slider", 22], // 11 Padding X
-    ["Slider Control", "slider", 14], // 12 Padding Y
+    ["Slider Control", "slider", 56], // 10 Zoom
+    ["Slider Control", "slider", 30], // 11 Padding X
+    ["Slider Control", "slider", 30], // 12 Padding Y
     ["Slider Control", "slider", 8], // 13 Gap
   ];
   sliders.forEach(([effect, param, value], k) => {
