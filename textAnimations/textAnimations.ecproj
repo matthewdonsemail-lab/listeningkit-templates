@@ -242692,7 +242692,7 @@
                           "name": "Checkbox",
                           "value": {
                             "t": "Bool",
-                            "v": true
+                            "v": false
                           },
                           "ui": {
                             "kind": "Checkbox"

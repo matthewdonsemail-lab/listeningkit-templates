@@ -736,7 +736,7 @@ const bluekeyScaleExpression = [
   const sliders = [
     ["Slider Control", "slider", null], // 1 Build (keyframed)
     ["Slider Control", "slider", 1.7], // 2 Overshoot
-    ["Checkbox Control", "checkbox", true], // 3 Scramble
+    ["Checkbox Control", "checkbox", false], // 3 Scramble
     ["Slider Control", "slider", 0.8], // 4 Scramble Every
     ["Color Control", "color", [0.165, 0.549, 1, 1]], // 5 Brick Color
     ["Slider Control", "slider", 30], // 6 Shade Variation

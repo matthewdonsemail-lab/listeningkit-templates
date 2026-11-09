@@ -63,7 +63,7 @@
     "params": {
       "layer": "controls",
       "path": "effects/#3/checkbox",
-      "value": true
+      "value": false
     }
   },
   {
