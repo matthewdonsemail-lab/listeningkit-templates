@@ -3,7 +3,8 @@
 ListeningKit text effects for EffectCraft, all set in Schoolbell (`fonts/Schoolbell-Regular.ttf`) with the
 cv-bluekey look (see cvBluekey below): brand blue, white then navy outline, -3° tilt, blue glow.
 
-- `textAnimations.ecproj` — one 1920×1080, 30 fps, 4 s comp per effect.
+- `textAnimations.ecproj` — one comp per template, sorted into folders in the Project panel: Text Animations,
+  Title Cards, Backgrounds (with clayClouds in Parts), Agent Windows and Assets (`organize.json`).
 - `effects/<name>/effect.json` — the EffectCraft CLI commands that build that effect.
 - `effects/<name>/<name>.ectemplate` — the effect as a template, with its Essential Graphics controls.
 
@@ -159,5 +160,5 @@ Essential Graphics: Prompt, Tool, Reply (and Result on the terminal).
 
 - `node typewriterVariations.mjs` writes every generated effect's `effect.json` (overshoot variations, presets, cvBluekey). Edit the
   table at its top to add or change one.
-- `bash build.sh` rebuilds the project, names the slider controls and re-applies their expressions (`nameControls.jsx`), and writes the
+- `bash build.sh` rebuilds the project, sorts it into folders (`organize.json`; add a new template's comp there), names the slider controls and re-applies their expressions (`nameControls.jsx`), and writes the
   templates. Close the project in EffectCraft first.

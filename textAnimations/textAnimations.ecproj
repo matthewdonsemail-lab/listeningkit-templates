@@ -25,7 +25,7 @@
       "name": "ditherGradientBackground",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16175,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -3172,7 +3172,7 @@
       "name": "Solids",
       "label": "Yellow",
       "comment": "",
-      "parent": null,
+      "parent": 16178,
       "kind": {
         "type": "Folder"
       }
@@ -3236,7 +3236,7 @@
       "name": "clayClouds",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16176,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -104263,7 +104263,7 @@
       "name": "cloudBackground",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16175,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -106858,7 +106858,7 @@
       "name": "brickTextBackground",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16175,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -217384,7 +217384,7 @@
       "name": "claudeCode",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16177,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -249214,7 +249214,7 @@
       "name": "claude.svg",
       "label": "Lavender",
       "comment": "",
-      "parent": null,
+      "parent": 16178,
       "kind": {
         "type": "Footage",
         "path": "C:\\Users\\0\\.buzz\\REPOS\\listeningkit-templates\\textAnimations\\assets\\claude.svg",
@@ -249246,7 +249246,7 @@
       "name": "codex",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16177,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -279051,7 +279051,7 @@
       "name": "codex.svg",
       "label": "Lavender",
       "comment": "",
-      "parent": null,
+      "parent": 16178,
       "kind": {
         "type": "Footage",
         "path": "C:\\Users\\0\\.buzz\\REPOS\\listeningkit-templates\\textAnimations\\assets\\codex.svg",
@@ -279083,7 +279083,7 @@
       "name": "continuousScale",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16173,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -281390,7 +281390,7 @@
       "name": "cvBluekey",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16173,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -283218,7 +283218,7 @@
       "name": "fadeUpCharacters",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16173,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -285402,7 +285402,7 @@
       "name": "introCard",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16174,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -304237,7 +304237,7 @@
       "name": "terminal",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16177,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -321972,7 +321972,7 @@
       "name": "typewriter",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16173,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -324113,7 +324113,7 @@
       "name": "typewriterOvershoot",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16173,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -326420,7 +326420,7 @@
       "name": "typewriterOvershootFast",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16173,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -328727,7 +328727,7 @@
       "name": "typewriterOvershootRotate",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16173,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -331053,7 +331053,7 @@
       "name": "typewriterOvershootWords",
       "label": "Sandstone",
       "comment": "",
-      "parent": null,
+      "parent": 16173,
       "kind": {
         "type": "Comp",
         "width": 1920,
@@ -333354,7 +333354,67 @@
           ]
         }
       }
+    },
+    "16173": {
+      "id": 16173,
+      "name": "Text Animations",
+      "label": "Yellow",
+      "comment": "",
+      "parent": null,
+      "kind": {
+        "type": "Folder"
+      }
+    },
+    "16174": {
+      "id": 16174,
+      "name": "Title Cards",
+      "label": "Yellow",
+      "comment": "",
+      "parent": null,
+      "kind": {
+        "type": "Folder"
+      }
+    },
+    "16175": {
+      "id": 16175,
+      "name": "Backgrounds",
+      "label": "Yellow",
+      "comment": "",
+      "parent": null,
+      "kind": {
+        "type": "Folder"
+      }
+    },
+    "16176": {
+      "id": 16176,
+      "name": "Parts",
+      "label": "Yellow",
+      "comment": "",
+      "parent": 16175,
+      "kind": {
+        "type": "Folder"
+      }
+    },
+    "16177": {
+      "id": 16177,
+      "name": "Agent Windows",
+      "label": "Yellow",
+      "comment": "",
+      "parent": null,
+      "kind": {
+        "type": "Folder"
+      }
+    },
+    "16178": {
+      "id": 16178,
+      "name": "Assets",
+      "label": "Yellow",
+      "comment": "",
+      "parent": null,
+      "kind": {
+        "type": "Folder"
+      }
     }
   },
-  "next_id": 16173
+  "next_id": 16179
 }

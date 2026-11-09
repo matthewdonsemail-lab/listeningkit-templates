@@ -21,6 +21,10 @@ close=()
 for dir in effects/*/; do close+=(comp.close "{\"comp\":\"$(basename "$dir")\"}"); done
 "$CLI" --project "$PROJECT" run "${close[@]}" comp.close '{"comp":"clayClouds"}' comp.open '{"comp":"typewriterOvershoot"}' --save
 
+# Sort the Project panel into folders (Text Animations, Title Cards, Backgrounds, Agent Windows, Assets).
+# A new template's comp needs adding to organize.json, or it stays at the top level.
+"$CLI" --project "$PROJECT" run --commands organize.json --save
+
 for dir in effects/*/; do
   name="$(basename "$dir")"
   "$CLI" --project "$PROJECT" exec essential.exportTemplate \

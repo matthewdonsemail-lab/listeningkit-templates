@@ -1,0 +1,15 @@
+[
+  { "command": "project.newFolder", "params": { "name": "Text Animations" } },
+  { "command": "project.newFolder", "params": { "name": "Title Cards" } },
+  { "command": "project.newFolder", "params": { "name": "Backgrounds" } },
+  { "command": "project.newFolder", "params": { "name": "Parts" } },
+  { "command": "project.move", "params": { "items": ["Parts"], "folder": "Backgrounds" } },
+  { "command": "project.newFolder", "params": { "name": "Agent Windows" } },
+  { "command": "project.newFolder", "params": { "name": "Assets" } },
+  { "command": "project.move", "params": { "items": ["typewriter", "typewriterOvershoot", "typewriterOvershootFast", "typewriterOvershootWords", "typewriterOvershootRotate", "continuousScale", "fadeUpCharacters", "cvBluekey"], "folder": "Text Animations" } },
+  { "command": "project.move", "params": { "items": ["introCard"], "folder": "Title Cards" } },
+  { "command": "project.move", "params": { "items": ["ditherGradientBackground", "cloudBackground", "brickTextBackground"], "folder": "Backgrounds" } },
+  { "command": "project.move", "params": { "items": ["clayClouds"], "folder": "Parts" } },
+  { "command": "project.move", "params": { "items": ["claudeCode", "codex", "terminal"], "folder": "Agent Windows" } },
+  { "command": "project.move", "params": { "items": ["claude.svg", "codex.svg", "Solids"], "folder": "Assets" } }
+]
