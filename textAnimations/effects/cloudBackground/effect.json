@@ -694,47 +694,17 @@
     }
   },
   {
-    "command": "layer.newSolid",
+    "command": "layer.addItem",
     "params": {
-      "name": "gradient",
-      "color": "#2a8cff",
-      "width": 1920,
-      "height": 1080
+      "item": "ditherGradientBackground",
+      "time": 0
     }
   },
   {
-    "command": "effect.apply",
+    "command": "layer.rename",
     "params": {
-      "effect": "Gradient Ramp",
-      "layers": [
-        "gradient"
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "gradient",
-      "path": "effects/#1/startColor",
-      "value": [
-        0.17,
-        0.5,
-        0.96,
-        1
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "gradient",
-      "path": "effects/#1/endColor",
-      "value": [
-        0.42,
-        0.69,
-        1,
-        1
-      ]
+      "layer": "ditherGradientBackground",
+      "name": "sky"
     }
   },
   {
@@ -761,65 +731,6 @@
     }
   },
   {
-    "command": "layer.newSolid",
-    "params": {
-      "name": "haze",
-      "color": "#d9e9ff",
-      "width": 1920,
-      "height": 1080
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Linear Wipe",
-      "layers": [
-        "haze"
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "haze",
-      "path": "effects/#1/completion",
-      "value": 66
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "haze",
-      "path": "effects/#1/angle",
-      "value": 180
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "haze",
-      "path": "effects/#1/feather",
-      "value": 220
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Craft Halftone & Dither",
-      "layers": [
-        "haze"
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "haze",
-      "path": "effects/#2/cell_size",
-      "value": 14
-    }
-  },
-  {
     "command": "essential.setName",
     "params": {
       "comp": "cloudBackground",
@@ -830,27 +741,9 @@
     "command": "essential.addProperty",
     "params": {
       "comp": "cloudBackground",
-      "layer": "gradient",
-      "path": "effects/#1/startColor",
-      "name": "Sky Top"
-    }
-  },
-  {
-    "command": "essential.addProperty",
-    "params": {
-      "comp": "cloudBackground",
-      "layer": "gradient",
-      "path": "effects/#1/endColor",
-      "name": "Sky Bottom"
-    }
-  },
-  {
-    "command": "essential.addProperty",
-    "params": {
-      "comp": "cloudBackground",
-      "layer": "haze",
-      "path": "effects/#1/completion",
-      "name": "Haze Height"
+      "layer": "clouds",
+      "path": "effects/#1/cell_size",
+      "name": "Cloud Dot Size"
     }
   }
 ]

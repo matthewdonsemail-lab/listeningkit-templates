@@ -7,9 +7,11 @@ cd "$(dirname "$0")"
 CLI="${EFFECTCRAFT_CLI:-/c/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe}"
 PROJECT="textAnimations.ecproj"
 
-# cloudBackground goes first: introCard uses it as a precomp.
-args=(--commands effects/cloudBackground/effect.json)
-for f in effects/*/effect.json; do [ "$f" = effects/cloudBackground/effect.json ] || args+=(--commands "$f"); done
+# Precomps go first, in order: cloudBackground uses ditherGradientBackground, introCard uses cloudBackground.
+first=(effects/ditherGradientBackground/effect.json effects/cloudBackground/effect.json)
+args=()
+for f in "${first[@]}"; do args+=(--commands "$f"); done
+for f in effects/*/effect.json; do [[ " ${first[*]} " == *" $f "* ]] || args+=(--commands "$f"); done
 "$CLI" --empty run "${args[@]}" --save-as "$PROJECT"
 "$CLI" script nameControls.jsx "$PROJECT"
 

@@ -81,16 +81,15 @@ and moves the underlines with it.
 
 ## cloudBackground
 
-The ListeningKit social card background as its own template precomp, built from layers and effects:
+White clouds dithered into dots over the ditherGradientBackground sky, as its own template precomp:
 
-- `gradient` — a solid with Gradient Ramp, deeper blue at the top to lighter blue at the bottom.
+- `sky` — the ditherGradientBackground precomp (its colours and pixel size are set in that template).
 - `clouds` — a precomp of seven white clouds (the site's twemoji cloud, `assets/twemoji-cloud.svg`, with Fill
   and a feathered Linear Wipe so their bottoms fade), run through Craft Halftone & Dither so the fades break
   into dots.
-- `haze` — a light blue solid wiped to the bottom third and dithered into big pixels.
 
-Essential Graphics: Sky Top, Sky Bottom, Haze Height. Move or scale clouds inside the `clouds` precomp.
-build.sh builds it first because introCard uses it.
+Essential Graphics: Cloud Dot Size. Move or scale clouds inside the `clouds` precomp.
+build.sh builds ditherGradientBackground, then cloudBackground, then the rest, because introCard uses cloudBackground.
 
 ## ditherGradientBackground
 

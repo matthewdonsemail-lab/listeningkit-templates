@@ -20,7 +20,7 @@ EffectCraft to see every comp, or import a single `.ectemplate` from `textAnimat
 | `fadeUpCharacters` | Letters fade up into place. |
 | `cvBluekey` | The ListeningKit sticker: pops in over 4 frames, wobbles and bobs. |
 | `introCard` | A title card: "Introducing", "listening kit" and a word-by-word subtext with highlighted, dash-underlined words. |
-| `cloudBackground` | A blue gradient sky with white clouds dithered into dots and a pixel haze at the bottom. |
+| `cloudBackground` | White clouds dithered into dots over the ditherGradientBackground sky. |
 | `ditherGradientBackground` | Brand blue breaking into light blue, then white, in big square pixels. |
 
 Every text template uses the cv-bluekey look: Schoolbell in brand blue `#2a8cff`, a white outline inside a navy

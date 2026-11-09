@@ -434,8 +434,8 @@ const bluekeyScaleExpression = [
 
 // cloudBackground: the ListeningKit social card background as a template precomp. A blue gradient sky,
 // a "clouds" precomp of white clouds (the site's twemoji cloud) fading out at their bottoms, run through
-// Craft Halftone & Dither so the fades break into dots, and a light haze at the bottom dithered into big
-// pixels. Built before introCard, which uses it as its bottom layer.
+// Craft Halftone & Dither so the fades break into dots, over the ditherGradientBackground precomp as the
+// sky. Built after ditherGradientBackground and before introCard, which uses it as its bottom layer.
 {
   const plugins = { command: "effect.plugins.load", params: { folder: `${process.env.APPDATA.replace(/\\/g, "/")}/EffectCraft/Plug-ins` } };
   const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
@@ -465,24 +465,15 @@ const bluekeyScaleExpression = [
   });
   steps.push(
     { command: "comp.new", params: { name: "cloudBackground", width: 1920, height: 1080, frameRate: 30, duration: 5, open: true } },
-    { command: "layer.newSolid", params: { name: "gradient", color: "#2a8cff", width: 1920, height: 1080 } },
-    fx("gradient", "Gradient Ramp"),
-    set("gradient", "effects/#1/startColor", [0.17, 0.5, 0.96, 1]),
-    set("gradient", "effects/#1/endColor", [0.42, 0.69, 1, 1]),
+    // The sky is the ditherGradientBackground precomp (built first by build.sh); its colours and pixel
+    // size are set in that template.
+    { command: "layer.addItem", params: { item: "ditherGradientBackground", time: 0 } },
+    { command: "layer.rename", params: { layer: "ditherGradientBackground", name: "sky" } },
     { command: "layer.addItem", params: { item: "clouds" } },
     fx("clouds", "Craft Halftone & Dither"),
     set("clouds", "effects/#1/cell_size", 6),
-    { command: "layer.newSolid", params: { name: "haze", color: "#d9e9ff", width: 1920, height: 1080 } },
-    fx("haze", "Linear Wipe"),
-    set("haze", "effects/#1/completion", 66),
-    set("haze", "effects/#1/angle", 180),
-    set("haze", "effects/#1/feather", 220),
-    fx("haze", "Craft Halftone & Dither"),
-    set("haze", "effects/#2/cell_size", 14),
     { command: "essential.setName", params: { comp: "cloudBackground", name: "cloudBackground" } },
-    { command: "essential.addProperty", params: { comp: "cloudBackground", layer: "gradient", path: "effects/#1/startColor", name: "Sky Top" } },
-    { command: "essential.addProperty", params: { comp: "cloudBackground", layer: "gradient", path: "effects/#1/endColor", name: "Sky Bottom" } },
-    { command: "essential.addProperty", params: { comp: "cloudBackground", layer: "haze", path: "effects/#1/completion", name: "Haze Height" } },
+    { command: "essential.addProperty", params: { comp: "cloudBackground", layer: "clouds", path: "effects/#1/cell_size", name: "Cloud Dot Size" } },
   );
   mkdirSync("effects/cloudBackground", { recursive: true });
   writeFileSync("effects/cloudBackground/effect.json", JSON.stringify(steps, null, 2) + "\n");
