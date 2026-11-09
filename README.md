@@ -39,9 +39,7 @@ Every text template uses the cv-bluekey look: Schoolbell in brand blue `#2a8cff`
 ## Requirements
 
 - **EffectCraft**, with its command-line tool `effectcraft-cli` for rebuilding.
-- **Fonts:** Schoolbell is included in `textAnimations/fonts`. Install it before opening the project.
-  The intro card also uses [Satoshi](https://www.fontshare.com/fonts/satoshi) from Fontshare, which isn't
-  included.
+- **Fonts:** Schoolbell and Satoshi are included in `textAnimations/fonts`. Install both before opening the project.
 - **Craft plug-ins:** both backgrounds use the "Craft Halftone & Dither" effect plug-in (by qwertyonek).
   Without it they show the plain gradients, with no dither.
 
@@ -65,6 +63,7 @@ To change a template or add one, edit `typewriterVariations.mjs` and run both co
 ## Credits
 
 - Schoolbell font by Font Diner, from Google Fonts, under the Apache License 2.0.
+- Satoshi font by the Indian Type Foundry, from [Fontshare](https://www.fontshare.com/fonts/satoshi), under the ITF Free Font License.
 - The cloud in `cloudBackground` is the Twemoji cloud (`assets/twemoji-cloud.svg`) by Twitter, Inc. and other
   contributors, under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
