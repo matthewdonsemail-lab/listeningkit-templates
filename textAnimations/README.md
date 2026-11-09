@@ -132,6 +132,23 @@ picked at random from a sentence.
 All of these are in Essential Graphics. `effects/brickTextBackground/NOTES.md` explains a heavier version that was
 removed, and why it was too heavy.
 
+## claudeCode, codex, terminal
+
+The agent windows from log-cli's landing page, rebuilt as reusable precomps (1920×1080, transparent background,
+window centred, 6 s), from plain shapes and text so they stay light:
+
+- **claudeCode** — the cream Claude window (`site/apps/web/src/landing/AgentSession.tsx`): sidebar with Claude,
+  New session, Chats, Code and Recents; the your-marketing / main bar; a prompt bubble, a `log · twitterDms` tool
+  card with its result, the reply in serif; the "Reply to Claude…" box with Opus 5.5 and the orange send button.
+- **codex** — the white Codex window from the same file: New thread, the your-marketing recents, the thread title
+  and branch, the prompt pill, "Called log.twitterDms" with its result box, the reply, and "Ask Codex anything".
+- **terminal** — the navy "Paste this into your terminal" box (`landing/useCases/UseCasesPage.tsx`): the install
+  line and `claude mcp add log -- logMcp` after blue `$` prompts, then "then say to your agent:" and the ask in green.
+
+They play the start of the site's session: the prompt bubble pops in and types, the tool call pops in at 1.6 s, and
+the reply types on word by word from 2.4 s. The terminal pops in and types its lines one after another.
+Essential Graphics: Prompt, Tool, Reply (the windows); Install, Command, Ask (the terminal).
+
 ## Building
 
 - `node typewriterVariations.mjs` writes every generated effect's `effect.json` (overshoot variations, presets, cvBluekey). Edit the

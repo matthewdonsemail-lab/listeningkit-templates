@@ -13,7 +13,12 @@
 //   Whole Overshoot  — how far past full size the whole text goes (0 = none).
 //   Continuous Scale — (continuousScale only) % the whole text keeps growing per second from the
 //                      "in" marker on (0 = none, negative shrinks).
-import { mkdirSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync as writeFileRaw } from "node:fs";
+
+// effectcraft-cli reads command files in the Windows code page, not UTF-8, so every non-ASCII character
+// (symbols, curly quotes, middle dots…) is written as a JSON \u escape, which reads back exactly.
+const writeFileSync = (path, text) =>
+  writeFileRaw(path, text.replace(/[\u0080-￿]/g, (c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0")));
 
 const variations = {
   typewriterOvershoot: { in: [0, 0.6], out: [3, 0.5], pop: 0.25, overshoot: 2, whole: 1.7, continuous: 6 },
@@ -780,4 +785,192 @@ const bluekeyScaleExpression = [
   );
   mkdirSync(`effects/${name}`, { recursive: true });
   writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+}
+
+// claudeCode, codex, terminal: the agent windows from log-cli's landing page, rebuilt as reusable precomps
+// (site/apps/web/src/landing/AgentSession.tsx for the Claude Code and Codex windows, the "Paste this into your
+// terminal" box in landing/useCases/UseCasesPage.tsx for the terminal). Each is a 1920×1080 comp with a transparent
+// background and the window centred, built from plain shapes and text so it stays light. They play the start of the
+// site's session: the prompt pops in and types, a log tool call pops in, and the reply types on word by word (the
+// terminal types its lines one after another). Edit the text in Essential Graphics.
+{
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const hex = (h) => [1, 3, 5].map((i) => Math.round((parseInt(h.slice(i, i + 2), 16) / 255) * 1000) / 1000);
+
+  const rect = (name, cx, cy, w, h, fill, opts = {}) => [
+    { command: "layer.newShape", params: { kind: "rounded", name, size: [w, h], fill: hex(fill), position: [cx, cy], ...(opts.stroke ? { stroke: hex(opts.stroke), strokeWidth: opts.strokeWidth ?? 2 } : {}) } },
+    set(name, "contents/group/contents/rect/roundness", opts.round ?? 0),
+  ];
+  const text = (name, str, x, y, opts = {}) => ({
+    command: "layer.newText",
+    params: { text: str, name, position: [x, y], font: opts.font ?? "Satoshi", style: opts.style ?? "Medium", size: opts.size ?? 22, fill: hex(opts.fill ?? "#1a1a18"), justify: opts.justify ?? "left", ...(opts.box ? { box: opts.box } : {}) },
+  });
+  const parent = (child, to) => ({ command: "layer.setParent", params: { layers: [child], parent: to } });
+  // Pops in from nothing with overshoot at t0.
+  const pop = (layer, t0) => expr(layer, "transform/scale", [
+    `var t = Math.min(Math.max((time - ${t0}) / 0.35, 0), 1), u = t - 1, ov = 1.7;`,
+    `var s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;`,
+    `[100 * s, 100 * s]`,
+  ].join("\n"));
+  // Types its own text on from t0, by character or by word.
+  const type = (layer, t0, rate, perWord = false) => expr(layer, "text/sourceText", perWord
+    ? [`var s = String(value), w = s.split(" ");`, `var n = Math.max(0, Math.floor((time - ${t0}) * ${rate}));`, `w.slice(0, n).join(" ")`].join("\n")
+    : [`var s = String(value);`, `s.slice(0, Math.max(0, Math.floor((time - ${t0}) * ${rate})))`].join("\n"));
+  const appearAt = (layer, t0) => expr(layer, "transform/opacity", `time >= ${t0} ? 100 : 0`);
+  const essText = (comp, layer, label) => ({ command: "essential.addProperty", params: { comp, layer, path: "text/sourceText", name: label } });
+
+  const prompt = "check my twitter whos waiting on me";
+  const reply = "6 people are waiting on you, and 2 more opened your last message but didn’t reply. Reading each thread in full before drafting anything.";
+  const toolArgs = '{ account: "you", waiting: true, limit: "50" }';
+  const toolLines = ["@you, 6 conversations waiting on a reply, newest first", "1. @dana_builds · 2h ago · unread, waiting on you", "2. @leo_ops · 5h ago · unread, waiting on you"];
+  const mono = { font: "JetBrains Mono", style: "Regular", size: 17 };
+  // The window: 1400 × 800, centred; sidebar 330 wide; feed column from x 620 to 1630.
+  const L = 260, T = 140, W = 1400, H = 800, side = 330, feedX = 620, feedW = 1010;
+
+  // ---- Claude Code ----
+  {
+    const name = "claudeCode";
+    const steps = [
+      { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 6, open: true } },
+      ...rect("window", L + W / 2, T + H / 2, W, H, "#F0ECE0", { stroke: "#DCD4C2", round: 18 }),
+      ...rect("sidebar", L + side / 2, T + H / 2, side, H, "#EAE4D3", { round: 18 }),
+      ...rect("sidebar edge", L + side - 10, T + H / 2, 20, H, "#EAE4D3"),
+      ...rect("sidebar line", L + side, T + H / 2, 2, H, "#DCD4C2"),
+      text("mark", "✳", L + 32, T + 66, { font: "Segoe UI Symbol", style: "Regular", size: 30, fill: "#c96442" }),
+      text("brand", "Claude", L + 70, T + 66, { font: "Georgia", style: "Regular", size: 30 }),
+      text("new plus", "+", L + 32, T + 125, { size: 24, fill: "#c96442" }),
+      text("new session", "New session", L + 58, T + 125, { fill: "#3d3a35" }),
+      text("chats", "Chats", L + 32, T + 175, { fill: "#5b5950" }),
+      ...rect("code pill", L + side / 2, T + 217, side - 30, 42, "#DFD9C8", { round: 8 }),
+      text("code", "Code", L + 32, T + 225, { style: "Bold", fill: "#1a1a18" }),
+      text("recents", "Recents", L + 32, T + 285, { size: 18, fill: "#8a8780" }),
+      text("recent 1", "X inbox follow-ups", L + 32, T + 330, { fill: "#3d3a35" }),
+      text("recent 2", "Marketplace listings", L + 32, T + 375, { fill: "#5b5950" }),
+      text("recent 3", "Group listening", L + 32, T + 420, { fill: "#5b5950" }),
+      text("path", "▢  your-marketing      ⑂  main", feedX, T + 42, { font: "Segoe UI", style: "Regular", size: 20, fill: "#5b5950" }),
+      ...rect("top line", L + side + (W - side) / 2, T + 65, W - side, 2, "#DCD4C2"),
+      // The prompt: a bubble on the right that pops in, then the text types.
+      ...rect("prompt bubble", feedX + feedW - 240, T + 125, 480, 58, "#E5E0D6", { round: 26 }),
+      text("prompt", prompt, feedX + feedW - 240, T + 133, { justify: "center", size: 23 }),
+      parent("prompt", "prompt bubble"),
+      pop("prompt bubble", 0.3),
+      type("prompt", 0.45, 32),
+      // The log tool call card.
+      ...rect("tool card", feedX + feedW / 2, T + 250, feedW, 140, "#F7F5EF", { stroke: "#E5E0D6", round: 12 }),
+      text("tool name", "log · twitterDms", feedX + 24, T + 215, { size: 21 }),
+      text("tool args", toolArgs, feedX + 230, T + 215, { ...mono, fill: "#8a8780" }),
+      text("tool check", "✓", feedX + feedW - 36, T + 215, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#5a8a3c" }),
+      ...rect("tool line", feedX + feedW / 2, T + 232, feedW, 2, "#E5E0D6"),
+      ...toolLines.map((line, k) => text(`tool result ${k + 1}`, line, feedX + 24, T + 262 + k * 25, { ...mono, fill: "#5b5950" })),
+      ...["tool name", "tool args", "tool check", "tool line", "tool result 1", "tool result 2", "tool result 3"].map((child) => parent(child, "tool card")),
+      pop("tool card", 1.6),
+      // The reply types on word by word.
+      text("reply", reply, feedX, T + 360, { font: "Georgia", style: "Regular", size: 24, box: [feedX, T + 340, feedW, 110] }),
+      type("reply", 2.4, 9, true),
+      // The input box.
+      ...rect("input", feedX + feedW / 2, T + H - 80, feedW, 100, "#FFFFFF", { stroke: "#E5E0D6", round: 24 }),
+      text("input hint", "Reply to Claude…", feedX + 24, T + H - 100, { fill: "#9a9893" }),
+      text("input plus", "+", feedX + 24, T + H - 52, { size: 24, fill: "#5b5950" }),
+      text("model", "Opus 5.5  ▾", feedX + feedW - 170, T + H - 52, { size: 20 }),
+      ...rect("send", feedX + feedW - 40, T + H - 60, 40, 40, "#c96442", { round: 8 }),
+      text("send arrow", "↑", feedX + feedW - 40, T + H - 52, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#FFFFFF", justify: "center" }),
+      { command: "essential.setName", params: { comp: name, name } },
+      essText(name, "prompt", "Prompt"),
+      essText(name, "tool name", "Tool"),
+      essText(name, "reply", "Reply"),
+    ];
+    mkdirSync(`effects/${name}`, { recursive: true });
+    writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+  }
+
+  // ---- Codex ----
+  {
+    const name = "codex";
+    const steps = [
+      { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 6, open: true } },
+      ...rect("window", L + W / 2, T + H / 2, W, H, "#FFFFFF", { stroke: "#e5e5e5", round: 18 }),
+      ...rect("sidebar", L + side / 2, T + H / 2, side, H, "#f9f9f9", { round: 18 }),
+      ...rect("sidebar edge", L + side - 10, T + H / 2, 20, H, "#f9f9f9"),
+      ...rect("sidebar line", L + side, T + H / 2, 2, H, "#ececec"),
+      ...rect("mark", L + 46, T + 58, 28, 28, "#0d0d0d", { round: 8 }),
+      text("brand", "Codex", L + 72, T + 66, { style: "Bold", size: 24, fill: "#0d0d0d" }),
+      text("new thread", "✎  New thread", L + 32, T + 125, { font: "Segoe UI", style: "Regular", fill: "#0d0d0d" }),
+      text("project", "your-marketing", L + 32, T + 185, { size: 18, fill: "#8f8f8f" }),
+      ...rect("recent pill", L + side / 2, T + 222, side - 30, 42, "#ececec", { round: 10 }),
+      text("recent 1", "Answer my X DMs", L + 32, T + 230, { fill: "#0d0d0d" }),
+      text("recent 2", "Post the listings", L + 32, T + 275, { fill: "#5d5d5d" }),
+      text("recent 3", "Read the groups", L + 32, T + 320, { fill: "#5d5d5d" }),
+      text("thread", "Answer my X DMs", feedX, T + 42, { size: 20, fill: "#0d0d0d" }),
+      text("branch", "⑂  main", feedX + feedW, T + 42, { font: "Segoe UI", style: "Regular", size: 20, fill: "#8f8f8f", justify: "right" }),
+      ...rect("top line", L + side + (W - side) / 2, T + 65, W - side, 2, "#ececec"),
+      ...rect("prompt bubble", feedX + feedW - 240, T + 125, 480, 58, "#f3f3f3", { round: 29 }),
+      text("prompt", prompt, feedX + feedW - 240, T + 133, { justify: "center", size: 23, fill: "#0d0d0d" }),
+      parent("prompt", "prompt bubble"),
+      pop("prompt bubble", 0.3),
+      type("prompt", 0.45, 32),
+      // "Called log.twitterDms" with its result box.
+      ...rect("tool", feedX + feedW / 2, T + 262, feedW, 150, "#FFFFFF"),
+      text("tool called", ">_  Called", feedX, T + 205, { font: "JetBrains Mono", style: "Regular", size: 19, fill: "#5d5d5d" }),
+      ...rect("tool chip", feedX + 290, T + 198, 230, 32, "#f3f3f3", { round: 6 }),
+      text("tool name", "log.twitterDms", feedX + 290, T + 205, { ...mono, justify: "center", fill: "#0d0d0d" }),
+      ...rect("tool box", feedX + feedW / 2, T + 285, feedW, 112, "#f9f9f9", { round: 14 }),
+      text("tool args", toolArgs, feedX + 18, T + 252, { ...mono, fill: "#8f8f8f" }),
+      ...toolLines.map((line, k) => text(`tool result ${k + 1}`, line, feedX + 18, T + 277 + k * 24, { ...mono, fill: "#5d5d5d" })),
+      ...["tool called", "tool chip", "tool name", "tool box", "tool args", "tool result 1", "tool result 2", "tool result 3"].map((child) => parent(child, "tool")),
+      pop("tool", 1.6),
+      text("reply", reply, feedX, T + 380, { style: "Regular", size: 23, fill: "#0d0d0d", box: [feedX, T + 360, feedW, 110] }),
+      type("reply", 2.4, 9, true),
+      ...rect("input", feedX + feedW / 2, T + H - 70, feedW, 72, "#FFFFFF", { stroke: "#e5e5e5", round: 36 }),
+      text("input plus", "+", feedX + 28, T + H - 61, { size: 24, fill: "#5d5d5d" }),
+      text("input hint", "Ask Codex anything", feedX + 62, T + H - 62, { fill: "#8f8f8f" }),
+      ...rect("send", feedX + feedW - 40, T + H - 70, 44, 44, "#0d0d0d", { round: 22 }),
+      text("send arrow", "↑", feedX + feedW - 40, T + H - 62, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#FFFFFF", justify: "center" }),
+      { command: "essential.setName", params: { comp: name, name } },
+      essText(name, "prompt", "Prompt"),
+      essText(name, "tool name", "Tool"),
+      essText(name, "reply", "Reply"),
+    ];
+    mkdirSync(`effects/${name}`, { recursive: true });
+    writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+  }
+
+  // ---- Terminal ----
+  {
+    const name = "terminal";
+    const x0 = 380, size = 26;
+    const lines = [
+      { prompt: true, text: "curl -fsSL https://log.listeningkit.com/install.sh | sh", fill: "#FFFFFF", y: 470, t0: 0.6 },
+      { prompt: true, text: "claude mcp add log -- logMcp", fill: "#FFFFFF", y: 515, t0: 2.2 },
+      { prompt: false, text: "then say to your agent:", fill: "#9aa6b5", y: 585, t0: 3.2 },
+      { prompt: false, text: `“${prompt}”`, fill: "#7BE3A4", y: 630, t0: 3.7 },
+    ];
+    const steps = [
+      { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 6, open: true } },
+      ...rect("shadow", 960, 546, 1240, 400, "#061a33", { round: 24 }),
+      ...rect("box", 960, 540, 1240, 400, "#0D2A4C", { round: 24 }),
+      text("label", "PASTE THIS INTO YOUR TERMINAL", x0, 405, { font: "JetBrains Mono", style: "Regular", size: 16, fill: "#8693a5" }),
+      { command: "layer.setText", params: { layer: "label", tracking: 180 } },
+      pop("box", 0),
+      pop("shadow", 0),
+    ];
+    lines.forEach((line, k) => {
+      const layer = `line ${k + 1}`;
+      if (line.prompt) {
+        steps.push(text(`${layer} prompt`, "$ ", x0, line.y, { font: "JetBrains Mono", style: "Regular", size, fill: "#5CA7FF" }), appearAt(`${layer} prompt`, line.t0));
+      }
+      steps.push(
+        text(layer, line.text, x0 + (line.prompt ? 32 : 0), line.y, { font: "JetBrains Mono", style: "Regular", size, fill: line.fill }),
+        type(layer, line.t0 + 0.15, 38),
+      );
+    });
+    steps.push(
+      { command: "essential.setName", params: { comp: name, name } },
+      essText(name, "line 1", "Install"),
+      essText(name, "line 2", "Command"),
+      essText(name, "line 4", "Ask"),
+    );
+    mkdirSync(`effects/${name}`, { recursive: true });
+    writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+  }
 }

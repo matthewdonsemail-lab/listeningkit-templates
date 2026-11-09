@@ -1,0 +1,943 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "claudeCode",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 6,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "window",
+      "size": [
+        1400,
+        800
+      ],
+      "fill": [
+        0.941,
+        0.925,
+        0.878
+      ],
+      "position": [
+        960,
+        540
+      ],
+      "stroke": [
+        0.863,
+        0.831,
+        0.761
+      ],
+      "strokeWidth": 2
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "window",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "sidebar",
+      "size": [
+        330,
+        800
+      ],
+      "fill": [
+        0.918,
+        0.894,
+        0.827
+      ],
+      "position": [
+        425,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "sidebar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "sidebar edge",
+      "size": [
+        20,
+        800
+      ],
+      "fill": [
+        0.918,
+        0.894,
+        0.827
+      ],
+      "position": [
+        580,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "sidebar edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "sidebar line",
+      "size": [
+        2,
+        800
+      ],
+      "fill": [
+        0.863,
+        0.831,
+        0.761
+      ],
+      "position": [
+        590,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "sidebar line",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "\u2733",
+      "name": "mark",
+      "position": [
+        292,
+        206
+      ],
+      "font": "Segoe UI Symbol",
+      "style": "Regular",
+      "size": 30,
+      "fill": [
+        0.788,
+        0.392,
+        0.259
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Claude",
+      "name": "brand",
+      "position": [
+        330,
+        206
+      ],
+      "font": "Georgia",
+      "style": "Regular",
+      "size": 30,
+      "fill": [
+        0.102,
+        0.102,
+        0.094
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "+",
+      "name": "new plus",
+      "position": [
+        292,
+        265
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 24,
+      "fill": [
+        0.788,
+        0.392,
+        0.259
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "New session",
+      "name": "new session",
+      "position": [
+        318,
+        265
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.239,
+        0.227,
+        0.208
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Chats",
+      "name": "chats",
+      "position": [
+        292,
+        315
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.357,
+        0.349,
+        0.314
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "code pill",
+      "size": [
+        300,
+        42
+      ],
+      "fill": [
+        0.875,
+        0.851,
+        0.784
+      ],
+      "position": [
+        425,
+        357
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "code pill",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 8
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Code",
+      "name": "code",
+      "position": [
+        292,
+        365
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 22,
+      "fill": [
+        0.102,
+        0.102,
+        0.094
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Recents",
+      "name": "recents",
+      "position": [
+        292,
+        425
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 18,
+      "fill": [
+        0.541,
+        0.529,
+        0.502
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "X inbox follow-ups",
+      "name": "recent 1",
+      "position": [
+        292,
+        470
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.239,
+        0.227,
+        0.208
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Marketplace listings",
+      "name": "recent 2",
+      "position": [
+        292,
+        515
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.357,
+        0.349,
+        0.314
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Group listening",
+      "name": "recent 3",
+      "position": [
+        292,
+        560
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.357,
+        0.349,
+        0.314
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "\u25a2  your-marketing      \u2442  main",
+      "name": "path",
+      "position": [
+        620,
+        182
+      ],
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 20,
+      "fill": [
+        0.357,
+        0.349,
+        0.314
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "top line",
+      "size": [
+        1070,
+        2
+      ],
+      "fill": [
+        0.863,
+        0.831,
+        0.761
+      ],
+      "position": [
+        1125,
+        205
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "top line",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "prompt bubble",
+      "size": [
+        480,
+        58
+      ],
+      "fill": [
+        0.898,
+        0.878,
+        0.839
+      ],
+      "position": [
+        1390,
+        265
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "prompt bubble",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 26
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "check my twitter whos waiting on me",
+      "name": "prompt",
+      "position": [
+        1390,
+        273
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.102,
+        0.102,
+        0.094
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "prompt"
+      ],
+      "parent": "prompt bubble"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "prompt bubble",
+      "path": "transform/scale",
+      "expression": "var t = Math.min(Math.max((time - 0.3) / 0.35, 0), 1), u = t - 1, ov = 1.7;\nvar s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "prompt",
+      "path": "text/sourceText",
+      "expression": "var s = String(value);\ns.slice(0, Math.max(0, Math.floor((time - 0.45) * 32)))"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "tool card",
+      "size": [
+        1010,
+        140
+      ],
+      "fill": [
+        0.969,
+        0.961,
+        0.937
+      ],
+      "position": [
+        1125,
+        390
+      ],
+      "stroke": [
+        0.898,
+        0.878,
+        0.839
+      ],
+      "strokeWidth": 2
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tool card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "log \u00b7 twitterDms",
+      "name": "tool name",
+      "position": [
+        644,
+        355
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 21,
+      "fill": [
+        0.102,
+        0.102,
+        0.094
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "{ account: \"you\", waiting: true, limit: \"50\" }",
+      "name": "tool args",
+      "position": [
+        850,
+        355
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 17,
+      "fill": [
+        0.541,
+        0.529,
+        0.502
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "\u2713",
+      "name": "tool check",
+      "position": [
+        1594,
+        355
+      ],
+      "font": "Segoe UI Symbol",
+      "style": "Regular",
+      "size": 22,
+      "fill": [
+        0.353,
+        0.541,
+        0.235
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "tool line",
+      "size": [
+        1010,
+        2
+      ],
+      "fill": [
+        0.898,
+        0.878,
+        0.839
+      ],
+      "position": [
+        1125,
+        372
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tool line",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "@you, 6 conversations waiting on a reply, newest first",
+      "name": "tool result 1",
+      "position": [
+        644,
+        402
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 17,
+      "fill": [
+        0.357,
+        0.349,
+        0.314
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "1. @dana_builds \u00b7 2h ago \u00b7 unread, waiting on you",
+      "name": "tool result 2",
+      "position": [
+        644,
+        427
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 17,
+      "fill": [
+        0.357,
+        0.349,
+        0.314
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "2. @leo_ops \u00b7 5h ago \u00b7 unread, waiting on you",
+      "name": "tool result 3",
+      "position": [
+        644,
+        452
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 17,
+      "fill": [
+        0.357,
+        0.349,
+        0.314
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tool name"
+      ],
+      "parent": "tool card"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tool args"
+      ],
+      "parent": "tool card"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tool check"
+      ],
+      "parent": "tool card"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tool line"
+      ],
+      "parent": "tool card"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tool result 1"
+      ],
+      "parent": "tool card"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tool result 2"
+      ],
+      "parent": "tool card"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tool result 3"
+      ],
+      "parent": "tool card"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "tool card",
+      "path": "transform/scale",
+      "expression": "var t = Math.min(Math.max((time - 1.6) / 0.35, 0), 1), u = t - 1, ov = 1.7;\nvar s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "6 people are waiting on you, and 2 more opened your last message but didn\u2019t reply. Reading each thread in full before drafting anything.",
+      "name": "reply",
+      "position": [
+        620,
+        500
+      ],
+      "font": "Georgia",
+      "style": "Regular",
+      "size": 24,
+      "fill": [
+        0.102,
+        0.102,
+        0.094
+      ],
+      "justify": "left",
+      "box": [
+        620,
+        480,
+        1010,
+        110
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "reply",
+      "path": "text/sourceText",
+      "expression": "var s = String(value), w = s.split(\" \");\nvar n = Math.max(0, Math.floor((time - 2.4) * 9));\nw.slice(0, n).join(\" \")"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "input",
+      "size": [
+        1010,
+        100
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        1125,
+        860
+      ],
+      "stroke": [
+        0.898,
+        0.878,
+        0.839
+      ],
+      "strokeWidth": 2
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "input",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Reply to Claude\u2026",
+      "name": "input hint",
+      "position": [
+        644,
+        840
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.604,
+        0.596,
+        0.576
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "+",
+      "name": "input plus",
+      "position": [
+        644,
+        888
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 24,
+      "fill": [
+        0.357,
+        0.349,
+        0.314
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Opus 5.5  \u25be",
+      "name": "model",
+      "position": [
+        1460,
+        888
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 20,
+      "fill": [
+        0.102,
+        0.102,
+        0.094
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "send",
+      "size": [
+        40,
+        40
+      ],
+      "fill": [
+        0.788,
+        0.392,
+        0.259
+      ],
+      "position": [
+        1590,
+        880
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "send",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 8
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "\u2191",
+      "name": "send arrow",
+      "position": [
+        1590,
+        888
+      ],
+      "font": "Segoe UI Symbol",
+      "style": "Regular",
+      "size": 22,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "claudeCode",
+      "name": "claudeCode"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "claudeCode",
+      "layer": "prompt",
+      "path": "text/sourceText",
+      "name": "Prompt"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "claudeCode",
+      "layer": "tool name",
+      "path": "text/sourceText",
+      "name": "Tool"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "claudeCode",
+      "layer": "reply",
+      "path": "text/sourceText",
+      "name": "Reply"
+    }
+  }
+]

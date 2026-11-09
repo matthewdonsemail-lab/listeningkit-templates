@@ -1,0 +1,314 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "terminal",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 6,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "shadow",
+      "size": [
+        1240,
+        400
+      ],
+      "fill": [
+        0.024,
+        0.102,
+        0.2
+      ],
+      "position": [
+        960,
+        546
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "shadow",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "box",
+      "size": [
+        1240,
+        400
+      ],
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "box",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "PASTE THIS INTO YOUR TERMINAL",
+      "name": "label",
+      "position": [
+        380,
+        405
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 16,
+      "fill": [
+        0.525,
+        0.576,
+        0.647
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.setText",
+    "params": {
+      "layer": "label",
+      "tracking": 180
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "box",
+      "path": "transform/scale",
+      "expression": "var t = Math.min(Math.max((time - 0) / 0.35, 0), 1), u = t - 1, ov = 1.7;\nvar s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "shadow",
+      "path": "transform/scale",
+      "expression": "var t = Math.min(Math.max((time - 0) / 0.35, 0), 1), u = t - 1, ov = 1.7;\nvar s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "$ ",
+      "name": "line 1 prompt",
+      "position": [
+        380,
+        470
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.361,
+        0.655,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 1 prompt",
+      "path": "transform/opacity",
+      "expression": "time >= 0.6 ? 100 : 0"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "curl -fsSL https://log.listeningkit.com/install.sh | sh",
+      "name": "line 1",
+      "position": [
+        412,
+        470
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 1",
+      "path": "text/sourceText",
+      "expression": "var s = String(value);\ns.slice(0, Math.max(0, Math.floor((time - 0.75) * 38)))"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "$ ",
+      "name": "line 2 prompt",
+      "position": [
+        380,
+        515
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.361,
+        0.655,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 2 prompt",
+      "path": "transform/opacity",
+      "expression": "time >= 2.2 ? 100 : 0"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "claude mcp add log -- logMcp",
+      "name": "line 2",
+      "position": [
+        412,
+        515
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 2",
+      "path": "text/sourceText",
+      "expression": "var s = String(value);\ns.slice(0, Math.max(0, Math.floor((time - 2.35) * 38)))"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "then say to your agent:",
+      "name": "line 3",
+      "position": [
+        380,
+        585
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.604,
+        0.651,
+        0.71
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 3",
+      "path": "text/sourceText",
+      "expression": "var s = String(value);\ns.slice(0, Math.max(0, Math.floor((time - 3.35) * 38)))"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "\u201ccheck my twitter whos waiting on me\u201d",
+      "name": "line 4",
+      "position": [
+        380,
+        630
+      ],
+      "font": "JetBrains Mono",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.482,
+        0.89,
+        0.643
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 4",
+      "path": "text/sourceText",
+      "expression": "var s = String(value);\ns.slice(0, Math.max(0, Math.floor((time - 3.85) * 38)))"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "terminal",
+      "name": "terminal"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "terminal",
+      "layer": "line 1",
+      "path": "text/sourceText",
+      "name": "Install"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "terminal",
+      "layer": "line 2",
+      "path": "text/sourceText",
+      "name": "Command"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "terminal",
+      "layer": "line 4",
+      "path": "text/sourceText",
+      "name": "Ask"
+    }
+  }
+]
