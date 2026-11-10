@@ -1,12 +1,12 @@
-# Text Animations
+﻿# Text Animations
 
 ListeningKit text effects for EffectCraft, all set in Schoolbell (`fonts/Schoolbell-Regular.ttf`) with the
-cv-bluekey look (see cvBluekey below): brand blue, white then navy outline, -3° tilt, blue glow.
+cv-bluekey look (see cvBluekey below): brand blue, white then navy outline, -3Â° tilt, blue glow.
 
-- `textAnimations.ecproj` — one comp per template, sorted into folders in the Project panel: Text Animations,
+- `textAnimations.ecproj` â€” one comp per template, sorted into folders in the Project panel: Text Animations,
   Title Cards, Backgrounds (with clayClouds and cloudSolo in Parts), Agent Windows and Assets (`organize.json`).
-- `effects/<name>/effect.json` — the EffectCraft CLI commands that build that effect.
-- `effects/<name>/<name>.ectemplate` — the effect as a template, with its Essential Graphics controls.
+- `effects/<name>/effect.json` â€” the EffectCraft CLI commands that build that effect.
+- `effects/<name>/<name>.ectemplate` â€” the effect as a template, with its Essential Graphics controls.
 
 ## Typewriter overshoot variations
 
@@ -19,29 +19,29 @@ On the way out both swell slightly, then scale back to 0.
 
 **Markers on the `text` layer set the timing:**
 
-- `in` marker — where the type-on starts. Its duration is how long until the last unit has landed.
-- `out` marker — where the type-off starts. Its duration is how long until the last unit is gone.
+- `in` marker â€” where the type-on starts. Its duration is how long until the last unit has landed.
+- `out` marker â€” where the type-off starts. Its duration is how long until the last unit is gone.
   Delete it to keep the text on screen.
 
 Drag a marker to move that half. Stretch it to make that half slower or faster.
 
 **Slider controls on the layer (also in Essential Graphics):**
 
-- `Letter Overshoot` — how far past full size each letter (or word) goes. 0 = none.
-- `Pop Time` — seconds for one letter (or word) to scale in or out.
-- `Whole Overshoot` — how far past full size the whole text goes. 0 = none.
+- `Letter Overshoot` â€” how far past full size each letter (or word) goes. 0 = none.
+- `Pop Time` â€” seconds for one letter (or word) to scale in or out.
+- `Whole Overshoot` â€” how far past full size the whole text goes. 0 = none.
 
-- `Continuous Scale` — % the whole text keeps growing per second from the `in` marker on. 0 = none,
+- `Continuous Scale` â€” % the whole text keeps growing per second from the `in` marker on. 0 = none,
   negative shrinks. Default 6.
 
 Position is the centre of the text.
 
 | Effect | Unit | In | Out | Pop Time | Letter Overshoot | Whole Overshoot | Extra |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| typewriterOvershoot | letter | 0.6 s | 0.5 s | 0.25 s | 2 | 1.7 | — |
-| typewriterOvershootFast | letter | 0.35 s | 0.3 s | 0.16 s | 2.6 | 2 | — |
-| typewriterOvershootWords | word | 0.4 s | 0.35 s | 0.28 s | 2 | 1.7 | — |
-| typewriterOvershootRotate | letter | 0.6 s | 0.5 s | 0.28 s | 2 | 1.7 | swings in from -20° |
+| typewriterOvershoot | letter | 0.6 s | 0.5 s | 0.25 s | 2 | 1.7 | â€” |
+| typewriterOvershootFast | letter | 0.35 s | 0.3 s | 0.16 s | 2.6 | 2 | â€” |
+| typewriterOvershootWords | word | 0.4 s | 0.35 s | 0.28 s | 2 | 1.7 | â€” |
+| typewriterOvershootRotate | letter | 0.6 s | 0.5 s | 0.28 s | 2 | 1.7 | swings in from -20Â° |
 
 `continuousScale` is typewriterOvershoot with the same default Continuous Scale, kept as its own effect.
 
@@ -52,42 +52,71 @@ also have a `Continuous Scale` slider (default 6), growing from the start of the
 
 Every effect uses this look; cvBluekey adds its motion. The ListeningKit sticker look, from log-cli's `.lk-bluekey` and the word stickers in the looksmaxxing
 project: Schoolbell in brand blue `#2a8cff`, a white outline inside a dark navy `#0d2a4c` outline
-(text stroke + Stroke layer style), tilted -3°, with a blue Outer Glow.
+(text stroke + Stroke layer style), tilted -3Â°, with a blue Outer Glow.
 
-It pops in from the `in` marker like the looksmaxxing words (0 → 126% → 94% → 100% over 4 frames),
+It pops in from the `in` marker like the looksmaxxing words (0 â†’ 126% â†’ 94% â†’ 100% over 4 frames),
 pops out in reverse from the `out` marker, and wobbles and bobs while on screen.
 
 Sliders: `Continuous Scale` (% per second, default 6), `Wobble` (degrees, default 2), `Bob` (pixels, default 6).
+
+## Strawberry type (type01 to type15)
+
+The typographic beats of the Strawberry launch (`x.com/TechByMarkandey/status/2114687171789779414`), rebuilt one precomp
+per scene, on the paper background: the words and sizes from the source, each line popping in from 0 to full size with
+overshoot, one line after another. A word in another colour is a text animator with a range selector over those
+characters, so editing the line keeps the colour on the same word.
+
+| Comp | Scene | Text |
+| --- | --- | --- |
+| `type01` | You want to move fast | You want / to move / fast, purple |
+| `type02` | You need a team | You need **a team** (orange) |
+| `type03` | The AI team | The AI team / that **works** alongside you (purple) |
+| `type04` | I can do | I can do / sales / research / marketing |
+| `type05` | I work | I **work** (orange) |
+| `type06` | in your tabs apps docs | in your tabs apps docs |
+| `type07` | Transcribe meetings | **Transcribe** (teal) meetings |
+| `type08` | Everyone | Everyone, orange |
+| `type09` | Everyone on your team | Everyone (orange) / on your team |
+| `type10` | gets a companion | gets a companion |
+| `type11` | Works on 1.7 billion websites | Works on 1.7 billion / websites |
+| `type12` | 266k companions | 266k companions / already created |
+| `type13` | Discover | Discover / a new way (orange) / to work |
+| `type14` | Claim your companion today | Claim your / **companion** (orange) today |
+| `type15` | Download now for free | Download now / for free (orange) |
+
+The scene bounds they came from, in the source: 4â€“6 s, 6â€“10.6 s, 10.6â€“18.9 s, 27â€“28.1 s, 28.1â€“28.9 s, 29â€“30 s,
+30â€“32 s, 50â€“53.3 s, 57.7â€“58.9 s, 59â€“60.4 s, 60.5â€“61.9 s, 68.8â€“76.9 s, 77â€“78.9 s, 79â€“82.9 s, 83.3â€“89.9 s.
+`blackHighlightFocus` is the same system in one card, on black.
 
 ## blackHighlightFocus
 
 Typography on black, rebuilt from the Strawberry launch
 (`x.com/TechByMarkandey/status/2114687171789779414`): a kicker, the big word with a highlight pill snapped in behind it,
-and the word under it (1920×1080, 5 s).
+and the word under it (1920Ã—1080, 5 s).
 
 - **The focus**: every line comes up out of a Gaussian blur (Focus Blur, 30 px by default), from 112% down to 100%,
   fading on as it sharpens, one line after another. The pill behind the big word snaps in with overshoot instead of
   settling. At the `out` marker each line blurs nothing but fades and shrinks away.
-- **Markers on `controls`**: `in` (0, 1.6 s) sets the focus length — each line's focus is a third of that — and `out`
+- **Markers on `controls`**: `in` (0, 1.6 s) sets the focus length â€” each line's focus is a third of that â€” and `out`
   (3.4, 1.2 s) sends them away. Drag them to retime.
 - Essential Graphics: **Focus Blur** (how far out of focus a line starts), **Stagger** (seconds between lines),
   **Overshoot** (the pill's pop), and the three lines: **Kicker**, **Highlight**, **Word**.
 
 In the reference the pill is a pale tint with a saturated word inside it; on black the pill is brand blue and the type
-white, which reads the same way. The mascots and the UI shots are left out — it is only the type.
+white, which reads the same way. The mascots and the UI shots are left out â€” it is only the type.
 
 ## introCard
 
-A title card precomp (1920×1080, 5 s):
+A title card precomp (1920Ã—1080, 5 s):
 
-- **background** — the cloudBackground precomp (below).
+- **background** â€” the cloudBackground precomp (below).
 
-- **Introducing** — Satoshi Bold (the ListeningKit site font), navy, the overshoot typewriter. Its own
+- **Introducing** â€” Satoshi Bold (the ListeningKit site font), navy, the overshoot typewriter. Its own
   `in` / `out` markers and Letter Overshoot, Pop Time, Whole Overshoot and Continuous Scale sliders.
-- **listening kit** — below it, cv-bluekey look with the overshoot typewriter (same four sliders as
+- **listening kit** â€” below it, cv-bluekey look with the overshoot typewriter (same four sliders as
   Introducing), on top of the lines above and below it.
-- **Subtext** — "no dashboards, no SaaS, / just your accounts and your agent." from the site, on two lines, one text layer
-  per word (`word 01`–`word 12`). Each word scales in from its centre with overshoot, one after another.
+- **Subtext** â€” "no dashboards, no SaaS, / just your accounts and your agent." from the site, on two lines, one text layer
+  per word (`word 01`â€“`word 12`). Each word scales in from its centre with overshoot, one after another.
   "no dashboards" and "no SaaS" are highlighted as on the site (Satoshi Black, brand blue, dashed
   underline that draws on with the words); "your agent." is a small cv-bluekey sticker.
 
@@ -103,7 +132,7 @@ and moves the underlines with it.
 (`site/apps/web/src/landing/ClayClouds.tsx`). The site uses Claybound's `cloud.glb`, which isn't licensed to
 ListeningKit, so each cloud here is our own: six 3D spheres under a null.
 
-- `clayClouds` — an Advanced 3D comp with a 30° camera, ambient, warm key (casting shadows) and blue fill lights,
+- `clayClouds` â€” an Advanced 3D comp with a 30Â° camera, ambient, warm key (casting shadows) and blue fill lights,
   and 30 clouds in 4 depth layers (12 far and small down to 3 near and big), as on the site. Each cloud drifts
   right at its layer's speed and wraps around, bobs and turns slowly (expressions on its null). Far clouds are
   tinted toward the sky to stand in for the site's fog. Positions come from a fixed seed.
@@ -111,7 +140,7 @@ ListeningKit, so each cloud here is our own: six 3D spheres under a null.
   the left with overshoot (the marker's length is how long until the last one lands), and from its `out` marker
   each winds up and slides back out to the left. Sliders: Overshoot, Stagger (the most seconds one cloud starts
   after another).
-- `cloudBackground` — `sky` (the ditherGradientBackground precomp), then `clayClouds` through the site's clay
+- `cloudBackground` â€” `sky` (the ditherGradientBackground precomp), then `clayClouds` through the site's clay
   dither: Black & White, Levels (black 0.3, white 0.92), Craft Halftone & Dither (3 px cells), Tint (shade
   light blue, lit white).
 
@@ -121,9 +150,9 @@ build.sh builds ditherGradientBackground, then cloudBackground, then the rest, b
 ## ascii3D
 
 One clay cloud drawn in ASCII characters, on the ditherGradientBackground sky held mostly blue with the dither just
-creeping in at the bottom of the frame (1920×1080, 5 s).
+creeping in at the bottom of the frame (1920Ã—1080, 5 s).
 
-- **cloudSolo** — the one cloud, in its own Advanced 3D comp: the same 30° camera, ambient, warm key and blue fill
+- **cloudSolo** â€” the one cloud, in its own Advanced 3D comp: the same 30Â° camera, ambient, warm key and blue fill
   lights as `clayClouds`, and one cloud built from our six spheres under a null. It drifts slowly either side, bobs
   and turns, and slides in from off the left from its `in` marker with overshoot (Overshoot slider). Add an `out`
   marker to have it wind back out.
@@ -131,16 +160,16 @@ creeping in at the bottom of the frame (1920×1080, 5 s).
   Mono characters, from the ramp `` . , ' ` : - = + * # % @ ``, one grid per brightness band. The lit tops of the cloud
   get the dense glyphs, the body the mid ones, the shadows the sparse ones, and each grid is revealed only where the
   cloud is that bright.
-- **The mattes** are three copies of `cloudSolo`, not rendered: a Levels stretches the cloud's shading to 0–1, a
+- **The mattes** are three copies of `cloudSolo`, not rendered: a Levels stretches the cloud's shading to 0â€“1, a
   second Levels clips that to the band, and each is the luma track matte of its grid. EffectCraft renders the 3D
   scene for each one, so the comp costs roughly three cloud renders a frame.
-- **The sky** is the `ditherGradientBackground` precomp, time-remapped to `0.55 + time * 0.21` so its 0 → 100 Wipe
+- **The sky** is the `ditherGradientBackground` precomp, time-remapped to `0.55 + time * 0.21` so its 0 â†’ 100 Wipe
   only reaches a little way up from the bottom instead of wiping the frame to white. Change that expression for more
   or less of the fade.
 
 Essential Graphics: **Density** (0 is the built-in band split, positive draws more of the cloud so the ASCII is
 denser, negative leaves only the brightest parts drawn), **Ink** (the glyphs on the lit parts of the cloud) and
-**Shade** (the glyphs in its shadows — the three bands are drawn in Ink, Ink at 78% and Shade, so the shading reads as
+**Shade** (the glyphs in its shadows â€” the three bands are drawn in Ink, Ink at 78% and Shade, so the shading reads as
 form instead of one flat white silhouette).
 
 The grids are laid out for a monospace font: JetBrains Mono advances 0.6 em, so the glyph size sets the columns and
@@ -149,22 +178,22 @@ changing them means editing `typewriterVariations.mjs` and rebuilding.
 
 ## tiktok
 
-A wall of TikToks (1920×1080, 8 s): three columns of 9:16 TikTok tiles filling the width, each column scrolling up at
+A wall of TikToks (1920Ã—1080, 8 s): three columns of 9:16 TikTok tiles filling the width, each column scrolling up at
 its own speed.
 
-- **`tiktok 01`…`tiktok 09`** — one 1080×1920 TikTok each: the clip covering the frame, and the like, comment and
+- **`tiktok 01`â€¦`tiktok 09`** â€” one 1080Ã—1920 TikTok each: the clip covering the frame, and the like, comment and
   save icons with their counts stacked down the right edge in white. The icons are the ones from the rea-looksmaxxing
   project (`assets/tiktok/like.png`, `comment.png`, `save.png`).
-- **`tiktok`** — the wall: three columns of five tiles each (its three, then the first two again), each scrolling up at
+- **`tiktok`** â€” the wall: three columns of five tiles each (its three, then the first two again), each scrolling up at
   its own speed (42, 96, 158 px/s) and wrapping every three, with a 60 px gutter between the tiles.
 - **Markers on `controls`**: `in` at 0 (1.2 s) slides the columns up into the frame from below with overshoot; `out` at
   6 (1.8 s) eases them up and out. The out slide covers the whole stack plus the frame, so the outermost tile clears and
-  nothing is left behind — the tiles slide out, they are not wiped by a panel edge. The scroll keeps running underneath.
+  nothing is left behind â€” the tiles slide out, they are not wiped by a panel edge. The scroll keeps running underneath.
   Move a marker to retime; delete `out` to keep the wall on screen.
 - Essential Graphics: **Overshoot** (how far past the frame a column swings when it slides in) and **Stagger** (the most
   seconds one column starts after another).
 
-The clips are `log-hyperframes/effectcraft/tiktok/tt01…tt09.mp4`, imported from there, so this template needs that
+The clips are `log-hyperframes/effectcraft/tiktok/tt01â€¦tt09.mp4`, imported from there, so this template needs that
 folder on disk (the project keeps them as online media, referenced by absolute path).
 
 ## ditherGradientBackground
@@ -175,7 +204,7 @@ from fully blue to fully white. Two bands, each a black-to-white Gradient Ramp t
 491 px.
 
 **Wipe** is a slider on the `controls` null that moves both bands together: 0 is fully blue (the fade sits below
-the frame), 100 is fully white (the fade has gone off the top). It's keyframed 0 → 100 over the 5 s comp with easy
+the frame), 100 is fully white (the fade has gone off the top). It's keyframed 0 â†’ 100 over the 5 s comp with easy
 ease, so the fade comes up slowly, speeds up, and lands on white at the end. Move the keyframes to retime it, or
 remove them and set one value for a still gradient (about 45 gives the original look).
 
@@ -190,29 +219,29 @@ band's Middle Color and Pixel Size by expression. cloudBackground and introCard 
 A wall of blue rounded bricks filling the frame (8 rows of same-size bricks in a running bond), each holding one word
 picked at random from a sentence.
 
-- **Sentence** — the `sentence` guide layer (not rendered). Type any sentence; every brick picks its words from it.
-- **Build** (0–100, on `controls`) — the bricks pop in one by one in a fixed random order with overshoot; at 100 the
-  wall fills the whole comp. Keyframed 0 → 100 over the first 2.5 s. **Overshoot** sets the pop.
-- **Scramble** (checkbox, off by default) — every brick swaps to another random word every **Scramble Every** seconds.
-- **Brick Color** — the bricks' colour. Words are Satoshi Bold in white and shrink to fit their brick.
+- **Sentence** â€” the `sentence` guide layer (not rendered). Type any sentence; every brick picks its words from it.
+- **Build** (0â€“100, on `controls`) â€” the bricks pop in one by one in a fixed random order with overshoot; at 100 the
+  wall fills the whole comp. Keyframed 0 â†’ 100 over the first 2.5 s. **Overshoot** sets the pop.
+- **Scramble** (checkbox, off by default) â€” every brick swaps to another random word every **Scramble Every** seconds.
+- **Brick Color** â€” the bricks' colour. Words are Satoshi Bold in white and shrink to fit their brick.
 
 All of these are in Essential Graphics. `effects/brickTextBackground/NOTES.md` explains a heavier version that was
 removed, and why it was too heavy.
 
 ## claudeCode, codex, terminal
 
-The agent windows from log-cli's landing page, rebuilt as reusable precomps (1920×1080, transparent background,
+The agent windows from log-cli's landing page, rebuilt as reusable precomps (1920Ã—1080, transparent background,
 window centred, 6 s), from plain shapes and text so they stay light:
 
-- **claudeCode** — the cream Claude window (`site/apps/web/src/landing/AgentSession.tsx`): sidebar with Claude,
-  New session, Chats, Code and Recents; the your-marketing / main bar; a prompt bubble, a `log · twitterDms` tool
-  card with its result, the reply in serif; the "Reply to Claude…" box with Opus 5.5 and the orange send button.
-- **codex** — the white Codex window from the same file: New thread, the your-marketing recents, the thread title
+- **claudeCode** â€” the cream Claude window (`site/apps/web/src/landing/AgentSession.tsx`): sidebar with Claude,
+  New session, Chats, Code and Recents; the your-marketing / main bar; a prompt bubble, a `log Â· twitterDms` tool
+  card with its result, the reply in serif; the "Reply to Claudeâ€¦" box with Opus 5.5 and the orange send button.
+- **codex** â€” the white Codex window from the same file: New thread, the your-marketing recents, the thread title
   and branch, the prompt pill, "Called log.twitterDms" with its result box, the reply, and "Ask Codex anything".
-- **terminal** — the Claude Code CLI window from the rea-looksmaxxing project (`log-hyperframes/effectcraft/scene2`):
-  near-black with a title bar, traffic lights and "matt — claude — ~/log", the orange-bordered "Welcome to Claude
-  Code" box, then the session in JetBrains Mono: the prompt typed after `>`, an orange ● log tool line, a grey └
-  result and a blue ● reply. The window pops in.
+- **terminal** â€” the Claude Code CLI window from the rea-looksmaxxing project (`log-hyperframes/effectcraft/scene2`):
+  near-black with a title bar, traffic lights and "matt â€” claude â€” ~/log", the orange-bordered "Welcome to Claude
+  Code" box, then the session in JetBrains Mono: the prompt typed after `>`, an orange â— log tool line, a grey â””
+  result and a blue â— reply. The window pops in.
 
 The Claude and Codex marks are the real ones from log-cli's `BrandMark.tsx`, saved as `assets/claude.svg` and
 `assets/codex.svg`.
@@ -228,3 +257,4 @@ Essential Graphics: Prompt, Tool, Reply (and Result on the terminal).
   table at its top to add or change one.
 - `bash build.sh` rebuilds the project, sorts it into folders (`organize.json`; add a new template's comp there), names the slider controls and re-applies their expressions (`nameControls.jsx`), and writes the
   templates. Close the project in EffectCraft first.
+

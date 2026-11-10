@@ -1423,3 +1423,134 @@ const bluekeyScaleExpression = [
 }
 
 
+
+
+// strawberryType: the typographic beats of the Strawberry launch (x.com/TechByMarkandey/status/2114687171789779414),
+// rebuilt as one precomp per scene — same words, sizes and colours as the reference, on the paper background.
+// Each line is one text layer; a word in another colour is a text animator with a range selector over those
+// characters, so editing the line keeps the colour on the same word. Every line pops in from 0 to full size with
+// overshoot, one after another, then holds. Each scene is its own effect folder (type01 … type15).
+{
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const animator = "text/animators/animator";
+
+  const ink = [0.07, 0.07, 0.07];
+  const orange = [1, 0.38, 0.24];
+  const purple = [0.52, 0.4, 0.95];
+  const green = [0.2, 0.78, 0.36];
+  const paper = "#FAF7F0";
+  const duration = 3;
+
+  const lineSteps = (layer, { text, size, y, colour = ink, highlight }) => {
+    const steps = [
+      { command: "layer.newText", params: { text, name: layer, position: [960, y], font: "Satoshi", style: "Black", size, fill: colour, justify: "center" } },
+      expr(layer, "transform/anchor", [
+        `var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);`,
+        `[r.left + r.width / 2, r.top + r.height / 2, 0]`,
+      ].join("\n")),
+    ];
+    if (highlight) {
+      steps.push(
+        { command: "layer.addTextAnimator", params: { layer, properties: ["fillColor"], name: "colour" } },
+        set(layer, `${animator}/selectors/rangeSelector/start`, ((highlight.from - 1) / text.length) * 100),
+        set(layer, `${animator}/selectors/rangeSelector/end`, (highlight.to / text.length) * 100),
+        set(layer, `${animator}/properties/fillColor`, [...highlight.colour, 1]),
+      );
+    }
+    return steps;
+  };
+
+  const popSteps = (layer, i) => {
+    const t = 0.12 + i * 0.12;
+    return [
+      expr(layer, "transform/scale", [
+        `function clamp(v) { return Math.min(Math.max(v, 0), 1); }`,
+        `var t = clamp((time - ${t.toFixed(2)}) / 0.34), u = t - 1;`,
+        `var ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;`,
+        `[100 * s, 100 * s, 100]`,
+      ].join("\n")),
+      expr(layer, "transform/opacity", `Math.min(Math.max((time - ${t.toFixed(2)}) / 0.10, 0), 1) * 100`),
+    ];
+  };
+
+  const scenes = [
+    { id: "01", lines: [
+      { text: "You want", size: 150, y: 380 },
+      { text: "to move", size: 150, y: 530, colour: purple },
+      { text: "fast", size: 150, y: 680, colour: purple },
+    ] },
+    { id: "02", lines: [
+      { text: "You need a team", size: 110, y: 540, highlight: { from: 10, to: 15, colour: orange } },
+    ] },
+    { id: "03", lines: [
+      { text: "The AI team", size: 120, y: 400 },
+      { text: "that works alongside you", size: 92, y: 530, highlight: { from: 6, to: 10, colour: purple } },
+    ] },
+    { id: "04", lines: [
+      { text: "I can do", size: 110, y: 300 },
+      { text: "sales", size: 92, y: 450, colour: green },
+      { text: "research", size: 92, y: 580, colour: [0.36, 0.56, 0.95] },
+      { text: "marketing", size: 92, y: 710, colour: [0.95, 0.45, 0.4] },
+    ] },
+    { id: "05", lines: [
+      { text: "I work", size: 110, y: 540, highlight: { from: 3, to: 6, colour: orange } },
+    ] },
+    { id: "06", lines: [
+      { text: "in your tabs apps docs", size: 100, y: 540 },
+    ] },
+    { id: "07", lines: [
+      { text: "Transcribe meetings", size: 96, y: 540, highlight: { from: 1, to: 10, colour: [0.16, 0.6, 0.53] } },
+    ] },
+    { id: "08", lines: [
+      { text: "Everyone", size: 140, y: 540, colour: orange },
+    ] },
+    { id: "09", lines: [
+      { text: "Everyone", size: 110, y: 470, colour: orange },
+      { text: "on your team", size: 110, y: 610 },
+    ] },
+    { id: "10", lines: [
+      { text: "gets a companion", size: 100, y: 540 },
+    ] },
+    { id: "11", lines: [
+      { text: "Works on 1.7 billion", size: 96, y: 470 },
+      { text: "websites", size: 96, y: 600 },
+    ] },
+    { id: "12", lines: [
+      { text: "266k companions", size: 96, y: 470 },
+      { text: "already created", size: 96, y: 600 },
+    ] },
+    { id: "13", lines: [
+      { text: "Discover", size: 170, y: 420 },
+      { text: "a new way", size: 110, y: 570, colour: orange },
+      { text: "to work", size: 110, y: 700 },
+    ] },
+    { id: "14", lines: [
+      { text: "Claim your", size: 110, y: 470 },
+      { text: "companion today", size: 110, y: 610, highlight: { from: 1, to: 9, colour: orange } },
+    ] },
+    { id: "15", lines: [
+      { text: "Download now", size: 96, y: 470 },
+      { text: "for free", size: 96, y: 600, colour: orange },
+    ] },
+  ];
+
+  for (const scene of scenes) {
+    const comp = `type${scene.id}`;
+    const steps = [
+      { command: "comp.new", params: { name: comp, width: 1920, height: 1080, frameRate: 30, duration, background: paper, open: true } },
+    ];
+    scene.lines.forEach((ln, i) => {
+      const layer = `line ${i + 1}`;
+      steps.push(...lineSteps(layer, ln), ...popSteps(layer, i));
+      steps.push({ command: "essential.addProperty", params: { comp, layer, path: "text/sourceText", name: `Text ${i + 1}` } });
+    });
+    steps.push({ command: "essential.setName", params: { comp, name: comp } });
+    steps.push({ command: "comp.close", params: { comp } });
+    mkdirSync(`effects/type${scene.id}`, { recursive: true });
+    writeFileSync(`effects/type${scene.id}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+  }
+}
+
+
+

@@ -1,0 +1,119 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "type02",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 3,
+      "background": "#FAF7F0",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "You need a team",
+      "name": "line 1",
+      "position": [
+        960,
+        540
+      ],
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 110,
+      "fill": [
+        0.07,
+        0.07,
+        0.07
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 1",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "line 1",
+      "properties": [
+        "fillColor"
+      ],
+      "name": "colour"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "line 1",
+      "path": "text/animators/animator/selectors/rangeSelector/start",
+      "value": 60
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "line 1",
+      "path": "text/animators/animator/selectors/rangeSelector/end",
+      "value": 100
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "line 1",
+      "path": "text/animators/animator/properties/fillColor",
+      "value": [
+        1,
+        0.38,
+        0.24,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 1",
+      "path": "transform/scale",
+      "expression": "function clamp(v) { return Math.min(Math.max(v, 0), 1); }\nvar t = clamp((time - 0.12) / 0.34), u = t - 1;\nvar ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 1",
+      "path": "transform/opacity",
+      "expression": "Math.min(Math.max((time - 0.12) / 0.10, 0), 1) * 100"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "type02",
+      "layer": "line 1",
+      "path": "text/sourceText",
+      "name": "Text 1"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "type02",
+      "name": "type02"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "type02"
+    }
+  }
+]

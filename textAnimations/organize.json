@@ -1,5 +1,7 @@
-[
+﻿[
   { "command": "project.newFolder", "params": { "name": "Text Animations" } },
+  { "command": "project.newFolder", "params": { "name": "Strawberry Type" } },
+  { "command": "project.move", "params": { "items": ["Strawberry Type"], "folder": "Text Animations" } },
   { "command": "project.newFolder", "params": { "name": "Title Cards" } },
   { "command": "project.newFolder", "params": { "name": "Backgrounds" } },
   { "command": "project.newFolder", "params": { "name": "Parts" } },
@@ -12,6 +14,7 @@
   { "command": "project.move", "params": { "items": ["TikTok Clips"], "folder": "Assets" } },
   { "command": "project.move", "params": { "items": ["typewriter", "typewriterOvershoot", "typewriterOvershootFast", "typewriterOvershootWords", "typewriterOvershootRotate", "continuousScale", "fadeUpCharacters", "cvBluekey"], "folder": "Text Animations" } },
   { "command": "project.move", "params": { "items": ["introCard", "blackHighlightFocus"], "folder": "Title Cards" } },
+  { "command": "project.move", "params": { "items": ["type01", "type02", "type03", "type04", "type05", "type06", "type07", "type08", "type09", "type10", "type11", "type12", "type13", "type14", "type15"], "folder": "Strawberry Type" } },
   { "command": "project.move", "params": { "items": ["ditherGradientBackground", "cloudBackground", "brickTextBackground", "ascii3D", "tiktok"], "folder": "Backgrounds" } },
   { "command": "project.move", "params": { "items": ["clayClouds", "cloudSolo"], "folder": "Parts" } },
   { "command": "project.move", "params": { "items": ["tiktok 01", "tiktok 02", "tiktok 03", "tiktok 04", "tiktok 05", "tiktok 06", "tiktok 07", "tiktok 08", "tiktok 09"], "folder": "TikToks" } },
@@ -19,3 +22,4 @@
   { "command": "project.move", "params": { "items": ["claude.svg", "codex.svg", "like.png", "comment.png", "save.png", "Solids"], "folder": "Assets" } },
   { "command": "project.move", "params": { "items": ["tt01.mp4", "tt02.mp4", "tt03.mp4", "tt04.mp4", "tt05.mp4", "tt06.mp4", "tt07.mp4", "tt08.mp4", "tt09.mp4"], "folder": "TikTok Clips" } }
 ]
+

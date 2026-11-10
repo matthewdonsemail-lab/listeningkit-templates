@@ -1,0 +1,186 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "type01",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 3,
+      "background": "#FAF7F0",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "You want",
+      "name": "line 1",
+      "position": [
+        960,
+        380
+      ],
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 150,
+      "fill": [
+        0.07,
+        0.07,
+        0.07
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 1",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 1",
+      "path": "transform/scale",
+      "expression": "function clamp(v) { return Math.min(Math.max(v, 0), 1); }\nvar t = clamp((time - 0.12) / 0.34), u = t - 1;\nvar ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 1",
+      "path": "transform/opacity",
+      "expression": "Math.min(Math.max((time - 0.12) / 0.10, 0), 1) * 100"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "type01",
+      "layer": "line 1",
+      "path": "text/sourceText",
+      "name": "Text 1"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "to move",
+      "name": "line 2",
+      "position": [
+        960,
+        530
+      ],
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 150,
+      "fill": [
+        0.52,
+        0.4,
+        0.95
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 2",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 2",
+      "path": "transform/scale",
+      "expression": "function clamp(v) { return Math.min(Math.max(v, 0), 1); }\nvar t = clamp((time - 0.24) / 0.34), u = t - 1;\nvar ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 2",
+      "path": "transform/opacity",
+      "expression": "Math.min(Math.max((time - 0.24) / 0.10, 0), 1) * 100"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "type01",
+      "layer": "line 2",
+      "path": "text/sourceText",
+      "name": "Text 2"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "fast",
+      "name": "line 3",
+      "position": [
+        960,
+        680
+      ],
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 150,
+      "fill": [
+        0.52,
+        0.4,
+        0.95
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 3",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 3",
+      "path": "transform/scale",
+      "expression": "function clamp(v) { return Math.min(Math.max(v, 0), 1); }\nvar t = clamp((time - 0.36) / 0.34), u = t - 1;\nvar ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "line 3",
+      "path": "transform/opacity",
+      "expression": "Math.min(Math.max((time - 0.36) / 0.10, 0), 1) * 100"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "type01",
+      "layer": "line 3",
+      "path": "text/sourceText",
+      "name": "Text 3"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "type01",
+      "name": "type01"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "type01"
+    }
+  }
+]
