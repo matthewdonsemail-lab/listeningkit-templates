@@ -11,7 +11,7 @@
   { "command": "project.newFolder", "params": { "name": "TikTok Clips" } },
   { "command": "project.move", "params": { "items": ["TikTok Clips"], "folder": "Assets" } },
   { "command": "project.move", "params": { "items": ["typewriter", "typewriterOvershoot", "typewriterOvershootFast", "typewriterOvershootWords", "typewriterOvershootRotate", "continuousScale", "fadeUpCharacters", "cvBluekey"], "folder": "Text Animations" } },
-  { "command": "project.move", "params": { "items": ["introCard"], "folder": "Title Cards" } },
+  { "command": "project.move", "params": { "items": ["introCard", "blackHighlightFocus"], "folder": "Title Cards" } },
   { "command": "project.move", "params": { "items": ["ditherGradientBackground", "cloudBackground", "brickTextBackground", "ascii3D", "tiktok"], "folder": "Backgrounds" } },
   { "command": "project.move", "params": { "items": ["clayClouds", "cloudSolo"], "folder": "Parts" } },
   { "command": "project.move", "params": { "items": ["tiktok 01", "tiktok 02", "tiktok 03", "tiktok 04", "tiktok 05", "tiktok 06", "tiktok 07", "tiktok 08", "tiktok 09"], "folder": "TikToks" } },

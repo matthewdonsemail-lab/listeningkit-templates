@@ -59,6 +59,23 @@ pops out in reverse from the `out` marker, and wobbles and bobs while on screen.
 
 Sliders: `Continuous Scale` (% per second, default 6), `Wobble` (degrees, default 2), `Bob` (pixels, default 6).
 
+## blackHighlightFocus
+
+Typography on black, rebuilt from the Strawberry launch
+(`x.com/TechByMarkandey/status/2114687171789779414`): a kicker, the big word with a highlight pill snapped in behind it,
+and the word under it (1920×1080, 5 s).
+
+- **The focus**: every line comes up out of a Gaussian blur (Focus Blur, 30 px by default), from 112% down to 100%,
+  fading on as it sharpens, one line after another. The pill behind the big word snaps in with overshoot instead of
+  settling. At the `out` marker each line blurs nothing but fades and shrinks away.
+- **Markers on `controls`**: `in` (0, 1.6 s) sets the focus length — each line's focus is a third of that — and `out`
+  (3.4, 1.2 s) sends them away. Drag them to retime.
+- Essential Graphics: **Focus Blur** (how far out of focus a line starts), **Stagger** (seconds between lines),
+  **Overshoot** (the pill's pop), and the three lines: **Kicker**, **Highlight**, **Word**.
+
+In the reference the pill is a pale tint with a saturated word inside it; on black the pill is brand blue and the type
+white, which reads the same way. The mascots and the UI shots are left out — it is only the type.
+
 ## introCard
 
 A title card precomp (1920×1080, 5 s):

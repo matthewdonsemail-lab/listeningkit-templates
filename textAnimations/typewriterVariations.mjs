@@ -1328,3 +1328,98 @@ const bluekeyScaleExpression = [
 
 
 
+
+// blackHighlightFocus: the typography from the Strawberry launch (x.com/TechByMarkandey/status/2114687171789779414),
+// on black: a kicker, then the big word with a highlight pill snapped in behind it, then the word under it. Each one
+// focuses in — it comes up out of a blur and settles — and a marker-driven out fades them away.
+// The reference puts a pale pill behind a saturated word; here the pill is brand blue and the type is white, so it
+// reads the same way on black.
+// Essential Graphics: Focus Blur, Stagger, Overshoot, and the three lines of text.
+{
+  const name = "blackHighlightFocus";
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
+  const duration = 5;
+
+  // Every layer shares these: the marker timing, the stagger and the two numbers that shape the focus.
+  const control = (index) => [
+    `var c = thisComp.layer("controls");`,
+    `var ov = c.effect("Overshoot")("Slider"), stagger = Math.max(c.effect("Stagger")("Slider"), 0);`,
+    `var blur0 = c.effect("Focus Blur")("Slider");`,
+    `function markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }`,
+    `function clamp(t) { return Math.min(Math.max(t, 0), 1); }`,
+    `var delay = stagger * ${index};`,
+    `var mIn = markerKey("in"), mOut = markerKey("out");`,
+    `var focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;`,
+    `var p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;`,
+  ];
+  // Comes up out of a blur, from 112% to 100%, fading on quickly.
+  const focusIn = (index) => ({
+    opacity: [...control(index), `var o = mIn ? Math.min(p * 2.2, 1) : 1;`, `if (mOut && time >= mOut.time) o *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);`, `o * 100`].join("\n"),
+    blur: [...control(index), `(1 - p) * blur0`].join("\n"),
+    scale: [...control(index), `var s = 100 + 12 * (1 - p);`, `if (mOut && time >= mOut.time) s *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);`, `[s, s, 100]`].join("\n"),
+  });
+  // The pill snaps in behind the word with overshoot instead of settling.
+  const pillIn = (index) => ({
+    opacity: [...control(index), `var o = mIn ? Math.min(p * 2.5, 1) : 1;`, `if (mOut && time >= mOut.time) o *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);`, `o * 100`].join("\n"),
+    scale: [...control(index), `function backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }`, `var s = mIn ? backOut(p) : 1;`, `if (mOut && time >= mOut.time) s *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);`, `[100 * s, 100 * s, 100]`].join("\n"),
+  });
+
+  const centred = [
+    `var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);`,
+    `[r.left + r.width / 2, r.top + r.height / 2, 0]`,
+  ].join("\n");
+
+  const line = (layer, text, font, style, size, y, index, colour, dim = 100) => {
+    const look = focusIn(index);
+    look.opacity = look.opacity.replace(/\* 100$/, `* ${dim}`);
+    return [
+      { command: "layer.newText", params: { text, name: layer, position: [960, y], font, style, size, fill: colour, justify: "center" } },
+      expr(layer, "transform/anchor", centred),
+      fx(layer, "Gaussian Blur"),
+      expr(layer, "effects/#1/blurriness", look.blur),
+      expr(layer, "transform/opacity", look.opacity),
+      expr(layer, "transform/scale", look.scale),
+    ];
+  };
+
+  const pill = pillIn(1);
+  const steps = [
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, background: "#000000", open: true } },
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    fx("controls", "Slider Control"),
+    fx("controls", "Slider Control"),
+    set("controls", "effects/#1/slider", 30),
+    set("controls", "effects/#2/slider", 0.18),
+    set("controls", "effects/#3/slider", 1.3),
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 0, comment: "in" } },
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 3.4, comment: "out" } },
+    { command: "markers.set", params: { layer: "controls", index: 0, duration: 1.6 } },
+    { command: "markers.set", params: { layer: "controls", index: 1, duration: 1.2 } },
+    { command: "layer.setSwitch", params: { layers: ["controls"], switch: "guide", value: true } },
+
+    // The pill sits behind the big word, so it is created first.
+    { command: "layer.newShape", params: { kind: "rounded", name: "highlight pill", size: [980, 214], fill: [0.165, 0.549, 1], position: [960, 512] } },
+    set("highlight pill", "contents/group/contents/rect/roundness", 107),
+    expr("highlight pill", "transform/opacity", pill.opacity),
+    expr("highlight pill", "transform/scale", pill.scale),
+
+    ...line("word highlight", "highlight", "Satoshi", "Black", 170, 512, 1, [1, 1, 1]),
+    ...line("word focus", "focus", "Satoshi", "Black", 150, 742, 2, [1, 1, 1]),
+    ...line("kicker", "black", "Satoshi", "Medium", 54, 306, 0, [1, 1, 1], 62),
+
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Focus Blur" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#2/slider", name: "Stagger" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#3/slider", name: "Overshoot" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "word highlight", path: "text/sourceText", name: "Highlight" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "word focus", path: "text/sourceText", name: "Word" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "kicker", path: "text/sourceText", name: "Kicker" } },
+  ];
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+}
+
+

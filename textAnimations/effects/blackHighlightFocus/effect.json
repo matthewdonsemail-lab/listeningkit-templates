@@ -1,0 +1,405 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "blackHighlightFocus",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 5,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "controls"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "controls"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "controls"
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "controls"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "value": 30
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#2/slider",
+      "value": 0.18
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#3/slider",
+      "value": 1.3
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "controls"
+      ],
+      "time": 0,
+      "comment": "in"
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "controls"
+      ],
+      "time": 3.4,
+      "comment": "out"
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "controls",
+      "index": 0,
+      "duration": 1.6
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "controls",
+      "index": 1,
+      "duration": 1.2
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "controls"
+      ],
+      "switch": "guide",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "highlight pill",
+      "size": [
+        980,
+        214
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        960,
+        512
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "highlight pill",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 107
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "highlight pill",
+      "path": "transform/opacity",
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nvar blur0 = c.effect(\"Focus Blur\")(\"Slider\");\nfunction markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar delay = stagger * 1;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;\nvar p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;\nvar o = mIn ? Math.min(p * 2.5, 1) : 1;\nif (mOut && time >= mOut.time) o *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);\no * 100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "highlight pill",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nvar blur0 = c.effect(\"Focus Blur\")(\"Slider\");\nfunction markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar delay = stagger * 1;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;\nvar p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nvar s = mIn ? backOut(p) : 1;\nif (mOut && time >= mOut.time) s *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);\n[100 * s, 100 * s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "highlight",
+      "name": "word highlight",
+      "position": [
+        960,
+        512
+      ],
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 170,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word highlight",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gaussian Blur",
+      "layers": [
+        "word highlight"
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word highlight",
+      "path": "effects/#1/blurriness",
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nvar blur0 = c.effect(\"Focus Blur\")(\"Slider\");\nfunction markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar delay = stagger * 1;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;\nvar p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;\n(1 - p) * blur0"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word highlight",
+      "path": "transform/opacity",
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nvar blur0 = c.effect(\"Focus Blur\")(\"Slider\");\nfunction markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar delay = stagger * 1;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;\nvar p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;\nvar o = mIn ? Math.min(p * 2.2, 1) : 1;\nif (mOut && time >= mOut.time) o *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);\no * 100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word highlight",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nvar blur0 = c.effect(\"Focus Blur\")(\"Slider\");\nfunction markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar delay = stagger * 1;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;\nvar p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;\nvar s = 100 + 12 * (1 - p);\nif (mOut && time >= mOut.time) s *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);\n[s, s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "focus",
+      "name": "word focus",
+      "position": [
+        960,
+        742
+      ],
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 150,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word focus",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gaussian Blur",
+      "layers": [
+        "word focus"
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word focus",
+      "path": "effects/#1/blurriness",
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nvar blur0 = c.effect(\"Focus Blur\")(\"Slider\");\nfunction markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar delay = stagger * 2;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;\nvar p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;\n(1 - p) * blur0"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word focus",
+      "path": "transform/opacity",
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nvar blur0 = c.effect(\"Focus Blur\")(\"Slider\");\nfunction markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar delay = stagger * 2;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;\nvar p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;\nvar o = mIn ? Math.min(p * 2.2, 1) : 1;\nif (mOut && time >= mOut.time) o *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);\no * 100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "word focus",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nvar blur0 = c.effect(\"Focus Blur\")(\"Slider\");\nfunction markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar delay = stagger * 2;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;\nvar p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;\nvar s = 100 + 12 * (1 - p);\nif (mOut && time >= mOut.time) s *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);\n[s, s, 100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "black",
+      "name": "kicker",
+      "position": [
+        960,
+        306
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 54,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "kicker",
+      "path": "transform/anchor",
+      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gaussian Blur",
+      "layers": [
+        "kicker"
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "kicker",
+      "path": "effects/#1/blurriness",
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nvar blur0 = c.effect(\"Focus Blur\")(\"Slider\");\nfunction markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar delay = stagger * 0;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;\nvar p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;\n(1 - p) * blur0"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "kicker",
+      "path": "transform/opacity",
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nvar blur0 = c.effect(\"Focus Blur\")(\"Slider\");\nfunction markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar delay = stagger * 0;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;\nvar p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;\nvar o = mIn ? Math.min(p * 2.2, 1) : 1;\nif (mOut && time >= mOut.time) o *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);\no * 62"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "kicker",
+      "path": "transform/scale",
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nvar blur0 = c.effect(\"Focus Blur\")(\"Slider\");\nfunction markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }\nfunction clamp(t) { return Math.min(Math.max(t, 0), 1); }\nvar delay = stagger * 0;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nvar focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;\nvar p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;\nvar s = 100 + 12 * (1 - p);\nif (mOut && time >= mOut.time) s *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);\n[s, s, 100]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "blackHighlightFocus",
+      "name": "blackHighlightFocus"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "blackHighlightFocus",
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "name": "Focus Blur"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "blackHighlightFocus",
+      "layer": "controls",
+      "path": "effects/#2/slider",
+      "name": "Stagger"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "blackHighlightFocus",
+      "layer": "controls",
+      "path": "effects/#3/slider",
+      "name": "Overshoot"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "blackHighlightFocus",
+      "layer": "word highlight",
+      "path": "text/sourceText",
+      "name": "Highlight"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "blackHighlightFocus",
+      "layer": "word focus",
+      "path": "text/sourceText",
+      "name": "Word"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "blackHighlightFocus",
+      "layer": "kicker",
+      "path": "text/sourceText",
+      "name": "Kicker"
+    }
+  }
+]

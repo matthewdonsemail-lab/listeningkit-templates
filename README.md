@@ -20,6 +20,7 @@ EffectCraft to see every comp, or import a single `.ectemplate` from `textAnimat
 | `fadeUpCharacters` | Letters fade up into place. |
 | `cvBluekey` | The ListeningKit sticker: pops in over 4 frames, wobbles and bobs. |
 | `introCard` | A title card: "Introducing", "listening kit" and a word-by-word subtext with highlighted, dash-underlined words. |
+| `blackHighlightFocus` | Typography on black: a kicker, a big word with a brand-blue pill snapped in behind it, and the word under it, each focusing up out of a blur. |
 | `claudeCode` | The Claude Code window from the landing page, playing a prompt, a log tool call and the reply. |
 | `codex` | The Codex window from the landing page, playing the same session. |
 | `terminal` | The Claude Code CLI window: welcome box, then a typed prompt, a log tool call, its result and the reply. |
@@ -103,6 +104,11 @@ Close the project in EffectCraft before rebuilding.
 
 To change a template or add one, edit `typewriterVariations.mjs` and run both commands again. A new template also
 needs its comp added to `organize.json`, and its slider names to `nameControls.jsx` if it has sliders.
+
+## Vendored
+
+[`vendor/rea-video`](vendor/README.md) — JuneYaooo's [rea-video](https://github.com/JuneYaooo/rea-video), the tool that
+reverse-engineers a reference video shot by shot. Its skill is installed for agents at `.claude/skills/rea-video`.
 
 ## Credits
 
