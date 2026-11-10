@@ -1224,14 +1224,14 @@ const bluekeyScaleExpression = [
     ] } },
   ];
 
-  // One 9:16 TikTok per tile: the clip, the three icons and their counts, and the profile.
+  // One 9:16 TikTok per tile: the clip, the action rail down the right, and the profile.
   const icon = (file, layer, x, y) => [
     { command: "layer.addItem", params: { item: file, time: 0, position: [x, y] } },
     { command: "layer.rename", params: { layer: file, name: layer } },
-    set(layer, "transform/scale", [50, 50, 100]),
+    set(layer, "transform/scale", [40, 40, 100]),
   ];
   const count = (layer, x, y, text) => [
-    { command: "layer.newText", params: { text, name: layer, position: [x, y], font: "Satoshi", style: "Bold", size: 62, fill: [0.165, 0.549, 1], justify: "center" } },
+    { command: "layer.newText", params: { text, name: layer, position: [x, y], font: "Satoshi", style: "Bold", size: 44, fill: [1, 1, 1], justify: "center" } },
   ];
 
   tiles.forEach((tile, i) => {
@@ -1243,14 +1243,16 @@ const bluekeyScaleExpression = [
       { command: "layer.addItem", params: { item: tile.clip, time: 0, position: [tileW / 2, tileH / 2] } },
       { command: "layer.rename", params: { layer: tile.clip, name: "clip" } },
       set("clip", "transform/scale", [cover, cover, 100]),
-      ...icon("like.png", "likes icon", 250, 420),
-      ...count("likes count", 250, 580, tile.likes),
-      ...icon("save.png", "saves icon", 830, 420),
-      ...count("saves count", 830, 580, tile.saves),
-      ...icon("comment.png", "comments icon", 830, 990),
-      ...count("comments count", 830, 1150, tile.comments),
+      // The action rail: avatar, then like, comment and save with their counts, all down the right edge.
+      { command: "layer.newShape", params: { kind: "ellipse", name: "avatar", size: [96, 96], fill: [0.165, 0.549, 1], stroke: [1, 1, 1], strokeWidth: 4, position: [962, 800] } },
+      ...icon("like.png", "likes icon", 962, 980),
+      ...count("likes count", 962, 1052, tile.likes),
+      ...icon("comment.png", "comments icon", 962, 1180),
+      ...count("comments count", 962, 1252, tile.comments),
+      ...icon("save.png", "saves icon", 962, 1380),
+      ...count("saves count", 962, 1452, tile.saves),
       // The profile, bottom left.
-      { command: "layer.newShape", params: { kind: "ellipse", name: "avatar", size: [92, 92], fill: [0.165, 0.549, 1], stroke: [1, 1, 1], strokeWidth: 4, position: [96, 1750] } },
+      { command: "layer.newShape", params: { kind: "ellipse", name: "profile avatar", size: [92, 92], fill: [0.165, 0.549, 1], stroke: [1, 1, 1], strokeWidth: 4, position: [96, 1750] } },
       { command: "layer.newText", params: { text: tile.handle, name: "handle", position: [158, 1764], font: "Satoshi", style: "Bold", size: 46, fill: [1, 1, 1], justify: "left" } },
       { command: "comp.close", params: { comp: tileName } },
     );

@@ -61,13 +61,39 @@
     }
   },
   {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        96,
+        96
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        962,
+        800
+      ]
+    }
+  },
+  {
     "command": "layer.addItem",
     "params": {
       "item": "like.png",
       "time": 0,
       "position": [
-        250,
-        420
+        962,
+        980
       ]
     }
   },
@@ -84,8 +110,8 @@
       "layer": "likes icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -96,65 +122,15 @@
       "text": "416K",
       "name": "likes count",
       "position": [
-        250,
-        580
+        962,
+        1052
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "save.png",
-      "time": 0,
-      "position": [
-        830,
-        420
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "save.png",
-      "name": "saves icon"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "saves icon",
-      "path": "transform/scale",
-      "value": [
-        50,
-        50,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "19,427",
-      "name": "saves count",
-      "position": [
-        830,
-        580
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 62,
-      "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -166,8 +142,8 @@
       "item": "comment.png",
       "time": 0,
       "position": [
-        830,
-        990
+        962,
+        1180
       ]
     }
   },
@@ -184,8 +160,8 @@
       "layer": "comments icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -196,15 +172,65 @@
       "text": "1,049",
       "name": "comments count",
       "position": [
-        830,
-        1150
+        962,
+        1252
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        962,
+        1380
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        40,
+        40,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "19,427",
+      "name": "saves count",
+      "position": [
+        962,
+        1452
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 44,
+      "fill": [
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -214,7 +240,7 @@
     "command": "layer.newShape",
     "params": {
       "kind": "ellipse",
-      "name": "avatar",
+      "name": "profile avatar",
       "size": [
         92,
         92
@@ -305,13 +331,39 @@
     }
   },
   {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        96,
+        96
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        962,
+        800
+      ]
+    }
+  },
+  {
     "command": "layer.addItem",
     "params": {
       "item": "like.png",
       "time": 0,
       "position": [
-        250,
-        420
+        962,
+        980
       ]
     }
   },
@@ -328,8 +380,8 @@
       "layer": "likes icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -340,65 +392,15 @@
       "text": "212K",
       "name": "likes count",
       "position": [
-        250,
-        580
+        962,
+        1052
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "save.png",
-      "time": 0,
-      "position": [
-        830,
-        420
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "save.png",
-      "name": "saves icon"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "saves icon",
-      "path": "transform/scale",
-      "value": [
-        50,
-        50,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "8,310",
-      "name": "saves count",
-      "position": [
-        830,
-        580
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 62,
-      "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -410,8 +412,8 @@
       "item": "comment.png",
       "time": 0,
       "position": [
-        830,
-        990
+        962,
+        1180
       ]
     }
   },
@@ -428,8 +430,8 @@
       "layer": "comments icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -440,15 +442,65 @@
       "text": "742",
       "name": "comments count",
       "position": [
-        830,
-        1150
+        962,
+        1252
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        962,
+        1380
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        40,
+        40,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "8,310",
+      "name": "saves count",
+      "position": [
+        962,
+        1452
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 44,
+      "fill": [
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -458,7 +510,7 @@
     "command": "layer.newShape",
     "params": {
       "kind": "ellipse",
-      "name": "avatar",
+      "name": "profile avatar",
       "size": [
         92,
         92
@@ -549,13 +601,39 @@
     }
   },
   {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        96,
+        96
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        962,
+        800
+      ]
+    }
+  },
+  {
     "command": "layer.addItem",
     "params": {
       "item": "like.png",
       "time": 0,
       "position": [
-        250,
-        420
+        962,
+        980
       ]
     }
   },
@@ -572,8 +650,8 @@
       "layer": "likes icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -584,65 +662,15 @@
       "text": "89.4K",
       "name": "likes count",
       "position": [
-        250,
-        580
+        962,
+        1052
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "save.png",
-      "time": 0,
-      "position": [
-        830,
-        420
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "save.png",
-      "name": "saves icon"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "saves icon",
-      "path": "transform/scale",
-      "value": [
-        50,
-        50,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "5,208",
-      "name": "saves count",
-      "position": [
-        830,
-        580
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 62,
-      "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -654,8 +682,8 @@
       "item": "comment.png",
       "time": 0,
       "position": [
-        830,
-        990
+        962,
+        1180
       ]
     }
   },
@@ -672,8 +700,8 @@
       "layer": "comments icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -684,15 +712,65 @@
       "text": "310",
       "name": "comments count",
       "position": [
-        830,
-        1150
+        962,
+        1252
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        962,
+        1380
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        40,
+        40,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "5,208",
+      "name": "saves count",
+      "position": [
+        962,
+        1452
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 44,
+      "fill": [
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -702,7 +780,7 @@
     "command": "layer.newShape",
     "params": {
       "kind": "ellipse",
-      "name": "avatar",
+      "name": "profile avatar",
       "size": [
         92,
         92
@@ -793,13 +871,39 @@
     }
   },
   {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        96,
+        96
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        962,
+        800
+      ]
+    }
+  },
+  {
     "command": "layer.addItem",
     "params": {
       "item": "like.png",
       "time": 0,
       "position": [
-        250,
-        420
+        962,
+        980
       ]
     }
   },
@@ -816,8 +920,8 @@
       "layer": "likes icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -828,65 +932,15 @@
       "text": "1.2M",
       "name": "likes count",
       "position": [
-        250,
-        580
+        962,
+        1052
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "save.png",
-      "time": 0,
-      "position": [
-        830,
-        420
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "save.png",
-      "name": "saves icon"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "saves icon",
-      "path": "transform/scale",
-      "value": [
-        50,
-        50,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "44,019",
-      "name": "saves count",
-      "position": [
-        830,
-        580
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 62,
-      "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -898,8 +952,8 @@
       "item": "comment.png",
       "time": 0,
       "position": [
-        830,
-        990
+        962,
+        1180
       ]
     }
   },
@@ -916,8 +970,8 @@
       "layer": "comments icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -928,15 +982,65 @@
       "text": "6,882",
       "name": "comments count",
       "position": [
-        830,
-        1150
+        962,
+        1252
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        962,
+        1380
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        40,
+        40,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "44,019",
+      "name": "saves count",
+      "position": [
+        962,
+        1452
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 44,
+      "fill": [
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -946,7 +1050,7 @@
     "command": "layer.newShape",
     "params": {
       "kind": "ellipse",
-      "name": "avatar",
+      "name": "profile avatar",
       "size": [
         92,
         92
@@ -1037,13 +1141,39 @@
     }
   },
   {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        96,
+        96
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        962,
+        800
+      ]
+    }
+  },
+  {
     "command": "layer.addItem",
     "params": {
       "item": "like.png",
       "time": 0,
       "position": [
-        250,
-        420
+        962,
+        980
       ]
     }
   },
@@ -1060,8 +1190,8 @@
       "layer": "likes icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -1072,65 +1202,15 @@
       "text": "64.1K",
       "name": "likes count",
       "position": [
-        250,
-        580
+        962,
+        1052
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "save.png",
-      "time": 0,
-      "position": [
-        830,
-        420
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "save.png",
-      "name": "saves icon"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "saves icon",
-      "path": "transform/scale",
-      "value": [
-        50,
-        50,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "3,977",
-      "name": "saves count",
-      "position": [
-        830,
-        580
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 62,
-      "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -1142,8 +1222,8 @@
       "item": "comment.png",
       "time": 0,
       "position": [
-        830,
-        990
+        962,
+        1180
       ]
     }
   },
@@ -1160,8 +1240,8 @@
       "layer": "comments icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -1172,15 +1252,65 @@
       "text": "208",
       "name": "comments count",
       "position": [
-        830,
-        1150
+        962,
+        1252
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        962,
+        1380
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        40,
+        40,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "3,977",
+      "name": "saves count",
+      "position": [
+        962,
+        1452
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 44,
+      "fill": [
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -1190,7 +1320,7 @@
     "command": "layer.newShape",
     "params": {
       "kind": "ellipse",
-      "name": "avatar",
+      "name": "profile avatar",
       "size": [
         92,
         92
@@ -1281,13 +1411,39 @@
     }
   },
   {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        96,
+        96
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        962,
+        800
+      ]
+    }
+  },
+  {
     "command": "layer.addItem",
     "params": {
       "item": "like.png",
       "time": 0,
       "position": [
-        250,
-        420
+        962,
+        980
       ]
     }
   },
@@ -1304,8 +1460,8 @@
       "layer": "likes icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -1316,65 +1472,15 @@
       "text": "305K",
       "name": "likes count",
       "position": [
-        250,
-        580
+        962,
+        1052
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "save.png",
-      "time": 0,
-      "position": [
-        830,
-        420
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "save.png",
-      "name": "saves icon"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "saves icon",
-      "path": "transform/scale",
-      "value": [
-        50,
-        50,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "12,664",
-      "name": "saves count",
-      "position": [
-        830,
-        580
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 62,
-      "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -1386,8 +1492,8 @@
       "item": "comment.png",
       "time": 0,
       "position": [
-        830,
-        990
+        962,
+        1180
       ]
     }
   },
@@ -1404,8 +1510,8 @@
       "layer": "comments icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -1416,15 +1522,65 @@
       "text": "1,530",
       "name": "comments count",
       "position": [
-        830,
-        1150
+        962,
+        1252
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        962,
+        1380
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        40,
+        40,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "12,664",
+      "name": "saves count",
+      "position": [
+        962,
+        1452
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 44,
+      "fill": [
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -1434,7 +1590,7 @@
     "command": "layer.newShape",
     "params": {
       "kind": "ellipse",
-      "name": "avatar",
+      "name": "profile avatar",
       "size": [
         92,
         92
@@ -1525,13 +1681,39 @@
     }
   },
   {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        96,
+        96
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        962,
+        800
+      ]
+    }
+  },
+  {
     "command": "layer.addItem",
     "params": {
       "item": "like.png",
       "time": 0,
       "position": [
-        250,
-        420
+        962,
+        980
       ]
     }
   },
@@ -1548,8 +1730,8 @@
       "layer": "likes icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -1560,65 +1742,15 @@
       "text": "742K",
       "name": "likes count",
       "position": [
-        250,
-        580
+        962,
+        1052
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "save.png",
-      "time": 0,
-      "position": [
-        830,
-        420
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "save.png",
-      "name": "saves icon"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "saves icon",
-      "path": "transform/scale",
-      "value": [
-        50,
-        50,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "31,208",
-      "name": "saves count",
-      "position": [
-        830,
-        580
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 62,
-      "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -1630,8 +1762,8 @@
       "item": "comment.png",
       "time": 0,
       "position": [
-        830,
-        990
+        962,
+        1180
       ]
     }
   },
@@ -1648,8 +1780,8 @@
       "layer": "comments icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -1660,15 +1792,65 @@
       "text": "4,017",
       "name": "comments count",
       "position": [
-        830,
-        1150
+        962,
+        1252
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        962,
+        1380
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        40,
+        40,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "31,208",
+      "name": "saves count",
+      "position": [
+        962,
+        1452
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 44,
+      "fill": [
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -1678,7 +1860,7 @@
     "command": "layer.newShape",
     "params": {
       "kind": "ellipse",
-      "name": "avatar",
+      "name": "profile avatar",
       "size": [
         92,
         92
@@ -1769,13 +1951,39 @@
     }
   },
   {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        96,
+        96
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        962,
+        800
+      ]
+    }
+  },
+  {
     "command": "layer.addItem",
     "params": {
       "item": "like.png",
       "time": 0,
       "position": [
-        250,
-        420
+        962,
+        980
       ]
     }
   },
@@ -1792,8 +2000,8 @@
       "layer": "likes icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -1804,65 +2012,15 @@
       "text": "158K",
       "name": "likes count",
       "position": [
-        250,
-        580
+        962,
+        1052
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "save.png",
-      "time": 0,
-      "position": [
-        830,
-        420
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "save.png",
-      "name": "saves icon"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "saves icon",
-      "path": "transform/scale",
-      "value": [
-        50,
-        50,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "6,459",
-      "name": "saves count",
-      "position": [
-        830,
-        580
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 62,
-      "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -1874,8 +2032,8 @@
       "item": "comment.png",
       "time": 0,
       "position": [
-        830,
-        990
+        962,
+        1180
       ]
     }
   },
@@ -1892,8 +2050,8 @@
       "layer": "comments icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -1904,15 +2062,65 @@
       "text": "918",
       "name": "comments count",
       "position": [
-        830,
-        1150
+        962,
+        1252
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        962,
+        1380
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        40,
+        40,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "6,459",
+      "name": "saves count",
+      "position": [
+        962,
+        1452
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 44,
+      "fill": [
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -1922,7 +2130,7 @@
     "command": "layer.newShape",
     "params": {
       "kind": "ellipse",
-      "name": "avatar",
+      "name": "profile avatar",
       "size": [
         92,
         92
@@ -2013,13 +2221,39 @@
     }
   },
   {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        96,
+        96
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        962,
+        800
+      ]
+    }
+  },
+  {
     "command": "layer.addItem",
     "params": {
       "item": "like.png",
       "time": 0,
       "position": [
-        250,
-        420
+        962,
+        980
       ]
     }
   },
@@ -2036,8 +2270,8 @@
       "layer": "likes icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -2048,65 +2282,15 @@
       "text": "2.4M",
       "name": "likes count",
       "position": [
-        250,
-        580
+        962,
+        1052
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "save.png",
-      "time": 0,
-      "position": [
-        830,
-        420
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "save.png",
-      "name": "saves icon"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "saves icon",
-      "path": "transform/scale",
-      "value": [
-        50,
-        50,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "88,102",
-      "name": "saves count",
-      "position": [
-        830,
-        580
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 62,
-      "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -2118,8 +2302,8 @@
       "item": "comment.png",
       "time": 0,
       "position": [
-        830,
-        990
+        962,
+        1180
       ]
     }
   },
@@ -2136,8 +2320,8 @@
       "layer": "comments icon",
       "path": "transform/scale",
       "value": [
-        50,
-        50,
+        40,
+        40,
         100
       ]
     }
@@ -2148,15 +2332,65 @@
       "text": "12,740",
       "name": "comments count",
       "position": [
-        830,
-        1150
+        962,
+        1252
       ],
       "font": "Satoshi",
       "style": "Bold",
-      "size": 62,
+      "size": 44,
       "fill": [
-        0.165,
-        0.549,
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        962,
+        1380
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        40,
+        40,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "88,102",
+      "name": "saves count",
+      "position": [
+        962,
+        1452
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 44,
+      "fill": [
+        1,
+        1,
         1
       ],
       "justify": "center"
@@ -2166,7 +2400,7 @@
     "command": "layer.newShape",
     "params": {
       "kind": "ellipse",
-      "name": "avatar",
+      "name": "profile avatar",
       "size": [
         92,
         92
