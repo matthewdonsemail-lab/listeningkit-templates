@@ -132,18 +132,18 @@ changing them means editing `typewriterVariations.mjs` and rebuilding.
 
 ## tiktok
 
-A wall of TikToks behind the TikTok chrome (1920×1080, 8 s).
+A wall of TikToks (1920×1080, 8 s): three columns of 9:16 TikTok tiles filling the width, each column scrolling up at
+its own speed.
 
-- **Three columns** of portrait clips, each column 640 wide, scrolling up at different speeds (42, 96 and 158 px/s
-  at Speed 100) so the wall drifts against itself. Each column holds its three clips twice over and wraps every three,
-  so it scrolls forever without a seam.
-- **The chrome**: the TikTok logo, the Following / For You tabs, the action rail (avatar, ♥ 416K, ● 1,049, ➤ 19.4K),
-  and the handle, caption and music line bottom left, over a soft black fade.
-- Essential Graphics: **Speed** (all three columns together), **Handle**, **Caption**.
+- **`tiktok 01`…`tiktok 09`** — one 1080×1920 TikTok each: the clip covering the frame, the TikTok like, save and
+  comment icons with their counts, and the profile (avatar + @handle) bottom left. The icons are the ones from the
+  rea-looksmaxxing project (`assets/tiktok/like.png`, `comment.png`, `save.png`).
+- **`tiktok`** — the wall. Three columns, 640 wide, each holding its three tiles twice over and wrapping every three,
+  so it scrolls forever without a seam. Speeds are 42, 96 and 158 px/s at Speed 100.
+- Essential Graphics: **Speed** (all three columns together).
 
-The clips are the ones from the rea-looksmaxxing project — `log-hyperframes/effectcraft/tiktok/tt01…tt09.mp4` — imported
-from there, so this template needs that folder on disk (the project keeps them as online media, referenced by absolute
-path). The TikTok mark is `assets/plat_tiktok.png`.
+The clips are `log-hyperframes/effectcraft/tiktok/tt01…tt09.mp4`, imported from there, so this template needs that
+folder on disk (the project keeps them as online media, referenced by absolute path).
 
 ## ditherGradientBackground
 

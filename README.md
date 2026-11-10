@@ -25,7 +25,7 @@ EffectCraft to see every comp, or import a single `.ectemplate` from `textAnimat
 | `terminal` | The Claude Code CLI window: welcome box, then a typed prompt, a log tool call, its result and the reply. |
 | `cloudBackground` | 3D clay clouds drifting in depth layers, clay-dithered white and light blue, over the ditherGradientBackground sky. |
 | `ascii3D` | One 3D clay cloud drawn in ASCII characters, on the ditherGradientBackground sky held mostly blue with the dither just creeping in at the bottom. |
-| `tiktok` | Three columns of portrait TikToks scrolling up at different speeds, behind the TikTok chrome: tabs, logo, action rail, handle, caption and music. |
+| `tiktok` | Nine 9:16 TikTok tiles — clip, the like / comment / save icons with their counts, and the profile — in three columns scrolling up at different speeds. |
 | `brickTextBackground` | A wall of blue word bricks built from your sentence: Build pops them in until they fill the frame, Scramble swaps the words. |
 | `ditherGradientBackground` | Brand blue breaking into light blue, then white, in big square pixels, wiping from fully blue to fully white on a Wipe slider. |
 

@@ -385,7 +385,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "\u25a2  your-marketing      \u2442  main",
+      "text": "\u00e2–\u00a2  your-marketing      \u00e2‘‚  main",
       "name": "path",
       "position": [
         620,
@@ -532,7 +532,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "log \u00b7 twitterDms",
+      "text": "log \u00c2\u00b7 twitterDms",
       "name": "tool name",
       "position": [
         644,
@@ -572,7 +572,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "\u2713",
+      "text": "\u00e2œ“",
       "name": "tool check",
       "position": [
         1594,
@@ -640,7 +640,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "1. @dana_builds \u00b7 2h ago \u00b7 unread, waiting on you",
+      "text": "1. @dana_builds \u00c2\u00b7 2h ago \u00c2\u00b7 unread, waiting on you",
       "name": "tool result 2",
       "position": [
         644,
@@ -660,7 +660,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "2. @leo_ops \u00b7 5h ago \u00b7 unread, waiting on you",
+      "text": "2. @leo_ops \u00c2\u00b7 5h ago \u00c2\u00b7 unread, waiting on you",
       "name": "tool result 3",
       "position": [
         644,
@@ -751,7 +751,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "6 people are waiting on you, and 2 more opened your last message but didn\u2019t reply. Reading each thread in full before drafting anything.",
+      "text": "6 people are waiting on you, and 2 more opened your last message but didn\u00e2€™t reply. Reading each thread in full before drafting anything.",
       "name": "reply",
       "position": [
         620,
@@ -819,7 +819,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "Reply to Claude\u2026",
+      "text": "Reply to Claude\u00e2€\u00a6",
       "name": "input hint",
       "position": [
         644,
@@ -895,7 +895,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "Opus 5.5  \u25be",
+      "text": "Opus 5.5  \u00e2–\u00be",
       "name": "model",
       "position": [
         1460,
@@ -943,7 +943,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "\u2191",
+      "text": "\u00e2†‘",
       "name": "send arrow",
       "position": [
         1590,

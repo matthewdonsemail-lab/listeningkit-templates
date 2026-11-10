@@ -12,8 +12,2206 @@
         "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt07.mp4",
         "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt08.mp4",
         "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt09.mp4",
-        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/plat_tiktok.png"
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/tiktok/like.png",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/tiktok/comment.png",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/tiktok/save.png"
       ]
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok 01",
+      "width": 1080,
+      "height": 1920,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt01.mp4",
+      "time": 0,
+      "position": [
+        540,
+        960
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt01.mp4",
+      "name": "clip"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clip",
+      "path": "transform/scale",
+      "value": [
+        333.33,
+        333.33,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "like.png",
+      "time": 0,
+      "position": [
+        250,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "like.png",
+      "name": "likes icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "likes icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "416K",
+      "name": "likes count",
+      "position": [
+        250,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        830,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "19,427",
+      "name": "saves count",
+      "position": [
+        830,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "comment.png",
+      "time": 0,
+      "position": [
+        830,
+        990
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "comment.png",
+      "name": "comments icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "comments icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "1,049",
+      "name": "comments count",
+      "position": [
+        830,
+        1150
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        92,
+        92
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        96,
+        1750
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "@cutd0se",
+      "name": "handle",
+      "position": [
+        158,
+        1764
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok 01"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok 02",
+      "width": 1080,
+      "height": 1920,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt02.mp4",
+      "time": 0,
+      "position": [
+        540,
+        960
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt02.mp4",
+      "name": "clip"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clip",
+      "path": "transform/scale",
+      "value": [
+        266.67,
+        266.67,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "like.png",
+      "time": 0,
+      "position": [
+        250,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "like.png",
+      "name": "likes icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "likes icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "212K",
+      "name": "likes count",
+      "position": [
+        250,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        830,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "8,310",
+      "name": "saves count",
+      "position": [
+        830,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "comment.png",
+      "time": 0,
+      "position": [
+        830,
+        990
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "comment.png",
+      "name": "comments icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "comments icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "742",
+      "name": "comments count",
+      "position": [
+        830,
+        1150
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        92,
+        92
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        96,
+        1750
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "@clavicular3dits",
+      "name": "handle",
+      "position": [
+        158,
+        1764
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok 02"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok 03",
+      "width": 1080,
+      "height": 1920,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt03.mp4",
+      "time": 0,
+      "position": [
+        540,
+        960
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt03.mp4",
+      "name": "clip"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clip",
+      "path": "transform/scale",
+      "value": [
+        187.5,
+        187.5,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "like.png",
+      "time": 0,
+      "position": [
+        250,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "like.png",
+      "name": "likes icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "likes icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "89.4K",
+      "name": "likes count",
+      "position": [
+        250,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        830,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "5,208",
+      "name": "saves count",
+      "position": [
+        830,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "comment.png",
+      "time": 0,
+      "position": [
+        830,
+        990
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "comment.png",
+      "name": "comments icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "comments icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "310",
+      "name": "comments count",
+      "position": [
+        830,
+        1150
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        92,
+        92
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        96,
+        1750
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "@loganmogsyou",
+      "name": "handle",
+      "position": [
+        158,
+        1764
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok 03"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok 04",
+      "width": 1080,
+      "height": 1920,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt04.mp4",
+      "time": 0,
+      "position": [
+        540,
+        960
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt04.mp4",
+      "name": "clip"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clip",
+      "path": "transform/scale",
+      "value": [
+        150,
+        150,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "like.png",
+      "time": 0,
+      "position": [
+        250,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "like.png",
+      "name": "likes icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "likes icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "1.2M",
+      "name": "likes count",
+      "position": [
+        250,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        830,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "44,019",
+      "name": "saves count",
+      "position": [
+        830,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "comment.png",
+      "time": 0,
+      "position": [
+        830,
+        990
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "comment.png",
+      "name": "comments icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "comments icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "6,882",
+      "name": "comments count",
+      "position": [
+        830,
+        1150
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        92,
+        92
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        96,
+        1750
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "@doctorer",
+      "name": "handle",
+      "position": [
+        158,
+        1764
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok 04"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok 05",
+      "width": 1080,
+      "height": 1920,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt05.mp4",
+      "time": 0,
+      "position": [
+        540,
+        960
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt05.mp4",
+      "name": "clip"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clip",
+      "path": "transform/scale",
+      "value": [
+        187.5,
+        187.5,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "like.png",
+      "time": 0,
+      "position": [
+        250,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "like.png",
+      "name": "likes icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "likes icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "64.1K",
+      "name": "likes count",
+      "position": [
+        250,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        830,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "3,977",
+      "name": "saves count",
+      "position": [
+        830,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "comment.png",
+      "time": 0,
+      "position": [
+        830,
+        990
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "comment.png",
+      "name": "comments icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "comments icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "208",
+      "name": "comments count",
+      "position": [
+        830,
+        1150
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        92,
+        92
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        96,
+        1750
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "@silentclp",
+      "name": "handle",
+      "position": [
+        158,
+        1764
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok 05"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok 06",
+      "width": 1080,
+      "height": 1920,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt06.mp4",
+      "time": 0,
+      "position": [
+        540,
+        960
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt06.mp4",
+      "name": "clip"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clip",
+      "path": "transform/scale",
+      "value": [
+        187.5,
+        187.5,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "like.png",
+      "time": 0,
+      "position": [
+        250,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "like.png",
+      "name": "likes icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "likes icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "305K",
+      "name": "likes count",
+      "position": [
+        250,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        830,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "12,664",
+      "name": "saves count",
+      "position": [
+        830,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "comment.png",
+      "time": 0,
+      "position": [
+        830,
+        990
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "comment.png",
+      "name": "comments icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "comments icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "1,530",
+      "name": "comments count",
+      "position": [
+        830,
+        1150
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        92,
+        92
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        96,
+        1750
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "@vexrr4",
+      "name": "handle",
+      "position": [
+        158,
+        1764
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok 06"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok 07",
+      "width": 1080,
+      "height": 1920,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt07.mp4",
+      "time": 0,
+      "position": [
+        540,
+        960
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt07.mp4",
+      "name": "clip"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clip",
+      "path": "transform/scale",
+      "value": [
+        150,
+        150,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "like.png",
+      "time": 0,
+      "position": [
+        250,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "like.png",
+      "name": "likes icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "likes icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "742K",
+      "name": "likes count",
+      "position": [
+        250,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        830,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "31,208",
+      "name": "saves count",
+      "position": [
+        830,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "comment.png",
+      "time": 0,
+      "position": [
+        830,
+        990
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "comment.png",
+      "name": "comments icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "comments icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "4,017",
+      "name": "comments count",
+      "position": [
+        830,
+        1150
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        92,
+        92
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        96,
+        1750
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "@jamestracyofficial",
+      "name": "handle",
+      "position": [
+        158,
+        1764
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok 07"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok 08",
+      "width": 1080,
+      "height": 1920,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt08.mp4",
+      "time": 0,
+      "position": [
+        540,
+        960
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt08.mp4",
+      "name": "clip"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clip",
+      "path": "transform/scale",
+      "value": [
+        150,
+        150,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "like.png",
+      "time": 0,
+      "position": [
+        250,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "like.png",
+      "name": "likes icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "likes icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "158K",
+      "name": "likes count",
+      "position": [
+        250,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        830,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "6,459",
+      "name": "saves count",
+      "position": [
+        830,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "comment.png",
+      "time": 0,
+      "position": [
+        830,
+        990
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "comment.png",
+      "name": "comments icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "comments icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "918",
+      "name": "comments count",
+      "position": [
+        830,
+        1150
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        92,
+        92
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        96,
+        1750
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "@ninevici0us",
+      "name": "handle",
+      "position": [
+        158,
+        1764
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok 08"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok 09",
+      "width": 1080,
+      "height": 1920,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt09.mp4",
+      "time": 0,
+      "position": [
+        540,
+        960
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt09.mp4",
+      "name": "clip"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clip",
+      "path": "transform/scale",
+      "value": [
+        150,
+        150,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "like.png",
+      "time": 0,
+      "position": [
+        250,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "like.png",
+      "name": "likes icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "likes icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "2.4M",
+      "name": "likes count",
+      "position": [
+        250,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "save.png",
+      "time": 0,
+      "position": [
+        830,
+        420
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "save.png",
+      "name": "saves icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "saves icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "88,102",
+      "name": "saves count",
+      "position": [
+        830,
+        580
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "comment.png",
+      "time": 0,
+      "position": [
+        830,
+        990
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "comment.png",
+      "name": "comments icon"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "comments icon",
+      "path": "transform/scale",
+      "value": [
+        50,
+        50,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "12,740",
+      "name": "comments count",
+      "position": [
+        830,
+        1150
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 62,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        92,
+        92
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        96,
+        1750
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "@tmz",
+      "name": "handle",
+      "position": [
+        158,
+        1764
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok 09"
     }
   },
   {
@@ -90,7 +2288,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt01.mp4",
+      "item": "tiktok 01",
       "time": 0,
       "position": [
         320,
@@ -101,15 +2299,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt01.mp4",
-      "name": "column 1 clip 1"
+      "layer": "tiktok 01",
+      "name": "column 1 tile 1"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 1 clip 1"
+        "column 1 tile 1"
       ],
       "parent": "column 1"
     }
@@ -117,7 +2315,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 1",
+      "layer": "column 1 tile 1",
       "path": "transform/position",
       "value": [
         0,
@@ -129,11 +2327,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 1",
+      "layer": "column 1 tile 1",
       "path": "transform/scale",
       "value": [
-        197.57,
-        197.57,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -141,7 +2339,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt02.mp4",
+      "item": "tiktok 02",
       "time": 0,
       "position": [
         320,
@@ -152,15 +2350,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt02.mp4",
-      "name": "column 1 clip 2"
+      "layer": "tiktok 02",
+      "name": "column 1 tile 2"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 1 clip 2"
+        "column 1 tile 2"
       ],
       "parent": "column 1"
     }
@@ -168,7 +2366,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 2",
+      "layer": "column 1 tile 2",
       "path": "transform/position",
       "value": [
         0,
@@ -180,11 +2378,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 2",
+      "layer": "column 1 tile 2",
       "path": "transform/scale",
       "value": [
-        158.06,
-        158.06,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -192,7 +2390,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt03.mp4",
+      "item": "tiktok 03",
       "time": 0,
       "position": [
         320,
@@ -203,15 +2401,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt03.mp4",
-      "name": "column 1 clip 3"
+      "layer": "tiktok 03",
+      "name": "column 1 tile 3"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 1 clip 3"
+        "column 1 tile 3"
       ],
       "parent": "column 1"
     }
@@ -219,7 +2417,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 3",
+      "layer": "column 1 tile 3",
       "path": "transform/position",
       "value": [
         0,
@@ -231,11 +2429,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 3",
+      "layer": "column 1 tile 3",
       "path": "transform/scale",
       "value": [
-        111.13,
-        111.13,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -243,7 +2441,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt01.mp4",
+      "item": "tiktok 01",
       "time": 0,
       "position": [
         320,
@@ -254,15 +2452,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt01.mp4",
-      "name": "column 1 clip 4"
+      "layer": "tiktok 01",
+      "name": "column 1 tile 4"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 1 clip 4"
+        "column 1 tile 4"
       ],
       "parent": "column 1"
     }
@@ -270,7 +2468,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 4",
+      "layer": "column 1 tile 4",
       "path": "transform/position",
       "value": [
         0,
@@ -282,11 +2480,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 4",
+      "layer": "column 1 tile 4",
       "path": "transform/scale",
       "value": [
-        197.57,
-        197.57,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -294,7 +2492,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt02.mp4",
+      "item": "tiktok 02",
       "time": 0,
       "position": [
         320,
@@ -305,15 +2503,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt02.mp4",
-      "name": "column 1 clip 5"
+      "layer": "tiktok 02",
+      "name": "column 1 tile 5"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 1 clip 5"
+        "column 1 tile 5"
       ],
       "parent": "column 1"
     }
@@ -321,7 +2519,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 5",
+      "layer": "column 1 tile 5",
       "path": "transform/position",
       "value": [
         0,
@@ -333,11 +2531,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 5",
+      "layer": "column 1 tile 5",
       "path": "transform/scale",
       "value": [
-        158.06,
-        158.06,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -345,7 +2543,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt03.mp4",
+      "item": "tiktok 03",
       "time": 0,
       "position": [
         320,
@@ -356,15 +2554,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt03.mp4",
-      "name": "column 1 clip 6"
+      "layer": "tiktok 03",
+      "name": "column 1 tile 6"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 1 clip 6"
+        "column 1 tile 6"
       ],
       "parent": "column 1"
     }
@@ -372,7 +2570,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 6",
+      "layer": "column 1 tile 6",
       "path": "transform/position",
       "value": [
         0,
@@ -384,11 +2582,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 1 clip 6",
+      "layer": "column 1 tile 6",
       "path": "transform/scale",
       "value": [
-        111.13,
-        111.13,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -422,7 +2620,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt04.mp4",
+      "item": "tiktok 04",
       "time": 0,
       "position": [
         960,
@@ -433,15 +2631,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt04.mp4",
-      "name": "column 2 clip 1"
+      "layer": "tiktok 04",
+      "name": "column 2 tile 1"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 2 clip 1"
+        "column 2 tile 1"
       ],
       "parent": "column 2"
     }
@@ -449,7 +2647,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 1",
+      "layer": "column 2 tile 1",
       "path": "transform/position",
       "value": [
         0,
@@ -461,11 +2659,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 1",
+      "layer": "column 2 tile 1",
       "path": "transform/scale",
       "value": [
-        88.91,
-        88.91,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -473,7 +2671,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt05.mp4",
+      "item": "tiktok 05",
       "time": 0,
       "position": [
         960,
@@ -484,15 +2682,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt05.mp4",
-      "name": "column 2 clip 2"
+      "layer": "tiktok 05",
+      "name": "column 2 tile 2"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 2 clip 2"
+        "column 2 tile 2"
       ],
       "parent": "column 2"
     }
@@ -500,7 +2698,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 2",
+      "layer": "column 2 tile 2",
       "path": "transform/position",
       "value": [
         0,
@@ -512,11 +2710,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 2",
+      "layer": "column 2 tile 2",
       "path": "transform/scale",
       "value": [
-        111.13,
-        111.13,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -524,7 +2722,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt06.mp4",
+      "item": "tiktok 06",
       "time": 0,
       "position": [
         960,
@@ -535,15 +2733,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt06.mp4",
-      "name": "column 2 clip 3"
+      "layer": "tiktok 06",
+      "name": "column 2 tile 3"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 2 clip 3"
+        "column 2 tile 3"
       ],
       "parent": "column 2"
     }
@@ -551,7 +2749,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 3",
+      "layer": "column 2 tile 3",
       "path": "transform/position",
       "value": [
         0,
@@ -563,11 +2761,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 3",
+      "layer": "column 2 tile 3",
       "path": "transform/scale",
       "value": [
-        111.13,
-        111.13,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -575,7 +2773,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt04.mp4",
+      "item": "tiktok 04",
       "time": 0,
       "position": [
         960,
@@ -586,15 +2784,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt04.mp4",
-      "name": "column 2 clip 4"
+      "layer": "tiktok 04",
+      "name": "column 2 tile 4"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 2 clip 4"
+        "column 2 tile 4"
       ],
       "parent": "column 2"
     }
@@ -602,7 +2800,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 4",
+      "layer": "column 2 tile 4",
       "path": "transform/position",
       "value": [
         0,
@@ -614,11 +2812,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 4",
+      "layer": "column 2 tile 4",
       "path": "transform/scale",
       "value": [
-        88.91,
-        88.91,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -626,7 +2824,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt05.mp4",
+      "item": "tiktok 05",
       "time": 0,
       "position": [
         960,
@@ -637,15 +2835,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt05.mp4",
-      "name": "column 2 clip 5"
+      "layer": "tiktok 05",
+      "name": "column 2 tile 5"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 2 clip 5"
+        "column 2 tile 5"
       ],
       "parent": "column 2"
     }
@@ -653,7 +2851,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 5",
+      "layer": "column 2 tile 5",
       "path": "transform/position",
       "value": [
         0,
@@ -665,11 +2863,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 5",
+      "layer": "column 2 tile 5",
       "path": "transform/scale",
       "value": [
-        111.13,
-        111.13,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -677,7 +2875,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt06.mp4",
+      "item": "tiktok 06",
       "time": 0,
       "position": [
         960,
@@ -688,15 +2886,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt06.mp4",
-      "name": "column 2 clip 6"
+      "layer": "tiktok 06",
+      "name": "column 2 tile 6"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 2 clip 6"
+        "column 2 tile 6"
       ],
       "parent": "column 2"
     }
@@ -704,7 +2902,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 6",
+      "layer": "column 2 tile 6",
       "path": "transform/position",
       "value": [
         0,
@@ -716,11 +2914,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 2 clip 6",
+      "layer": "column 2 tile 6",
       "path": "transform/scale",
       "value": [
-        111.13,
-        111.13,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -754,7 +2952,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt07.mp4",
+      "item": "tiktok 07",
       "time": 0,
       "position": [
         1600,
@@ -765,15 +2963,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt07.mp4",
-      "name": "column 3 clip 1"
+      "layer": "tiktok 07",
+      "name": "column 3 tile 1"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 3 clip 1"
+        "column 3 tile 1"
       ],
       "parent": "column 3"
     }
@@ -781,7 +2979,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 1",
+      "layer": "column 3 tile 1",
       "path": "transform/position",
       "value": [
         0,
@@ -793,11 +2991,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 1",
+      "layer": "column 3 tile 1",
       "path": "transform/scale",
       "value": [
-        88.91,
-        88.91,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -805,7 +3003,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt08.mp4",
+      "item": "tiktok 08",
       "time": 0,
       "position": [
         1600,
@@ -816,15 +3014,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt08.mp4",
-      "name": "column 3 clip 2"
+      "layer": "tiktok 08",
+      "name": "column 3 tile 2"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 3 clip 2"
+        "column 3 tile 2"
       ],
       "parent": "column 3"
     }
@@ -832,7 +3030,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 2",
+      "layer": "column 3 tile 2",
       "path": "transform/position",
       "value": [
         0,
@@ -844,11 +3042,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 2",
+      "layer": "column 3 tile 2",
       "path": "transform/scale",
       "value": [
-        88.91,
-        88.91,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -856,7 +3054,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt09.mp4",
+      "item": "tiktok 09",
       "time": 0,
       "position": [
         1600,
@@ -867,15 +3065,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt09.mp4",
-      "name": "column 3 clip 3"
+      "layer": "tiktok 09",
+      "name": "column 3 tile 3"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 3 clip 3"
+        "column 3 tile 3"
       ],
       "parent": "column 3"
     }
@@ -883,7 +3081,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 3",
+      "layer": "column 3 tile 3",
       "path": "transform/position",
       "value": [
         0,
@@ -895,11 +3093,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 3",
+      "layer": "column 3 tile 3",
       "path": "transform/scale",
       "value": [
-        88.91,
-        88.91,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -907,7 +3105,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt07.mp4",
+      "item": "tiktok 07",
       "time": 0,
       "position": [
         1600,
@@ -918,15 +3116,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt07.mp4",
-      "name": "column 3 clip 4"
+      "layer": "tiktok 07",
+      "name": "column 3 tile 4"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 3 clip 4"
+        "column 3 tile 4"
       ],
       "parent": "column 3"
     }
@@ -934,7 +3132,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 4",
+      "layer": "column 3 tile 4",
       "path": "transform/position",
       "value": [
         0,
@@ -946,11 +3144,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 4",
+      "layer": "column 3 tile 4",
       "path": "transform/scale",
       "value": [
-        88.91,
-        88.91,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -958,7 +3156,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt08.mp4",
+      "item": "tiktok 08",
       "time": 0,
       "position": [
         1600,
@@ -969,15 +3167,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt08.mp4",
-      "name": "column 3 clip 5"
+      "layer": "tiktok 08",
+      "name": "column 3 tile 5"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 3 clip 5"
+        "column 3 tile 5"
       ],
       "parent": "column 3"
     }
@@ -985,7 +3183,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 5",
+      "layer": "column 3 tile 5",
       "path": "transform/position",
       "value": [
         0,
@@ -997,11 +3195,11 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 5",
+      "layer": "column 3 tile 5",
       "path": "transform/scale",
       "value": [
-        88.91,
-        88.91,
+        59.26,
+        59.26,
         100
       ]
     }
@@ -1009,7 +3207,7 @@
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tt09.mp4",
+      "item": "tiktok 09",
       "time": 0,
       "position": [
         1600,
@@ -1020,15 +3218,15 @@
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tt09.mp4",
-      "name": "column 3 clip 6"
+      "layer": "tiktok 09",
+      "name": "column 3 tile 6"
     }
   },
   {
     "command": "layer.setParent",
     "params": {
       "layers": [
-        "column 3 clip 6"
+        "column 3 tile 6"
       ],
       "parent": "column 3"
     }
@@ -1036,7 +3234,7 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 6",
+      "layer": "column 3 tile 6",
       "path": "transform/position",
       "value": [
         0,
@@ -1048,297 +3246,13 @@
   {
     "command": "prop.set",
     "params": {
-      "layer": "column 3 clip 6",
+      "layer": "column 3 tile 6",
       "path": "transform/scale",
       "value": [
-        88.91,
-        88.91,
+        59.26,
+        59.26,
         100
       ]
-    }
-  },
-  {
-    "command": "layer.newSolid",
-    "params": {
-      "name": "fade",
-      "color": "#000000",
-      "width": 1920,
-      "height": 1080
-    }
-  },
-  {
-    "command": "effect.apply",
-    "params": {
-      "effect": "Linear Wipe",
-      "layers": [
-        "fade"
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "fade",
-      "path": "effects/#1/angle",
-      "value": 180
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "fade",
-      "path": "effects/#1/completion",
-      "value": 40
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "fade",
-      "path": "effects/#1/feather",
-      "value": 460
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "fade",
-      "path": "transform/opacity",
-      "value": 80
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "Following",
-      "name": "tab following",
-      "position": [
-        852,
-        110
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 40,
-      "fill": [
-        1,
-        1,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "tab following",
-      "path": "transform/opacity",
-      "value": 58
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "For You",
-      "name": "tab for you",
-      "position": [
-        1046,
-        110
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 40,
-      "fill": [
-        1,
-        1,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.newShape",
-    "params": {
-      "kind": "rounded",
-      "name": "tab underline",
-      "size": [
-        84,
-        6
-      ],
-      "fill": [
-        1,
-        1,
-        1
-      ],
-      "position": [
-        1046,
-        142
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "tab underline",
-      "path": "contents/group/contents/rect/roundness",
-      "value": 3
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "plat_tiktok.png",
-      "time": 0,
-      "position": [
-        92,
-        92
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "plat_tiktok.png",
-      "name": "logo"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "logo",
-      "path": "transform/scale",
-      "value": [
-        10,
-        10,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newShape",
-    "params": {
-      "kind": "ellipse",
-      "name": "avatar",
-      "size": [
-        104,
-        104
-      ],
-      "fill": [
-        0.165,
-        0.549,
-        1
-      ],
-      "stroke": [
-        1,
-        1,
-        1
-      ],
-      "strokeWidth": 4,
-      "position": [
-        1832,
-        424
-      ]
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "\u2665\n\u25cf\n\u27a4",
-      "name": "rail icons",
-      "position": [
-        1832,
-        548
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 54,
-      "leading": 120,
-      "fill": [
-        1,
-        1,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "416K\n1,049\n19.4K",
-      "name": "rail counts",
-      "position": [
-        1832,
-        590
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 26,
-      "leading": 120,
-      "fill": [
-        1,
-        1,
-        1
-      ],
-      "justify": "center"
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "@rea.looksmaxxing",
-      "name": "handle",
-      "position": [
-        76,
-        948
-      ],
-      "font": "Satoshi",
-      "style": "Bold",
-      "size": 46,
-      "fill": [
-        1,
-        1,
-        1
-      ],
-      "justify": "left"
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "wait for it",
-      "name": "caption",
-      "position": [
-        76,
-        1002
-      ],
-      "font": "Satoshi",
-      "style": "Medium",
-      "size": 38,
-      "fill": [
-        1,
-        1,
-        1
-      ],
-      "justify": "left"
-    }
-  },
-  {
-    "command": "layer.newText",
-    "params": {
-      "text": "\u266b rudeSlowed.mp3",
-      "name": "music",
-      "position": [
-        76,
-        1050
-      ],
-      "font": "Satoshi",
-      "style": "Medium",
-      "size": 30,
-      "fill": [
-        0.85,
-        0.9,
-        1
-      ],
-      "justify": "left"
     }
   },
   {
@@ -1355,24 +3269,6 @@
       "layer": "controls",
       "path": "effects/#1/slider",
       "name": "Speed"
-    }
-  },
-  {
-    "command": "essential.addProperty",
-    "params": {
-      "comp": "tiktok",
-      "layer": "handle",
-      "path": "text/sourceText",
-      "name": "Handle"
-    }
-  },
-  {
-    "command": "essential.addProperty",
-    "params": {
-      "comp": "tiktok",
-      "layer": "caption",
-      "path": "text/sourceText",
-      "name": "Caption"
     }
   }
 ]

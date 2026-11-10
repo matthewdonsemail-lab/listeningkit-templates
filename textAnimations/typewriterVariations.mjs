@@ -1,24 +1,24 @@
-// Writes effects/<name>/effect.json for each typewriter variation.
+﻿// Writes effects/<name>/effect.json for each typewriter variation.
 // Every variation scales each unit from 0 to full size from its own centre (anchor centred), past
 // full size and back (overshoot), and out again the same way. No fades. Run: node typewriterVariations.mjs
 //
 // Timing is driven from the text layer's markers:
-//   "in"  marker — where the type-on starts; its duration is how long until the last unit has landed.
-//   "out" marker — where the type-off starts; its duration is how long until the last unit is gone.
+//   "in"  marker â€” where the type-on starts; its duration is how long until the last unit has landed.
+//   "out" marker â€” where the type-off starts; its duration is how long until the last unit is gone.
 // The whole text also scales from 0 to full size around its centre over each marker's duration,
 // with its own overshoot, on top of the letters.
 // Slider controls on the layer (also in Essential Graphics):
-//   Letter Overshoot — how far past full size each unit goes (0 = none).
-//   Pop Time         — seconds for one unit to scale in or out.
-//   Whole Overshoot  — how far past full size the whole text goes (0 = none).
-//   Continuous Scale — (continuousScale only) % the whole text keeps growing per second from the
+//   Letter Overshoot â€” how far past full size each unit goes (0 = none).
+//   Pop Time         â€” seconds for one unit to scale in or out.
+//   Whole Overshoot  â€” how far past full size the whole text goes (0 = none).
+//   Continuous Scale â€” (continuousScale only) % the whole text keeps growing per second from the
 //                      "in" marker on (0 = none, negative shrinks).
 import { mkdirSync, writeFileSync as writeFileRaw } from "node:fs";
 
 // effectcraft-cli reads command files in the Windows code page, not UTF-8, so every non-ASCII character
-// (symbols, curly quotes, middle dots…) is written as a JSON \u escape, which reads back exactly.
+// (symbols, curly quotes, middle dotsâ€¦) is written as a JSON \u escape, which reads back exactly.
 const writeFileSync = (path, text) =>
-  writeFileRaw(path, text.replace(/[\u0080-￿]/g, (c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0")));
+  writeFileRaw(path, text.replace(/[\u0080-ï¿¿]/g, (c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0")));
 
 const variations = {
   typewriterOvershoot: { in: [0, 0.6], out: [3, 0.5], pop: 0.25, overshoot: 2, whole: 1.7, continuous: 6 },
@@ -32,7 +32,7 @@ const variations = {
 const presets = { typewriter: 6, fadeUpCharacters: 6 };
 
 // The cv-bluekey look, on every effect: Schoolbell in brand blue #2a8cff, a white outline inside a dark
-// navy #0d2a4c outline (text stroke + Stroke layer style), tilted -3°, blue Outer Glow.
+// navy #0d2a4c outline (text stroke + Stroke layer style), tilted -3Â°, blue Outer Glow.
 const bluekeyText = { fill: [0.165, 0.549, 1], stroke: [1, 1, 1], applyStroke: true, strokeWidth: 18, strokeOverFill: false };
 const bluekeyStyleSteps = () => {
   const set = (path, value) => ({ command: "prop.set", params: { layer: "text", path, value } });
@@ -47,7 +47,7 @@ const bluekeyStyleSteps = () => {
     set("layerStyles/outerGlow/size", 28),
   ];
 };
-// Gives a step list the cv-bluekey look: colours on the text, layer styles right after it, and the -3° tilt.
+// Gives a step list the cv-bluekey look: colours on the text, layer styles right after it, and the -3Â° tilt.
 function withBluekey(steps) {
   const at = steps.findIndex((s) => s.command === "layer.newText");
   steps[at] = { ...steps[at], params: { ...steps[at].params, ...bluekeyText } };
@@ -174,8 +174,8 @@ for (const [name, continuous] of Object.entries(presets)) {
 }
 
 // cv-bluekey: the ListeningKit sticker look (log-cli's .lk-bluekey, the looksmaxxing project's word stickers).
-// Schoolbell in brand blue #2a8cff, a white outline inside a dark navy #0d2a4c outline, tilted -3°, blue glow.
-// It pops in like the looksmaxxing words (0 → 126% → 94% → 100% over 4 frames) from the "in" marker, pops out in
+// Schoolbell in brand blue #2a8cff, a white outline inside a dark navy #0d2a4c outline, tilted -3Â°, blue glow.
+// It pops in like the looksmaxxing words (0 â†’ 126% â†’ 94% â†’ 100% over 4 frames) from the "in" marker, pops out in
 // reverse from the "out" marker, and wobbles and bobs while on screen.
 // Sliders: Continuous Scale (% per second), Wobble (degrees), Bob (pixels).
 const bluekeyNames = ["Continuous Scale", "Wobble", "Bob"];
@@ -232,9 +232,9 @@ const bluekeyScaleExpression = [
 }
 
 // introCard: a title card precomp.
-//   "Introducing" — Satoshi (the ListeningKit site font), navy, the overshoot typewriter.
-//   "listening kit" — below it, cv-bluekey look with the overshoot typewriter, on top of the lines around it.
-//   Subtext — smaller, one text layer per word, each word scaling in with overshoot one after another.
+//   "Introducing" â€” Satoshi (the ListeningKit site font), navy, the overshoot typewriter.
+//   "listening kit" â€” below it, cv-bluekey look with the overshoot typewriter, on top of the lines around it.
+//   Subtext â€” smaller, one text layer per word, each word scaling in with overshoot one after another.
 //     Highlights as on the site: "no dashboards" and "no SaaS" in Satoshi Black, brand blue, with a dashed
 //     underline that draws on with them; "your agent." as a small cv-bluekey sticker.
 //   The subtext's timing and look live on the "controls" null: its "in" / "out" markers and its
@@ -441,11 +441,11 @@ const bluekeyScaleExpression = [
 // page hero (site/apps/web/src/landing/ClayClouds.tsx). That page loads Claybound's cloud.glb, which isn't
 // licensed to ListeningKit, so each cloud here is our own: a cluster of six 3D spheres under a null.
 //
-//   clayClouds — an Advanced 3D comp: a 30° camera, ambient + warm key (casting shadows) + blue fill lights, and
+//   clayClouds â€” an Advanced 3D comp: a 30Â° camera, ambient + warm key (casting shadows) + blue fill lights, and
 //     30 clouds in 4 depth layers (12 far and small ... 3 near and big), as on the site. Each cloud drifts right
 //     at its layer's speed and wraps around, bobs gently and turns slowly (expressions on its null). Far clouds
 //     are tinted toward the sky to stand in for the site's fog.
-//   cloudBackground — the ditherGradientBackground precomp as the sky, then clayClouds run through the site's
+//   cloudBackground â€” the ditherGradientBackground precomp as the sky, then clayClouds run through the site's
 //     clay dither: Black & White, Levels (black point 0.3, white point 0.92), Craft Halftone & Dither (3 px
 //     cells), Tint (shade light blue #9ecbff, lit white).
 // Positions are generated from a fixed seed, so every build is the same.
@@ -459,7 +459,7 @@ const bluekeyScaleExpression = [
   const random = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
   const round = (n) => Math.round(n * 100) / 100;
 
-  // The site's scene in its own units: camera at z 12 with a 30° field of view, clouds in layers at z -16 ... -1.
+  // The site's scene in its own units: camera at z 12 with a 30Â° field of view, clouds in layers at z -16 ... -1.
   const layers = [
     { count: 12, z: -16, scale: 0.75, speed: 0.05, fog: 0.35 },
     { count: 9, z: -10, scale: 1.0, speed: 0.08, fog: 0.2 },
@@ -585,14 +585,14 @@ const bluekeyScaleExpression = [
 //
 // There is no ASCII effect to apply, so the ASCII is built from layers: full-frame grids of monospace characters,
 // each revealed only where the cloud is that bright by a track matte of the cloud render.
-//   cloudSolo — one cloud: our own six 3D spheres under a null (clayClouds' cloud, on its own), Advanced 3D with the
+//   cloudSolo â€” one cloud: our own six 3D spheres under a null (clayClouds' cloud, on its own), Advanced 3D with the
 //     same camera and lights. It drifts, bobs and turns, and slides in from off the left at the "in" marker (add an
 //     "out" marker to have it wind back out).
-//   ascii sparse / mid / dense — grids of characters from the ramp ". , ' ` : - = + * # % @", one per brightness
+//   ascii sparse / mid / dense â€” grids of characters from the ramp ". , ' ` : - = + * # % @", one per brightness
 //     range: the lit tops of the cloud get the dense glyphs, the shadows the sparse ones.
-//   matte sparse / mid / dense — cloudSolo with its shading stretched to 0–1 by Levels, then clipped to that band by
+//   matte sparse / mid / dense â€” cloudSolo with its shading stretched to 0â€“1 by Levels, then clipped to that band by
 //     a second Levels. Not rendered; each is the luma track matte of its glyph layer.
-// The sky is the ditherGradientBackground precomp, time-remapped to 0.55 + time * 0.21 so its 0 → 100 Wipe only
+// The sky is the ditherGradientBackground precomp, time-remapped to 0.55 + time * 0.21 so its 0 â†’ 100 Wipe only
 // creeps a little way up from the bottom of the frame instead of wiping it to white.
 // The grids are laid out for a monospace font: JetBrains Mono advances 0.6 em, so the glyph size sets the columns
 // and the row spacing is 0.9 of it. A fixed seed picks every character, so every build is the same.
@@ -607,7 +607,7 @@ const bluekeyScaleExpression = [
   const round = (n) => Math.round(n * 100) / 100;
   const duration = 5;
 
-  // The site's scene in its own units: camera at z 12 with a 30° field of view. The single cloud sits at z -4, big
+  // The site's scene in its own units: camera at z 12 with a 30Â° field of view. The single cloud sits at z -4, big
   // and centred, built from the same six puffs as clayClouds' clouds.
   const cameraZ = 12;
   const unit = 540 / Math.tan((15 * Math.PI) / 180) / cameraZ; // px per site unit at z 0
@@ -638,7 +638,7 @@ const bluekeyScaleExpression = [
   };
 
   // The ramp, split into the three bands: sparse in the cloud shadows, mid in the body, dense on the lit tops.
-  // inBlack / inWhite are where that band starts and ends in the shading, once the cloud is stretched to 0–1.
+  // inBlack / inWhite are where that band starts and ends in the shading, once the cloud is stretched to 0â€“1.
   // The sparse glyphs are drawn in the Shade colour and the other two in Ink, so the shading reads as form.
   const bands = [
     { layer: "ascii sparse", matte: "matte sparse", chars: [".", ",", "'", "`"], inBlack: -0.3, inWhite: 0.2, opacity: 100, ink: "Shade" },
@@ -701,7 +701,7 @@ const bluekeyScaleExpression = [
     { command: "layer.addItem", params: { item: "ditherGradientBackground", time: 0 } },
     { command: "layer.rename", params: { layer: "ditherGradientBackground", name: "sky" } },
     { command: "layer.enableTimeRemap", params: { layers: ["sky"], value: true } },
-    // Play the sky slowly (its 0 → 100 Wipe over 5 s spread over ~24 s), so the dither only creeps a little way up
+    // Play the sky slowly (its 0 â†’ 100 Wipe over 5 s spread over ~24 s), so the dither only creeps a little way up
     // from the bottom of the frame instead of wiping it to white.
     expr("sky", "timeRemap", "0.55 + time * 0.21"),
   ];
@@ -713,7 +713,7 @@ const bluekeyScaleExpression = [
       fx(band.layer, "Fill"),
       expr(band.layer, "effects/#1/color", `thisComp.layer("controls").effect("${band.ink}")("Color")`),
       set(band.layer, "transform/opacity", band.opacity),
-      // Its matte: the cloud, shading stretched to 0–1, then only this band's slice of that shading kept.
+      // Its matte: the cloud, shading stretched to 0â€“1, then only this band's slice of that shading kept.
       { command: "layer.addItem", params: { item: "cloudSolo", time: 0 } },
       { command: "layer.rename", params: { layer: "cloudSolo", name: band.matte } },
       fx(band.matte, "Levels"),
@@ -749,10 +749,10 @@ const bluekeyScaleExpression = [
 // (ordered/Bayer dither), wiping up the frame from fully blue to fully white. Two bands, each a black-to-white
 // Gradient Ramp run through Craft Halftone & Dither (18 px cells) and then Tint, so the dither's black and white
 // become the band's two colours:
-//   upper — Top Color (blue) to Middle Color (light blue) over 378 px.
-//   lower — Middle Color to Bottom Color (white) over the next 491 px, wiped so it only covers below the split.
+//   upper â€” Top Color (blue) to Middle Color (light blue) over 378 px.
+//   lower â€” Middle Color to Bottom Color (white) over the next 491 px, wiped so it only covers below the split.
 // The "controls" null's Wipe slider moves both bands together: 0 is fully blue (the fade sits below the frame),
-// 100 is fully white (the fade has gone off the top). It's keyframed 0 → 100 over the comp with easy ease, so the
+// 100 is fully white (the fade has gone off the top). It's keyframed 0 â†’ 100 over the comp with easy ease, so the
 // fade comes up slowly, speeds up, and settles on white at the end; retime or reshape it by moving the keys.
 // Essential Graphics: Wipe, Top Color, Middle Color, Bottom Color, Pixel Size.
 {
@@ -807,7 +807,7 @@ const bluekeyScaleExpression = [
     expr("lower", "effects/#3/black", `thisComp.layer("upper").effect(3)(2)`),
     expr("lower", "effects/#2/cell_size", `thisComp.layer("upper").effect(2)("cell_size")`),
 
-    // The controls null and its Wipe slider, keyframed fully blue → fully white with easy ease.
+    // The controls null and its Wipe slider, keyframed fully blue â†’ fully white with easy ease.
     { command: "layer.newNull", params: { name: "controls" } },
     fx("controls", "Slider Control"),
     key("controls", "effects/#1/slider", 0, 0),
@@ -843,10 +843,10 @@ const bluekeyScaleExpression = [
 
 // brickTextBackground: a wall of blue rounded bricks filling the frame, each holding one word picked at random
 // from a sentence.
-//   sentence — a guide text layer (not rendered) holding the sentence; edit it (or Sentence in Essential
+//   sentence â€” a guide text layer (not rendered) holding the sentence; edit it (or Sentence in Essential
 //     Graphics) and every brick re-picks its words from it.
-//   controls — Build (0–100): the bricks pop in one by one in a fixed random order with overshoot, and at 100 the
-//     wall fills the whole comp. It's keyframed 0 → 100 over the first 2.5 s. Overshoot sets the pop. Scramble
+//   controls â€” Build (0â€“100): the bricks pop in one by one in a fixed random order with overshoot, and at 100 the
+//     wall fills the whole comp. It's keyframed 0 â†’ 100 over the first 2.5 s. Overshoot sets the pop. Scramble
 //     (checkbox) makes every brick swap to another random word every Scramble Every seconds, each brick at its own
 //     moment. Brick Color sets the bricks.
 //   8 rows of bricks in a running bond (every other row shifted half a brick), each brick a shape layer with its
@@ -954,7 +954,7 @@ const bluekeyScaleExpression = [
 
 // claudeCode, codex, terminal: the agent windows from log-cli's landing page, rebuilt as reusable precomps
 // (site/apps/web/src/landing/AgentSession.tsx for the Claude Code and Codex windows, the "Paste this into your
-// terminal" box in landing/useCases/UseCasesPage.tsx for the terminal). Each is a 1920×1080 comp with a transparent
+// terminal" box in landing/useCases/UseCasesPage.tsx for the terminal). Each is a 1920Ã—1080 comp with a transparent
 // background and the window centred, built from plain shapes and text so it stays light. They play the start of the
 // site's session: the prompt pops in and types, a log tool call pops in, and the reply types on word by word (the
 // terminal types its lines one after another). Edit the text in Essential Graphics.
@@ -986,14 +986,14 @@ const bluekeyScaleExpression = [
   const essText = (comp, layer, label) => ({ command: "essential.addProperty", params: { comp, layer, path: "text/sourceText", name: label } });
 
   const prompt = "check my twitter whos waiting on me";
-  const reply = "6 people are waiting on you, and 2 more opened your last message but didn’t reply. Reading each thread in full before drafting anything.";
+  const reply = "6 people are waiting on you, and 2 more opened your last message but didnâ€™t reply. Reading each thread in full before drafting anything.";
   const toolArgs = '{ account: "you", waiting: true, limit: "50" }';
-  const toolLines = ["@you, 6 conversations waiting on a reply, newest first", "1. @dana_builds · 2h ago · unread, waiting on you", "2. @leo_ops · 5h ago · unread, waiting on you"];
+  const toolLines = ["@you, 6 conversations waiting on a reply, newest first", "1. @dana_builds Â· 2h ago Â· unread, waiting on you", "2. @leo_ops Â· 5h ago Â· unread, waiting on you"];
   const mono = { font: "JetBrains Mono", style: "Regular", size: 17 };
-  // The window: 1400 × 800, centred; sidebar 330 wide; feed column from x 620 to 1630.
+  // The window: 1400 Ã— 800, centred; sidebar 330 wide; feed column from x 620 to 1630.
   const L = 260, T = 140, W = 1400, H = 800, side = 330, feedX = 620, feedW = 1010;
 
-  // A brand mark from assets/ (the 24×24 SVGs from log-cli's BrandMark.tsx), sized to px and kept sharp.
+  // A brand mark from assets/ (the 24Ã—24 SVGs from log-cli's BrandMark.tsx), sized to px and kept sharp.
   const brandMark = (file, x, y, px) => [
     { command: "file.import", params: { paths: [`${process.cwd().replace(/\\/g, "/")}/assets/${file}`] } },
     { command: "layer.addItem", params: { item: file, position: [x, y] } },
@@ -1035,7 +1035,7 @@ const bluekeyScaleExpression = [
       text("recent 1", "X inbox follow-ups", L + 32, T + 330, { fill: "#3d3a35" }),
       text("recent 2", "Marketplace listings", L + 32, T + 375, { fill: "#5b5950" }),
       text("recent 3", "Group listening", L + 32, T + 420, { fill: "#5b5950" }),
-      text("path", "▢  your-marketing      ⑂  main", feedX, T + 42, { font: "Segoe UI", style: "Regular", size: 20, fill: "#5b5950" }),
+      text("path", "â–¢  your-marketing      â‘‚  main", feedX, T + 42, { font: "Segoe UI", style: "Regular", size: 20, fill: "#5b5950" }),
       ...rect("top line", L + side + (W - side) / 2, T + 65, W - side, 2, "#DCD4C2"),
       // The prompt: a bubble on the right that pops in, then the text types.
       ...rect("prompt bubble", feedX + feedW - 240, T + 125, 480, 58, "#E5E0D6", { round: 26 }),
@@ -1044,9 +1044,9 @@ const bluekeyScaleExpression = [
       pop("prompt bubble", sent),
       // The log tool call card.
       ...rect("tool card", feedX + feedW / 2, T + 250, feedW, 140, "#F7F5EF", { stroke: "#E5E0D6", round: 12 }),
-      text("tool name", "log · twitterDms", feedX + 24, T + 215, { size: 21 }),
+      text("tool name", "log Â· twitterDms", feedX + 24, T + 215, { size: 21 }),
       text("tool args", toolArgs, feedX + 230, T + 215, { ...mono, fill: "#8a8780" }),
-      text("tool check", "✓", feedX + feedW - 36, T + 215, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#5a8a3c" }),
+      text("tool check", "âœ“", feedX + feedW - 36, T + 215, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#5a8a3c" }),
       ...rect("tool line", feedX + feedW / 2, T + 232, feedW, 2, "#E5E0D6"),
       ...toolLines.map((line, k) => text(`tool result ${k + 1}`, line, feedX + 24, T + 262 + k * 25, { ...mono, fill: "#5b5950" })),
       ...["tool name", "tool args", "tool check", "tool line", "tool result 1", "tool result 2", "tool result 3"].map((child) => parent(child, "tool card")),
@@ -1056,12 +1056,12 @@ const bluekeyScaleExpression = [
       type("reply", sent + 1.3, 9, true),
       // The input box.
       ...rect("input", feedX + feedW / 2, T + H - 80, feedW, 100, "#FFFFFF", { stroke: "#E5E0D6", round: 24 }),
-      text("input hint", "Reply to Claude…", feedX + 24, T + H - 100, { fill: "#9a9893" }),
+      text("input hint", "Reply to Claudeâ€¦", feedX + 24, T + H - 100, { fill: "#9a9893" }),
       ...typedInInput("input typing", feedX + 24, T + H - 100, "#1a1a18"),
       text("input plus", "+", feedX + 24, T + H - 52, { size: 24, fill: "#5b5950" }),
-      text("model", "Opus 5.5  ▾", feedX + feedW - 170, T + H - 52, { size: 20 }),
+      text("model", "Opus 5.5  â–¾", feedX + feedW - 170, T + H - 52, { size: 20 }),
       ...rect("send", feedX + feedW - 40, T + H - 60, 40, 40, "#c96442", { round: 8 }),
-      text("send arrow", "↑", feedX + feedW - 40, T + H - 52, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#FFFFFF", justify: "center" }),
+      text("send arrow", "â†‘", feedX + feedW - 40, T + H - 52, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#FFFFFF", justify: "center" }),
       { command: "essential.setName", params: { comp: name, name } },
       essText(name, "prompt", "Prompt"),
       essText(name, "tool name", "Tool"),
@@ -1082,14 +1082,14 @@ const bluekeyScaleExpression = [
       ...rect("sidebar line", L + side, T + H / 2, 2, H, "#ececec"),
       ...brandMark("codex.svg", L + 46, T + 58, 30),
       text("brand", "Codex", L + 72, T + 66, { style: "Bold", size: 24, fill: "#0d0d0d" }),
-      text("new thread", "✎  New thread", L + 32, T + 125, { font: "Segoe UI", style: "Regular", fill: "#0d0d0d" }),
+      text("new thread", "âœŽ  New thread", L + 32, T + 125, { font: "Segoe UI", style: "Regular", fill: "#0d0d0d" }),
       text("project", "your-marketing", L + 32, T + 185, { size: 18, fill: "#8f8f8f" }),
       ...rect("recent pill", L + side / 2, T + 222, side - 30, 42, "#ececec", { round: 10 }),
       text("recent 1", "Answer my X DMs", L + 32, T + 230, { fill: "#0d0d0d" }),
       text("recent 2", "Post the listings", L + 32, T + 275, { fill: "#5d5d5d" }),
       text("recent 3", "Read the groups", L + 32, T + 320, { fill: "#5d5d5d" }),
       text("thread", "Answer my X DMs", feedX, T + 42, { size: 20, fill: "#0d0d0d" }),
-      text("branch", "⑂  main", feedX + feedW, T + 42, { font: "Segoe UI", style: "Regular", size: 20, fill: "#8f8f8f", justify: "right" }),
+      text("branch", "â‘‚  main", feedX + feedW, T + 42, { font: "Segoe UI", style: "Regular", size: 20, fill: "#8f8f8f", justify: "right" }),
       ...rect("top line", L + side + (W - side) / 2, T + 65, W - side, 2, "#ececec"),
       ...rect("prompt bubble", feedX + feedW - 240, T + 125, 480, 58, "#f3f3f3", { round: 29 }),
       text("prompt", prompt, feedX + feedW - 240, T + 133, { justify: "center", size: 23, fill: "#0d0d0d" }),
@@ -1112,7 +1112,7 @@ const bluekeyScaleExpression = [
       text("input hint", "Ask Codex anything", feedX + 62, T + H - 62, { fill: "#8f8f8f" }),
       ...typedInInput("input typing", feedX + 62, T + H - 62, "#0d0d0d"),
       ...rect("send", feedX + feedW - 40, T + H - 70, 44, 44, "#0d0d0d", { round: 22 }),
-      text("send arrow", "↑", feedX + feedW - 40, T + H - 62, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#FFFFFF", justify: "center" }),
+      text("send arrow", "â†‘", feedX + feedW - 40, T + H - 62, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#FFFFFF", justify: "center" }),
       { command: "essential.setName", params: { comp: name, name } },
       essText(name, "prompt", "Prompt"),
       essText(name, "tool name", "Tool"),
@@ -1125,8 +1125,8 @@ const bluekeyScaleExpression = [
   // ---- Terminal ----
   // The Claude Code CLI window from the rea-looksmaxxing project (log-hyperframes/effectcraft/scene2/assets.html,
   // #window): a near-black window with a title bar and traffic lights, the orange-bordered "Welcome to Claude Code"
-  // box, then the session in JetBrains Mono: the prompt typed after ">", an orange ● tool line, a grey └ result and a
-  // blue ● reply.
+  // box, then the session in JetBrains Mono: the prompt typed after ">", an orange â— tool line, a grey â”” result and a
+  // blue â— reply.
   {
     const name = "terminal";
     const left = 260, top = 130, width = 1400, height = 820;
@@ -1145,9 +1145,9 @@ const bluekeyScaleExpression = [
       ...["#ff5f57", "#febc2e", "#28c840"].map((fill, k) => [
         { command: "layer.newShape", params: { kind: "ellipse", name: `light ${k + 1}`, size: [16, 16], fill: hex(fill), position: [left + 30 + k * 28, top + 27] } },
       ]).flat(),
-      text("title", "matt — claude — ~/log", 960, top + 34, { ...consolas, size: 20, fill: "#8b98a9", justify: "center" }),
+      text("title", "matt â€” claude â€” ~/log", 960, top + 34, { ...consolas, size: 20, fill: "#8b98a9", justify: "center" }),
       ...rect("welcome", 960, top + 54 + 30 + 75, width - 72, 150, "#0d1117", { stroke: "#d97757", round: 12 }),
-      text("welcome star", "✻", left + 64, top + 122, { ...consolas, style: "Bold", fill: "#d97757" }),
+      text("welcome star", "âœ»", left + 64, top + 122, { ...consolas, style: "Bold", fill: "#d97757" }),
       text("welcome to", "Welcome to", left + 64 + 2 * cw, top + 122, { ...consolas, style: "Bold", fill: "#c9d1d9" }),
       text("welcome claude", "Claude Code", left + 64 + 13 * cw, top + 122, { ...consolas, style: "Bold", fill: "#d97757" }),
       text("welcome bang", "!", left + 64 + 24 * cw, top + 122, { ...consolas, style: "Bold", fill: "#c9d1d9" }),
@@ -1156,11 +1156,11 @@ const bluekeyScaleExpression = [
       // The session.
       text("prompt", ask, bodyX, 430, { ...line, fill: "#f2f5fa" }),
       type("prompt", typeAt, typeRate),
-      text("tool", "● log · twitterDms (account=you, waiting=true)", bodyX, 500, { ...line, fill: "#d98766" }),
+      text("tool", "â— log Â· twitterDms (account=you, waiting=true)", bodyX, 500, { ...line, fill: "#d98766" }),
       appearAt("tool", shown),
-      text("result", "  └ 6 conversations waiting on a reply, newest first", bodyX, 546, { ...line, fill: "#99a6b8" }),
+      text("result", "  â”” 6 conversations waiting on a reply, newest first", bodyX, 546, { ...line, fill: "#99a6b8" }),
       appearAt("result", round(shown + 0.15)),
-      text("reply", "● 6 people are waiting on you, 2 more opened and didn’t reply", bodyX, 616, { ...line, fill: "#2a8cff" }),
+      text("reply", "â— 6 people are waiting on you, 2 more opened and didnâ€™t reply", bodyX, 616, { ...line, fill: "#2a8cff" }),
       appearAt("reply", round(shown + 0.4)),
     ];
     // Everything rides on the window, which pops in.
@@ -1179,12 +1179,13 @@ const bluekeyScaleExpression = [
   }
 }
 
-// tiktok: a wall of TikToks. Three columns of portrait clips fill the width of the frame and scroll up at different
-// speeds behind the TikTok chrome: the tabs, the logo, the action rail with its counts, and the handle, caption and
-// music line. The clips are the ones from the rea-looksmaxxing project (log-hyperframes/effectcraft/tiktok), imported
-// from there, so this one template needs that folder on disk.
-// Each column holds its three clips twice over and wraps every three, so it scrolls forever without a seam.
-// Essential Graphics: Speed (all three columns), Handle, Caption.
+
+// tiktok: a wall of TikToks. Each tile is a 9:16 TikTok precomp — the clip, the TikTok like / comment / save icons
+// with their counts, and the profile — and three columns of those tiles fill the width of the frame, scrolling up at
+// different speeds. The clips and icons are the ones from the rea-looksmaxxing project (log-hyperframes/effectcraft/
+// tiktok and scene3), imported from there, so this template needs those folders on disk.
+// Each column holds its three tiles twice over and wraps every three, so it scrolls forever without a seam.
+// Essential Graphics: Speed (all three columns).
 {
   const name = "tiktok";
   const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
@@ -1193,88 +1194,105 @@ const bluekeyScaleExpression = [
   const round = (n) => Math.round(n * 100) / 100;
 
   const clipsDir = "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok";
-  // Native sizes, so each clip can be scaled to cover its cell.
-  const clips = {
+  const assetsDir = `${process.cwd().replace(/\\/g, "/")}/assets/tiktok`;
+  // Native clip sizes, so each one covers its 9:16 tile.
+  const sizes = {
     "tt01.mp4": [576, 576], "tt02.mp4": [838, 720], "tt03.mp4": [576, 1024],
     "tt04.mp4": [720, 1280], "tt05.mp4": [576, 1024], "tt06.mp4": [576, 1024],
     "tt07.mp4": [720, 1280], "tt08.mp4": [720, 1280], "tt09.mp4": [720, 1280],
   };
-  const columns = [
-    { speed: 42, clips: ["tt01.mp4", "tt02.mp4", "tt03.mp4"] },
-    { speed: 96, clips: ["tt04.mp4", "tt05.mp4", "tt06.mp4"] },
-    { speed: 158, clips: ["tt07.mp4", "tt08.mp4", "tt09.mp4"] },
+  const tiles = [
+    { clip: "tt01.mp4", handle: "@cutd0se", likes: "416K", saves: "19,427", comments: "1,049" },
+    { clip: "tt02.mp4", handle: "@clavicular3dits", likes: "212K", saves: "8,310", comments: "742" },
+    { clip: "tt03.mp4", handle: "@loganmogsyou", likes: "89.4K", saves: "5,208", comments: "310" },
+    { clip: "tt04.mp4", handle: "@doctorer", likes: "1.2M", saves: "44,019", comments: "6,882" },
+    { clip: "tt05.mp4", handle: "@silentclp", likes: "64.1K", saves: "3,977", comments: "208" },
+    { clip: "tt06.mp4", handle: "@vexrr4", likes: "305K", saves: "12,664", comments: "1,530" },
+    { clip: "tt07.mp4", handle: "@jamestracyofficial", likes: "742K", saves: "31,208", comments: "4,017" },
+    { clip: "tt08.mp4", handle: "@ninevici0us", likes: "158K", saves: "6,459", comments: "918" },
+    { clip: "tt09.mp4", handle: "@tmz", likes: "2.4M", saves: "88,102", comments: "12,740" },
   ];
-  const cellW = 640, cellH = 1138; // one portrait cell, 640 × the height of a 1080 × 1920 clip
-  const run = cellH * 3;           // one full set of three clips: what a column wraps by
+  const tileW = 1080, tileH = 1920; // one TikTok
+  const cellW = 640, cellH = 1138;  // where one lands in the wall
+  const run = cellH * 3;
   const duration = 8;
 
   const steps = [
-    { command: "file.import", params: { paths: [...Object.keys(clips).map((c) => `${clipsDir}/${c}`), `${process.cwd().replace(/\\/g, "/")}/assets/plat_tiktok.png`] } },
+    { command: "file.import", params: { paths: [
+      ...tiles.map((t) => `${clipsDir}/${t.clip}`),
+      `${assetsDir}/like.png`, `${assetsDir}/comment.png`, `${assetsDir}/save.png`,
+    ] } },
+  ];
+
+  // One 9:16 TikTok per tile: the clip, the three icons and their counts, and the profile.
+  const icon = (file, layer, x, y) => [
+    { command: "layer.addItem", params: { item: file, time: 0, position: [x, y] } },
+    { command: "layer.rename", params: { layer: file, name: layer } },
+    set(layer, "transform/scale", [50, 50, 100]),
+  ];
+  const count = (layer, x, y, text) => [
+    { command: "layer.newText", params: { text, name: layer, position: [x, y], font: "Satoshi", style: "Bold", size: 62, fill: [0.165, 0.549, 1], justify: "center" } },
+  ];
+
+  tiles.forEach((tile, i) => {
+    const tileName = `tiktok ${String(i + 1).padStart(2, "0")}`;
+    const [w, h] = sizes[tile.clip];
+    const cover = round(Math.max(tileW / w, tileH / h) * 100);
+    steps.push(
+      { command: "comp.new", params: { name: tileName, width: tileW, height: tileH, frameRate: 30, duration, background: "#000000", open: true } },
+      { command: "layer.addItem", params: { item: tile.clip, time: 0, position: [tileW / 2, tileH / 2] } },
+      { command: "layer.rename", params: { layer: tile.clip, name: "clip" } },
+      set("clip", "transform/scale", [cover, cover, 100]),
+      ...icon("like.png", "likes icon", 250, 420),
+      ...count("likes count", 250, 580, tile.likes),
+      ...icon("save.png", "saves icon", 830, 420),
+      ...count("saves count", 830, 580, tile.saves),
+      ...icon("comment.png", "comments icon", 830, 990),
+      ...count("comments count", 830, 1150, tile.comments),
+      // The profile, bottom left.
+      { command: "layer.newShape", params: { kind: "ellipse", name: "avatar", size: [92, 92], fill: [0.165, 0.549, 1], stroke: [1, 1, 1], strokeWidth: 4, position: [96, 1750] } },
+      { command: "layer.newText", params: { text: tile.handle, name: "handle", position: [158, 1764], font: "Satoshi", style: "Bold", size: 46, fill: [1, 1, 1], justify: "left" } },
+      { command: "comp.close", params: { comp: tileName } },
+    );
+  });
+
+  // The wall: three columns of those tiles, each scrolling up at its own speed.
+  steps.push(
     { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, background: "#000000", open: true } },
     { command: "layer.newNull", params: { name: "controls" } },
     fx("controls", "Slider Control"),
     set("controls", "effects/#1/slider", 100),
     { command: "layer.setSwitch", params: { layers: ["controls"], switch: "guide", value: true } },
-  ];
+  );
 
-  columns.forEach((column, i) => {
+  const speeds = [42, 96, 158];
+  speeds.forEach((speed, i) => {
     const x = 320 + i * cellW;
     const col = `column ${i + 1}`;
     steps.push(
       { command: "layer.newNull", params: { name: col } },
       set(col, "transform/anchor", [0, 0, 0]),
       expr(col, "transform/position", [
-        `var speed = ${column.speed} * (thisComp.layer("controls").effect("Speed")("Slider") / 100);`,
+        `var speed = ${speed} * (thisComp.layer("controls").effect("Speed")("Slider") / 100);`,
         `[${x}, -((time * speed) % ${run})]`,
       ].join("\n")),
     );
     for (let k = 0; k < 6; k++) {
-      const clip = column.clips[k % 3];
-      const layer = `${col} clip ${k + 1}`;
-      const [w, h] = clips[clip];
-      const scale = round(Math.max(cellW / w, cellH / h) * 100);
+      const tileName = `tiktok ${String(i * 3 + (k % 3) + 1).padStart(2, "0")}`;
+      const layer = `${col} tile ${k + 1}`;
       steps.push(
-        { command: "layer.addItem", params: { item: clip, time: 0, position: [x, 0] } },
-        { command: "layer.rename", params: { layer: clip, name: layer } },
+        { command: "layer.addItem", params: { item: tileName, time: 0, position: [x, 0] } },
+        { command: "layer.rename", params: { layer: tileName, name: layer } },
         { command: "layer.setParent", params: { layers: [layer], parent: col } },
         set(layer, "transform/position", [0, cellH * k + cellH / 2, 0]),
-        set(layer, "transform/scale", [scale, scale, 100]),
+        set(layer, "transform/scale", [round((cellW / tileW) * 100), round((cellW / tileW) * 100), 100]),
       );
     }
   });
 
   steps.push(
-    // A fade up from the bottom, so the handle and caption sit on something.
-    { command: "layer.newSolid", params: { name: "fade", color: "#000000", width: 1920, height: 1080 } },
-    fx("fade", "Linear Wipe"),
-    set("fade", "effects/#1/angle", 180),
-    set("fade", "effects/#1/completion", 40),
-    set("fade", "effects/#1/feather", 460),
-    set("fade", "transform/opacity", 80),
-
-    // The chrome: tabs, logo, action rail, handle, caption, music.
-    { command: "layer.newText", params: { text: "Following", name: "tab following", position: [852, 110], font: "Satoshi", style: "Bold", size: 40, fill: [1, 1, 1], justify: "center" } },
-    set("tab following", "transform/opacity", 58),
-    { command: "layer.newText", params: { text: "For You", name: "tab for you", position: [1046, 110], font: "Satoshi", style: "Bold", size: 40, fill: [1, 1, 1], justify: "center" } },
-    { command: "layer.newShape", params: { kind: "rounded", name: "tab underline", size: [84, 6], fill: [1, 1, 1], position: [1046, 142] } },
-    set("tab underline", "contents/group/contents/rect/roundness", 3),
-
-    { command: "layer.addItem", params: { item: "plat_tiktok.png", time: 0, position: [92, 92] } },
-    { command: "layer.rename", params: { layer: "plat_tiktok.png", name: "logo" } },
-    set("logo", "transform/scale", [10, 10, 100]),
-
-    { command: "layer.newShape", params: { kind: "ellipse", name: "avatar", size: [104, 104], fill: [0.165, 0.549, 1], stroke: [1, 1, 1], strokeWidth: 4, position: [1832, 424] } },
-    { command: "layer.newText", params: { text: "♥\n●\n➤", name: "rail icons", position: [1832, 548], font: "Satoshi", style: "Bold", size: 54, leading: 120, fill: [1, 1, 1], justify: "center" } },
-    { command: "layer.newText", params: { text: "416K\n1,049\n19.4K", name: "rail counts", position: [1832, 590], font: "Satoshi", style: "Bold", size: 26, leading: 120, fill: [1, 1, 1], justify: "center" } },
-
-    { command: "layer.newText", params: { text: "@rea.looksmaxxing", name: "handle", position: [76, 948], font: "Satoshi", style: "Bold", size: 46, fill: [1, 1, 1], justify: "left" } },
-    { command: "layer.newText", params: { text: "wait for it", name: "caption", position: [76, 1002], font: "Satoshi", style: "Medium", size: 38, fill: [1, 1, 1], justify: "left" } },
-    { command: "layer.newText", params: { text: "♫ rudeSlowed.mp3", name: "music", position: [76, 1050], font: "Satoshi", style: "Medium", size: 30, fill: [0.85, 0.9, 1], justify: "left" } },
-
     { command: "essential.setName", params: { comp: name, name } },
     { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Speed" } },
-    { command: "essential.addProperty", params: { comp: name, layer: "handle", path: "text/sourceText", name: "Handle" } },
-    { command: "essential.addProperty", params: { comp: name, layer: "caption", path: "text/sourceText", name: "Caption" } },
   );
   mkdirSync(`effects/${name}`, { recursive: true });
   writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");

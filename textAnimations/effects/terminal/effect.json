@@ -191,7 +191,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "matt \u2014 claude \u2014 ~/log",
+      "text": "matt \u00e2€” claude \u00e2€” ~/log",
       "name": "title",
       "position": [
         960,
@@ -245,7 +245,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "\u273b",
+      "text": "\u00e2œ\u00bb",
       "name": "welcome star",
       "position": [
         324,
@@ -393,7 +393,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "\u25cf log \u00b7 twitterDms (account=you, waiting=true)",
+      "text": "\u00e2—\u008f log \u00c2\u00b7 twitterDms (account=you, waiting=true)",
       "name": "tool",
       "position": [
         300,
@@ -421,7 +421,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "  \u2514 6 conversations waiting on a reply, newest first",
+      "text": "  \u00e2”” 6 conversations waiting on a reply, newest first",
       "name": "result",
       "position": [
         300,
@@ -449,7 +449,7 @@
   {
     "command": "layer.newText",
     "params": {
-      "text": "\u25cf 6 people are waiting on you, 2 more opened and didn\u2019t reply",
+      "text": "\u00e2—\u008f 6 people are waiting on you, 2 more opened and didn\u00e2€™t reply",
       "name": "reply",
       "position": [
         300,
