@@ -24,6 +24,7 @@ EffectCraft to see every comp, or import a single `.ectemplate` from `textAnimat
 | `codex` | The Codex window from the landing page, playing the same session. |
 | `terminal` | The Claude Code CLI window: welcome box, then a typed prompt, a log tool call, its result and the reply. |
 | `cloudBackground` | 3D clay clouds drifting in depth layers, clay-dithered white and light blue, over the ditherGradientBackground sky. |
+| `ascii3D` | One 3D clay cloud drawn in ASCII characters, on the ditherGradientBackground sky held mostly blue with the dither just creeping in at the bottom. |
 | `brickTextBackground` | A wall of blue word bricks built from your sentence: Build pops them in until they fill the frame, Scramble swaps the words. |
 | `ditherGradientBackground` | Brand blue breaking into light blue, then white, in big square pixels, wiping from fully blue to fully white on a Wipe slider. |
 
@@ -44,7 +45,7 @@ Every text template uses the cv-bluekey look: Schoolbell in brand blue `#2a8cff`
 
 - **EffectCraft**, with its command-line tool `effectcraft-cli` for rebuilding.
 - **Fonts:** Schoolbell and Satoshi are included in `textAnimations/fonts`. Install both before opening the project.
-- **Craft plug-ins:** both backgrounds use the "Craft Halftone & Dither" effect plug-in (by qwertyonek).
+- **Craft plug-ins:** the backgrounds use the "Craft Halftone & Dither" effect plug-in (by qwertyonek).
   Without it they show the plain gradients, with no dither.
 
 ## How it works

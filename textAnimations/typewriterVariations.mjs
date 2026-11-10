@@ -580,6 +580,171 @@ const bluekeyScaleExpression = [
   writeFileSync("effects/cloudBackground/effect.json", JSON.stringify(steps, null, 2) + "\n");
 }
 
+// ascii3D: one clay cloud drawn as ASCII characters, on the ditherGradientBackground sky held mostly blue with the
+// dither only just creeping in at the bottom of the frame.
+//
+// There is no ASCII effect to apply, so the ASCII is built from layers: full-frame grids of monospace characters,
+// each revealed only where the cloud is that bright by a track matte of the cloud render.
+//   cloudSolo — one cloud: our own six 3D spheres under a null (clayClouds' cloud, on its own), Advanced 3D with the
+//     same camera and lights. It drifts, bobs and turns, and slides in from off the left at the "in" marker (add an
+//     "out" marker to have it wind back out).
+//   ascii sparse / mid / dense — grids of characters from the ramp ". , ' ` : - = + * # % @", one per brightness
+//     range: the lit tops of the cloud get the dense glyphs, the shadows the sparse ones.
+//   matte sparse / mid / dense — cloudSolo with its shading stretched to 0–1 by Levels, then clipped to that band by
+//     a second Levels. Not rendered; each is the luma track matte of its glyph layer.
+// The sky is the ditherGradientBackground precomp, time-remapped to 0.55 + time * 0.21 so its 0 → 100 Wipe only
+// creeps a little way up from the bottom of the frame instead of wiping it to white.
+// The grids are laid out for a monospace font: JetBrains Mono advances 0.6 em, so the glyph size sets the columns
+// and the row spacing is 0.9 of it. A fixed seed picks every character, so every build is the same.
+// Essential Graphics: Density (positive draws more of the cloud, negative less), Ink (the lit glyphs) and Shade
+// (the glyphs in the cloud's shadows).
+{
+  const name = "ascii3D";
+  const plugins = { command: "effect.plugins.load", params: { folder: `${process.env.APPDATA.replace(/\\/g, "/")}/EffectCraft/Plug-ins` } };
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
+  const round = (n) => Math.round(n * 100) / 100;
+  const duration = 5;
+
+  // The site's scene in its own units: camera at z 12 with a 30° field of view. The single cloud sits at z -4, big
+  // and centred, built from the same six puffs as clayClouds' clouds.
+  const cameraZ = 12;
+  const unit = 540 / Math.tan((15 * Math.PI) / 180) / cameraZ; // px per site unit at z 0
+  const z = -4;
+  const zPx = -z * unit;
+  const scale = 2.5;
+  const widthPx = 2 * scale * unit;
+  const puffs = [[0, -0.05, 0.3], [-0.3, 0.08, 0.22], [0.3, 0.06, 0.24], [-0.12, 0.14, 0.22], [0.16, 0.15, 0.22], [0.06, -0.2, 0.2]];
+
+  // One glyph grid for the whole frame. JetBrains Mono's advance is 0.6 of the size, so the columns follow the
+  // size; rows sit 0.9 of the size apart, which keeps the characters touching the way ASCII art does.
+  const size = 20;
+  const advance = size * 0.6;
+  const line = Math.round(size * 0.9 * 100) / 100;
+  const cols = Math.ceil(1920 / advance) + 1;
+  const rows = Math.ceil(1080 / line) + 2;
+
+  let seed = 20261110;
+  const random = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
+  const field = (chars) => {
+    const lines = [];
+    for (let r = 0; r < rows; r++) {
+      let s = "";
+      for (let c = 0; c < cols; c++) s += chars[Math.floor(random() * chars.length)];
+      lines.push(s);
+    }
+    return lines.join("\n");
+  };
+
+  // The ramp, split into the three bands: sparse in the cloud shadows, mid in the body, dense on the lit tops.
+  // inBlack / inWhite are where that band starts and ends in the shading, once the cloud is stretched to 0–1.
+  // The sparse glyphs are drawn in the Shade colour and the other two in Ink, so the shading reads as form.
+  const bands = [
+    { layer: "ascii sparse", matte: "matte sparse", chars: [".", ",", "'", "`"], inBlack: -0.3, inWhite: 0.2, opacity: 100, ink: "Shade" },
+    { layer: "ascii mid", matte: "matte mid", chars: [":", "-", "=", "+"], inBlack: 0.16, inWhite: 0.48, opacity: 78, ink: "Ink" },
+    { layer: "ascii dense", matte: "matte dense", chars: ["*", "#", "%", "@"], inBlack: 0.42, inWhite: 0.82, opacity: 100, ink: "Ink" },
+  ];
+
+  // Density moves the whole ramp: 0 is the built-in split, positive draws more of the cloud (denser ASCII),
+  // negative leaves only the brightest parts drawn.
+  const density = (base) => [
+    `var d = 0; try { d = thisComp.layer("controls").effect("Density")("Slider"); } catch (e) { d = 0; }`,
+    `Math.min(Math.max(${base} + (d / 100) * 0.3, -1), 2)`,
+  ].join("\n");
+
+  const steps = [
+    plugins,
+
+    // cloudSolo: the one cloud, in its own Advanced 3D comp so the ASCII can matte against it.
+    { command: "comp.new", params: { name: "cloudSolo", width: 1920, height: 1080, frameRate: 30, duration, open: true } },
+    { command: "comp.settings", params: { comp: "cloudSolo", renderer: "advanced3D" } },
+    { command: "layer.newCamera", params: { name: "camera", type: "oneNode", angleOfView: 30, position: [960, 540, -cameraZ * unit] } },
+    { command: "layer.newLight", params: { kind: "Ambient", name: "ambient", color: "#ffffff", intensity: 55 } },
+    { command: "layer.newLight", params: { kind: "Parallel", name: "key", color: "#fff1dc", intensity: 110, castsShadows: true, position: [-40, -960, -1700] } },
+    { command: "layer.newLight", params: { kind: "Parallel", name: "fill", color: "#a8d1ff", intensity: 30, position: [2260, 840, -1000] } },
+    // Slide in and out: the controls null's "in" and "out" markers, with Overshoot.
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    set("controls", "effects/#1/slider", 1.7),
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 0, comment: "in" } },
+    { command: "markers.set", params: { layer: "controls", index: 0, duration: 1.2 } },
+    { command: "layer.newNull", params: { name: "cloud" } },
+    { command: "layer.setSwitch", params: { layers: ["cloud"], switch: "threeD", value: true } },
+    set("cloud", "transform/position", [960, 520, round(zPx)]),
+    // Drift gently either side, bob and turn, then slide in from off the left with overshoot and wind back out.
+    expr("cloud", "transform/position", [
+      `var unit = ${round(unit)}, away = 13;`,
+      `var x = Math.sin(time * 0.35) * 0.55;`,
+      `var y = 0.15 + Math.sin(time * 0.5 + 1.1) * 0.12;`,
+      `var c = thisComp.layer("controls"), ov = c.effect("Overshoot")("Slider");`,
+      `function markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }`,
+      `function progress(m) { return Math.min(Math.max((time - m.time) / Math.max(m.duration, 0.001), 0), 1); }`,
+      `function backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }`,
+      `function backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }`,
+      `var mIn = markerKey("in"), mOut = markerKey("out");`,
+      `if (mIn) x -= away * (1 - backOut(progress(mIn)));`,
+      `if (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));`,
+      `[960 + x * unit, 540 - y * unit, ${round(zPx)}]`,
+    ].join("\n")),
+    expr("cloud", "transform/rotationY", `Math.sin(time * 0.3) * 10`),
+    ...puffs.flatMap(([dx, dy, r], k) => [
+      { command: "layer.new3dPrimitive", params: { kind: "sphere", name: `cloud puff ${k + 1}`, radius: round((r * widthPx) / 1.9), position: [round(960 + (dx * widthPx) / 1.9), round(520 - (dy * widthPx) / 1.9), round(zPx)], baseColor: [1, 1, 1], roughness: 0.85, metallic: 0, castsShadows: true, acceptsShadows: true } },
+      { command: "layer.setParent", params: { layers: [`cloud puff ${k + 1}`], parent: "cloud" } },
+    ]),
+    { command: "comp.close", params: { comp: "cloudSolo" } },
+
+    // ascii3D: the sky, then the three ASCII bands over their mattes.
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, background: "#ffffff", open: true } },
+    // The sky is the ditherGradientBackground precomp (built first by build.sh), played slowly so its Wipe only
+    // creeps a little way up from the bottom of the frame.
+    { command: "layer.addItem", params: { item: "ditherGradientBackground", time: 0 } },
+    { command: "layer.rename", params: { layer: "ditherGradientBackground", name: "sky" } },
+    { command: "layer.enableTimeRemap", params: { layers: ["sky"], value: true } },
+    // Play the sky slowly (its 0 → 100 Wipe over 5 s spread over ~24 s), so the dither only creeps a little way up
+    // from the bottom of the frame instead of wiping it to white.
+    expr("sky", "timeRemap", "0.55 + time * 0.21"),
+  ];
+
+  for (const band of bands) {
+    steps.push(
+      // The glyph grid: a full frame of characters, laid out from the top-left corner.
+      { command: "layer.newText", params: { text: field(band.chars), name: band.layer, position: [0, line], font: "JetBrains Mono", style: "Regular", size, leading: line, tracking: 0, fill: [1, 1, 1], justify: "left" } },
+      fx(band.layer, "Fill"),
+      expr(band.layer, "effects/#1/color", `thisComp.layer("controls").effect("${band.ink}")("Color")`),
+      set(band.layer, "transform/opacity", band.opacity),
+      // Its matte: the cloud, shading stretched to 0–1, then only this band's slice of that shading kept.
+      { command: "layer.addItem", params: { item: "cloudSolo", time: 0 } },
+      { command: "layer.rename", params: { layer: "cloudSolo", name: band.matte } },
+      fx(band.matte, "Levels"),
+      set(band.matte, "effects/#1/inBlack", 0.8),
+      set(band.matte, "effects/#1/inWhite", 1),
+      fx(band.matte, "Levels"),
+      expr(band.matte, "effects/#2/inBlack", density(band.inBlack)),
+      expr(band.matte, "effects/#2/inWhite", density(band.inWhite)),
+      { command: "layer.setSwitch", params: { layers: [band.matte], switch: "video", value: false } },
+      { command: "layer.setTrackMatte", params: { layer: band.layer, matte: band.matte, kind: "luma" } },
+    );
+  }
+
+  steps.push(
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    set("controls", "effects/#1/slider", 0),
+    fx("controls", "Color Control"),
+    set("controls", "effects/#2/color", [1, 1, 1, 1]),
+    fx("controls", "Color Control"),
+    set("controls", "effects/#3/color", [0.051, 0.165, 0.298, 1]),
+    { command: "layer.setSwitch", params: { layers: ["controls"], switch: "guide", value: true } },
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Density" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#2/color", name: "Ink" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#3/color", name: "Shade" } },
+  );
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+}
+
 // ditherGradientBackground: brand blue breaking into light blue, then into white, in big square pixels
 // (ordered/Bayer dither), wiping up the frame from fully blue to fully white. Two bands, each a black-to-white
 // Gradient Ramp run through Craft Halftone & Dither (18 px cells) and then Tint, so the dither's black and white

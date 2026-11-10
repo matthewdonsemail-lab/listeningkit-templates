@@ -4,7 +4,7 @@ ListeningKit text effects for EffectCraft, all set in Schoolbell (`fonts/Schoolb
 cv-bluekey look (see cvBluekey below): brand blue, white then navy outline, -3° tilt, blue glow.
 
 - `textAnimations.ecproj` — one comp per template, sorted into folders in the Project panel: Text Animations,
-  Title Cards, Backgrounds (with clayClouds in Parts), Agent Windows and Assets (`organize.json`).
+  Title Cards, Backgrounds (with clayClouds and cloudSolo in Parts), Agent Windows and Assets (`organize.json`).
 - `effects/<name>/effect.json` — the EffectCraft CLI commands that build that effect.
 - `effects/<name>/<name>.ectemplate` — the effect as a template, with its Essential Graphics controls.
 
@@ -100,6 +100,35 @@ ListeningKit, so each cloud here is our own: six 3D spheres under a null.
 
 Essential Graphics: Cloud Dither Size, Cloud Shade, Cloud Lit.
 build.sh builds ditherGradientBackground, then cloudBackground, then the rest, because introCard uses cloudBackground.
+
+## ascii3D
+
+One clay cloud drawn in ASCII characters, on the ditherGradientBackground sky held mostly blue with the dither just
+creeping in at the bottom of the frame (1920×1080, 5 s).
+
+- **cloudSolo** — the one cloud, in its own Advanced 3D comp: the same 30° camera, ambient, warm key and blue fill
+  lights as `clayClouds`, and one cloud built from our six spheres under a null. It drifts slowly either side, bobs
+  and turns, and slides in from off the left from its `in` marker with overshoot (Overshoot slider). Add an `out`
+  marker to have it wind back out.
+- **The ASCII** is built from layers, because there is no ASCII effect to apply: three full-frame grids of JetBrains
+  Mono characters, from the ramp `` . , ' ` : - = + * # % @ ``, one grid per brightness band. The lit tops of the cloud
+  get the dense glyphs, the body the mid ones, the shadows the sparse ones, and each grid is revealed only where the
+  cloud is that bright.
+- **The mattes** are three copies of `cloudSolo`, not rendered: a Levels stretches the cloud's shading to 0–1, a
+  second Levels clips that to the band, and each is the luma track matte of its grid. EffectCraft renders the 3D
+  scene for each one, so the comp costs roughly three cloud renders a frame.
+- **The sky** is the `ditherGradientBackground` precomp, time-remapped to `0.55 + time * 0.21` so its 0 → 100 Wipe
+  only reaches a little way up from the bottom instead of wiping the frame to white. Change that expression for more
+  or less of the fade.
+
+Essential Graphics: **Density** (0 is the built-in band split, positive draws more of the cloud so the ASCII is
+denser, negative leaves only the brightest parts drawn), **Ink** (the glyphs on the lit parts of the cloud) and
+**Shade** (the glyphs in its shadows — the three bands are drawn in Ink, Ink at 78% and Shade, so the shading reads as
+form instead of one flat white silhouette).
+
+The grids are laid out for a monospace font: JetBrains Mono advances 0.6 em, so the glyph size sets the columns and
+the rows sit 0.9 of it apart. The size (20 px), the characters and their random pick are fixed in the generator, so
+changing them means editing `typewriterVariations.mjs` and rebuilding.
 
 ## ditherGradientBackground
 
