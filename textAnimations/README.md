@@ -138,10 +138,15 @@ its own speed.
 - **`tiktok 01`…`tiktok 09`** — one 1080×1920 TikTok each: the clip covering the frame, and the like, comment and
   save icons with their counts stacked down the right edge in white. The icons are the ones from the rea-looksmaxxing
   project (`assets/tiktok/like.png`, `comment.png`, `save.png`).
-- **`tiktok`** — the wall. Three columns, each tile 580 wide with a 60 px gutter all round, so the background shows
-  between them. Each column holds its three tiles twice over and wraps every three, so it scrolls forever without a
-  seam. Speeds are 42, 96 and 158 px/s at Speed 100.
-- Essential Graphics: **Speed** (all three columns together).
+- **`tiktok column 1`…`3`** — each 640×1080, holding six tiles (its three, twice over) that scroll up forever and wrap
+  every three, so there is never a seam.
+- **`tiktok`** — the wall: the three column precomps side by side, 60 px gutters between them.
+- **Markers on `controls`** drive the in and out: `in` at 0 (1.2 s) slides the columns up into the frame from below,
+  `out` at 6.4 (1.2 s) winds them up and sends them out through the top. Because each column is cropped to its own
+  precomp, sliding it clears the frame completely. The scroll runs underneath the whole time, so they never stop moving.
+  Move a marker to retime; delete `out` to keep the wall on screen.
+- Essential Graphics: **Overshoot** (how far past the frame a column swings when it slides) and **Stagger** (the most
+  seconds one column starts after another).
 
 The clips are `log-hyperframes/effectcraft/tiktok/tt01…tt09.mp4`, imported from there, so this template needs that
 folder on disk (the project keeps them as online media, referenced by absolute path).

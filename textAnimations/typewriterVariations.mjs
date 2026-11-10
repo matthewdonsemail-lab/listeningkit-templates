@@ -1259,43 +1259,75 @@ const bluekeyScaleExpression = [
     );
   });
 
-  // The wall: three columns of those tiles, each scrolling up at its own speed.
+  // The wall: three columns of those tiles. They scroll up all the time, and slide in from below at the "in" marker
+  // and back out through the top at the "out" marker, with overshoot.
   steps.push(
     { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, background: "#000000", open: true } },
     { command: "layer.newNull", params: { name: "controls" } },
     fx("controls", "Slider Control"),
-    set("controls", "effects/#1/slider", 100),
+    fx("controls", "Slider Control"),
+    set("controls", "effects/#1/slider", 1.7),
+    set("controls", "effects/#2/slider", 0.2),
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 0, comment: "in" } },
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 6.4, comment: "out" } },
+    { command: "markers.set", params: { layer: "controls", index: 0, duration: 1.2 } },
+    { command: "markers.set", params: { layer: "controls", index: 1, duration: 1.2 } },
     { command: "layer.setSwitch", params: { layers: ["controls"], switch: "guide", value: true } },
   );
 
+  // Each column is its own 640 × 1080 precomp, so it can be cropped to the column and then slid clean out of the frame.
+  // Inside it a null scrolls the six tiles up forever; in the wall the precomp layer slides in and out on the markers.
   const speeds = [42, 96, 158];
   speeds.forEach((speed, i) => {
-    const x = 320 + i * cellW;
-    const col = `column ${i + 1}`;
+    const col = `tiktok column ${i + 1}`;
     steps.push(
-      { command: "layer.newNull", params: { name: col } },
-      set(col, "transform/anchor", [0, 0, 0]),
-      expr(col, "transform/position", [
-        `var speed = ${speed} * (thisComp.layer("controls").effect("Speed")("Slider") / 100);`,
-        `[${x}, -((time * speed) % ${run})]`,
-      ].join("\n")),
+      { command: "comp.new", params: { name: col, width: cellW, height: 1080, frameRate: 30, duration, background: "#000000", open: true } },
+      { command: "layer.newNull", params: { name: "scroll" } },
+      set("scroll", "transform/anchor", [0, 0, 0]),
+      expr("scroll", "transform/position", `[${cellW / 2}, -((time * ${speed}) % ${run})]`),
     );
     for (let k = 0; k < 6; k++) {
       const tileName = `tiktok ${String(i * 3 + (k % 3) + 1).padStart(2, "0")}`;
-      const layer = `${col} tile ${k + 1}`;
+      const layer = `tile ${k + 1}`;
       steps.push(
-        { command: "layer.addItem", params: { item: tileName, time: 0, position: [x, 0] } },
+        { command: "layer.addItem", params: { item: tileName, time: 0, position: [cellW / 2, 0] } },
         { command: "layer.rename", params: { layer: tileName, name: layer } },
-        { command: "layer.setParent", params: { layers: [layer], parent: col } },
+        { command: "layer.setParent", params: { layers: [layer], parent: "scroll" } },
         set(layer, "transform/position", [0, cellH * k + cellH / 2, 0]),
         set(layer, "transform/scale", [round((shownW / tileW) * 100), round((shownW / tileW) * 100), 100]),
       );
     }
+    steps.push({ command: "comp.close", params: { comp: col } });
+  });
+
+  speeds.forEach((_, i) => {
+    const x = 320 + i * cellW;
+    const col = `tiktok column ${i + 1}`;
+    const layer = `column ${i + 1}`;
+    steps.push(
+      { command: "layer.addItem", params: { item: col, time: 0, position: [x, 540] } },
+      { command: "layer.rename", params: { layer: col, name: layer } },
+      expr(layer, "transform/position", [
+        `var c = thisComp.layer("controls");`,
+        `var ov = c.effect("Overshoot")("Slider"), stagger = Math.max(c.effect("Stagger")("Slider"), 0);`,
+        `function markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }`,
+        `var delay = stagger * ${i};`,
+        `function progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }`,
+        `function backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }`,
+        `function backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }`,
+        `var y = thisComp.height / 2;`,
+        `var mIn = markerKey("in"), mOut = markerKey("out");`,
+        `if (mIn) y += thisComp.height * (1 - backOut(progress(mIn)));`,
+        `if (mOut && time >= mOut.time) y -= thisComp.height * backIn(progress(mOut));`,
+        `[${x}, y]`,
+      ].join("\n")),
+    );
   });
 
   steps.push(
     { command: "essential.setName", params: { comp: name, name } },
-    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Speed" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Overshoot" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#2/slider", name: "Stagger" } },
   );
   mkdirSync(`effects/${name}`, { recursive: true });
   writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");

@@ -2062,11 +2062,64 @@
     }
   },
   {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "controls"
+      ]
+    }
+  },
+  {
     "command": "prop.set",
     "params": {
       "layer": "controls",
       "path": "effects/#1/slider",
-      "value": 100
+      "value": 1.7
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#2/slider",
+      "value": 0.2
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "controls"
+      ],
+      "time": 0,
+      "comment": "in"
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "controls"
+      ],
+      "time": 6.4,
+      "comment": "out"
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "controls",
+      "index": 0,
+      "duration": 1.2
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "controls",
+      "index": 1,
+      "duration": 1.2
     }
   },
   {
@@ -2080,999 +2133,1131 @@
     }
   },
   {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok column 1",
+      "width": 640,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
     "command": "layer.newNull",
     "params": {
+      "name": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "scroll",
+      "path": "transform/anchor",
+      "value": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "scroll",
+      "path": "transform/position",
+      "expression": "[320, -((time * 42) % 3273)]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 01",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 01",
+      "name": "tile 1"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 1"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 1",
+      "path": "transform/position",
+      "value": [
+        0,
+        545.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 1",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 02",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 02",
+      "name": "tile 2"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 2"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 2",
+      "path": "transform/position",
+      "value": [
+        0,
+        1636.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 2",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 03",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 03",
+      "name": "tile 3"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 3"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 3",
+      "path": "transform/position",
+      "value": [
+        0,
+        2727.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 3",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 01",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 01",
+      "name": "tile 4"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 4"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 4",
+      "path": "transform/position",
+      "value": [
+        0,
+        3818.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 4",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 02",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 02",
+      "name": "tile 5"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 5"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 5",
+      "path": "transform/position",
+      "value": [
+        0,
+        4909.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 5",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 03",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 03",
+      "name": "tile 6"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 6"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 6",
+      "path": "transform/position",
+      "value": [
+        0,
+        6000.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 6",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok column 1"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok column 2",
+      "width": 640,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "scroll",
+      "path": "transform/anchor",
+      "value": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "scroll",
+      "path": "transform/position",
+      "expression": "[320, -((time * 96) % 3273)]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 04",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 04",
+      "name": "tile 1"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 1"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 1",
+      "path": "transform/position",
+      "value": [
+        0,
+        545.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 1",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 05",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 05",
+      "name": "tile 2"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 2"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 2",
+      "path": "transform/position",
+      "value": [
+        0,
+        1636.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 2",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 06",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 06",
+      "name": "tile 3"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 3"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 3",
+      "path": "transform/position",
+      "value": [
+        0,
+        2727.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 3",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 04",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 04",
+      "name": "tile 4"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 4"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 4",
+      "path": "transform/position",
+      "value": [
+        0,
+        3818.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 4",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 05",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 05",
+      "name": "tile 5"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 5"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 5",
+      "path": "transform/position",
+      "value": [
+        0,
+        4909.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 5",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 06",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 06",
+      "name": "tile 6"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 6"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 6",
+      "path": "transform/position",
+      "value": [
+        0,
+        6000.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 6",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok column 2"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok column 3",
+      "width": 640,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "scroll",
+      "path": "transform/anchor",
+      "value": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "scroll",
+      "path": "transform/position",
+      "expression": "[320, -((time * 158) % 3273)]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 07",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 07",
+      "name": "tile 1"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 1"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 1",
+      "path": "transform/position",
+      "value": [
+        0,
+        545.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 1",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 08",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 08",
+      "name": "tile 2"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 2"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 2",
+      "path": "transform/position",
+      "value": [
+        0,
+        1636.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 2",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 09",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 09",
+      "name": "tile 3"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 3"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 3",
+      "path": "transform/position",
+      "value": [
+        0,
+        2727.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 3",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 07",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 07",
+      "name": "tile 4"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 4"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 4",
+      "path": "transform/position",
+      "value": [
+        0,
+        3818.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 4",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 08",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 08",
+      "name": "tile 5"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 5"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 5",
+      "path": "transform/position",
+      "value": [
+        0,
+        4909.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 5",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok 09",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok 09",
+      "name": "tile 6"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "tile 6"
+      ],
+      "parent": "scroll"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 6",
+      "path": "transform/position",
+      "value": [
+        0,
+        6000.5,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tile 6",
+      "path": "transform/scale",
+      "value": [
+        53.7,
+        53.7,
+        100
+      ]
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "tiktok column 3"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tiktok column 1",
+      "time": 0,
+      "position": [
+        320,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tiktok column 1",
       "name": "column 1"
     }
   },
   {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1",
-      "path": "transform/anchor",
-      "value": [
-        0,
-        0,
-        0
-      ]
-    }
-  },
-  {
     "command": "prop.setExpression",
     "params": {
       "layer": "column 1",
       "path": "transform/position",
-      "expression": "var speed = 42 * (thisComp.layer(\"controls\").effect(\"Speed\")(\"Slider\") / 100);\n[320, -((time * speed) % 3273)]"
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 0;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar y = thisComp.height / 2;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nif (mIn) y += thisComp.height * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) y -= thisComp.height * backIn(progress(mOut));\n[320, y]"
     }
   },
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tiktok 01",
+      "item": "tiktok column 2",
       "time": 0,
       "position": [
-        320,
-        0
+        960,
+        540
       ]
     }
   },
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tiktok 01",
-      "name": "column 1 tile 1"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 1 tile 1"
-      ],
-      "parent": "column 1"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 1",
-      "path": "transform/position",
-      "value": [
-        0,
-        545.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 1",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 02",
-      "time": 0,
-      "position": [
-        320,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 02",
-      "name": "column 1 tile 2"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 1 tile 2"
-      ],
-      "parent": "column 1"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 2",
-      "path": "transform/position",
-      "value": [
-        0,
-        1636.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 2",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 03",
-      "time": 0,
-      "position": [
-        320,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 03",
-      "name": "column 1 tile 3"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 1 tile 3"
-      ],
-      "parent": "column 1"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 3",
-      "path": "transform/position",
-      "value": [
-        0,
-        2727.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 3",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 01",
-      "time": 0,
-      "position": [
-        320,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 01",
-      "name": "column 1 tile 4"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 1 tile 4"
-      ],
-      "parent": "column 1"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 4",
-      "path": "transform/position",
-      "value": [
-        0,
-        3818.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 4",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 02",
-      "time": 0,
-      "position": [
-        320,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 02",
-      "name": "column 1 tile 5"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 1 tile 5"
-      ],
-      "parent": "column 1"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 5",
-      "path": "transform/position",
-      "value": [
-        0,
-        4909.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 5",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 03",
-      "time": 0,
-      "position": [
-        320,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 03",
-      "name": "column 1 tile 6"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 1 tile 6"
-      ],
-      "parent": "column 1"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 6",
-      "path": "transform/position",
-      "value": [
-        0,
-        6000.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 1 tile 6",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newNull",
-    "params": {
+      "layer": "tiktok column 2",
       "name": "column 2"
     }
   },
   {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2",
-      "path": "transform/anchor",
-      "value": [
-        0,
-        0,
-        0
-      ]
-    }
-  },
-  {
     "command": "prop.setExpression",
     "params": {
       "layer": "column 2",
       "path": "transform/position",
-      "expression": "var speed = 96 * (thisComp.layer(\"controls\").effect(\"Speed\")(\"Slider\") / 100);\n[960, -((time * speed) % 3273)]"
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 1;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar y = thisComp.height / 2;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nif (mIn) y += thisComp.height * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) y -= thisComp.height * backIn(progress(mOut));\n[960, y]"
     }
   },
   {
     "command": "layer.addItem",
     "params": {
-      "item": "tiktok 04",
+      "item": "tiktok column 3",
       "time": 0,
       "position": [
-        960,
-        0
+        1600,
+        540
       ]
     }
   },
   {
     "command": "layer.rename",
     "params": {
-      "layer": "tiktok 04",
-      "name": "column 2 tile 1"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 2 tile 1"
-      ],
-      "parent": "column 2"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 1",
-      "path": "transform/position",
-      "value": [
-        0,
-        545.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 1",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 05",
-      "time": 0,
-      "position": [
-        960,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 05",
-      "name": "column 2 tile 2"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 2 tile 2"
-      ],
-      "parent": "column 2"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 2",
-      "path": "transform/position",
-      "value": [
-        0,
-        1636.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 2",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 06",
-      "time": 0,
-      "position": [
-        960,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 06",
-      "name": "column 2 tile 3"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 2 tile 3"
-      ],
-      "parent": "column 2"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 3",
-      "path": "transform/position",
-      "value": [
-        0,
-        2727.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 3",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 04",
-      "time": 0,
-      "position": [
-        960,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 04",
-      "name": "column 2 tile 4"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 2 tile 4"
-      ],
-      "parent": "column 2"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 4",
-      "path": "transform/position",
-      "value": [
-        0,
-        3818.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 4",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 05",
-      "time": 0,
-      "position": [
-        960,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 05",
-      "name": "column 2 tile 5"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 2 tile 5"
-      ],
-      "parent": "column 2"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 5",
-      "path": "transform/position",
-      "value": [
-        0,
-        4909.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 5",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 06",
-      "time": 0,
-      "position": [
-        960,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 06",
-      "name": "column 2 tile 6"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 2 tile 6"
-      ],
-      "parent": "column 2"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 6",
-      "path": "transform/position",
-      "value": [
-        0,
-        6000.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 2 tile 6",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.newNull",
-    "params": {
+      "layer": "tiktok column 3",
       "name": "column 3"
     }
   },
   {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3",
-      "path": "transform/anchor",
-      "value": [
-        0,
-        0,
-        0
-      ]
-    }
-  },
-  {
     "command": "prop.setExpression",
     "params": {
       "layer": "column 3",
       "path": "transform/position",
-      "expression": "var speed = 158 * (thisComp.layer(\"controls\").effect(\"Speed\")(\"Slider\") / 100);\n[1600, -((time * speed) % 3273)]"
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 07",
-      "time": 0,
-      "position": [
-        1600,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 07",
-      "name": "column 3 tile 1"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 3 tile 1"
-      ],
-      "parent": "column 3"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 1",
-      "path": "transform/position",
-      "value": [
-        0,
-        545.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 1",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 08",
-      "time": 0,
-      "position": [
-        1600,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 08",
-      "name": "column 3 tile 2"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 3 tile 2"
-      ],
-      "parent": "column 3"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 2",
-      "path": "transform/position",
-      "value": [
-        0,
-        1636.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 2",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 09",
-      "time": 0,
-      "position": [
-        1600,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 09",
-      "name": "column 3 tile 3"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 3 tile 3"
-      ],
-      "parent": "column 3"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 3",
-      "path": "transform/position",
-      "value": [
-        0,
-        2727.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 3",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 07",
-      "time": 0,
-      "position": [
-        1600,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 07",
-      "name": "column 3 tile 4"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 3 tile 4"
-      ],
-      "parent": "column 3"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 4",
-      "path": "transform/position",
-      "value": [
-        0,
-        3818.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 4",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 08",
-      "time": 0,
-      "position": [
-        1600,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 08",
-      "name": "column 3 tile 5"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 3 tile 5"
-      ],
-      "parent": "column 3"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 5",
-      "path": "transform/position",
-      "value": [
-        0,
-        4909.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 5",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
-    }
-  },
-  {
-    "command": "layer.addItem",
-    "params": {
-      "item": "tiktok 09",
-      "time": 0,
-      "position": [
-        1600,
-        0
-      ]
-    }
-  },
-  {
-    "command": "layer.rename",
-    "params": {
-      "layer": "tiktok 09",
-      "name": "column 3 tile 6"
-    }
-  },
-  {
-    "command": "layer.setParent",
-    "params": {
-      "layers": [
-        "column 3 tile 6"
-      ],
-      "parent": "column 3"
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 6",
-      "path": "transform/position",
-      "value": [
-        0,
-        6000.5,
-        0
-      ]
-    }
-  },
-  {
-    "command": "prop.set",
-    "params": {
-      "layer": "column 3 tile 6",
-      "path": "transform/scale",
-      "value": [
-        53.7,
-        53.7,
-        100
-      ]
+      "expression": "var c = thisComp.layer(\"controls\");\nvar ov = c.effect(\"Overshoot\")(\"Slider\"), stagger = Math.max(c.effect(\"Stagger\")(\"Slider\"), 0);\nfunction markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }\nvar delay = stagger * 2;\nfunction progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }\nfunction backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }\nfunction backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }\nvar y = thisComp.height / 2;\nvar mIn = markerKey(\"in\"), mOut = markerKey(\"out\");\nif (mIn) y += thisComp.height * (1 - backOut(progress(mIn)));\nif (mOut && time >= mOut.time) y -= thisComp.height * backIn(progress(mOut));\n[1600, y]"
     }
   },
   {
@@ -3088,7 +3273,16 @@
       "comp": "tiktok",
       "layer": "controls",
       "path": "effects/#1/slider",
-      "name": "Speed"
+      "name": "Overshoot"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "tiktok",
+      "layer": "controls",
+      "path": "effects/#2/slider",
+      "name": "Stagger"
     }
   }
 ]

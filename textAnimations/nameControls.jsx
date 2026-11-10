@@ -14,7 +14,7 @@ var namesByLayer = {
   ditherGradientBackground: { controls: ["Wipe"] },
   cloudSolo: { controls: ["Overshoot"] },
   ascii3D: { controls: ["Density", "Ink", "Shade"] },
-  tiktok: { controls: ["Speed"] },
+  tiktok: { controls: ["Overshoot", "Stagger"] },
   clayClouds: { controls: ["Overshoot", "Stagger"] },
   brickTextBackground: { controls: ["Build", "Overshoot", "Scramble", "Scramble Every", "Brick Color"] }
 };
