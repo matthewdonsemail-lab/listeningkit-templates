@@ -1,0 +1,1378 @@
+[
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt01.mp4",
+        "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt02.mp4",
+        "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt03.mp4",
+        "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt04.mp4",
+        "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt05.mp4",
+        "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt06.mp4",
+        "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt07.mp4",
+        "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt08.mp4",
+        "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok/tt09.mp4",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/plat_tiktok.png"
+      ]
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "tiktok",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 8,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "controls"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Slider Control",
+      "layers": [
+        "controls"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "value": 100
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "controls"
+      ],
+      "switch": "guide",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "column 1"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1",
+      "path": "transform/anchor",
+      "value": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "column 1",
+      "path": "transform/position",
+      "expression": "var speed = 42 * (thisComp.layer(\"controls\").effect(\"Speed\")(\"Slider\") / 100);\n[320, -((time * speed) % 3414)]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt01.mp4",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt01.mp4",
+      "name": "column 1 clip 1"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 1 clip 1"
+      ],
+      "parent": "column 1"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 1",
+      "path": "transform/position",
+      "value": [
+        0,
+        569,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 1",
+      "path": "transform/scale",
+      "value": [
+        197.57,
+        197.57,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt02.mp4",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt02.mp4",
+      "name": "column 1 clip 2"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 1 clip 2"
+      ],
+      "parent": "column 1"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 2",
+      "path": "transform/position",
+      "value": [
+        0,
+        1707,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 2",
+      "path": "transform/scale",
+      "value": [
+        158.06,
+        158.06,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt03.mp4",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt03.mp4",
+      "name": "column 1 clip 3"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 1 clip 3"
+      ],
+      "parent": "column 1"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 3",
+      "path": "transform/position",
+      "value": [
+        0,
+        2845,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 3",
+      "path": "transform/scale",
+      "value": [
+        111.13,
+        111.13,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt01.mp4",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt01.mp4",
+      "name": "column 1 clip 4"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 1 clip 4"
+      ],
+      "parent": "column 1"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 4",
+      "path": "transform/position",
+      "value": [
+        0,
+        3983,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 4",
+      "path": "transform/scale",
+      "value": [
+        197.57,
+        197.57,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt02.mp4",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt02.mp4",
+      "name": "column 1 clip 5"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 1 clip 5"
+      ],
+      "parent": "column 1"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 5",
+      "path": "transform/position",
+      "value": [
+        0,
+        5121,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 5",
+      "path": "transform/scale",
+      "value": [
+        158.06,
+        158.06,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt03.mp4",
+      "time": 0,
+      "position": [
+        320,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt03.mp4",
+      "name": "column 1 clip 6"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 1 clip 6"
+      ],
+      "parent": "column 1"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 6",
+      "path": "transform/position",
+      "value": [
+        0,
+        6259,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 1 clip 6",
+      "path": "transform/scale",
+      "value": [
+        111.13,
+        111.13,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "column 2"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2",
+      "path": "transform/anchor",
+      "value": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "column 2",
+      "path": "transform/position",
+      "expression": "var speed = 96 * (thisComp.layer(\"controls\").effect(\"Speed\")(\"Slider\") / 100);\n[960, -((time * speed) % 3414)]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt04.mp4",
+      "time": 0,
+      "position": [
+        960,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt04.mp4",
+      "name": "column 2 clip 1"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 2 clip 1"
+      ],
+      "parent": "column 2"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 1",
+      "path": "transform/position",
+      "value": [
+        0,
+        569,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 1",
+      "path": "transform/scale",
+      "value": [
+        88.91,
+        88.91,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt05.mp4",
+      "time": 0,
+      "position": [
+        960,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt05.mp4",
+      "name": "column 2 clip 2"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 2 clip 2"
+      ],
+      "parent": "column 2"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 2",
+      "path": "transform/position",
+      "value": [
+        0,
+        1707,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 2",
+      "path": "transform/scale",
+      "value": [
+        111.13,
+        111.13,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt06.mp4",
+      "time": 0,
+      "position": [
+        960,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt06.mp4",
+      "name": "column 2 clip 3"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 2 clip 3"
+      ],
+      "parent": "column 2"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 3",
+      "path": "transform/position",
+      "value": [
+        0,
+        2845,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 3",
+      "path": "transform/scale",
+      "value": [
+        111.13,
+        111.13,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt04.mp4",
+      "time": 0,
+      "position": [
+        960,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt04.mp4",
+      "name": "column 2 clip 4"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 2 clip 4"
+      ],
+      "parent": "column 2"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 4",
+      "path": "transform/position",
+      "value": [
+        0,
+        3983,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 4",
+      "path": "transform/scale",
+      "value": [
+        88.91,
+        88.91,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt05.mp4",
+      "time": 0,
+      "position": [
+        960,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt05.mp4",
+      "name": "column 2 clip 5"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 2 clip 5"
+      ],
+      "parent": "column 2"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 5",
+      "path": "transform/position",
+      "value": [
+        0,
+        5121,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 5",
+      "path": "transform/scale",
+      "value": [
+        111.13,
+        111.13,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt06.mp4",
+      "time": 0,
+      "position": [
+        960,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt06.mp4",
+      "name": "column 2 clip 6"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 2 clip 6"
+      ],
+      "parent": "column 2"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 6",
+      "path": "transform/position",
+      "value": [
+        0,
+        6259,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 2 clip 6",
+      "path": "transform/scale",
+      "value": [
+        111.13,
+        111.13,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "column 3"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3",
+      "path": "transform/anchor",
+      "value": [
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "column 3",
+      "path": "transform/position",
+      "expression": "var speed = 158 * (thisComp.layer(\"controls\").effect(\"Speed\")(\"Slider\") / 100);\n[1600, -((time * speed) % 3414)]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt07.mp4",
+      "time": 0,
+      "position": [
+        1600,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt07.mp4",
+      "name": "column 3 clip 1"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 3 clip 1"
+      ],
+      "parent": "column 3"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 1",
+      "path": "transform/position",
+      "value": [
+        0,
+        569,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 1",
+      "path": "transform/scale",
+      "value": [
+        88.91,
+        88.91,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt08.mp4",
+      "time": 0,
+      "position": [
+        1600,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt08.mp4",
+      "name": "column 3 clip 2"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 3 clip 2"
+      ],
+      "parent": "column 3"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 2",
+      "path": "transform/position",
+      "value": [
+        0,
+        1707,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 2",
+      "path": "transform/scale",
+      "value": [
+        88.91,
+        88.91,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt09.mp4",
+      "time": 0,
+      "position": [
+        1600,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt09.mp4",
+      "name": "column 3 clip 3"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 3 clip 3"
+      ],
+      "parent": "column 3"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 3",
+      "path": "transform/position",
+      "value": [
+        0,
+        2845,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 3",
+      "path": "transform/scale",
+      "value": [
+        88.91,
+        88.91,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt07.mp4",
+      "time": 0,
+      "position": [
+        1600,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt07.mp4",
+      "name": "column 3 clip 4"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 3 clip 4"
+      ],
+      "parent": "column 3"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 4",
+      "path": "transform/position",
+      "value": [
+        0,
+        3983,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 4",
+      "path": "transform/scale",
+      "value": [
+        88.91,
+        88.91,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt08.mp4",
+      "time": 0,
+      "position": [
+        1600,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt08.mp4",
+      "name": "column 3 clip 5"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 3 clip 5"
+      ],
+      "parent": "column 3"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 5",
+      "path": "transform/position",
+      "value": [
+        0,
+        5121,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 5",
+      "path": "transform/scale",
+      "value": [
+        88.91,
+        88.91,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "tt09.mp4",
+      "time": 0,
+      "position": [
+        1600,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "tt09.mp4",
+      "name": "column 3 clip 6"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "column 3 clip 6"
+      ],
+      "parent": "column 3"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 6",
+      "path": "transform/position",
+      "value": [
+        0,
+        6259,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "column 3 clip 6",
+      "path": "transform/scale",
+      "value": [
+        88.91,
+        88.91,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newSolid",
+    "params": {
+      "name": "fade",
+      "color": "#000000",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Linear Wipe",
+      "layers": [
+        "fade"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "fade",
+      "path": "effects/#1/angle",
+      "value": 180
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "fade",
+      "path": "effects/#1/completion",
+      "value": 40
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "fade",
+      "path": "effects/#1/feather",
+      "value": 460
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "fade",
+      "path": "transform/opacity",
+      "value": 80
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "Following",
+      "name": "tab following",
+      "position": [
+        852,
+        110
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 40,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tab following",
+      "path": "transform/opacity",
+      "value": 58
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "For You",
+      "name": "tab for you",
+      "position": [
+        1046,
+        110
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 40,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "tab underline",
+      "size": [
+        84,
+        6
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        1046,
+        142
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "tab underline",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 3
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "plat_tiktok.png",
+      "time": 0,
+      "position": [
+        92,
+        92
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "plat_tiktok.png",
+      "name": "logo"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo",
+      "path": "transform/scale",
+      "value": [
+        10,
+        10,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "ellipse",
+      "name": "avatar",
+      "size": [
+        104,
+        104
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 4,
+      "position": [
+        1832,
+        424
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "\u2665\n\u25cf\n\u27a4",
+      "name": "rail icons",
+      "position": [
+        1832,
+        548
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 54,
+      "leading": 120,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "416K\n1,049\n19.4K",
+      "name": "rail counts",
+      "position": [
+        1832,
+        590
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 26,
+      "leading": 120,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "@rea.looksmaxxing",
+      "name": "handle",
+      "position": [
+        76,
+        948
+      ],
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "wait for it",
+      "name": "caption",
+      "position": [
+        76,
+        1002
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 38,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "text": "\u266b rudeSlowed.mp3",
+      "name": "music",
+      "position": [
+        76,
+        1050
+      ],
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 30,
+      "fill": [
+        0.85,
+        0.9,
+        1
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "tiktok",
+      "name": "tiktok"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "tiktok",
+      "layer": "controls",
+      "path": "effects/#1/slider",
+      "name": "Speed"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "tiktok",
+      "layer": "handle",
+      "path": "text/sourceText",
+      "name": "Handle"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "tiktok",
+      "layer": "caption",
+      "path": "text/sourceText",
+      "name": "Caption"
+    }
+  }
+]

@@ -6,10 +6,13 @@
   { "command": "project.move", "params": { "items": ["Parts"], "folder": "Backgrounds" } },
   { "command": "project.newFolder", "params": { "name": "Agent Windows" } },
   { "command": "project.newFolder", "params": { "name": "Assets" } },
+  { "command": "project.newFolder", "params": { "name": "TikTok Clips" } },
+  { "command": "project.move", "params": { "items": ["TikTok Clips"], "folder": "Assets" } },
   { "command": "project.move", "params": { "items": ["typewriter", "typewriterOvershoot", "typewriterOvershootFast", "typewriterOvershootWords", "typewriterOvershootRotate", "continuousScale", "fadeUpCharacters", "cvBluekey"], "folder": "Text Animations" } },
   { "command": "project.move", "params": { "items": ["introCard"], "folder": "Title Cards" } },
-  { "command": "project.move", "params": { "items": ["ditherGradientBackground", "cloudBackground", "brickTextBackground", "ascii3D"], "folder": "Backgrounds" } },
+  { "command": "project.move", "params": { "items": ["ditherGradientBackground", "cloudBackground", "brickTextBackground", "ascii3D", "tiktok"], "folder": "Backgrounds" } },
   { "command": "project.move", "params": { "items": ["clayClouds", "cloudSolo"], "folder": "Parts" } },
   { "command": "project.move", "params": { "items": ["claudeCode", "codex", "terminal"], "folder": "Agent Windows" } },
-  { "command": "project.move", "params": { "items": ["claude.svg", "codex.svg", "Solids"], "folder": "Assets" } }
+  { "command": "project.move", "params": { "items": ["claude.svg", "codex.svg", "plat_tiktok.png", "Solids"], "folder": "Assets" } },
+  { "command": "project.move", "params": { "items": ["tt01.mp4", "tt02.mp4", "tt03.mp4", "tt04.mp4", "tt05.mp4", "tt06.mp4", "tt07.mp4", "tt08.mp4", "tt09.mp4"], "folder": "TikTok Clips" } }
 ]

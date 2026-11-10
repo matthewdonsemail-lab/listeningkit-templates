@@ -25,6 +25,7 @@ EffectCraft to see every comp, or import a single `.ectemplate` from `textAnimat
 | `terminal` | The Claude Code CLI window: welcome box, then a typed prompt, a log tool call, its result and the reply. |
 | `cloudBackground` | 3D clay clouds drifting in depth layers, clay-dithered white and light blue, over the ditherGradientBackground sky. |
 | `ascii3D` | One 3D clay cloud drawn in ASCII characters, on the ditherGradientBackground sky held mostly blue with the dither just creeping in at the bottom. |
+| `tiktok` | Three columns of portrait TikToks scrolling up at different speeds, behind the TikTok chrome: tabs, logo, action rail, handle, caption and music. |
 | `brickTextBackground` | A wall of blue word bricks built from your sentence: Build pops them in until they fill the frame, Scramble swaps the words. |
 | `ditherGradientBackground` | Brand blue breaking into light blue, then white, in big square pixels, wiping from fully blue to fully white on a Wipe slider. |
 
@@ -80,7 +81,8 @@ House rules the generator follows:
   full-frame plug-in effects on busy comps, and keep layer counts low. `effects/brickTextBackground/NOTES.md` is
   the case study of a version that broke this and was removed.
 - **Build from layers, not images.** Backgrounds and windows are shapes, text, solids and effects; the only files
-  imported are the brand marks in `textAnimations/assets/`.
+  imported are the brand marks in `textAnimations/assets/`, plus the nine TikTok clips the `tiktok` wall uses (those
+  are referenced from the rea-looksmaxxing project, not copied in).
 - **ASCII command files.** `effectcraft-cli` reads command files in the Windows code page, so the generator writes
   every non-ASCII character (✻, ·, “ ”…) as a `\u` escape.
 

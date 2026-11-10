@@ -1178,3 +1178,104 @@ const bluekeyScaleExpression = [
     writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
   }
 }
+
+// tiktok: a wall of TikToks. Three columns of portrait clips fill the width of the frame and scroll up at different
+// speeds behind the TikTok chrome: the tabs, the logo, the action rail with its counts, and the handle, caption and
+// music line. The clips are the ones from the rea-looksmaxxing project (log-hyperframes/effectcraft/tiktok), imported
+// from there, so this one template needs that folder on disk.
+// Each column holds its three clips twice over and wraps every three, so it scrolls forever without a seam.
+// Essential Graphics: Speed (all three columns), Handle, Caption.
+{
+  const name = "tiktok";
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
+  const round = (n) => Math.round(n * 100) / 100;
+
+  const clipsDir = "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok";
+  // Native sizes, so each clip can be scaled to cover its cell.
+  const clips = {
+    "tt01.mp4": [576, 576], "tt02.mp4": [838, 720], "tt03.mp4": [576, 1024],
+    "tt04.mp4": [720, 1280], "tt05.mp4": [576, 1024], "tt06.mp4": [576, 1024],
+    "tt07.mp4": [720, 1280], "tt08.mp4": [720, 1280], "tt09.mp4": [720, 1280],
+  };
+  const columns = [
+    { speed: 42, clips: ["tt01.mp4", "tt02.mp4", "tt03.mp4"] },
+    { speed: 96, clips: ["tt04.mp4", "tt05.mp4", "tt06.mp4"] },
+    { speed: 158, clips: ["tt07.mp4", "tt08.mp4", "tt09.mp4"] },
+  ];
+  const cellW = 640, cellH = 1138; // one portrait cell, 640 × the height of a 1080 × 1920 clip
+  const run = cellH * 3;           // one full set of three clips: what a column wraps by
+  const duration = 8;
+
+  const steps = [
+    { command: "file.import", params: { paths: [...Object.keys(clips).map((c) => `${clipsDir}/${c}`), `${process.cwd().replace(/\\/g, "/")}/assets/plat_tiktok.png`] } },
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, background: "#000000", open: true } },
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    set("controls", "effects/#1/slider", 100),
+    { command: "layer.setSwitch", params: { layers: ["controls"], switch: "guide", value: true } },
+  ];
+
+  columns.forEach((column, i) => {
+    const x = 320 + i * cellW;
+    const col = `column ${i + 1}`;
+    steps.push(
+      { command: "layer.newNull", params: { name: col } },
+      set(col, "transform/anchor", [0, 0, 0]),
+      expr(col, "transform/position", [
+        `var speed = ${column.speed} * (thisComp.layer("controls").effect("Speed")("Slider") / 100);`,
+        `[${x}, -((time * speed) % ${run})]`,
+      ].join("\n")),
+    );
+    for (let k = 0; k < 6; k++) {
+      const clip = column.clips[k % 3];
+      const layer = `${col} clip ${k + 1}`;
+      const [w, h] = clips[clip];
+      const scale = round(Math.max(cellW / w, cellH / h) * 100);
+      steps.push(
+        { command: "layer.addItem", params: { item: clip, time: 0, position: [x, 0] } },
+        { command: "layer.rename", params: { layer: clip, name: layer } },
+        { command: "layer.setParent", params: { layers: [layer], parent: col } },
+        set(layer, "transform/position", [0, cellH * k + cellH / 2, 0]),
+        set(layer, "transform/scale", [scale, scale, 100]),
+      );
+    }
+  });
+
+  steps.push(
+    // A fade up from the bottom, so the handle and caption sit on something.
+    { command: "layer.newSolid", params: { name: "fade", color: "#000000", width: 1920, height: 1080 } },
+    fx("fade", "Linear Wipe"),
+    set("fade", "effects/#1/angle", 180),
+    set("fade", "effects/#1/completion", 40),
+    set("fade", "effects/#1/feather", 460),
+    set("fade", "transform/opacity", 80),
+
+    // The chrome: tabs, logo, action rail, handle, caption, music.
+    { command: "layer.newText", params: { text: "Following", name: "tab following", position: [852, 110], font: "Satoshi", style: "Bold", size: 40, fill: [1, 1, 1], justify: "center" } },
+    set("tab following", "transform/opacity", 58),
+    { command: "layer.newText", params: { text: "For You", name: "tab for you", position: [1046, 110], font: "Satoshi", style: "Bold", size: 40, fill: [1, 1, 1], justify: "center" } },
+    { command: "layer.newShape", params: { kind: "rounded", name: "tab underline", size: [84, 6], fill: [1, 1, 1], position: [1046, 142] } },
+    set("tab underline", "contents/group/contents/rect/roundness", 3),
+
+    { command: "layer.addItem", params: { item: "plat_tiktok.png", time: 0, position: [92, 92] } },
+    { command: "layer.rename", params: { layer: "plat_tiktok.png", name: "logo" } },
+    set("logo", "transform/scale", [10, 10, 100]),
+
+    { command: "layer.newShape", params: { kind: "ellipse", name: "avatar", size: [104, 104], fill: [0.165, 0.549, 1], stroke: [1, 1, 1], strokeWidth: 4, position: [1832, 424] } },
+    { command: "layer.newText", params: { text: "♥\n●\n➤", name: "rail icons", position: [1832, 548], font: "Satoshi", style: "Bold", size: 54, leading: 120, fill: [1, 1, 1], justify: "center" } },
+    { command: "layer.newText", params: { text: "416K\n1,049\n19.4K", name: "rail counts", position: [1832, 590], font: "Satoshi", style: "Bold", size: 26, leading: 120, fill: [1, 1, 1], justify: "center" } },
+
+    { command: "layer.newText", params: { text: "@rea.looksmaxxing", name: "handle", position: [76, 948], font: "Satoshi", style: "Bold", size: 46, fill: [1, 1, 1], justify: "left" } },
+    { command: "layer.newText", params: { text: "wait for it", name: "caption", position: [76, 1002], font: "Satoshi", style: "Medium", size: 38, fill: [1, 1, 1], justify: "left" } },
+    { command: "layer.newText", params: { text: "♫ rudeSlowed.mp3", name: "music", position: [76, 1050], font: "Satoshi", style: "Medium", size: 30, fill: [0.85, 0.9, 1], justify: "left" } },
+
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Speed" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "handle", path: "text/sourceText", name: "Handle" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "caption", path: "text/sourceText", name: "Caption" } },
+  );
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+}
