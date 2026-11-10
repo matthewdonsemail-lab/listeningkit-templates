@@ -138,14 +138,13 @@ its own speed.
 - **`tiktok 01`…`tiktok 09`** — one 1080×1920 TikTok each: the clip covering the frame, and the like, comment and
   save icons with their counts stacked down the right edge in white. The icons are the ones from the rea-looksmaxxing
   project (`assets/tiktok/like.png`, `comment.png`, `save.png`).
-- **`tiktok column 1`…`3`** — each 640×1080, holding six tiles (its three, twice over) that scroll up forever and wrap
-  every three, so there is never a seam.
-- **`tiktok`** — the wall: the three column precomps side by side, 60 px gutters between them.
-- **Markers on `controls`** drive the in and out: `in` at 0 (1.2 s) slides the columns up into the frame from below,
-  `out` at 6.4 (1.2 s) winds them up and sends them out through the top. Because each column is cropped to its own
-  precomp, sliding it clears the frame completely. The scroll runs underneath the whole time, so they never stop moving.
+- **`tiktok`** — the wall: three columns of five tiles each (its three, then the first two again), each scrolling up at
+  its own speed (42, 96, 158 px/s) and wrapping every three, with a 60 px gutter between the tiles.
+- **Markers on `controls`**: `in` at 0 (1.2 s) slides the columns up into the frame from below with overshoot; `out` at
+  6 (1.8 s) eases them up and out. The out slide covers the whole stack plus the frame, so the outermost tile clears and
+  nothing is left behind — the tiles slide out, they are not wiped by a panel edge. The scroll keeps running underneath.
   Move a marker to retime; delete `out` to keep the wall on screen.
-- Essential Graphics: **Overshoot** (how far past the frame a column swings when it slides) and **Stagger** (the most
+- Essential Graphics: **Overshoot** (how far past the frame a column swings when it slides in) and **Stagger** (the most
   seconds one column starts after another).
 
 The clips are `log-hyperframes/effectcraft/tiktok/tt01…tt09.mp4`, imported from there, so this template needs that
