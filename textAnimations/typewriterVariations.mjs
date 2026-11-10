@@ -1180,8 +1180,9 @@ const bluekeyScaleExpression = [
 }
 
 
-// tiktok: a wall of TikToks. Each tile is a 9:16 TikTok precomp — the clip, the TikTok like / comment / save icons
-// with their counts, and the profile — and three columns of those tiles fill the width of the frame, scrolling up at
+// tiktok: a wall of TikToks. Each tile is a 9:16 TikTok precomp - the clip and the TikTok like / comment / save icons
+// with their counts down the right edge - and three columns of those tiles fill the width of the frame, with gaps
+// showing between them, scrolling up at
 // different speeds. The clips and icons are the ones from the rea-looksmaxxing project (log-hyperframes/effectcraft/
 // tiktok and scene3), imported from there, so this template needs those folders on disk.
 // Each column holds its three tiles twice over and wraps every three, so it scrolls forever without a seam.
@@ -1202,18 +1203,21 @@ const bluekeyScaleExpression = [
     "tt07.mp4": [720, 1280], "tt08.mp4": [720, 1280], "tt09.mp4": [720, 1280],
   };
   const tiles = [
-    { clip: "tt01.mp4", handle: "@cutd0se", likes: "416K", saves: "19,427", comments: "1,049" },
-    { clip: "tt02.mp4", handle: "@clavicular3dits", likes: "212K", saves: "8,310", comments: "742" },
-    { clip: "tt03.mp4", handle: "@loganmogsyou", likes: "89.4K", saves: "5,208", comments: "310" },
-    { clip: "tt04.mp4", handle: "@doctorer", likes: "1.2M", saves: "44,019", comments: "6,882" },
-    { clip: "tt05.mp4", handle: "@silentclp", likes: "64.1K", saves: "3,977", comments: "208" },
-    { clip: "tt06.mp4", handle: "@vexrr4", likes: "305K", saves: "12,664", comments: "1,530" },
-    { clip: "tt07.mp4", handle: "@jamestracyofficial", likes: "742K", saves: "31,208", comments: "4,017" },
-    { clip: "tt08.mp4", handle: "@ninevici0us", likes: "158K", saves: "6,459", comments: "918" },
-    { clip: "tt09.mp4", handle: "@tmz", likes: "2.4M", saves: "88,102", comments: "12,740" },
+    { clip: "tt01.mp4", likes: "416K", saves: "19,427", comments: "1,049" },
+    { clip: "tt02.mp4", likes: "212K", saves: "8,310", comments: "742" },
+    { clip: "tt03.mp4", likes: "89.4K", saves: "5,208", comments: "310" },
+    { clip: "tt04.mp4", likes: "1.2M", saves: "44,019", comments: "6,882" },
+    { clip: "tt05.mp4", likes: "64.1K", saves: "3,977", comments: "208" },
+    { clip: "tt06.mp4", likes: "305K", saves: "12,664", comments: "1,530" },
+    { clip: "tt07.mp4", likes: "742K", saves: "31,208", comments: "4,017" },
+    { clip: "tt08.mp4", likes: "158K", saves: "6,459", comments: "918" },
+    { clip: "tt09.mp4", likes: "2.4M", saves: "88,102", comments: "12,740" },
   ];
   const tileW = 1080, tileH = 1920; // one TikTok
-  const cellW = 640, cellH = 1138;  // where one lands in the wall
+  const cellW = 640;                // column pitch
+  const shownW = 580;               // how wide one TikTok sits in the wall: a 60 px gutter either side
+  const shownH = Math.round((shownW * tileH) / tileW); // 1031
+  const cellH = shownH + 60;        // row pitch: the tile plus the same 60 px gutter
   const run = cellH * 3;
   const duration = 8;
 
@@ -1251,9 +1255,6 @@ const bluekeyScaleExpression = [
       ...count("comments count", 962, 1252, tile.comments),
       ...icon("save.png", "saves icon", 962, 1380),
       ...count("saves count", 962, 1452, tile.saves),
-      // The profile, bottom left.
-      { command: "layer.newShape", params: { kind: "ellipse", name: "profile avatar", size: [92, 92], fill: [0.165, 0.549, 1], stroke: [1, 1, 1], strokeWidth: 4, position: [96, 1750] } },
-      { command: "layer.newText", params: { text: tile.handle, name: "handle", position: [158, 1764], font: "Satoshi", style: "Bold", size: 46, fill: [1, 1, 1], justify: "left" } },
       { command: "comp.close", params: { comp: tileName } },
     );
   });
@@ -1287,7 +1288,7 @@ const bluekeyScaleExpression = [
         { command: "layer.rename", params: { layer: tileName, name: layer } },
         { command: "layer.setParent", params: { layers: [layer], parent: col } },
         set(layer, "transform/position", [0, cellH * k + cellH / 2, 0]),
-        set(layer, "transform/scale", [round((cellW / tileW) * 100), round((cellW / tileW) * 100), 100]),
+        set(layer, "transform/scale", [round((shownW / tileW) * 100), round((shownW / tileW) * 100), 100]),
       );
     }
   });
@@ -1299,3 +1300,5 @@ const bluekeyScaleExpression = [
   mkdirSync(`effects/${name}`, { recursive: true });
   writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
 }
+
+

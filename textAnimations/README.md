@@ -135,11 +135,12 @@ changing them means editing `typewriterVariations.mjs` and rebuilding.
 A wall of TikToks (1920×1080, 8 s): three columns of 9:16 TikTok tiles filling the width, each column scrolling up at
 its own speed.
 
-- **`tiktok 01`…`tiktok 09`** — one 1080×1920 TikTok each: the clip covering the frame, the TikTok like, save and
-  comment icons with their counts, and the profile (avatar + @handle) bottom left. The icons are the ones from the
-  rea-looksmaxxing project (`assets/tiktok/like.png`, `comment.png`, `save.png`).
-- **`tiktok`** — the wall. Three columns, 640 wide, each holding its three tiles twice over and wrapping every three,
-  so it scrolls forever without a seam. Speeds are 42, 96 and 158 px/s at Speed 100.
+- **`tiktok 01`…`tiktok 09`** — one 1080×1920 TikTok each: the clip covering the frame, and the like, comment and
+  save icons with their counts stacked down the right edge in white. The icons are the ones from the rea-looksmaxxing
+  project (`assets/tiktok/like.png`, `comment.png`, `save.png`).
+- **`tiktok`** — the wall. Three columns, each tile 580 wide with a 60 px gutter all round, so the background shows
+  between them. Each column holds its three tiles twice over and wraps every three, so it scrolls forever without a
+  seam. Speeds are 42, 96 and 158 px/s at Speed 100.
 - Essential Graphics: **Speed** (all three columns together).
 
 The clips are `log-hyperframes/effectcraft/tiktok/tt01…tt09.mp4`, imported from there, so this template needs that
