@@ -1,0 +1,40 @@
+{
+  "source": "log-cli/site/apps/web/src/landing/PlatformSuite.tsx",
+  "platforms": [
+    {
+      "id": "x",
+      "icon": "faXTwitter",
+      "label": "Twitter/X"
+    },
+    {
+      "id": "facebook",
+      "icon": "faFacebook",
+      "label": "Facebook"
+    },
+    {
+      "id": "discord",
+      "icon": "faDiscord",
+      "label": "Discord"
+    },
+    {
+      "id": "slack",
+      "icon": "faSlack",
+      "label": "Slack"
+    },
+    {
+      "id": "instagram",
+      "icon": "faInstagram",
+      "label": "Instagram"
+    },
+    {
+      "id": "reddit",
+      "icon": "faReddit",
+      "label": "Reddit"
+    },
+    {
+      "id": "linkedin",
+      "icon": "faLinkedin",
+      "label": "LinkedIn"
+    }
+  ]
+}

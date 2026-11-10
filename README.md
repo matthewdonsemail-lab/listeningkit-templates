@@ -78,6 +78,12 @@ typewriterVariations.mjs ──► effects/<name>/effect.json ──► build.sh
 
 House rules the generator follows:
 
+- **Stagger the motion.** Follow [`textAnimations/MOTION.md`](textAnimations/MOTION.md): rounded card,
+  logo, then label, with overshoot and a delay between each. Use a top adjustment layer with a Transform
+  effect for a slow page push-in and slight rotation. Size containers for the animated text and logo.
+- **Review in EffectCraft.** Close and reopen the app after project changes so the updated comp is visible
+  for review. Commit and push only when requested.
+
 - **Keep comps light.** No per-frame layout chains (a layer re-measuring other layers' text every frame), no
   full-frame plug-in effects on busy comps, and keep layer counts low. `effects/brickTextBackground/NOTES.md` is
   the case study of a version that broke this and was removed.

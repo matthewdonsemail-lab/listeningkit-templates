@@ -14,6 +14,7 @@
 //   Continuous Scale â€” (continuousScale only) % the whole text keeps growing per second from the
 //                      "in" marker on (0 = none, negative shrinks).
 import { mkdirSync, writeFileSync as writeFileRaw } from "node:fs";
+import { iCanDoSteps } from "./iCanDo.mjs";
 
 // effectcraft-cli reads command files in the Windows code page, not UTF-8, so every non-ASCII character
 // (symbols, curly quotes, middle dotsâ€¦) is written as a JSON \u escape, which reads back exactly.
@@ -1540,7 +1541,8 @@ const bluekeyScaleExpression = [
     const steps = [
       { command: "comp.new", params: { name: comp, width: 1920, height: 1080, frameRate: 30, duration, background: paper, open: true } },
     ];
-    scene.lines.forEach((ln, i) => {
+    if (scene.id === "04") steps.push(...iCanDoSteps());
+    else scene.lines.forEach((ln, i) => {
       const layer = `line ${i + 1}`;
       steps.push(...lineSteps(layer, ln), ...popSteps(layer, i));
       steps.push({ command: "essential.addProperty", params: { comp, layer, path: "text/sourceText", name: `Text ${i + 1}` } });

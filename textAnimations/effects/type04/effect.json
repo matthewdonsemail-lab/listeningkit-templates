@@ -12,215 +12,1852 @@
     }
   },
   {
-    "command": "layer.newText",
+    "command": "file.import",
     "params": {
-      "text": "I can do",
-      "name": "line 1",
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/strawberry-background.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "strawberry-background.svg",
       "position": [
         960,
-        300
-      ],
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "strawberry-background.svg",
+      "name": "Strawberry dotted background"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "heading",
+      "text": "I work on",
       "font": "Satoshi",
       "style": "Black",
-      "size": 110,
+      "size": 130,
       "fill": [
-        0.07,
-        0.07,
-        0.07
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
       ],
-      "justify": "center"
+      "position": [
+        0,
+        0
+      ],
+      "justify": "left"
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 1",
+      "layer": "heading",
       "path": "transform/anchor",
-      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+      "expression": "var r=sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); [r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "heading",
+      "properties": [
+        "position"
+      ],
+      "name": "Staggered word slide"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "heading",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "heading",
+      "path": "text/animators/animator/properties/position",
+      "value": [
+        0,
+        -800,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "heading",
+      "path": "text/animators/animator/selectors/expressionSelector/basedOn",
+      "value": 2
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 1",
-      "path": "transform/scale",
-      "expression": "function clamp(v) { return Math.min(Math.max(v, 0), 1); }\nvar t = clamp((time - 0.12) / 0.34), u = t - 1;\nvar ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s, 100]"
+      "layer": "heading",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function clamp(p){return Math.max(0,Math.min(1,p));} function backOut(p){var u=clamp(p)-1;return 1+2.8*u*u*u+1.8*u*u;} function backIn(p){p=clamp(p);return 2.8*p*p*p-1.8*p*p;} var delay=(textIndex-1)*0.1; var enter=backOut((time-delay)/0.38); var exit=backIn((time-2.2-delay)/0.32); var amount=100*(1-enter-exit); [amount,amount,amount]"
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 1",
-      "path": "transform/opacity",
-      "expression": "Math.min(Math.max((time - 0.12) / 0.10, 0), 1) * 100"
+      "layer": "heading",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(1,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "heading",
+      "path": "transform/position",
+      "value": [
+        250,
+        540,
+        0
+      ]
     }
   },
   {
     "command": "essential.addProperty",
     "params": {
       "comp": "type04",
-      "layer": "line 1",
+      "layer": "heading",
       "path": "text/sourceText",
-      "name": "Text 1"
+      "name": "Heading"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Twitter/X pill",
+      "size": [
+        600,
+        204
+      ],
+      "fill": [
+        0.788235294117647,
+        0.8901960784313725,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Twitter/X pill",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Twitter/X pill",
+      "path": "contents/group/contents/rect/size",
+      "expression": "var l=thisComp.layer(\"Twitter/X label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[w,h]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Twitter/X pill",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(0-row)*230+enter*230-exit*700;var l=thisComp.layer(\"Twitter/X label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[870+w/2,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Twitter/X pill",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(0-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Twitter/X pill",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0)/0.24));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
     }
   },
   {
     "command": "layer.newText",
     "params": {
-      "text": "sales",
-      "name": "line 2",
-      "position": [
-        960,
-        450
-      ],
+      "name": "Twitter/X label",
+      "text": "Twitter/X",
       "font": "Satoshi",
       "style": "Black",
-      "size": 92,
+      "size": 148,
       "fill": [
-        0.2,
-        0.78,
-        0.36
+        0.16470588235294117,
+        0.5490196078431373,
+        1
       ],
-      "justify": "center"
+      "position": [
+        0,
+        0
+      ],
+      "justify": "left"
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 2",
+      "layer": "Twitter/X label",
       "path": "transform/anchor",
-      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+      "expression": "var r=sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); [r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "Twitter/X label",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "Twitter/X label",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Twitter/X label",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Twitter/X label",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Twitter/X label",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 2",
+      "layer": "Twitter/X label",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.1375; var gap=textTotal>1?0.1125/(textTotal-1):0; var s=back((time-0.13333333333333333-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Twitter/X label",
       "path": "transform/scale",
-      "expression": "function clamp(v) { return Math.min(Math.max(v, 0), 1); }\nvar t = clamp((time - 0.24) / 0.34), u = t - 1;\nvar ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s, 100]"
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.13333333333333333)/0.25);[s,s,100]"
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 2",
+      "layer": "Twitter/X label",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(0-row)*230+enter*230-exit*700;[1024,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Twitter/X label",
       "path": "transform/opacity",
-      "expression": "Math.min(Math.max((time - 0.24) / 0.10, 0), 1) * 100"
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(0-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/x.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "x.svg",
+      "position": [
+        956,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "x.svg",
+      "name": "Twitter/X icon"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Twitter/X icon"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Twitter/X icon",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(0-row)*230+enter*230-exit*700;[946,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Twitter/X icon",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(0-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Twitter/X icon",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.06666666666666667)/0.25));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
     }
   },
   {
     "command": "essential.addProperty",
     "params": {
       "comp": "type04",
-      "layer": "line 2",
+      "layer": "Twitter/X label",
       "path": "text/sourceText",
-      "name": "Text 2"
+      "name": "Twitter/X"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Facebook pill",
+      "size": [
+        600,
+        204
+      ],
+      "fill": [
+        0.788235294117647,
+        0.8901960784313725,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Facebook pill",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Facebook pill",
+      "path": "contents/group/contents/rect/size",
+      "expression": "var l=thisComp.layer(\"Facebook label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[w,h]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Facebook pill",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(1-row)*230+enter*230-exit*700;var l=thisComp.layer(\"Facebook label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[870+w/2,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Facebook pill",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(1-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Facebook pill",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.22999999999999998)/0.24));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
     }
   },
   {
     "command": "layer.newText",
     "params": {
-      "text": "research",
-      "name": "line 3",
-      "position": [
-        960,
-        580
-      ],
+      "name": "Facebook label",
+      "text": "Facebook",
       "font": "Satoshi",
       "style": "Black",
-      "size": 92,
+      "size": 148,
       "fill": [
-        0.36,
-        0.56,
-        0.95
+        0.16470588235294117,
+        0.5490196078431373,
+        1
       ],
-      "justify": "center"
+      "position": [
+        0,
+        0
+      ],
+      "justify": "left"
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 3",
+      "layer": "Facebook label",
       "path": "transform/anchor",
-      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+      "expression": "var r=sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); [r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "Facebook label",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "Facebook label",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Facebook label",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Facebook label",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Facebook label",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 3",
+      "layer": "Facebook label",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.1375; var gap=textTotal>1?0.1125/(textTotal-1):0; var s=back((time-0.3633333333333333-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Facebook label",
       "path": "transform/scale",
-      "expression": "function clamp(v) { return Math.min(Math.max(v, 0), 1); }\nvar t = clamp((time - 0.36) / 0.34), u = t - 1;\nvar ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s, 100]"
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.3633333333333333)/0.25);[s,s,100]"
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 3",
+      "layer": "Facebook label",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(1-row)*230+enter*230-exit*700;[1024,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Facebook label",
       "path": "transform/opacity",
-      "expression": "Math.min(Math.max((time - 0.36) / 0.10, 0), 1) * 100"
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(1-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/facebook.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "facebook.svg",
+      "position": [
+        956,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "facebook.svg",
+      "name": "Facebook icon"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Facebook icon"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Facebook icon",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(1-row)*230+enter*230-exit*700;[946,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Facebook icon",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(1-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Facebook icon",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.29666666666666663)/0.25));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
     }
   },
   {
     "command": "essential.addProperty",
     "params": {
       "comp": "type04",
-      "layer": "line 3",
+      "layer": "Facebook label",
       "path": "text/sourceText",
-      "name": "Text 3"
+      "name": "Facebook"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Discord pill",
+      "size": [
+        600,
+        204
+      ],
+      "fill": [
+        0.788235294117647,
+        0.8901960784313725,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord pill",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord pill",
+      "path": "contents/group/contents/rect/size",
+      "expression": "var l=thisComp.layer(\"Discord label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[w,h]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord pill",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(2-row)*230+enter*230-exit*700;var l=thisComp.layer(\"Discord label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[870+w/2,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord pill",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(2-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord pill",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.61)/0.24));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
     }
   },
   {
     "command": "layer.newText",
     "params": {
-      "text": "marketing",
-      "name": "line 4",
-      "position": [
-        960,
-        710
-      ],
+      "name": "Discord label",
+      "text": "Discord",
       "font": "Satoshi",
       "style": "Black",
-      "size": 92,
+      "size": 148,
       "fill": [
-        0.95,
-        0.45,
-        0.4
+        0.16470588235294117,
+        0.5490196078431373,
+        1
       ],
-      "justify": "center"
+      "position": [
+        0,
+        0
+      ],
+      "justify": "left"
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 4",
+      "layer": "Discord label",
       "path": "transform/anchor",
-      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+      "expression": "var r=sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); [r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "Discord label",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "Discord label",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord label",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord label",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord label",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 4",
+      "layer": "Discord label",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.1375; var gap=textTotal>1?0.1125/(textTotal-1):0; var s=back((time-0.7433333333333333-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord label",
       "path": "transform/scale",
-      "expression": "function clamp(v) { return Math.min(Math.max(v, 0), 1); }\nvar t = clamp((time - 0.48) / 0.34), u = t - 1;\nvar ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s, 100]"
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.7433333333333333)/0.25);[s,s,100]"
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 4",
+      "layer": "Discord label",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(2-row)*230+enter*230-exit*700;[1024,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord label",
       "path": "transform/opacity",
-      "expression": "Math.min(Math.max((time - 0.48) / 0.10, 0), 1) * 100"
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(2-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/discord.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "discord.svg",
+      "position": [
+        956,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "discord.svg",
+      "name": "Discord icon"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Discord icon"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord icon",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(2-row)*230+enter*230-exit*700;[946,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord icon",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(2-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord icon",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.6766666666666666)/0.25));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
     }
   },
   {
     "command": "essential.addProperty",
     "params": {
       "comp": "type04",
-      "layer": "line 4",
+      "layer": "Discord label",
       "path": "text/sourceText",
-      "name": "Text 4"
+      "name": "Discord"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Slack pill",
+      "size": [
+        600,
+        204
+      ],
+      "fill": [
+        0.788235294117647,
+        0.8901960784313725,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Slack pill",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack pill",
+      "path": "contents/group/contents/rect/size",
+      "expression": "var l=thisComp.layer(\"Slack label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[w,h]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack pill",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(3-row)*230+enter*230-exit*700;var l=thisComp.layer(\"Slack label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[870+w/2,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack pill",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(3-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack pill",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.86)/0.24));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Slack label",
+      "text": "Slack",
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 148,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack label",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); [r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "Slack label",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "Slack label",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Slack label",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Slack label",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Slack label",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack label",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.1375; var gap=textTotal>1?0.1125/(textTotal-1):0; var s=back((time-0.9933333333333333-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack label",
+      "path": "transform/scale",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.9933333333333333)/0.25);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack label",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(3-row)*230+enter*230-exit*700;[1024,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack label",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(3-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/slack.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "slack.svg",
+      "position": [
+        956,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "slack.svg",
+      "name": "Slack icon"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Slack icon"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack icon",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(3-row)*230+enter*230-exit*700;[946,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack icon",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(3-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack icon",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.9266666666666666)/0.25));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "type04",
+      "layer": "Slack label",
+      "path": "text/sourceText",
+      "name": "Slack"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Instagram pill",
+      "size": [
+        600,
+        204
+      ],
+      "fill": [
+        0.788235294117647,
+        0.8901960784313725,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Instagram pill",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram pill",
+      "path": "contents/group/contents/rect/size",
+      "expression": "var l=thisComp.layer(\"Instagram label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[w,h]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram pill",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(4-row)*230+enter*230-exit*700;var l=thisComp.layer(\"Instagram label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[870+w/2,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram pill",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(4-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram pill",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-1.1099999999999999)/0.24));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Instagram label",
+      "text": "Instagram",
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 148,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram label",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); [r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "Instagram label",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "Instagram label",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Instagram label",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Instagram label",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Instagram label",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram label",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.1375; var gap=textTotal>1?0.1125/(textTotal-1):0; var s=back((time-1.2433333333333332-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram label",
+      "path": "transform/scale",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-1.2433333333333332)/0.25);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram label",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(4-row)*230+enter*230-exit*700;[1024,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram label",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(4-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/instagram.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "instagram.svg",
+      "position": [
+        956,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "instagram.svg",
+      "name": "Instagram icon"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Instagram icon"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram icon",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(4-row)*230+enter*230-exit*700;[946,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram icon",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(4-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram icon",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-1.1766666666666665)/0.25));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "type04",
+      "layer": "Instagram label",
+      "path": "text/sourceText",
+      "name": "Instagram"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Reddit pill",
+      "size": [
+        600,
+        204
+      ],
+      "fill": [
+        0.788235294117647,
+        0.8901960784313725,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reddit pill",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit pill",
+      "path": "contents/group/contents/rect/size",
+      "expression": "var l=thisComp.layer(\"Reddit label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[w,h]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit pill",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(5-row)*230+enter*230-exit*700;var l=thisComp.layer(\"Reddit label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[870+w/2,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit pill",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(5-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit pill",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-1.44)/0.24));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Reddit label",
+      "text": "Reddit",
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 148,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit label",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); [r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "Reddit label",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "Reddit label",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reddit label",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reddit label",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reddit label",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit label",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.1375; var gap=textTotal>1?0.1125/(textTotal-1):0; var s=back((time-1.5733333333333333-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit label",
+      "path": "transform/scale",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-1.5733333333333333)/0.25);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit label",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(5-row)*230+enter*230-exit*700;[1024,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit label",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(5-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/reddit.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "reddit.svg",
+      "position": [
+        956,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "reddit.svg",
+      "name": "Reddit icon"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Reddit icon"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit icon",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(5-row)*230+enter*230-exit*700;[946,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit icon",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(5-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit icon",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-1.5066666666666666)/0.25));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "type04",
+      "layer": "Reddit label",
+      "path": "text/sourceText",
+      "name": "Reddit"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "LinkedIn pill",
+      "size": [
+        600,
+        204
+      ],
+      "fill": [
+        0.788235294117647,
+        0.8901960784313725,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "LinkedIn pill",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn pill",
+      "path": "contents/group/contents/rect/size",
+      "expression": "var l=thisComp.layer(\"LinkedIn label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[w,h]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn pill",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(6-row)*230+enter*230-exit*700;var l=thisComp.layer(\"LinkedIn label\"); var r=l.sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); var a=l.sourceRectAtTime(time,false); var s=l.transform.scale[0]/100; var w=194+Math.max(r.width,a.width*s+12); var h=Math.max(204,a.height*s+48);[870+w/2,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn pill",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(6-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn pill",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-1.69)/0.24));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "LinkedIn label",
+      "text": "LinkedIn",
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 148,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn label",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(thisComp.duration-thisComp.frameDuration,false); [r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "LinkedIn label",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "LinkedIn label",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "LinkedIn label",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "LinkedIn label",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "LinkedIn label",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn label",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.1375; var gap=textTotal>1?0.1125/(textTotal-1):0; var s=back((time-1.8233333333333333-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn label",
+      "path": "transform/scale",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-1.8233333333333333)/0.25);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn label",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(6-row)*230+enter*230-exit*700;[1024,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn label",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(6-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/linkedin.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "linkedin.svg",
+      "position": [
+        956,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "linkedin.svg",
+      "name": "LinkedIn icon"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "LinkedIn icon"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn icon",
+      "path": "transform/position",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(6-row)*230+enter*230-exit*700;[946,y,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn icon",
+      "path": "transform/opacity",
+      "expression": "function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=[0.17,0.58,0.96,1.21,1.46,1.79,2.04]; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);var y=540+(6-row)*230+enter*230-exit*700;var d=Math.abs(y-540)/230; 100*Math.max(0,1-d/2.35)*(1-exit)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn icon",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-1.7566666666666666)/0.25));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "type04",
+      "layer": "LinkedIn label",
+      "path": "text/sourceText",
+      "name": "LinkedIn"
+    }
+  },
+  {
+    "command": "layer.newAdjustment",
+    "params": {
+      "name": "Page push in"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "ec.distort.transform",
+      "layers": [
+        "Page push in"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/anchor",
+      "value": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/position",
+      "value": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/scaleHeight",
+      "expression": "var p=Math.max(0,Math.min(1,time/thisComp.duration));100+8*p"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/rotation",
+      "expression": "var p=Math.max(0,Math.min(1,time/thisComp.duration));-1.2*p"
+    }
+  },
+  {
+    "command": "layer.arrange",
+    "params": {
+      "layers": [
+        "Page push in"
+      ],
+      "to": "front"
     }
   },
   {
