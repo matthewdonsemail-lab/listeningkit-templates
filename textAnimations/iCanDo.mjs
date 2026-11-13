@@ -56,7 +56,7 @@ export function iCanDoSteps() {
   // Local zero is source 26.5 s. Each target is a measured resting frame.
   const cues = platformCues;
   const clock = `function smooth(a,b,t){var p=Math.max(0,Math.min(1,(t-a)/(b-a)));return p*p*(3-2*p);} var row=0; var cues=${JSON.stringify(cues)}; for(var k=1;k<cues.length;k++) row+=smooth(cues[k]-0.125,cues[k],time); var enter=1-smooth(0,0.17,time); var exit=smooth(2.21,2.38,time);`;
-  addText('heading','I work on',130,[13/255,42/255,76/255]);
+  addText('heading','Hermes now\nworks on',90,[13/255,42/255,76/255]);
   // Word-based position animator: top entrance, then a downward exit with anticipation.
   steps.push({command:'layer.addTextAnimator',params:{layer:'heading',properties:['position'],name:'Staggered word slide'}});
   steps.push({command:'layer.addTextSelector',params:{layer:'heading',animator:1,kind:'expression'}});

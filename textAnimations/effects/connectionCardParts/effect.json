@@ -1,0 +1,8450 @@
+[
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/x.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/slack.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/discord.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/instagram.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/reddit.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/facebook.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/linkedin.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/startCards/listingClearOut.webp"
+      ]
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPanelX",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Platform shell",
+      "size": [
+        1000,
+        592
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        320
+      ],
+      "stroke": [
+        0.84,
+        0.86,
+        0.88
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Platform shell",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Messages",
+      "text": "Messages",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 33,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        51,
+        68
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Messages",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "x.svg",
+      "position": [
+        962,
+        68
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "x.svg",
+      "name": "Logo x"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo x",
+      "path": "transform/scale",
+      "value": [
+        33.65384615384615,
+        33.65384615384615,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Search",
+      "size": [
+        936,
+        54
+      ],
+      "fill": [
+        0.95,
+        0.96,
+        0.97
+      ],
+      "position": [
+        520,
+        127
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Search",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Search text",
+      "text": "Search Direct Messages",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 22,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        76,
+        127
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Search text",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Person 0 avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        76,
+        225
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Person 0 avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Person 0 initial",
+      "text": "S",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        64,
+        225
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Person 0 initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Name 0",
+      "text": "Sarah Builds",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        114,
+        208
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Name 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Handle 0",
+      "text": "@sarah_builds \u00b7 2m",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 20,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        350,
+        208
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Handle 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Message 0",
+      "text": "how much for a full site?",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 24,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        114,
+        246
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Message 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Status 0 badge",
+      "size": [
+        191,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        889.5,
+        225
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Status 0 badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Status 0 tag",
+      "text": "Waiting on you",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        804,
+        225
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Status 0 tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Person 1 avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        76,
+        333
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Person 1 avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Person 1 initial",
+      "text": "T",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        64,
+        333
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Person 1 initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Name 1",
+      "text": "Tom",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        114,
+        316
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Name 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Handle 1",
+      "text": "@tomgrowth \u00b7 1h",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 20,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        350,
+        316
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Handle 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Message 1",
+      "text": "You: saw your post about cold email",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 24,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        114,
+        354
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Message 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Status 1 badge",
+      "size": [
+        191,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        889.5,
+        333
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Status 1 badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Status 1 tag",
+      "text": "Seen, no reply",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        804,
+        333
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Status 1 tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Person 2 avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        76,
+        441
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Person 2 avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Person 2 initial",
+      "text": "J",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        64,
+        441
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Person 2 initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Name 2",
+      "text": "Jay",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        114,
+        424
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Name 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Handle 2",
+      "text": "@jaylocal \u00b7 3h",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 20,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        350,
+        424
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Handle 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Message 2",
+      "text": "yeah let\u2019s do thursday",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 24,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        114,
+        462
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Message 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Status 2 badge",
+      "size": [
+        191,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        889.5,
+        441
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Status 2 badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Status 2 tag",
+      "text": "Waiting on you",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        804,
+        441
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Status 2 tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Composer",
+      "size": [
+        936,
+        66
+      ],
+      "fill": [
+        0.94,
+        0.95,
+        0.96
+      ],
+      "position": [
+        520,
+        556
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Composer",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Draft",
+      "text": "depends what you need, what's the site for?",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        73,
+        556
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Draft",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Dry badge",
+      "size": [
+        115,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        895.5,
+        556
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Dry badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Dry tag",
+      "text": "dry run",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        848,
+        556
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Dry tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Draft",
+      "path": "text/sourceText",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=value;if(s.text!==undefined)s=s.text;s=String(s);s.slice(0,Math.floor(s.length*sm(1.55,2.65)))"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPanelX",
+      "layer": "Platform shell",
+      "path": "contents/group/contents/fill/color",
+      "name": "Panel surface"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPanelX",
+      "name": "connectionPanelX"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPanelX"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionRevealX",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionPanelX",
+      "position": [
+        600,
+        440
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionPanelX",
+      "name": "Sliding platform preview"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,time-.5)),u=p-1,s=1+1.65*u*u*u+.65*u*u;[600,440+650*(1-s),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionRevealX",
+      "name": "connectionRevealX"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionRevealX"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionTongueX",
+      "width": 1080,
+      "height": 270,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card edge",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.1,
+        0.375,
+        0.784
+      ],
+      "position": [
+        540,
+        142
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        540,
+        134
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue card"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.12,
+        0.47,
+        0.94,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/start",
+      "value": [
+        540,
+        20
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/end",
+      "value": [
+        540,
+        250
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "x.svg",
+      "position": [
+        85,
+        84
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "x.svg",
+      "name": "Logo x"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo x",
+      "path": "transform/scale",
+      "value": [
+        57.692307692307686,
+        57.692307692307686,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo x"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo x",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo x",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform label",
+      "text": "X",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 49,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        140,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform summary",
+      "text": "Read DMs, post, reply and follow\nfrom your own account.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        52,
+        171
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform summary",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Sign in button",
+      "size": [
+        129,
+        47
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        958,
+        83
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sign in button",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 11
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Sign in label",
+      "text": "Sign in",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        918,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sign in label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionTongueX",
+      "layer": "Platform summary",
+      "path": "text/sourceText",
+      "name": "Platform summary"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionTongueX",
+      "name": "connectionTongueX"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionTongueX"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPlayX",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionRevealX",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionRevealX",
+      "name": "Hero Client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero Client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addMask",
+    "params": {
+      "layer": "Hero Client",
+      "shape": "rect",
+      "rect": [
+        40,
+        0,
+        1120,
+        744
+      ],
+      "mode": "Add"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionTongueX",
+      "position": [
+        600,
+        827
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionTongueX",
+      "name": "Tongue"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*bk(0,.42);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPlayX",
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "name": "Tongue scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPlayX",
+      "name": "connectionPlayX"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPlayX"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPanelSlack",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Platform shell",
+      "size": [
+        1000,
+        592
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        320
+      ],
+      "stroke": [
+        0.84,
+        0.86,
+        0.88
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Platform shell",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Slack sidebar",
+      "size": [
+        264,
+        592
+      ],
+      "fill": [
+        0.29,
+        0.082,
+        0.294
+      ],
+      "position": [
+        152,
+        320
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Slack sidebar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "slack.svg",
+      "position": [
+        64,
+        66
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "slack.svg",
+      "name": "Logo slack"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo slack",
+      "path": "transform/scale",
+      "value": [
+        31.73076923076923,
+        31.73076923076923,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo slack"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo slack",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo slack",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Workspace",
+      "text": "growth-co",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        94,
+        66
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Workspace",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "DM label",
+      "text": "Direct messages",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 19,
+      "fill": [
+        0.8,
+        0.75,
+        0.81
+      ],
+      "position": [
+        44,
+        132
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "DM label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Selected DM",
+      "size": [
+        242,
+        48
+      ],
+      "fill": [
+        0.067,
+        0.392,
+        0.639
+      ],
+      "position": [
+        152,
+        186
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Selected DM",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 7
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "DM 0",
+      "text": "\u25cf  Priya",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 25,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        49,
+        186
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "DM 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "DM 1",
+      "text": "\u25cf  Tom, Jay",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 25,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        49,
+        244
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "DM 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "DM 2",
+      "text": "\u25cf  Sam",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 25,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        49,
+        302
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "DM 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Header person avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.878,
+        0.118,
+        0.353
+      ],
+      "position": [
+        332,
+        66
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Header person avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Header person initial",
+      "text": "P",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        320,
+        66
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Header person initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Chat name",
+      "text": "Priya",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 29,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        369,
+        66
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Chat name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Live badge",
+      "size": [
+        175,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        908.5,
+        66
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Live badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Live tag",
+      "text": "watching live",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        831,
+        66
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Live tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Header divider",
+      "size": [
+        720,
+        2
+      ],
+      "fill": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "position": [
+        650,
+        111
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Header divider",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Priya 0 avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.878,
+        0.118,
+        0.353
+      ],
+      "position": [
+        333,
+        208
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Priya 0 avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Priya 0 initial",
+      "text": "P",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        321,
+        208
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Priya 0 initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Author 0",
+      "text": "Priya",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        371,
+        187
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Author 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Time 0",
+      "text": "4:12 PM",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 18,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        474,
+        187
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Time 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Text 0",
+      "text": "did the outreach sheet work for you?",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        371,
+        233
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Text 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Priya 1 avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.878,
+        0.118,
+        0.353
+      ],
+      "position": [
+        333,
+        345
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Priya 1 avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Priya 1 initial",
+      "text": "P",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        321,
+        345
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Priya 1 initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Author 1",
+      "text": "Priya",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        371,
+        324
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Author 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Time 1",
+      "text": "4:12 PM",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 18,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        474,
+        324
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Time 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Text 1",
+      "text": "we got 9 calls booked off it this week",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        371,
+        370
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Text 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Slack draft",
+      "size": [
+        675,
+        88
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        650,
+        542
+      ],
+      "stroke": [
+        0.73,
+        0.73,
+        0.73
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Slack draft",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 14
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Slack draft text",
+      "text": "that's brilliant, what changed?",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        333,
+        542
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack draft text",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Slack dry badge",
+      "size": [
+        114,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        909,
+        542
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Slack dry badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Slack dry tag",
+      "text": "dry run",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        862,
+        542
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack dry tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Slack draft text",
+      "path": "text/sourceText",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=value;if(s.text!==undefined)s=s.text;s=String(s);s.slice(0,Math.floor(s.length*sm(1.55,2.65)))"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPanelSlack",
+      "layer": "Platform shell",
+      "path": "contents/group/contents/fill/color",
+      "name": "Panel surface"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPanelSlack",
+      "name": "connectionPanelSlack"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPanelSlack"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionRevealSlack",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionPanelSlack",
+      "position": [
+        600,
+        440
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionPanelSlack",
+      "name": "Sliding platform preview"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,time-.5)),u=p-1,s=1+1.65*u*u*u+.65*u*u;[600,440+650*(1-s),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionRevealSlack",
+      "name": "connectionRevealSlack"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionRevealSlack"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionTongueSlack",
+      "width": 1080,
+      "height": 270,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card edge",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.1,
+        0.375,
+        0.784
+      ],
+      "position": [
+        540,
+        142
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        540,
+        134
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue card"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.12,
+        0.47,
+        0.94,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/start",
+      "value": [
+        540,
+        20
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/end",
+      "value": [
+        540,
+        250
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "slack.svg",
+      "position": [
+        85,
+        84
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "slack.svg",
+      "name": "Logo slack"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo slack",
+      "path": "transform/scale",
+      "value": [
+        57.692307692307686,
+        57.692307692307686,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo slack"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo slack",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo slack",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform label",
+      "text": "Slack",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 49,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        140,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform summary",
+      "text": "Read channels and DMs, reply and react\nin your workspaces.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        52,
+        171
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform summary",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Sign in button",
+      "size": [
+        129,
+        47
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        958,
+        83
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sign in button",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 11
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Sign in label",
+      "text": "Sign in",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        918,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sign in label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionTongueSlack",
+      "layer": "Platform summary",
+      "path": "text/sourceText",
+      "name": "Platform summary"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionTongueSlack",
+      "name": "connectionTongueSlack"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionTongueSlack"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPlaySlack",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionRevealSlack",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionRevealSlack",
+      "name": "Hero Client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero Client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addMask",
+    "params": {
+      "layer": "Hero Client",
+      "shape": "rect",
+      "rect": [
+        40,
+        0,
+        1120,
+        744
+      ],
+      "mode": "Add"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionTongueSlack",
+      "position": [
+        600,
+        827
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionTongueSlack",
+      "name": "Tongue"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*bk(0,.42);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPlaySlack",
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "name": "Tongue scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPlaySlack",
+      "name": "connectionPlaySlack"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPlaySlack"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPanelDiscord",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Platform shell",
+      "size": [
+        1000,
+        592
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        320
+      ],
+      "stroke": [
+        0.84,
+        0.86,
+        0.88
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Platform shell",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Discord background",
+      "size": [
+        1000,
+        592
+      ],
+      "fill": [
+        0.192,
+        0.2,
+        0.22
+      ],
+      "position": [
+        520,
+        320
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord background",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Server rail",
+      "size": [
+        104,
+        592
+      ],
+      "fill": [
+        0.118,
+        0.122,
+        0.133
+      ],
+      "position": [
+        72,
+        320
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Server rail",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "discord.svg",
+      "position": [
+        72,
+        74
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "discord.svg",
+      "name": "Logo discord"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "transform/scale",
+      "value": [
+        46.15384615384615,
+        46.15384615384615,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo discord"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Growth server",
+      "size": [
+        62,
+        62
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        72,
+        162
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Growth server",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 20
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Growth server initials",
+      "text": "GM",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        49,
+        162
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Growth server initials",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Channel",
+      "text": "# marketing",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 30,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        156,
+        68
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Channel",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Watching badge",
+      "size": [
+        183,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        894.5,
+        68
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Watching badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Watching tag",
+      "text": "watching live",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        813,
+        68
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Watching tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Discord divider",
+      "size": [
+        900,
+        2
+      ],
+      "fill": [
+        0.12,
+        0.13,
+        0.14
+      ],
+      "position": [
+        570,
+        111
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord divider",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Discord user 0 avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.96,
+        0.5,
+        1
+      ],
+      "position": [
+        167,
+        190
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord user 0 avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord user 0 initial",
+      "text": "m",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        155,
+        190
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord user 0 initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord author 0",
+      "text": "mila",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.96,
+        0.5,
+        1
+      ],
+      "position": [
+        204,
+        172
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord author 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord time 0",
+      "text": "Today at 4:13 PM",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 18,
+      "fill": [
+        0.58,
+        0.61,
+        0.64
+      ],
+      "position": [
+        327,
+        172
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord time 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord text 0",
+      "text": "anyone tried the new ads manager?",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.86,
+        0.87,
+        0.88
+      ],
+      "position": [
+        204,
+        214
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord text 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Discord user 1 avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.26,
+        0.71,
+        0.51
+      ],
+      "position": [
+        167,
+        303
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord user 1 avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord user 1 initial",
+      "text": "d",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        155,
+        303
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord user 1 initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord author 1",
+      "text": "deano",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.26,
+        0.71,
+        0.51
+      ],
+      "position": [
+        204,
+        285
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord author 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord time 1",
+      "text": "Today at 4:13 PM",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 18,
+      "fill": [
+        0.58,
+        0.61,
+        0.64
+      ],
+      "position": [
+        327,
+        285
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord time 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord text 1",
+      "text": "yeah, cut our cost per lead in half",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.86,
+        0.87,
+        0.88
+      ],
+      "position": [
+        204,
+        327
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord text 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Discord user 2 avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.96,
+        0.5,
+        1
+      ],
+      "position": [
+        167,
+        416
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord user 2 avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord user 2 initial",
+      "text": "m",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        155,
+        416
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord user 2 initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord author 2",
+      "text": "mila",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.96,
+        0.5,
+        1
+      ],
+      "position": [
+        204,
+        398
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord author 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord time 2",
+      "text": "Today at 4:13 PM",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 18,
+      "fill": [
+        0.58,
+        0.61,
+        0.64
+      ],
+      "position": [
+        327,
+        398
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord time 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord text 2",
+      "text": "send me the setup?",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.86,
+        0.87,
+        0.88
+      ],
+      "position": [
+        204,
+        440
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord text 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Discord composer",
+      "size": [
+        840,
+        65
+      ],
+      "fill": [
+        0.22,
+        0.23,
+        0.25
+      ],
+      "position": [
+        570,
+        549
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord composer",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 14
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord draft",
+      "text": "+   here you go, it's three steps",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.86,
+        0.87,
+        0.88
+      ],
+      "position": [
+        174,
+        549
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord draft",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Discord dry badge",
+      "size": [
+        120,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        896,
+        549
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord dry badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Discord dry tag",
+      "text": "dry run",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        846,
+        549
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord dry tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord draft",
+      "path": "text/sourceText",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=value;if(s.text!==undefined)s=s.text;s=String(s);s.slice(0,Math.floor(s.length*sm(1.55,2.65)))"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPanelDiscord",
+      "layer": "Platform shell",
+      "path": "contents/group/contents/fill/color",
+      "name": "Panel surface"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPanelDiscord",
+      "name": "connectionPanelDiscord"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPanelDiscord"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionRevealDiscord",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionPanelDiscord",
+      "position": [
+        600,
+        440
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionPanelDiscord",
+      "name": "Sliding platform preview"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,time-.5)),u=p-1,s=1+1.65*u*u*u+.65*u*u;[600,440+650*(1-s),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionRevealDiscord",
+      "name": "connectionRevealDiscord"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionRevealDiscord"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionTongueDiscord",
+      "width": 1080,
+      "height": 270,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card edge",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.1,
+        0.375,
+        0.784
+      ],
+      "position": [
+        540,
+        142
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        540,
+        134
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue card"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.12,
+        0.47,
+        0.94,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/start",
+      "value": [
+        540,
+        20
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/end",
+      "value": [
+        540,
+        250
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "discord.svg",
+      "position": [
+        85,
+        84
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "discord.svg",
+      "name": "Logo discord"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "transform/scale",
+      "value": [
+        57.692307692307686,
+        57.692307692307686,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo discord"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform label",
+      "text": "Discord",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 49,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        140,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform summary",
+      "text": "Read servers and DMs. Reply, react\nand send in your own session.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        52,
+        171
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform summary",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Sign in button",
+      "size": [
+        129,
+        47
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        958,
+        83
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sign in button",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 11
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Sign in label",
+      "text": "Sign in",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        918,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sign in label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionTongueDiscord",
+      "layer": "Platform summary",
+      "path": "text/sourceText",
+      "name": "Platform summary"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionTongueDiscord",
+      "name": "connectionTongueDiscord"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionTongueDiscord"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPlayDiscord",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionRevealDiscord",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionRevealDiscord",
+      "name": "Hero Client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero Client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addMask",
+    "params": {
+      "layer": "Hero Client",
+      "shape": "rect",
+      "rect": [
+        40,
+        0,
+        1120,
+        744
+      ],
+      "mode": "Add"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionTongueDiscord",
+      "position": [
+        600,
+        827
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionTongueDiscord",
+      "name": "Tongue"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*bk(0,.42);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPlayDiscord",
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "name": "Tongue scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPlayDiscord",
+      "name": "connectionPlayDiscord"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPlayDiscord"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPanelInstagram",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Platform shell",
+      "size": [
+        1000,
+        592
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        320
+      ],
+      "stroke": [
+        0.84,
+        0.86,
+        0.88
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Platform shell",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Maya avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.59,
+        0.18,
+        0.75
+      ],
+      "position": [
+        78,
+        72
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Maya avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Maya initial",
+      "text": "m",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        66,
+        72
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Maya initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Maya name",
+      "text": "maya.makes",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        119,
+        58
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Maya name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Active",
+      "text": "Active now",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 19,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        119,
+        90
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Active",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "instagram.svg",
+      "position": [
+        773,
+        73
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "instagram.svg",
+      "name": "Logo instagram"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo instagram",
+      "path": "transform/scale",
+      "value": [
+        36.53846153846153,
+        36.53846153846153,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Instagram live badge",
+      "size": [
+        175,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        908.5,
+        73
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Instagram live badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Instagram live tag",
+      "text": "watching live",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        831,
+        73
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram live tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Instagram divider",
+      "size": [
+        998,
+        2
+      ],
+      "fill": [
+        0.86,
+        0.86,
+        0.86
+      ],
+      "position": [
+        520,
+        120
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Instagram divider",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Incoming bubble",
+      "size": [
+        435,
+        80
+      ],
+      "fill": [
+        0.94,
+        0.94,
+        0.94
+      ],
+      "position": [
+        286,
+        213
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Incoming bubble",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 30
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Incoming copy",
+      "text": "finally launched the shop",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 28,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        93,
+        213
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Incoming copy",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Meme card",
+      "size": [
+        374,
+        178
+      ],
+      "fill": [
+        0.115,
+        0.11,
+        0.115
+      ],
+      "position": [
+        771,
+        354
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Meme card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 28
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Meme icon",
+      "text": "\u25a7",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 42,
+      "fill": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "position": [
+        739,
+        307
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Meme icon",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Meme text",
+      "text": "A MEME THAT FITS\nTHE MOMENT",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        649,
+        365
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Meme text",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Photo state badge",
+      "size": [
+        203,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        868.5,
+        468
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Photo state badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Photo state tag",
+      "text": "sent with photo",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        777,
+        468
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Photo state tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Instagram composer",
+      "size": [
+        936,
+        65
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        557
+      ],
+      "stroke": [
+        0.86,
+        0.86,
+        0.86
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Instagram composer",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 29
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Instagram draft",
+      "text": "massive, what are you selling first?",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 26,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        78,
+        557
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram draft",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Instagram dry badge",
+      "size": [
+        120,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        895,
+        557
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Instagram dry badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Instagram dry tag",
+      "text": "dry run",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        845,
+        557
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram dry tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Instagram draft",
+      "path": "text/sourceText",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=value;if(s.text!==undefined)s=s.text;s=String(s);s.slice(0,Math.floor(s.length*sm(1.55,2.65)))"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Meme card",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(1.65,1.9)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Meme icon",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(1.65,1.9)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Meme text",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(1.65,1.9)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Photo state badge",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(1.65,1.9)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Photo state tag",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(1.65,1.9)"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPanelInstagram",
+      "layer": "Platform shell",
+      "path": "contents/group/contents/fill/color",
+      "name": "Panel surface"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPanelInstagram",
+      "name": "connectionPanelInstagram"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPanelInstagram"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionRevealInstagram",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionPanelInstagram",
+      "position": [
+        600,
+        440
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionPanelInstagram",
+      "name": "Sliding platform preview"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,time-.5)),u=p-1,s=1+1.65*u*u*u+.65*u*u;[600,440+650*(1-s),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionRevealInstagram",
+      "name": "connectionRevealInstagram"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionRevealInstagram"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionTongueInstagram",
+      "width": 1080,
+      "height": 270,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card edge",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.1,
+        0.375,
+        0.784
+      ],
+      "position": [
+        540,
+        142
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        540,
+        134
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue card"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.12,
+        0.47,
+        0.94,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/start",
+      "value": [
+        540,
+        20
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/end",
+      "value": [
+        540,
+        250
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "instagram.svg",
+      "position": [
+        85,
+        84
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "instagram.svg",
+      "name": "Logo instagram"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo instagram",
+      "path": "transform/scale",
+      "value": [
+        57.692307692307686,
+        57.692307692307686,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo instagram"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo instagram",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo instagram",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform label",
+      "text": "Instagram",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 49,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        140,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform summary",
+      "text": "Read DM threads, reply with text\nor a photo, and watch them live.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        52,
+        171
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform summary",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Sign in button",
+      "size": [
+        129,
+        47
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        958,
+        83
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sign in button",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 11
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Sign in label",
+      "text": "Sign in",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        918,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sign in label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionTongueInstagram",
+      "layer": "Platform summary",
+      "path": "text/sourceText",
+      "name": "Platform summary"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionTongueInstagram",
+      "name": "connectionTongueInstagram"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionTongueInstagram"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPlayInstagram",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionRevealInstagram",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionRevealInstagram",
+      "name": "Hero Client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero Client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addMask",
+    "params": {
+      "layer": "Hero Client",
+      "shape": "rect",
+      "rect": [
+        40,
+        0,
+        1120,
+        744
+      ],
+      "mode": "Add"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionTongueInstagram",
+      "position": [
+        600,
+        827
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionTongueInstagram",
+      "name": "Tongue"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*bk(0,.42);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPlayInstagram",
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "name": "Tongue scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPlayInstagram",
+      "name": "connectionPlayInstagram"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPlayInstagram"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPanelReddit",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Platform shell",
+      "size": [
+        1000,
+        592
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        320
+      ],
+      "stroke": [
+        0.84,
+        0.86,
+        0.88
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Platform shell",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "reddit.svg",
+      "position": [
+        70,
+        67
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "reddit.svg",
+      "name": "Logo reddit"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo reddit",
+      "path": "transform/scale",
+      "value": [
+        40.38461538461539,
+        40.38461538461539,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Reddit wordmark",
+      "text": "reddit",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 32,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        106,
+        67
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit wordmark",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Reddit search",
+      "size": [
+        495,
+        48
+      ],
+      "fill": [
+        0.92,
+        0.93,
+        0.94
+      ],
+      "position": [
+        611,
+        67
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reddit search",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Reddit search text",
+      "text": "Search Reddit",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 22,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        394,
+        67
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reddit search text",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Post 0",
+      "size": [
+        932,
+        203
+      ],
+      "fill": [
+        0.98,
+        0.985,
+        0.99
+      ],
+      "position": [
+        520,
+        235
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Post 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 17
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Subreddit 0",
+      "text": "r/marketing  \u00b7  5 hr. ago",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 22,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        74,
+        168
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Subreddit 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Post title 0",
+      "text": "What actually worked to get your\nfirst 100 customers?",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 31,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        74,
+        227
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Post title 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Post stats 0",
+      "text": "\u2191  1.2k  \u2193     348 comments     Share",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 22,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        74,
+        302
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Post stats 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Post 1",
+      "size": [
+        932,
+        203
+      ],
+      "fill": [
+        0.98,
+        0.985,
+        0.99
+      ],
+      "position": [
+        520,
+        460
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Post 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 17
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Subreddit 1",
+      "text": "r/smallbusiness  \u00b7  5 hr. ago",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 22,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        74,
+        393
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Subreddit 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Post title 1",
+      "text": "Is anyone still getting leads\nfrom Facebook groups?",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 31,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        74,
+        452
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Post title 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Post stats 1",
+      "text": "\u2191  412  \u2193       97 comments     Share",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 22,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        74,
+        527
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Post stats 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPanelReddit",
+      "layer": "Platform shell",
+      "path": "contents/group/contents/fill/color",
+      "name": "Panel surface"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPanelReddit",
+      "name": "connectionPanelReddit"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPanelReddit"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionRevealReddit",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionPanelReddit",
+      "position": [
+        600,
+        440
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionPanelReddit",
+      "name": "Sliding platform preview"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,time-.5)),u=p-1,s=1+1.65*u*u*u+.65*u*u;[600,440+650*(1-s),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionRevealReddit",
+      "name": "connectionRevealReddit"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionRevealReddit"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionTongueReddit",
+      "width": 1080,
+      "height": 270,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card edge",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.1,
+        0.375,
+        0.784
+      ],
+      "position": [
+        540,
+        142
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        540,
+        134
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue card"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.12,
+        0.47,
+        0.94,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/start",
+      "value": [
+        540,
+        20
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/end",
+      "value": [
+        540,
+        250
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "reddit.svg",
+      "position": [
+        85,
+        84
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "reddit.svg",
+      "name": "Logo reddit"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo reddit",
+      "path": "transform/scale",
+      "value": [
+        57.692307692307686,
+        57.692307692307686,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo reddit"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo reddit",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo reddit",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform label",
+      "text": "Reddit",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 49,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        140,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform summary",
+      "text": "Read subreddits and posts.\nReply, vote and post from your account.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        52,
+        171
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform summary",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Sign in button",
+      "size": [
+        129,
+        47
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        958,
+        83
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sign in button",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 11
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Sign in label",
+      "text": "Sign in",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        918,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sign in label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionTongueReddit",
+      "layer": "Platform summary",
+      "path": "text/sourceText",
+      "name": "Platform summary"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionTongueReddit",
+      "name": "connectionTongueReddit"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionTongueReddit"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPlayReddit",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionRevealReddit",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionRevealReddit",
+      "name": "Hero Client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero Client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addMask",
+    "params": {
+      "layer": "Hero Client",
+      "shape": "rect",
+      "rect": [
+        40,
+        0,
+        1120,
+        744
+      ],
+      "mode": "Add"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionTongueReddit",
+      "position": [
+        600,
+        827
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionTongueReddit",
+      "name": "Tongue"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*bk(0,.42);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPlayReddit",
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "name": "Tongue scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPlayReddit",
+      "name": "connectionPlayReddit"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPlayReddit"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPanelFacebook",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Platform shell",
+      "size": [
+        1000,
+        592
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        320
+      ],
+      "stroke": [
+        0.84,
+        0.86,
+        0.88
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Platform shell",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Facebook surface",
+      "size": [
+        1000,
+        592
+      ],
+      "fill": [
+        0.94,
+        0.95,
+        0.96
+      ],
+      "position": [
+        520,
+        320
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Facebook surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "facebook.svg",
+      "position": [
+        69,
+        67
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "facebook.svg",
+      "name": "Logo facebook"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo facebook",
+      "path": "transform/scale",
+      "value": [
+        40.38461538461539,
+        40.38461538461539,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Marketplace search",
+      "size": [
+        830,
+        49
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        568,
+        67
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Marketplace search",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Marketplace search text",
+      "text": "Search Marketplace",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 24,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        178,
+        67
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Marketplace search text",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Listing",
+      "size": [
+        936,
+        202
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        232
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Listing",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 15
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "listingClearOut.webp",
+      "position": [
+        165,
+        232
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "listingClearOut.webp",
+      "name": "Listing photograph"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Listing photograph",
+      "path": "transform/scale",
+      "value": [
+        34,
+        34,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Price",
+      "text": "$80",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 34,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        279,
+        175
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Price",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Listing title",
+      "text": "Same-day rubbish removal",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 29,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        279,
+        224
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Listing title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Location",
+      "text": "Bethlehem, PA  \u00b7  Active  \u00b7  14 clicks",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 22,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        279,
+        272
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Location",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Facebook post",
+      "size": [
+        936,
+        219
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        458
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Facebook post",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 15
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Dana avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.89,
+        0.25,
+        0.37
+      ],
+      "position": [
+        93,
+        393
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Dana avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Dana initial",
+      "text": "D",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        81,
+        393
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Dana initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Dana name",
+      "text": "Dana Miller  \u203a  Lehigh Valley Locals",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        133,
+        382
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Dana name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Dana time",
+      "text": "12m \u00b7 Public",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 18,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        133,
+        416
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Dana time",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Facebook request",
+      "text": "anyone know someone who can clear\na garage this week?",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 29,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        75,
+        478
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Facebook request",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Facebook actions",
+      "text": "Like                     Comment                     Share",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 22,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        94,
+        551
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Facebook actions",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPanelFacebook",
+      "layer": "Platform shell",
+      "path": "contents/group/contents/fill/color",
+      "name": "Panel surface"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPanelFacebook",
+      "name": "connectionPanelFacebook"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPanelFacebook"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionRevealFacebook",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionPanelFacebook",
+      "position": [
+        600,
+        440
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionPanelFacebook",
+      "name": "Sliding platform preview"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,time-.5)),u=p-1,s=1+1.65*u*u*u+.65*u*u;[600,440+650*(1-s),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionRevealFacebook",
+      "name": "connectionRevealFacebook"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionRevealFacebook"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionTongueFacebook",
+      "width": 1080,
+      "height": 270,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card edge",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.1,
+        0.375,
+        0.784
+      ],
+      "position": [
+        540,
+        142
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        540,
+        134
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue card"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.12,
+        0.47,
+        0.94,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/start",
+      "value": [
+        540,
+        20
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/end",
+      "value": [
+        540,
+        250
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "facebook.svg",
+      "position": [
+        85,
+        84
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "facebook.svg",
+      "name": "Logo facebook"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo facebook",
+      "path": "transform/scale",
+      "value": [
+        57.692307692307686,
+        57.692307692307686,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo facebook"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo facebook",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo facebook",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform label",
+      "text": "Facebook",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 49,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        140,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform summary",
+      "text": "Groups, Marketplace and the seller inbox,\nin your own browser.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        52,
+        171
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform summary",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Sign in button",
+      "size": [
+        129,
+        47
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        958,
+        83
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sign in button",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 11
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Sign in label",
+      "text": "Sign in",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        918,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sign in label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionTongueFacebook",
+      "layer": "Platform summary",
+      "path": "text/sourceText",
+      "name": "Platform summary"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionTongueFacebook",
+      "name": "connectionTongueFacebook"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionTongueFacebook"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPlayFacebook",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionRevealFacebook",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionRevealFacebook",
+      "name": "Hero Client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero Client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addMask",
+    "params": {
+      "layer": "Hero Client",
+      "shape": "rect",
+      "rect": [
+        40,
+        0,
+        1120,
+        744
+      ],
+      "mode": "Add"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionTongueFacebook",
+      "position": [
+        600,
+        827
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionTongueFacebook",
+      "name": "Tongue"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*bk(0,.42);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPlayFacebook",
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "name": "Tongue scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPlayFacebook",
+      "name": "connectionPlayFacebook"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPlayFacebook"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPanelLinkedIn",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Platform shell",
+      "size": [
+        1000,
+        592
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        320
+      ],
+      "stroke": [
+        0.84,
+        0.86,
+        0.88
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Platform shell",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "LinkedIn surface",
+      "size": [
+        1000,
+        592
+      ],
+      "fill": [
+        0.957,
+        0.949,
+        0.933
+      ],
+      "position": [
+        520,
+        320
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "LinkedIn surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "linkedin.svg",
+      "position": [
+        69,
+        66
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "linkedin.svg",
+      "name": "Logo linkedin"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo linkedin",
+      "path": "transform/scale",
+      "value": [
+        40.38461538461539,
+        40.38461538461539,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "LinkedIn search",
+      "size": [
+        730,
+        49
+      ],
+      "fill": [
+        0.929,
+        0.953,
+        0.973
+      ],
+      "position": [
+        500,
+        67
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "LinkedIn search",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 8
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "LinkedIn search text",
+      "text": "Search",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 24,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        155,
+        67
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn search text",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Session badge",
+      "size": [
+        179,
+        32
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        907.5,
+        67
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Session badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Session tag",
+      "text": "session saved",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 17,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        828,
+        67
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Session tag",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "LinkedIn profile",
+      "size": [
+        936,
+        188
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        225
+      ],
+      "stroke": [
+        0.88,
+        0.875,
+        0.86
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "LinkedIn profile",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Profile cover",
+      "size": [
+        932,
+        48
+      ],
+      "fill": [
+        0.66,
+        0.74,
+        0.75
+      ],
+      "position": [
+        520,
+        155
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Profile cover",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 10
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "You avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.04,
+        0.4,
+        0.76
+      ],
+      "position": [
+        93,
+        224
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "You avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "You initial",
+      "text": "Y",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        81,
+        224
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "You initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Profile name",
+      "text": "Your Name",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 28,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        136,
+        217
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Profile name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Profile role",
+      "text": "Growth marketer helping local businesses get found",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 24,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        136,
+        262
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Profile role",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "LinkedIn post",
+      "size": [
+        936,
+        239
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        520,
+        462
+      ],
+      "stroke": [
+        0.88,
+        0.875,
+        0.86
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "LinkedIn post",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Priya Shah avatar",
+      "size": [
+        46,
+        46
+      ],
+      "fill": [
+        0.56,
+        0.345,
+        0.286
+      ],
+      "position": [
+        92,
+        390
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Priya Shah avatar",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 23
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Priya Shah initial",
+      "text": "P",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        80,
+        390
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Priya Shah initial",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Priya name",
+      "text": "Priya Shah",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        132,
+        379
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Priya name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Priya role",
+      "text": "Head of Growth \u00b7 1h",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 20,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        132,
+        411
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Priya role",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "LinkedIn post copy",
+      "text": "We tested 4 outreach channels this quarter.\nHere is what booked meetings\u2026",
+      "font": "Segoe UI",
+      "style": "Regular",
+      "size": 29,
+      "fill": [
+        0.08,
+        0.09,
+        0.11
+      ],
+      "position": [
+        75,
+        473
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn post copy",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "LinkedIn actions",
+      "text": "Like             Comment             Repost             Send",
+      "font": "Segoe UI",
+      "style": "Bold",
+      "size": 22,
+      "fill": [
+        0.38,
+        0.41,
+        0.45
+      ],
+      "position": [
+        86,
+        552
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "LinkedIn actions",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPanelLinkedIn",
+      "layer": "Platform shell",
+      "path": "contents/group/contents/fill/color",
+      "name": "Panel surface"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPanelLinkedIn",
+      "name": "connectionPanelLinkedIn"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPanelLinkedIn"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionRevealLinkedIn",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionPanelLinkedIn",
+      "position": [
+        600,
+        440
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionPanelLinkedIn",
+      "name": "Sliding platform preview"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sliding platform preview",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,time-.5)),u=p-1,s=1+1.65*u*u*u+.65*u*u;[600,440+650*(1-s),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionRevealLinkedIn",
+      "name": "connectionRevealLinkedIn"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionRevealLinkedIn"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionTongueLinkedIn",
+      "width": 1080,
+      "height": 270,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card edge",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.1,
+        0.375,
+        0.784
+      ],
+      "position": [
+        540,
+        142
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        540,
+        134
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue card"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.12,
+        0.47,
+        0.94,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/start",
+      "value": [
+        540,
+        20
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card",
+      "path": "effects/#1/end",
+      "value": [
+        540,
+        250
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "linkedin.svg",
+      "position": [
+        85,
+        84
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "linkedin.svg",
+      "name": "Logo linkedin"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo linkedin",
+      "path": "transform/scale",
+      "value": [
+        57.692307692307686,
+        57.692307692307686,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo linkedin"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo linkedin",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo linkedin",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform label",
+      "text": "LinkedIn",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 49,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        140,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform summary",
+      "text": "Read your LinkedIn session.\nKeep the context of your conversations.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        52,
+        171
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform summary",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Sign in button",
+      "size": [
+        129,
+        47
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        958,
+        83
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sign in button",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 11
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Sign in label",
+      "text": "Sign in",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 23,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        918,
+        83
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sign in label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionTongueLinkedIn",
+      "layer": "Platform summary",
+      "path": "text/sourceText",
+      "name": "Platform summary"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionTongueLinkedIn",
+      "name": "connectionTongueLinkedIn"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionTongueLinkedIn"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionPlayLinkedIn",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionRevealLinkedIn",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionRevealLinkedIn",
+      "name": "Hero Client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero Client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addMask",
+    "params": {
+      "layer": "Hero Client",
+      "shape": "rect",
+      "rect": [
+        40,
+        0,
+        1120,
+        744
+      ],
+      "mode": "Add"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionTongueLinkedIn",
+      "position": [
+        600,
+        827
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionTongueLinkedIn",
+      "name": "Tongue"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*bk(0,.42);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionPlayLinkedIn",
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "name": "Tongue scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionPlayLinkedIn",
+      "name": "connectionPlayLinkedIn"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionPlayLinkedIn"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "connectionCardParts",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "connectionPlaySlack",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "connectionPlaySlack",
+      "name": "Slack play component"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Slack play component",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Components label",
+      "text": "/connections \u00b7 editable 2D plays",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 32,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        100,
+        1020
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Components label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "connectionCardParts",
+      "layer": "Components label",
+      "path": "text/sourceText",
+      "name": "Components label"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "connectionCardParts",
+      "name": "connectionCardParts"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "connectionCardParts"
+    }
+  }
+]

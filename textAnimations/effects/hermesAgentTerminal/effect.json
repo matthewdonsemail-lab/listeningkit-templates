@@ -1,0 +1,638 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "hermesAgentTerminal",
+      "width": 1400,
+      "height": 1000,
+      "frameRate": 30,
+      "duration": 8,
+      "open": true
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/startCards/hermesAgent.png"
+      ]
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Terminal shell",
+      "size": [
+        1280,
+        750
+      ],
+      "fill": [
+        0.063,
+        0.094,
+        0.126
+      ],
+      "position": [
+        700,
+        550
+      ],
+      "stroke": [
+        0.25,
+        0.34,
+        0.44
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Terminal shell",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Terminal chrome",
+      "size": [
+        1276,
+        64
+      ],
+      "fill": [
+        0.09,
+        0.137,
+        0.18
+      ],
+      "position": [
+        700,
+        209
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Terminal chrome",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Chrome seam",
+      "size": [
+        1275,
+        2
+      ],
+      "fill": [
+        0.21,
+        0.29,
+        0.37
+      ],
+      "position": [
+        700,
+        240
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Chrome seam",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "hermesAgent.png",
+      "position": [
+        120,
+        207
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "hermesAgent.png",
+      "name": "Hermes mark"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hermes mark",
+      "path": "transform/scale",
+      "value": [
+        65,
+        65,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Agent title",
+      "text": "Hermes Agent",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 32,
+      "fill": [
+        0.94,
+        0.97,
+        1
+      ],
+      "position": [
+        164,
+        207
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Agent title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Workspace",
+      "text": "log / research",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 24,
+      "fill": [
+        0.58,
+        0.69,
+        0.8
+      ],
+      "position": [
+        1030,
+        207
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Workspace",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Prompt surface",
+      "size": [
+        1170,
+        128
+      ],
+      "fill": [
+        0.09,
+        0.16,
+        0.23
+      ],
+      "position": [
+        700,
+        344
+      ],
+      "stroke": [
+        0.18,
+        0.33,
+        0.48
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Prompt surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Prompt",
+      "text": "\u203a Find growth leaders at Series A startups\n  in San Francisco.",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 33,
+      "fill": [
+        0.83,
+        0.93,
+        1
+      ],
+      "position": [
+        140,
+        342
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Prompt",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Prompt",
+      "path": "text/sourceText",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=String(value);s.slice(0,Math.floor(s.length*sm(.08,.58)))"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tool surface",
+      "size": [
+        1170,
+        224
+      ],
+      "fill": [
+        0.075,
+        0.12,
+        0.165
+      ],
+      "position": [
+        700,
+        559
+      ],
+      "stroke": [
+        0.18,
+        0.27,
+        0.35
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tool surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool",
+      "text": "\u25cf treg \u00b7 catalog_search",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 32,
+      "fill": [
+        0.42,
+        0.71,
+        1
+      ],
+      "position": [
+        141,
+        485
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool arguments",
+      "text": "people search \u00b7 company context \u00b7 source signals",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 27,
+      "fill": [
+        0.58,
+        0.71,
+        0.83
+      ],
+      "position": [
+        168,
+        539
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool arguments",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool result",
+      "text": "\u2713 Source context collected",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 32,
+      "fill": [
+        0.52,
+        0.89,
+        0.77
+      ],
+      "position": [
+        168,
+        610
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool result",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Next tool",
+      "text": "SubQ \u00b7 compare against the target profile",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        0.76,
+        0.86,
+        0.96
+      ],
+      "position": [
+        141,
+        729
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next tool",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Session state",
+      "size": [
+        1170,
+        72
+      ],
+      "fill": [
+        0.1,
+        0.22,
+        0.34
+      ],
+      "position": [
+        700,
+        825
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Session state",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Reply",
+      "text": "Context attached. Ready to review.",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 32,
+      "fill": [
+        0.58,
+        0.8,
+        1
+      ],
+      "position": [
+        141,
+        825
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool surface",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.43?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool surface",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+22*(1-bk(0.43,0.6699999999999999)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.43?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+22*(1-bk(0.43,0.6699999999999999)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool arguments",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.43?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool arguments",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+22*(1-bk(0.43,0.6699999999999999)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool result",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.68?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool result",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+22*(1-bk(0.68,0.92)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next tool",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.88?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next tool",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+22*(1-bk(0.88,1.12)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Session state",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.88?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Session state",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+22*(1-bk(0.88,1.12)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.88?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+22*(1-bk(0.88,1.12)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "hermesAgentTerminal",
+      "layer": "Prompt",
+      "path": "text/sourceText",
+      "name": "Prompt"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "hermesAgentTerminal",
+      "layer": "Tool",
+      "path": "text/sourceText",
+      "name": "Tool"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "hermesAgentTerminal",
+      "layer": "Tool result",
+      "path": "text/sourceText",
+      "name": "Tool result"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "hermesAgentTerminal",
+      "layer": "Next tool",
+      "path": "text/sourceText",
+      "name": "Next tool"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "hermesAgentTerminal",
+      "layer": "Reply",
+      "path": "text/sourceText",
+      "name": "Reply"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "hermesAgentTerminal",
+      "name": "hermesAgentTerminal"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "hermesAgentTerminal"
+    }
+  }
+]

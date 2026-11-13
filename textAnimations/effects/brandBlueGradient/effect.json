@@ -1,0 +1,104 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "brandBlueGradient",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newSolid",
+    "params": {
+      "name": "Brand blue",
+      "color": "#2A8CFF",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Brand blue"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Brand blue",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.37,
+        0.69,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Brand blue",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.07,
+        0.34,
+        0.82,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Brand blue",
+      "path": "effects/#1/start",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[400+130*Math.sin(time*.22),-150]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Brand blue",
+      "path": "effects/#1/end",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[1350+100*Math.sin(time*.18),1280]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "brandBlueGradient",
+      "layer": "Brand blue",
+      "path": "effects/#1/startColor",
+      "name": "Light blue"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "brandBlueGradient",
+      "layer": "Brand blue",
+      "path": "effects/#1/endColor",
+      "name": "Deep blue"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "brandBlueGradient",
+      "name": "brandBlueGradient"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "brandBlueGradient"
+    }
+  }
+]

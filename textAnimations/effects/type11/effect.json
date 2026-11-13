@@ -6,115 +6,3390 @@
       "width": 1920,
       "height": 1080,
       "frameRate": 30,
-      "duration": 3,
-      "background": "#FAF7F0",
+      "duration": 5,
+      "background": "#FFFEFC",
       "open": true
     }
   },
   {
-    "command": "layer.newText",
+    "command": "file.import",
     "params": {
-      "text": "Works on 1.7 billion",
-      "name": "line 1",
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/strawberry-background.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "strawberry-background.svg",
       "position": [
         960,
-        470
-      ],
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "strawberry-background.svg",
+      "name": "Strawberry dotted background"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "headline",
+      "text": "Log lets Hermes",
       "font": "Satoshi",
       "style": "Black",
-      "size": 96,
+      "size": 74,
       "fill": [
-        0.07,
-        0.07,
-        0.07
+        0.051,
+        0.165,
+        0.298
       ],
-      "justify": "center"
+      "justify": "left",
+      "position": [
+        475,
+        370
+      ]
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 1",
+      "layer": "headline",
       "path": "transform/anchor",
-      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+      "expression": "var r=sourceRectAtTime(1.6,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "headline",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "headline",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "headline",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "headline",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "headline",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 1",
+      "layer": "headline",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.24750000000000003; var gap=textTotal>1?0.2025/(textTotal-1):0; var s=back((time-0.1-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "headline",
       "path": "transform/scale",
-      "expression": "function clamp(v) { return Math.min(Math.max(v, 0), 1); }\nvar t = clamp((time - 0.12) / 0.34), u = t - 1;\nvar ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s, 100]"
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.1)/0.45);[s,s,100]"
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 1",
-      "path": "transform/opacity",
-      "expression": "Math.min(Math.max((time - 0.12) / 0.10, 0), 1) * 100"
+      "layer": "headline",
+      "path": "transform/position",
+      "expression": "var q=Math.max(0,Math.min(1,(time-(thisComp.duration-0.85+0))/.42));var leave=2.8*q*q*q-1.8*q*q;var p=Math.max(0,Math.min(1,(time-0.1)/.45)),u=p-1,enter=1+2.8*u*u*u+1.8*u*u;[475,370-100*(1-enter)+1000*leave,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "headline",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.1)/.45));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
     }
   },
   {
     "command": "essential.addProperty",
     "params": {
       "comp": "type11",
-      "layer": "line 1",
+      "layer": "headline",
       "path": "text/sourceText",
-      "name": "Text 1"
+      "name": "Log lets Hermes"
     }
   },
   {
     "command": "layer.newText",
     "params": {
-      "text": "websites",
-      "name": "line 2",
-      "position": [
-        960,
-        600
-      ],
+      "name": "bridge",
+      "text": "work natively on",
       "font": "Satoshi",
       "style": "Black",
-      "size": 96,
+      "size": 100,
       "fill": [
-        0.07,
-        0.07,
-        0.07
+        0.051,
+        0.165,
+        0.298
       ],
-      "justify": "center"
+      "justify": "left",
+      "position": [
+        475,
+        495
+      ]
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 2",
+      "layer": "bridge",
       "path": "transform/anchor",
-      "expression": "var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);\n[r.left + r.width / 2, r.top + r.height / 2, 0]"
+      "expression": "var r=sourceRectAtTime(1.6,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "bridge",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "bridge",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "bridge",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "bridge",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "bridge",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 2",
+      "layer": "bridge",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.24750000000000003; var gap=textTotal>1?0.2025/(textTotal-1):0; var s=back((time-0.24000000000000002-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "bridge",
       "path": "transform/scale",
-      "expression": "function clamp(v) { return Math.min(Math.max(v, 0), 1); }\nvar t = clamp((time - 0.24) / 0.34), u = t - 1;\nvar ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;\n[100 * s, 100 * s, 100]"
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.24000000000000002)/0.45);[s,s,100]"
     }
   },
   {
     "command": "prop.setExpression",
     "params": {
-      "layer": "line 2",
-      "path": "transform/opacity",
-      "expression": "Math.min(Math.max((time - 0.24) / 0.10, 0), 1) * 100"
+      "layer": "bridge",
+      "path": "transform/position",
+      "expression": "var q=Math.max(0,Math.min(1,(time-(thisComp.duration-0.85+0.1))/.42));var leave=2.8*q*q*q-1.8*q*q;var p=Math.max(0,Math.min(1,(time-0.24000000000000002)/.45)),u=p-1,enter=1+2.8*u*u*u+1.8*u*u;[475,495-100*(1-enter)+1000*leave,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "bridge",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.24000000000000002)/.45));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
     }
   },
   {
     "command": "essential.addProperty",
     "params": {
       "comp": "type11",
-      "layer": "line 2",
+      "layer": "bridge",
       "path": "text/sourceText",
-      "name": "Text 2"
+      "name": "work natively on"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "highlight",
+      "text": "your favourite socials.",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 104,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "justify": "left",
+      "position": [
+        475,
+        635
+      ],
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 10,
+      "strokeOverFill": false
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "highlight",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(1.6,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "highlight",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "highlight",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "highlight",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "highlight",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "highlight",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "highlight",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.24750000000000003; var gap=textTotal>1?0.2025/(textTotal-1):0; var s=back((time-0.38-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "highlight",
+      "path": "transform/scale",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.38)/0.45);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "highlight",
+      "path": "transform/position",
+      "expression": "var q=Math.max(0,Math.min(1,(time-(thisComp.duration-0.85+0.2))/.42));var leave=2.8*q*q*q-1.8*q*q;var p=Math.max(0,Math.min(1,(time-0.38)/.45)),u=p-1,enter=1+2.8*u*u*u+1.8*u*u;[475,635-100*(1-enter)+1000*leave,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "highlight",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.38)/.45));var u=p-1;var s=100*(1+2.8*u*u*u+1.8*u*u);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "highlight"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "highlight",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.051,
+        0.165,
+        0.298,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "highlight",
+      "path": "layerStyles/stroke/size",
+      "value": 3
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "highlight"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "highlight",
+      "path": "layerStyles/outerGlow/blendMode",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "highlight",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "highlight",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 25
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "highlight",
+      "path": "layerStyles/outerGlow/size",
+      "value": 16
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "highlight",
+      "path": "transform/rotation",
+      "value": -2
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "type11",
+      "layer": "highlight",
+      "path": "text/sourceText",
+      "name": "your favourite socials."
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 1",
+      "size": [
+        112,
+        112
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        90,
+        90
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 1",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.1)/.4));var u=p-1;var t=Math.max(0,time-0.57);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.04))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 1",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/x.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "x.svg",
+      "position": [
+        90,
+        90
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "x.svg",
+      "name": "surround 1 Twitter/X"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 1 Twitter/X"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 1 Twitter/X",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 1 Twitter/X",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.16666666666666669)/.4));var u=p-1;var t=Math.max(0,time-0.57);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=69.23076923076923*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 2",
+      "size": [
+        124,
+        124
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        285,
+        185
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 2",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.375)/.4));var u=p-1;var t=Math.max(0,time-0.845);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0.55)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.17200000000000001))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 2",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/facebook.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "facebook.svg",
+      "position": [
+        285,
+        185
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "facebook.svg",
+      "name": "surround 2 Facebook"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 2 Facebook"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 2 Facebook",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 2 Facebook",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.44166666666666665)/.4));var u=p-1;var t=Math.max(0,time-0.845);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0.55)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.132))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=80.76923076923077*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 3",
+      "size": [
+        104,
+        104
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        75,
+        310
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 3",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 3",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.65)/.4));var u=p-1;var t=Math.max(0,time-1.12);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.1)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.304))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 3",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/discord.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "discord.svg",
+      "position": [
+        75,
+        310
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "discord.svg",
+      "name": "surround 3 Discord"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 3 Discord"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 3 Discord",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 3 Discord",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.7166666666666667)/.4));var u=p-1;var t=Math.max(0,time-1.12);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.1)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.264))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=61.53846153846154*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 4",
+      "size": [
+        120,
+        120
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        280,
+        405
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 4",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 4",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.17500000000000002)/.4));var u=p-1;var t=Math.max(0,time-0.645);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.6500000000000001)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.07600000000000001))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 4",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/slack.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "slack.svg",
+      "position": [
+        280,
+        405
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "slack.svg",
+      "name": "surround 4 Slack"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 4 Slack"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 4 Slack",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 4 Slack",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.2416666666666667)/.4));var u=p-1;var t=Math.max(0,time-0.645);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.6500000000000001)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.036000000000000004))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=76.92307692307693*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 5",
+      "size": [
+        116,
+        116
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        105,
+        535
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 5",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 5",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.45000000000000007)/.4));var u=p-1;var t=Math.max(0,time-0.92);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.2)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.20800000000000002))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 5",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/instagram.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "instagram.svg",
+      "position": [
+        105,
+        535
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "instagram.svg",
+      "name": "surround 5 Instagram"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 5 Instagram"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 5 Instagram",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 5 Instagram",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.5166666666666667)/.4));var u=p-1;var t=Math.max(0,time-0.92);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.2)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.168))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=73.07692307692307*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 6",
+      "size": [
+        112,
+        112
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        285,
+        650
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 6",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 6",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.725)/.4));var u=p-1;var t=Math.max(0,time-1.1949999999999998);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.75)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.33999999999999997))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 6",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/reddit.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "reddit.svg",
+      "position": [
+        285,
+        650
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "reddit.svg",
+      "name": "surround 6 Reddit"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 6 Reddit"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 6 Reddit",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 6 Reddit",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.7916666666666666)/.4));var u=p-1;var t=Math.max(0,time-1.1949999999999998);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.75)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.3))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=69.23076923076923*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 7",
+      "size": [
+        124,
+        124
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        80,
+        765
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 7",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 7",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.25)/.4));var u=p-1;var t=Math.max(0,time-0.72);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+3.3000000000000003)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.11200000000000002))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 7",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/linkedin.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "linkedin.svg",
+      "position": [
+        80,
+        765
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "linkedin.svg",
+      "name": "surround 7 LinkedIn"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 7 LinkedIn"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 7 LinkedIn",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 7 LinkedIn",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.31666666666666665)/.4));var u=p-1;var t=Math.max(0,time-0.72);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+3.3000000000000003)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.07200000000000001))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=80.76923076923077*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 8",
+      "size": [
+        104,
+        104
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        265,
+        875
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 8",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 8",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.525)/.4));var u=p-1;var t=Math.max(0,time-0.995);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.24400000000000002))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 8",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/x.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "x.svg",
+      "position": [
+        265,
+        875
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "x.svg",
+      "name": "surround 8 Twitter/X"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 8 Twitter/X"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 8 Twitter/X",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 8 Twitter/X",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.5916666666666667)/.4));var u=p-1;var t=Math.max(0,time-0.995);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.20400000000000001))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=61.53846153846154*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 9",
+      "size": [
+        120,
+        120
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        100,
+        1015
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 9",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 9",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.8)/.4));var u=p-1;var t=Math.max(0,time-1.27);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0.55)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.376))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 9",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/facebook.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "facebook.svg",
+      "position": [
+        100,
+        1015
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "facebook.svg",
+      "name": "surround 9 Facebook"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 9 Facebook"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 9 Facebook",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 9 Facebook",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.8666666666666667)/.4));var u=p-1;var t=Math.max(0,time-1.27);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0.55)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.336))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=76.92307692307693*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 10",
+      "size": [
+        116,
+        116
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1830,
+        110
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 10",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 10",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.325)/.4));var u=p-1;var t=Math.max(0,time-0.7949999999999999);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.1)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.148))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 10",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/discord.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "discord.svg",
+      "position": [
+        1830,
+        110
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "discord.svg",
+      "name": "surround 10 Discord"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 10 Discord"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 10 Discord",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 10 Discord",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.39166666666666666)/.4));var u=p-1;var t=Math.max(0,time-0.7949999999999999);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.1)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.108))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=73.07692307692307*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 11",
+      "size": [
+        112,
+        112
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1635,
+        205
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 11",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 11",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.6)/.4));var u=p-1;var t=Math.max(0,time-1.0699999999999998);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.6500000000000001)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.27999999999999997))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 11",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/slack.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "slack.svg",
+      "position": [
+        1635,
+        205
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "slack.svg",
+      "name": "surround 11 Slack"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 11 Slack"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 11 Slack",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 11 Slack",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.6666666666666666)/.4));var u=p-1;var t=Math.max(0,time-1.0699999999999998);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.6500000000000001)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.24))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=69.23076923076923*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 12",
+      "size": [
+        124,
+        124
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1845,
+        320
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 12",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 12",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.125)/.4));var u=p-1;var t=Math.max(0,time-0.595);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.2)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.052000000000000005))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 12",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/instagram.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "instagram.svg",
+      "position": [
+        1845,
+        320
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "instagram.svg",
+      "name": "surround 12 Instagram"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 12 Instagram"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 12 Instagram",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 12 Instagram",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.19166666666666665)/.4));var u=p-1;var t=Math.max(0,time-0.595);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.2)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.012))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=80.76923076923077*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 13",
+      "size": [
+        104,
+        104
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1640,
+        415
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 13",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 13",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.4)/.4));var u=p-1;var t=Math.max(0,time-0.87);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.75)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.18400000000000002))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 13",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/reddit.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "reddit.svg",
+      "position": [
+        1640,
+        415
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "reddit.svg",
+      "name": "surround 13 Reddit"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 13 Reddit"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 13 Reddit",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 13 Reddit",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.4666666666666667)/.4));var u=p-1;var t=Math.max(0,time-0.87);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.75)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.14400000000000002))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=61.53846153846154*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 14",
+      "size": [
+        120,
+        120
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1815,
+        545
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 14",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 14",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.675)/.4));var u=p-1;var t=Math.max(0,time-1.145);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+3.3000000000000003)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.316))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 14",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/linkedin.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "linkedin.svg",
+      "position": [
+        1815,
+        545
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "linkedin.svg",
+      "name": "surround 14 LinkedIn"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 14 LinkedIn"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 14 LinkedIn",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 14 LinkedIn",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.7416666666666667)/.4));var u=p-1;var t=Math.max(0,time-1.145);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+3.3000000000000003)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.276))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=76.92307692307693*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 15",
+      "size": [
+        116,
+        116
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1635,
+        655
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 15",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 15",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.2)/.4));var u=p-1;var t=Math.max(0,time-0.6699999999999999);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.088))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 15",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/x.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "x.svg",
+      "position": [
+        1635,
+        655
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "x.svg",
+      "name": "surround 15 Twitter/X"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 15 Twitter/X"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 15 Twitter/X",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 15 Twitter/X",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.26666666666666666)/.4));var u=p-1;var t=Math.max(0,time-0.6699999999999999);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.048))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=73.07692307692307*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 16",
+      "size": [
+        112,
+        112
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1840,
+        775
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 16",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 16",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.475)/.4));var u=p-1;var t=Math.max(0,time-0.945);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0.55)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.22))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 16",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/facebook.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "facebook.svg",
+      "position": [
+        1840,
+        775
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "facebook.svg",
+      "name": "surround 16 Facebook"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 16 Facebook"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 16 Facebook",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 16 Facebook",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.5416666666666666)/.4));var u=p-1;var t=Math.max(0,time-0.945);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0.55)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.18))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=69.23076923076923*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 17",
+      "size": [
+        124,
+        124
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1655,
+        885
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 17",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 17",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.75)/.4));var u=p-1;var t=Math.max(0,time-1.22);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.1)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.352))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 17",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/discord.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "discord.svg",
+      "position": [
+        1655,
+        885
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "discord.svg",
+      "name": "surround 17 Discord"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 17 Discord"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 17 Discord",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 17 Discord",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.8166666666666667)/.4));var u=p-1;var t=Math.max(0,time-1.22);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.1)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.312))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=80.76923076923077*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 18",
+      "size": [
+        104,
+        104
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1820,
+        1010
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 18",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 18",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.275)/.4));var u=p-1;var t=Math.max(0,time-0.745);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.6500000000000001)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.124))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 18",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/slack.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "slack.svg",
+      "position": [
+        1820,
+        1010
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "slack.svg",
+      "name": "surround 18 Slack"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 18 Slack"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 18 Slack",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 18 Slack",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.3416666666666667)/.4));var u=p-1;var t=Math.max(0,time-0.745);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.6500000000000001)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.084))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=61.53846153846154*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 19",
+      "size": [
+        120,
+        120
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        490,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 19",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 19",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.55)/.4));var u=p-1;var t=Math.max(0,time-1.02);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.2)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.256))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 19",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/instagram.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "instagram.svg",
+      "position": [
+        490,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "instagram.svg",
+      "name": "surround 19 Instagram"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 19 Instagram"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 19 Instagram",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 19 Instagram",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.6166666666666667)/.4));var u=p-1;var t=Math.max(0,time-1.02);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.2)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.216))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=76.92307692307693*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 20",
+      "size": [
+        116,
+        116
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        700,
+        240
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 20",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 20",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.8250000000000001)/.4));var u=p-1;var t=Math.max(0,time-1.295);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.75)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.388))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 20",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/reddit.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "reddit.svg",
+      "position": [
+        700,
+        240
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "reddit.svg",
+      "name": "surround 20 Reddit"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 20 Reddit"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 20 Reddit",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 20 Reddit",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.8916666666666667)/.4));var u=p-1;var t=Math.max(0,time-1.295);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.75)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.34800000000000003))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=73.07692307692307*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 21",
+      "size": [
+        112,
+        112
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        930,
+        75
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 21",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 21",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.35)/.4));var u=p-1;var t=Math.max(0,time-0.82);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+3.3000000000000003)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.16))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 21",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/linkedin.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "linkedin.svg",
+      "position": [
+        930,
+        75
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "linkedin.svg",
+      "name": "surround 21 LinkedIn"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 21 LinkedIn"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 21 LinkedIn",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 21 LinkedIn",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.41666666666666663)/.4));var u=p-1;var t=Math.max(0,time-0.82);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+3.3000000000000003)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.12))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=69.23076923076923*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 22",
+      "size": [
+        124,
+        124
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1150,
+        220
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 22",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 22",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.625)/.4));var u=p-1;var t=Math.max(0,time-1.095);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.292))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 22",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/x.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "x.svg",
+      "position": [
+        1150,
+        220
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "x.svg",
+      "name": "surround 22 Twitter/X"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 22 Twitter/X"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 22 Twitter/X",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 22 Twitter/X",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.6916666666666667)/.4));var u=p-1;var t=Math.max(0,time-1.095);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.252))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=80.76923076923077*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 23",
+      "size": [
+        104,
+        104
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1380,
+        90
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 23",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 23",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.15000000000000002)/.4));var u=p-1;var t=Math.max(0,time-0.62);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0.55)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.064))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 23",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/facebook.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "facebook.svg",
+      "position": [
+        1380,
+        90
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "facebook.svg",
+      "name": "surround 23 Facebook"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 23 Facebook"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 23 Facebook",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 23 Facebook",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.21666666666666667)/.4));var u=p-1;var t=Math.max(0,time-0.62);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0.55)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.024))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=61.53846153846154*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 24",
+      "size": [
+        120,
+        120
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1460,
+        265
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 24",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 24",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.42500000000000004)/.4));var u=p-1;var t=Math.max(0,time-0.895);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.1)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.196))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 24",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/discord.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "discord.svg",
+      "position": [
+        1460,
+        265
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "discord.svg",
+      "name": "surround 24 Discord"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 24 Discord"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 24 Discord",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 24 Discord",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.4916666666666667)/.4));var u=p-1;var t=Math.max(0,time-0.895);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.1)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.156))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=76.92307692307693*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 25",
+      "size": [
+        116,
+        116
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        480,
+        860
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 25",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 25",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.7000000000000001)/.4));var u=p-1;var t=Math.max(0,time-1.17);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.6500000000000001)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.328))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 25",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/slack.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "slack.svg",
+      "position": [
+        480,
+        860
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "slack.svg",
+      "name": "surround 25 Slack"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 25 Slack"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 25 Slack",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 25 Slack",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.7666666666666667)/.4));var u=p-1;var t=Math.max(0,time-1.17);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+1.6500000000000001)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.28800000000000003))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=73.07692307692307*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 26",
+      "size": [
+        112,
+        112
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        700,
+        1000
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 26",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 26",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.225)/.4));var u=p-1;var t=Math.max(0,time-0.695);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.2)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.1))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 26",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/instagram.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "instagram.svg",
+      "position": [
+        700,
+        1000
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "instagram.svg",
+      "name": "surround 26 Instagram"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 26 Instagram"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 26 Instagram",
+      "path": "transform/rotation",
+      "value": -6
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 26 Instagram",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.2916666666666667)/.4));var u=p-1;var t=Math.max(0,time-0.695);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.2)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.06))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=69.23076923076923*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 27",
+      "size": [
+        124,
+        124
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        940,
+        830
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 27",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 27",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.5)/.4));var u=p-1;var t=Math.max(0,time-0.97);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.75)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.232))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 27",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/reddit.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "reddit.svg",
+      "position": [
+        940,
+        830
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "reddit.svg",
+      "name": "surround 27 Reddit"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 27 Reddit"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 27 Reddit",
+      "path": "transform/rotation",
+      "value": 4
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 27 Reddit",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.5666666666666667)/.4));var u=p-1;var t=Math.max(0,time-0.97);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+2.75)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.192))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=80.76923076923077*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 28",
+      "size": [
+        104,
+        104
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1160,
+        985
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 28",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 28",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.775)/.4));var u=p-1;var t=Math.max(0,time-1.245);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+3.3000000000000003)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.364))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 28",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/linkedin.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "linkedin.svg",
+      "position": [
+        1160,
+        985
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "linkedin.svg",
+      "name": "surround 28 LinkedIn"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 28 LinkedIn"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 28 LinkedIn",
+      "path": "transform/rotation",
+      "value": -3
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 28 LinkedIn",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.8416666666666667)/.4));var u=p-1;var t=Math.max(0,time-1.245);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+3.3000000000000003)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.324))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=61.53846153846154*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 29",
+      "size": [
+        120,
+        120
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1390,
+        850
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 29",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 29",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.30000000000000004)/.4));var u=p-1;var t=Math.max(0,time-0.77);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.136))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 29",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/x.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "x.svg",
+      "position": [
+        1390,
+        850
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "x.svg",
+      "name": "surround 29 Twitter/X"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 29 Twitter/X"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 29 Twitter/X",
+      "path": "transform/rotation",
+      "value": 7
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 29 Twitter/X",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.3666666666666667)/.4));var u=p-1;var t=Math.max(0,time-0.77);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.096))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=76.92307692307693*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "logo card 30",
+      "size": [
+        116,
+        116
+      ],
+      "fill": [
+        0.92,
+        0.96,
+        1
+      ],
+      "position": [
+        1530,
+        1010
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 30",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "logo card 30",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.5750000000000001)/.4));var u=p-1;var t=Math.max(0,time-1.045);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0.55)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.268))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=100*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "logo card 30",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/facebook.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "facebook.svg",
+      "position": [
+        1530,
+        1010
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "facebook.svg",
+      "name": "surround 30 Facebook"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "surround 30 Facebook"
+      ],
+      "switch": "collapse",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "surround 30 Facebook",
+      "path": "transform/rotation",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "surround 30 Facebook",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.6416666666666667)/.4));var u=p-1;var t=Math.max(0,time-1.045);var breath=1+0.06*Math.sin(2*Math.PI*t/2.4+0.55)*Math.min(t/.4,1);var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.85+0.228))/.4));var leave=2.8*q*q*q-1.8*q*q;var s=73.07692307692307*(1+2.8*u*u*u+1.8*u*u)*breath*(1-leave);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newAdjustment",
+    "params": {
+      "name": "Page push in"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "ec.distort.transform",
+      "layers": [
+        "Page push in"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/anchor",
+      "value": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/position",
+      "value": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/scaleHeight",
+      "expression": "var p=Math.max(0,Math.min(1,time/thisComp.duration));100+8*p"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/rotation",
+      "expression": "var p=Math.max(0,Math.min(1,time/thisComp.duration));-1.2*p"
+    }
+  },
+  {
+    "command": "layer.arrange",
+    "params": {
+      "layers": [
+        "Page push in"
+      ],
+      "to": "front"
     }
   },
   {

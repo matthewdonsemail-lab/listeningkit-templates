@@ -8,7 +8,7 @@ CLI="${EFFECTCRAFT_CLI:-/c/Program Files/ArtCraft/EffectCraft/effectcraft-cli.ex
 PROJECT="textAnimations.ecproj"
 
 # Precomps go first, in order: cloudBackground uses ditherGradientBackground, introCard uses cloudBackground.
-first=(effects/ditherGradientBackground/effect.json effects/cloudBackground/effect.json)
+first=(effects/ditherGradientBackground/effect.json effects/cloudBackground/effect.json effects/startCardParts/effect.json effects/connectionCardParts/effect.json effects/terminal/effect.json effects/brandBlueGradient/effect.json effects/hermesAgentTerminal/effect.json effects/researchParts/effect.json effects/stepsTrackParts/effect.json effects/expositionEars/effect.json effects/expositionPremise/effect.json effects/expositionPositioning/effect.json)
 args=()
 for f in "${first[@]}"; do args+=(--commands "$f"); done
 for f in effects/*/effect.json; do [[ " ${first[*]} " == *" $f "* ]] || args+=(--commands "$f"); done

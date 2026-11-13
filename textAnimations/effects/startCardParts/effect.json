@@ -1,0 +1,5280 @@
+[
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/startCards/hermesAgent.png",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/startCards/hermes.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/x.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/facebook.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/discord.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/slack.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/instagram.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/reddit.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/linkedin.svg"
+      ]
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startClient",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Client frame",
+      "size": [
+        1000,
+        592
+      ],
+      "fill": [
+        0.06274509803921569,
+        0.09411764705882353,
+        0.12549019607843137
+      ],
+      "position": [
+        520,
+        320
+      ],
+      "stroke": [
+        0.31,
+        0.38,
+        0.46
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Client frame",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 18
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Client chrome",
+      "size": [
+        996,
+        64
+      ],
+      "fill": [
+        0.09019607843137255,
+        0.13725490196078433,
+        0.1803921568627451
+      ],
+      "position": [
+        520,
+        58
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Client chrome",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 17
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Chrome seam",
+      "size": [
+        996,
+        2
+      ],
+      "fill": [
+        0.22,
+        0.29,
+        0.36
+      ],
+      "position": [
+        520,
+        90
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Chrome seam",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "hermesAgent.png",
+      "position": [
+        68,
+        58
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "hermesAgent.png",
+      "name": "Hermes logo"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hermes logo",
+      "path": "transform/scale",
+      "value": [
+        65,
+        65,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Client name",
+      "text": "Hermes Agent",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        104,
+        58
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Client name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Client demo label",
+      "text": "log workspace",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 20,
+      "fill": [
+        0.61,
+        0.7,
+        0.78
+      ],
+      "position": [
+        808,
+        58
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Client demo label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Composer",
+      "size": [
+        920,
+        62
+      ],
+      "fill": [
+        0.09,
+        0.13,
+        0.17
+      ],
+      "position": [
+        520,
+        555
+      ],
+      "stroke": [
+        0.22,
+        0.28,
+        0.34
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Composer",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Composer text",
+      "text": "\u203a  Ask anything\u2026",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 24,
+      "fill": [
+        0.53,
+        0.62,
+        0.7
+      ],
+      "position": [
+        83,
+        555
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Composer text",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Composer send",
+      "size": [
+        38,
+        38
+      ],
+      "fill": [
+        0.28,
+        0.36,
+        0.45
+      ],
+      "position": [
+        937,
+        555
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Composer send",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 19
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Composer arrow",
+      "text": "\u2191",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        926,
+        554
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Composer arrow",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startClient",
+      "layer": "Client name",
+      "path": "text/sourceText",
+      "name": "Client name"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startClient",
+      "name": "startClient"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startClient"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startPrompt",
+      "width": 940,
+      "height": 130,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Prompt",
+      "size": [
+        920,
+        110
+      ],
+      "fill": [
+        0.12,
+        0.2,
+        0.28
+      ],
+      "position": [
+        470,
+        65
+      ],
+      "stroke": [
+        0.21,
+        0.32,
+        0.43
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Prompt",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 17
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Prompt text",
+      "text": "\u203a  Who is waiting for a reply?",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 33,
+      "fill": [
+        0.72,
+        0.88,
+        1
+      ],
+      "position": [
+        37,
+        65
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Prompt text",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startPrompt",
+      "layer": "Prompt text",
+      "path": "text/sourceText",
+      "name": "Prompt text"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startPrompt",
+      "name": "startPrompt"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startPrompt"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startTools",
+      "width": 940,
+      "height": 290,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tool 0",
+      "size": [
+        920,
+        126
+      ],
+      "fill": [
+        0.09,
+        0.14,
+        0.19
+      ],
+      "position": [
+        470,
+        77
+      ],
+      "stroke": [
+        0.25,
+        0.31,
+        0.37
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tool 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 14
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool name 0",
+      "text": "log \u00b7 getGuide",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.89,
+        0.94,
+        1
+      ],
+      "position": [
+        31,
+        48
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool name 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool args 0",
+      "text": "X inbox / conversation context",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.53,
+        0.65,
+        0.75
+      ],
+      "position": [
+        415,
+        48
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool args 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool result 0",
+      "text": "\u2713  Instructions ready",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 27,
+      "fill": [
+        0.52,
+        0.89,
+        0.77
+      ],
+      "position": [
+        31,
+        103
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool result 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tool 1",
+      "size": [
+        920,
+        126
+      ],
+      "fill": [
+        0.09,
+        0.14,
+        0.19
+      ],
+      "position": [
+        470,
+        215
+      ],
+      "stroke": [
+        0.25,
+        0.31,
+        0.37
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tool 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 14
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool name 1",
+      "text": "log \u00b7 twitterDms",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.89,
+        0.94,
+        1
+      ],
+      "position": [
+        31,
+        186
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool name 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool args 1",
+      "text": "waiting: true",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.53,
+        0.65,
+        0.75
+      ],
+      "position": [
+        415,
+        186
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool args 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool result 1",
+      "text": "\u2713  6 conversations waiting on you",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 27,
+      "fill": [
+        0.52,
+        0.89,
+        0.77
+      ],
+      "position": [
+        31,
+        241
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool result 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTools",
+      "layer": "Tool result 1",
+      "path": "text/sourceText",
+      "name": "Tool result 1"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startTools",
+      "name": "startTools"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startTools"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startPromptDiscord",
+      "width": 940,
+      "height": 130,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Prompt",
+      "size": [
+        920,
+        110
+      ],
+      "fill": [
+        0.12,
+        0.2,
+        0.28
+      ],
+      "position": [
+        470,
+        65
+      ],
+      "stroke": [
+        0.21,
+        0.32,
+        0.43
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Prompt",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 17
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Prompt text",
+      "text": "\u203a  Catch up on my Discord mentions.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 33,
+      "fill": [
+        0.72,
+        0.88,
+        1
+      ],
+      "position": [
+        37,
+        65
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Prompt text",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startPromptDiscord",
+      "layer": "Prompt text",
+      "path": "text/sourceText",
+      "name": "Prompt text"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startPromptDiscord",
+      "name": "startPromptDiscord"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startPromptDiscord"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startToolsDiscord",
+      "width": 940,
+      "height": 290,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tool 0",
+      "size": [
+        920,
+        126
+      ],
+      "fill": [
+        0.09,
+        0.14,
+        0.19
+      ],
+      "position": [
+        470,
+        77
+      ],
+      "stroke": [
+        0.25,
+        0.31,
+        0.37
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tool 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 14
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool name 0",
+      "text": "log \u00b7 getGuide",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.89,
+        0.94,
+        1
+      ],
+      "position": [
+        31,
+        48
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool name 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool args 0",
+      "text": "Discord / channel context",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.53,
+        0.65,
+        0.75
+      ],
+      "position": [
+        415,
+        48
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool args 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool result 0",
+      "text": "\u2713  Instructions ready",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 27,
+      "fill": [
+        0.52,
+        0.89,
+        0.77
+      ],
+      "position": [
+        31,
+        103
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool result 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tool 1",
+      "size": [
+        920,
+        126
+      ],
+      "fill": [
+        0.09,
+        0.14,
+        0.19
+      ],
+      "position": [
+        470,
+        215
+      ],
+      "stroke": [
+        0.25,
+        0.31,
+        0.37
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tool 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 14
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool name 1",
+      "text": "log \u00b7 search",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.89,
+        0.94,
+        1
+      ],
+      "position": [
+        31,
+        186
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool name 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool args 1",
+      "text": "mentions: you",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.53,
+        0.65,
+        0.75
+      ],
+      "position": [
+        415,
+        186
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool args 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool result 1",
+      "text": "\u2713  3 conversations need a reply",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 27,
+      "fill": [
+        0.52,
+        0.89,
+        0.77
+      ],
+      "position": [
+        31,
+        241
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool result 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startToolsDiscord",
+      "layer": "Tool result 1",
+      "path": "text/sourceText",
+      "name": "Tool result 1"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startToolsDiscord",
+      "name": "startToolsDiscord"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startToolsDiscord"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startPromptSlack",
+      "width": 940,
+      "height": 130,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Prompt",
+      "size": [
+        920,
+        110
+      ],
+      "fill": [
+        0.12,
+        0.2,
+        0.28
+      ],
+      "position": [
+        470,
+        65
+      ],
+      "stroke": [
+        0.21,
+        0.32,
+        0.43
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Prompt",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 17
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Prompt text",
+      "text": "\u203a  Which Slack conversations need me?",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 33,
+      "fill": [
+        0.72,
+        0.88,
+        1
+      ],
+      "position": [
+        37,
+        65
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Prompt text",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startPromptSlack",
+      "layer": "Prompt text",
+      "path": "text/sourceText",
+      "name": "Prompt text"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startPromptSlack",
+      "name": "startPromptSlack"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startPromptSlack"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startToolsSlack",
+      "width": 940,
+      "height": 290,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tool 0",
+      "size": [
+        920,
+        126
+      ],
+      "fill": [
+        0.09,
+        0.14,
+        0.19
+      ],
+      "position": [
+        470,
+        77
+      ],
+      "stroke": [
+        0.25,
+        0.31,
+        0.37
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tool 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 14
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool name 0",
+      "text": "log \u00b7 getGuide",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.89,
+        0.94,
+        1
+      ],
+      "position": [
+        31,
+        48
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool name 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool args 0",
+      "text": "Slack / conversation context",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.53,
+        0.65,
+        0.75
+      ],
+      "position": [
+        415,
+        48
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool args 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool result 0",
+      "text": "\u2713  Instructions ready",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 27,
+      "fill": [
+        0.52,
+        0.89,
+        0.77
+      ],
+      "position": [
+        31,
+        103
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool result 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tool 1",
+      "size": [
+        920,
+        126
+      ],
+      "fill": [
+        0.09,
+        0.14,
+        0.19
+      ],
+      "position": [
+        470,
+        215
+      ],
+      "stroke": [
+        0.25,
+        0.31,
+        0.37
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tool 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 14
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool name 1",
+      "text": "log \u00b7 slackChats",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.89,
+        0.94,
+        1
+      ],
+      "position": [
+        31,
+        186
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool name 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool args 1",
+      "text": "workspace: growth-co",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 22,
+      "fill": [
+        0.53,
+        0.65,
+        0.75
+      ],
+      "position": [
+        415,
+        186
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool args 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool result 1",
+      "text": "\u2713  14 DMs \u00b7 3 group conversations",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 27,
+      "fill": [
+        0.52,
+        0.89,
+        0.77
+      ],
+      "position": [
+        31,
+        241
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool result 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startToolsSlack",
+      "layer": "Tool result 1",
+      "path": "text/sourceText",
+      "name": "Tool result 1"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startToolsSlack",
+      "name": "startToolsSlack"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startToolsSlack"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startTongueX",
+      "width": 1080,
+      "height": 270,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card edge",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.1,
+        0.375,
+        0.784
+      ],
+      "position": [
+        540,
+        142
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue play card",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        540,
+        134
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue play card"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.12,
+        0.47,
+        0.94,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/start",
+      "value": [
+        540,
+        20
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/end",
+      "value": [
+        540,
+        250
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "x.svg",
+      "position": [
+        85,
+        88
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "x.svg",
+      "name": "Logo x"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo x",
+      "path": "transform/scale",
+      "value": [
+        59.61538461538461,
+        59.61538461538461,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo x"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo x",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo x",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Play title",
+      "text": "Reply guy on X",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        140,
+        86
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Play title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Play description",
+      "text": "Catch up on DMs and mentions.\nThoughtful replies, in your voice.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        52,
+        169
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Play description",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Copy button",
+      "size": [
+        108,
+        48
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        960,
+        86
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Copy button",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Copy label",
+      "text": "Copy",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        932,
+        86
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Copy label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTongueX",
+      "layer": "Play title",
+      "path": "text/sourceText",
+      "name": "Play title"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTongueX",
+      "layer": "Play description",
+      "path": "text/sourceText",
+      "name": "Play description"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startTongueX",
+      "name": "startTongueX"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startTongueX"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startTongueDiscord",
+      "width": 1080,
+      "height": 270,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card edge",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.1,
+        0.375,
+        0.784
+      ],
+      "position": [
+        540,
+        142
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue play card",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        540,
+        134
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue play card"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.12,
+        0.47,
+        0.94,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/start",
+      "value": [
+        540,
+        20
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/end",
+      "value": [
+        540,
+        250
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "discord.svg",
+      "position": [
+        85,
+        88
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "discord.svg",
+      "name": "Logo discord"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "transform/scale",
+      "value": [
+        59.61538461538461,
+        59.61538461538461,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo discord"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Play title",
+      "text": "Inbox catch-up on Discord",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 46,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        140,
+        86
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Play title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Play description",
+      "text": "Find unanswered DMs and mentions.\nGet relevant replies ready.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        52,
+        169
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Play description",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Copy button",
+      "size": [
+        108,
+        48
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        960,
+        86
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Copy button",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Copy label",
+      "text": "Copy",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        932,
+        86
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Copy label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTongueDiscord",
+      "layer": "Play title",
+      "path": "text/sourceText",
+      "name": "Play title"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTongueDiscord",
+      "layer": "Play description",
+      "path": "text/sourceText",
+      "name": "Play description"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startTongueDiscord",
+      "name": "startTongueDiscord"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startTongueDiscord"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startTongueSlack",
+      "width": 1080,
+      "height": 270,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue card edge",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.1,
+        0.375,
+        0.784
+      ],
+      "position": [
+        540,
+        142
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue card edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue play card",
+      "size": [
+        1040,
+        226
+      ],
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        540,
+        134
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 21
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue play card"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.12,
+        0.47,
+        0.94,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/start",
+      "value": [
+        540,
+        20
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue play card",
+      "path": "effects/#1/end",
+      "value": [
+        540,
+        250
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "slack.svg",
+      "position": [
+        85,
+        88
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "slack.svg",
+      "name": "Logo slack"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo slack",
+      "path": "transform/scale",
+      "value": [
+        59.61538461538461,
+        59.61538461538461,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo slack"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo slack",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo slack",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Play title",
+      "text": "Answer the queue on Slack",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 41,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        140,
+        86
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Play title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Play description",
+      "text": "See which conversations need you.\nClear replies, with the full context.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        52,
+        169
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Play description",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Copy button",
+      "size": [
+        108,
+        48
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        960,
+        86
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Copy button",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Copy label",
+      "text": "Copy",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        932,
+        86
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Copy label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTongueSlack",
+      "layer": "Play title",
+      "path": "text/sourceText",
+      "name": "Play title"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTongueSlack",
+      "layer": "Play description",
+      "path": "text/sourceText",
+      "name": "Play description"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startTongueSlack",
+      "name": "startTongueSlack"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startTongueSlack"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startReply",
+      "width": 900,
+      "height": 220,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Reply bubble",
+      "size": [
+        860,
+        178
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        450,
+        110
+      ],
+      "stroke": [
+        0.76,
+        0.85,
+        0.95
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reply bubble",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.style.dropShadow",
+    "params": {
+      "layers": [
+        "Reply bubble"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reply bubble",
+      "path": "layerStyles/dropShadow/color",
+      "value": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reply bubble",
+      "path": "layerStyles/dropShadow/opacity",
+      "value": 10
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reply bubble",
+      "path": "layerStyles/dropShadow/distance",
+      "value": 8
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reply bubble",
+      "path": "layerStyles/dropShadow/size",
+      "value": 28
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Reply author",
+      "text": "HERMES DRAFT",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 20,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        47,
+        58
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply author",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Reply text",
+      "text": "Building Log \u2014 Hermes can work\nacross my social accounts.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 35,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        47,
+        123
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply text",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startReply",
+      "layer": "Reply text",
+      "path": "text/sourceText",
+      "name": "Reply text"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startReply",
+      "name": "startReply"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startReply"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startVoice",
+      "width": 650,
+      "height": 150,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Voice card",
+      "size": [
+        620,
+        120
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        325,
+        75
+      ],
+      "stroke": [
+        0.73,
+        0.86,
+        1
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Voice card",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 20
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Voice title",
+      "text": "Your voice",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 31,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        36,
+        52
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Voice title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Voice rail",
+      "size": [
+        568,
+        6
+      ],
+      "fill": [
+        0.83,
+        0.91,
+        1
+      ],
+      "position": [
+        324,
+        111
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Voice rail",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 3
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Voice fill",
+      "size": [
+        568,
+        6
+      ],
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        324,
+        111
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Voice fill",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 3
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Voice result",
+      "text": "\u2713  Ready for review",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        298,
+        52
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Voice result",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startVoice",
+      "layer": "Voice result",
+      "path": "text/sourceText",
+      "name": "Voice result"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startVoice",
+      "name": "startVoice"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startVoice"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startHermes",
+      "width": 350,
+      "height": 390,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Hermes tile edge",
+      "size": [
+        300,
+        300
+      ],
+      "fill": [
+        0.78,
+        0.88,
+        0.98
+      ],
+      "position": [
+        175,
+        192
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hermes tile edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 40
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Hermes tile",
+      "size": [
+        300,
+        300
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        175,
+        184
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hermes tile",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 40
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "hermes.svg",
+      "position": [
+        175,
+        161
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "hermes.svg",
+      "name": "Hermes logo"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hermes logo",
+      "path": "transform/scale",
+      "value": [
+        750,
+        750,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Hermes tile label",
+      "text": "Hermes",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 35,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        105,
+        287
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Hermes tile label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startHermes",
+      "layer": "Hermes tile label",
+      "path": "text/sourceText",
+      "name": "Hermes tile label"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startHermes",
+      "name": "startHermes"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startHermes"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startTilex",
+      "width": 250,
+      "height": 290,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile edge",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        0.75,
+        0.86,
+        0.97
+      ],
+      "position": [
+        125,
+        128
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile face",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        125,
+        121
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile face",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "x.svg",
+      "position": [
+        125,
+        117
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "x.svg",
+      "name": "Logo x"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo x",
+      "path": "transform/scale",
+      "value": [
+        107.6923076923077,
+        107.6923076923077,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform name",
+      "text": "Twitter/X",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        35,
+        254
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTilex",
+      "layer": "Platform name",
+      "path": "text/sourceText",
+      "name": "Platform name"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startTilex",
+      "name": "startTilex"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startTilex"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startTilefacebook",
+      "width": 250,
+      "height": 290,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile edge",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        0.75,
+        0.86,
+        0.97
+      ],
+      "position": [
+        125,
+        128
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile face",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        125,
+        121
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile face",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "facebook.svg",
+      "position": [
+        125,
+        117
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "facebook.svg",
+      "name": "Logo facebook"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo facebook",
+      "path": "transform/scale",
+      "value": [
+        107.6923076923077,
+        107.6923076923077,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform name",
+      "text": "Facebook",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        35,
+        254
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTilefacebook",
+      "layer": "Platform name",
+      "path": "text/sourceText",
+      "name": "Platform name"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startTilefacebook",
+      "name": "startTilefacebook"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startTilefacebook"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startTilediscord",
+      "width": 250,
+      "height": 290,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile edge",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        0.75,
+        0.86,
+        0.97
+      ],
+      "position": [
+        125,
+        128
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile face",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        125,
+        121
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile face",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "discord.svg",
+      "position": [
+        125,
+        117
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "discord.svg",
+      "name": "Logo discord"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "transform/scale",
+      "value": [
+        107.6923076923077,
+        107.6923076923077,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform name",
+      "text": "Discord",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        35,
+        254
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTilediscord",
+      "layer": "Platform name",
+      "path": "text/sourceText",
+      "name": "Platform name"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startTilediscord",
+      "name": "startTilediscord"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startTilediscord"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startTileslack",
+      "width": 250,
+      "height": 290,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile edge",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        0.75,
+        0.86,
+        0.97
+      ],
+      "position": [
+        125,
+        128
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile face",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        125,
+        121
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile face",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "slack.svg",
+      "position": [
+        125,
+        117
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "slack.svg",
+      "name": "Logo slack"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo slack",
+      "path": "transform/scale",
+      "value": [
+        107.6923076923077,
+        107.6923076923077,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform name",
+      "text": "Slack",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        35,
+        254
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTileslack",
+      "layer": "Platform name",
+      "path": "text/sourceText",
+      "name": "Platform name"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startTileslack",
+      "name": "startTileslack"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startTileslack"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startTileinstagram",
+      "width": 250,
+      "height": 290,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile edge",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        0.75,
+        0.86,
+        0.97
+      ],
+      "position": [
+        125,
+        128
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile face",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        125,
+        121
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile face",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "instagram.svg",
+      "position": [
+        125,
+        117
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "instagram.svg",
+      "name": "Logo instagram"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo instagram",
+      "path": "transform/scale",
+      "value": [
+        107.6923076923077,
+        107.6923076923077,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform name",
+      "text": "Instagram",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        35,
+        254
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTileinstagram",
+      "layer": "Platform name",
+      "path": "text/sourceText",
+      "name": "Platform name"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startTileinstagram",
+      "name": "startTileinstagram"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startTileinstagram"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startTilereddit",
+      "width": 250,
+      "height": 290,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile edge",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        0.75,
+        0.86,
+        0.97
+      ],
+      "position": [
+        125,
+        128
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile face",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        125,
+        121
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile face",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "reddit.svg",
+      "position": [
+        125,
+        117
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "reddit.svg",
+      "name": "Logo reddit"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo reddit",
+      "path": "transform/scale",
+      "value": [
+        107.6923076923077,
+        107.6923076923077,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform name",
+      "text": "Reddit",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        35,
+        254
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTilereddit",
+      "layer": "Platform name",
+      "path": "text/sourceText",
+      "name": "Platform name"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startTilereddit",
+      "name": "startTilereddit"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startTilereddit"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startTilelinkedin",
+      "width": 250,
+      "height": 290,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile edge",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        0.75,
+        0.86,
+        0.97
+      ],
+      "position": [
+        125,
+        128
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tile face",
+      "size": [
+        212,
+        212
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        125,
+        121
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tile face",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 32
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "linkedin.svg",
+      "position": [
+        125,
+        117
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "linkedin.svg",
+      "name": "Logo linkedin"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo linkedin",
+      "path": "transform/scale",
+      "value": [
+        107.6923076923077,
+        107.6923076923077,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Platform name",
+      "text": "Linkedin",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 24,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        35,
+        254
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Platform name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startTilelinkedin",
+      "layer": "Platform name",
+      "path": "text/sourceText",
+      "name": "Platform name"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startTilelinkedin",
+      "name": "startTilelinkedin"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startTilelinkedin"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startClientContentX",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClient",
+      "position": [
+        520,
+        320
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClient",
+      "name": "Client frame"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Client frame",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startPrompt",
+      "position": [
+        520,
+        169
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startPrompt",
+      "name": "Prompt"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Prompt",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startTools",
+      "position": [
+        520,
+        389
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startTools",
+      "name": "Tools"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tools",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startClientContentX",
+      "name": "startClientContentX"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startClientContentX"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startClientRevealX",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClientContentX",
+      "position": [
+        600,
+        440
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClientContentX",
+      "name": "Sliding client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sliding client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sliding client",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,(time-.5))),u=p-1;var s=1+1.65*u*u*u+.65*u*u;[600,440+650*(1-s),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startClientRevealX",
+      "name": "startClientRevealX"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startClientRevealX"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startPlayX",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClientRevealX",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClientRevealX",
+      "name": "Hero Client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero Client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addMask",
+    "params": {
+      "layer": "Hero Client",
+      "shape": "rect",
+      "rect": [
+        40,
+        0,
+        1120,
+        744
+      ],
+      "mode": "Add"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startTongueX",
+      "position": [
+        600,
+        827
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startTongueX",
+      "name": "Tongue"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*bk(0,.42);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<=0?0:100"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startPlayX",
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "name": "Tongue scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startPlayX",
+      "name": "startPlayX"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startPlayX"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startClientContentDiscord",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClient",
+      "position": [
+        520,
+        320
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClient",
+      "name": "Client frame"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Client frame",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startPromptDiscord",
+      "position": [
+        520,
+        169
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startPromptDiscord",
+      "name": "Prompt"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Prompt",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startToolsDiscord",
+      "position": [
+        520,
+        389
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startToolsDiscord",
+      "name": "Tools"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tools",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startClientContentDiscord",
+      "name": "startClientContentDiscord"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startClientContentDiscord"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startClientRevealDiscord",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClientContentDiscord",
+      "position": [
+        600,
+        440
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClientContentDiscord",
+      "name": "Sliding client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sliding client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sliding client",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,(time-.5))),u=p-1;var s=1+1.65*u*u*u+.65*u*u;[600,440+650*(1-s),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startClientRevealDiscord",
+      "name": "startClientRevealDiscord"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startClientRevealDiscord"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startPlayDiscord",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClientRevealDiscord",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClientRevealDiscord",
+      "name": "Hero Client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero Client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addMask",
+    "params": {
+      "layer": "Hero Client",
+      "shape": "rect",
+      "rect": [
+        40,
+        0,
+        1120,
+        744
+      ],
+      "mode": "Add"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startTongueDiscord",
+      "position": [
+        600,
+        827
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startTongueDiscord",
+      "name": "Tongue"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*bk(0,.42);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<=0?0:100"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startPlayDiscord",
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "name": "Tongue scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startPlayDiscord",
+      "name": "startPlayDiscord"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startPlayDiscord"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startClientContentSlack",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClient",
+      "position": [
+        520,
+        320
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClient",
+      "name": "Client frame"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Client frame",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startPromptSlack",
+      "position": [
+        520,
+        169
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startPromptSlack",
+      "name": "Prompt"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Prompt",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startToolsSlack",
+      "position": [
+        520,
+        389
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startToolsSlack",
+      "name": "Tools"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tools",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startClientContentSlack",
+      "name": "startClientContentSlack"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startClientContentSlack"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startClientRevealSlack",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClientContentSlack",
+      "position": [
+        600,
+        440
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClientContentSlack",
+      "name": "Sliding client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sliding client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sliding client",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,(time-.5))),u=p-1;var s=1+1.65*u*u*u+.65*u*u;[600,440+650*(1-s),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startClientRevealSlack",
+      "name": "startClientRevealSlack"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startClientRevealSlack"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startPlaySlack",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClientRevealSlack",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClientRevealSlack",
+      "name": "Hero Client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero Client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addMask",
+    "params": {
+      "layer": "Hero Client",
+      "shape": "rect",
+      "rect": [
+        40,
+        0,
+        1120,
+        744
+      ],
+      "mode": "Add"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startTongueSlack",
+      "position": [
+        600,
+        827
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startTongueSlack",
+      "name": "Tongue"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*bk(0,.42);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<=0?0:100"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startPlaySlack",
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "name": "Tongue scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startPlaySlack",
+      "name": "startPlaySlack"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startPlaySlack"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startClientContentReply",
+      "width": 1040,
+      "height": 640,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClient",
+      "position": [
+        520,
+        320
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClient",
+      "name": "Client frame"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Client frame",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startPrompt",
+      "position": [
+        520,
+        169
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startPrompt",
+      "name": "Prompt"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Prompt",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startTools",
+      "position": [
+        520,
+        389
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startTools",
+      "name": "Tools"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tools",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startReply",
+      "position": [
+        520,
+        380
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startReply",
+      "name": "Reply"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reply",
+      "path": "transform/scale",
+      "value": [
+        94,
+        94,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(2.5,2.8)"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startVoice",
+      "position": [
+        520,
+        495
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startVoice",
+      "name": "Voice review"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Voice review",
+      "path": "transform/scale",
+      "value": [
+        90,
+        90,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Voice review",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(3.7,4)"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startClientContentReply",
+      "name": "startClientContentReply"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startClientContentReply"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startClientRevealReply",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClientContentReply",
+      "position": [
+        600,
+        440
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClientContentReply",
+      "name": "Sliding client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Sliding client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sliding client",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,(time-.5))),u=p-1;var s=1+1.65*u*u*u+.65*u*u;[600,440+650*(1-s),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startClientRevealReply",
+      "name": "startClientRevealReply"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startClientRevealReply"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startPlayReply",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startClientRevealReply",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startClientRevealReply",
+      "name": "Hero Client"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero Client",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addMask",
+    "params": {
+      "layer": "Hero Client",
+      "shape": "rect",
+      "rect": [
+        40,
+        0,
+        1120,
+        744
+      ],
+      "mode": "Add"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startTongueX",
+      "position": [
+        600,
+        827
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startTongueX",
+      "name": "Tongue"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*bk(0,.42);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tongue",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<=0?0:100"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startPlayReply",
+      "layer": "Tongue",
+      "path": "transform/scale",
+      "name": "Tongue scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startPlayReply",
+      "name": "startPlayReply"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startPlayReply"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "startCardParts",
+      "width": 1200,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 12,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startPlayX",
+      "position": [
+        600,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startPlayX",
+      "name": "Complete 2D card"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Complete 2D card",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Parts label",
+      "text": "/start \u00b7 editable 2D component",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 35,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        120,
+        1020
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Parts label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "startCardParts",
+      "layer": "Parts label",
+      "path": "text/sourceText",
+      "name": "Parts label"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "startCardParts",
+      "name": "startCardParts"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "startCardParts"
+    }
+  }
+]

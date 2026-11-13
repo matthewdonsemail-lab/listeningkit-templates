@@ -1,0 +1,253 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "logReplyDemo",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 9,
+      "open": true
+    }
+  },
+  {
+    "command": "comp.settings",
+    "params": {
+      "comp": "logReplyDemo",
+      "renderer": "classic3D",
+      "shutterAngle": 150,
+      "motionBlurSamples": 8
+    }
+  },
+  {
+    "command": "layer.newSolid",
+    "params": {
+      "name": "Studio gradient",
+      "color": "#EFF6FF",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Studio gradient"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.985,
+        0.99,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.7,
+        0.84,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/start",
+      "value": [
+        960,
+        150
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/end",
+      "value": [
+        960,
+        1400
+      ]
+    }
+  },
+  {
+    "command": "layer.newCamera",
+    "params": {
+      "name": "3D Camera",
+      "type": "twoNode",
+      "angleOfView": 50,
+      "position": [
+        960,
+        470,
+        -2200
+      ],
+      "poi": [
+        960,
+        520,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Motion caption",
+      "text": "Context becomes a reply. In your voice.",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 39,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        96,
+        95
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Motion caption",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "logReplyDemo",
+      "layer": "Motion caption",
+      "path": "text/sourceText",
+      "name": "Motion caption"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startPlayReply",
+      "position": [
+        960,
+        500
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startPlayReply",
+      "name": "Hero reply"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Hero reply"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Hero reply"
+      ],
+      "switch": "motionBlur",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero reply",
+      "path": "transform/position",
+      "value": [
+        960,
+        500,
+        30
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero reply",
+      "path": "transform/scale",
+      "value": [
+        93,
+        93,
+        93
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hero reply",
+      "path": "transform/orientation",
+      "value": [
+        0,
+        -7,
+        -2
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "3D Camera",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=sm(0,5.8),q=sm(5.8,9);[1360-670*p+280*q,300+310*p-100*q,-2290+380*p-390*q]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "3D Camera",
+      "path": "transform/poi",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[960,520,10]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "3D Camera",
+      "path": "transform/rotation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}-2+3*sm(0,6)-1*sm(6,9)"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "logReplyDemo",
+      "name": "logReplyDemo"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "logReplyDemo"
+    }
+  }
+]

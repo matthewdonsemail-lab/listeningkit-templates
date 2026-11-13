@@ -1,0 +1,445 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "logListeningDemo",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 8.4,
+      "open": true
+    }
+  },
+  {
+    "command": "comp.settings",
+    "params": {
+      "comp": "logListeningDemo",
+      "renderer": "classic3D",
+      "shutterAngle": 150,
+      "motionBlurSamples": 8
+    }
+  },
+  {
+    "command": "layer.newSolid",
+    "params": {
+      "name": "Studio gradient",
+      "color": "#EFF6FF",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Studio gradient"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.985,
+        0.99,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.7,
+        0.84,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/start",
+      "value": [
+        960,
+        150
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/end",
+      "value": [
+        960,
+        1400
+      ]
+    }
+  },
+  {
+    "command": "layer.newCamera",
+    "params": {
+      "name": "3D Camera",
+      "type": "twoNode",
+      "angleOfView": 50,
+      "position": [
+        960,
+        470,
+        -2200
+      ],
+      "poi": [
+        960,
+        520,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Motion caption",
+      "text": "One agent. Your favourite platforms.",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 39,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        96,
+        95
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Motion caption",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "logListeningDemo",
+      "layer": "Motion caption",
+      "path": "text/sourceText",
+      "name": "Motion caption"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startPlayX",
+      "position": [
+        960,
+        520
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startPlayX",
+      "name": "Play X"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Play X"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Play X"
+      ],
+      "switch": "motionBlur",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Play X",
+      "path": "transform/position",
+      "value": [
+        960,
+        520,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Play X",
+      "path": "transform/scale",
+      "value": [
+        92,
+        92,
+        92
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Play X",
+      "path": "transform/orientation",
+      "value": [
+        0,
+        -8,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Play X",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=bk(0,0.65),q=sm(2.4,3.1);[960+1500*(1-p)-1500*q,520,100*(1-p)]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startPlayDiscord",
+      "position": [
+        960,
+        520
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startPlayDiscord",
+      "name": "Play Discord"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Play Discord"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Play Discord"
+      ],
+      "switch": "motionBlur",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Play Discord",
+      "path": "transform/position",
+      "value": [
+        960,
+        520,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Play Discord",
+      "path": "transform/scale",
+      "value": [
+        92,
+        92,
+        92
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Play Discord",
+      "path": "transform/orientation",
+      "value": [
+        0,
+        -8,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.timing",
+    "params": {
+      "layers": [
+        "Play Discord"
+      ],
+      "start": 2.5,
+      "in": 2.5,
+      "out": 8.4
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Play Discord",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=bk(2.5,3.15),q=sm(4.9,5.6);[960+1500*(1-p)-1500*q,520,100*(1-p)]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "startPlaySlack",
+      "position": [
+        960,
+        520
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "startPlaySlack",
+      "name": "Play Slack"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Play Slack"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Play Slack"
+      ],
+      "switch": "motionBlur",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Play Slack",
+      "path": "transform/position",
+      "value": [
+        960,
+        520,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Play Slack",
+      "path": "transform/scale",
+      "value": [
+        92,
+        92,
+        92
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Play Slack",
+      "path": "transform/orientation",
+      "value": [
+        0,
+        -8,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.timing",
+    "params": {
+      "layers": [
+        "Play Slack"
+      ],
+      "start": 5,
+      "in": 5,
+      "out": 8.4
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Play Slack",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=bk(5,5.65),q=sm(7.4,8.1);[960+1500*(1-p)-1500*q,520,100*(1-p)]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "3D Camera",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=sm(0,7.6);[1180-410*p,400+140*p,-2280+150*p]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "3D Camera",
+      "path": "transform/poi",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[960,530,20]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "3D Camera",
+      "path": "transform/rotation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}-1+2*sm(0,7.6)"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "logListeningDemo",
+      "name": "logListeningDemo"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "logListeningDemo"
+    }
+  }
+]

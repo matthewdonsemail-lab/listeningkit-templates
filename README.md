@@ -29,6 +29,11 @@ EffectCraft to see every comp, or import a single `.ectemplate` from `textAnimat
 | `tiktok` | Nine 9:16 TikTok tiles — clip, the like / comment / save icons and counts down the right edge — in three columns with gutters between them, scrolling up at different speeds. |
 | `brickTextBackground` | A wall of blue word bricks built from your sentence: Build pops them in until they fill the frame, Scramble swaps the words. |
 | `ditherGradientBackground` | Brand blue breaking into light blue, then white, in big square pixels, wiping from fully blue to fully white on a Wipe slider. |
+| `brandBlueGradient` | Smooth blue gradient with slow motion and editable light/deep blue colours. |
+| `logResearchDepth` | Terminal → Treg context → SubQ matching → shortlist, with zoom-out/pan/zoom-in camera moves and white 3D connections. |
+| `logThreeStepsTrack` | Website Step 1–2–3 on dither: ask Hermes, run the play, land on Discord; fluid swings, longer pushes and overshoot scale-outs. |
+| `hermesAgentTerminal` | Native Hermes Agent terminal with editable prompt, Treg tool result and SubQ handoff. |
+| `expositionStudy` | Full-screen website premise and positioning, with original ear artwork, quiet page motion and editable word cues. |
 
 Every text template uses the cv-bluekey look: Schoolbell in brand blue `#2a8cff`, a white outline inside a navy
 `#0d2a4c` outline, a -3° tilt and a blue glow.

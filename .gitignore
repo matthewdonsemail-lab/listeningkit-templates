@@ -12,3 +12,36 @@ renders/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# More EffectCraft backups
+*.ecproj.bak*
+*.ecproj.butchered
+
+# Media stays local: generated stills, variations, collage frames, downloaded references, VO.
+# The scripts and prompts that make them are committed; rerun them to rebuild the media.
+images/**/*.png
+images/**/*.jpg
+images/**/*.jpeg
+images/**/*.webp
+images/**/*.mp3
+images/**/*.wav
+images/**/*.webm
+references/**/*.png
+references/**/*.jpg
+references/**/*.jpeg
+references/**/*.webp
+references/**/*.gif
+textAnimations/assets/**/*.png
+textAnimations/assets/**/*.jpg
+textAnimations/assets/**/*.webp
+textAnimations/assets/**/*.mp3
+textAnimations/assets/**/*.wav
+textAnimations/assets/**/*.webm
+textAnimations/references/**/*.png
+
+# Python / tool output
+__pycache__/
+*.pyc
+*.log
+projects/**/*.png
+references/**/*.html

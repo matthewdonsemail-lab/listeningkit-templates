@@ -1,0 +1,3545 @@
+[
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/research/treg.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/research/subq.svg",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/research/hunter.png",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/research/prospeo.png",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/research/crustdata.png"
+      ]
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "researchTerminal",
+      "width": 1400,
+      "height": 1000,
+      "frameRate": 30,
+      "duration": 8,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "hermesAgentTerminal",
+      "position": [
+        700,
+        500
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "hermesAgentTerminal",
+      "name": "Hermes terminal"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hermes terminal",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.enableTimeRemap",
+    "params": {
+      "layers": [
+        "Hermes terminal"
+      ],
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Hermes terminal",
+      "path": "timeRemap",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}Math.min(time*1.3,7.95)"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "researchTerminal",
+      "layer": "Hermes terminal",
+      "path": "transform/scale",
+      "name": "Terminal size",
+      "as": "scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "researchTerminal",
+      "name": "researchTerminal"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "researchTerminal"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "researchSources",
+      "width": 1400,
+      "height": 1000,
+      "frameRate": 30,
+      "duration": 8,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel edge",
+      "size": [
+        1280,
+        754
+      ],
+      "fill": [
+        0.73,
+        0.85,
+        0.99
+      ],
+      "position": [
+        700,
+        559
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 26
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel surface",
+      "size": [
+        1280,
+        750
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        700,
+        550
+      ],
+      "stroke": [
+        0.8,
+        0.88,
+        0.98
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 26
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "treg.svg",
+      "position": [
+        123,
+        235
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "treg.svg",
+      "name": "Service logo"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Service logo",
+      "path": "transform/scale",
+      "value": [
+        10.546875,
+        10.546875,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Service logo"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Service logo",
+      "path": "effects/#1/black",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Service logo",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Service title",
+      "text": "People search \u00b7 source results",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 38,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        178,
+        233
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Service title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Header divider",
+      "size": [
+        1190,
+        2
+      ],
+      "fill": [
+        0.86,
+        0.91,
+        0.97
+      ],
+      "position": [
+        700,
+        291
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Header divider",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Demo provenance",
+      "text": "Illustrative data \u00b7 adapted from the Treg motion study",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 21,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        106,
+        885
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Demo provenance",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "researchSources",
+      "layer": "Service title",
+      "path": "text/sourceText",
+      "name": "Service title"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Provider 0",
+      "size": [
+        380,
+        70
+      ],
+      "fill": [
+        0.94,
+        0.97,
+        1
+      ],
+      "position": [
+        275,
+        348
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Provider 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 15
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "hunter.png",
+      "position": [
+        130,
+        348
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "hunter.png",
+      "name": "Provider logo 0"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Provider logo 0",
+      "path": "transform/scale",
+      "value": [
+        34.375,
+        34.375,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Provider name 0",
+      "text": "Hunter",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 28,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        171,
+        348
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Provider name 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Provider 1",
+      "size": [
+        380,
+        70
+      ],
+      "fill": [
+        0.94,
+        0.97,
+        1
+      ],
+      "position": [
+        695,
+        348
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Provider 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 15
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "prospeo.png",
+      "position": [
+        550,
+        348
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "prospeo.png",
+      "name": "Provider logo 1"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Provider logo 1",
+      "path": "transform/scale",
+      "value": [
+        34.375,
+        34.375,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Provider name 1",
+      "text": "Prospeo",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 28,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        591,
+        348
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Provider name 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Provider 2",
+      "size": [
+        380,
+        70
+      ],
+      "fill": [
+        0.94,
+        0.97,
+        1
+      ],
+      "position": [
+        1115,
+        348
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Provider 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 15
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "crustdata.png",
+      "position": [
+        970,
+        348
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "crustdata.png",
+      "name": "Provider logo 2"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Provider logo 2",
+      "path": "transform/scale",
+      "value": [
+        34.375,
+        34.375,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Provider name 2",
+      "text": "Crustdata",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 28,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        1011,
+        348
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Provider name 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Result 0",
+      "size": [
+        1190,
+        90
+      ],
+      "fill": [
+        0.975,
+        0.985,
+        1
+      ],
+      "position": [
+        700,
+        460
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Result 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 13
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Name 0",
+      "text": "Mira Chen",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 32,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        133,
+        460
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Name 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Role 0",
+      "text": "Head of Growth",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        435,
+        460
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Role 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Signal 0",
+      "text": "Hiring a growth team",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        820,
+        460
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Signal 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Row 0 motion"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/position",
+      "value": [
+        700,
+        460,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Result 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Name 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Role 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Signal 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86+14*bk(0.18,0.5);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.18?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,460+28*(1-bk(0.18,0.5)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Result 1",
+      "size": [
+        1190,
+        90
+      ],
+      "fill": [
+        0.94,
+        0.97,
+        1
+      ],
+      "position": [
+        700,
+        565
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Result 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 13
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Name 1",
+      "text": "Alex Kim",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 32,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        133,
+        565
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Name 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Role 1",
+      "text": "VP Growth",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        435,
+        565
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Role 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Signal 1",
+      "text": "Launching a product",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        820,
+        565
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Signal 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Row 1 motion"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/position",
+      "value": [
+        700,
+        565,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Result 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Name 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Role 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Signal 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86+14*bk(0.3,0.62);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.3?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,565+28*(1-bk(0.3,0.62)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Result 2",
+      "size": [
+        1190,
+        90
+      ],
+      "fill": [
+        0.975,
+        0.985,
+        1
+      ],
+      "position": [
+        700,
+        670
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Result 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 13
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Name 2",
+      "text": "Ravi Shah",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 32,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        133,
+        670
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Name 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Role 2",
+      "text": "Head of Growth",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        435,
+        670
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Role 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Signal 2",
+      "text": "Expanding outbound",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        820,
+        670
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Signal 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Row 2 motion"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/position",
+      "value": [
+        700,
+        670,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Result 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Name 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Role 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Signal 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86+14*bk(0.42,0.74);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.42?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,670+28*(1-bk(0.42,0.74)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Result 3",
+      "size": [
+        1190,
+        90
+      ],
+      "fill": [
+        0.94,
+        0.97,
+        1
+      ],
+      "position": [
+        700,
+        775
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Result 3",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 13
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Name 3",
+      "text": "Leah Park",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 32,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        133,
+        775
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Name 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Role 3",
+      "text": "Growth Lead",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        435,
+        775
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Role 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Signal 3",
+      "text": "Building a growth team",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        820,
+        775
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Signal 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Row 3 motion"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row 3 motion",
+      "path": "transform/position",
+      "value": [
+        700,
+        775,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Result 3"
+      ],
+      "parent": "Row 3 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Name 3"
+      ],
+      "parent": "Row 3 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Role 3"
+      ],
+      "parent": "Row 3 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Signal 3"
+      ],
+      "parent": "Row 3 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 3 motion",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86+14*bk(0.54,0.86);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 3 motion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.54?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 3 motion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,775+28*(1-bk(0.54,0.86)),0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "researchSources",
+      "name": "researchSources"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "researchSources"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "researchDecision",
+      "width": 1400,
+      "height": 1000,
+      "frameRate": 30,
+      "duration": 8,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel edge",
+      "size": [
+        1280,
+        754
+      ],
+      "fill": [
+        0.73,
+        0.85,
+        0.99
+      ],
+      "position": [
+        700,
+        559
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 26
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel surface",
+      "size": [
+        1280,
+        750
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        700,
+        550
+      ],
+      "stroke": [
+        0.8,
+        0.88,
+        0.98
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 26
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "subq.svg",
+      "position": [
+        123,
+        235
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "subq.svg",
+      "name": "Service logo"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Service logo",
+      "path": "transform/scale",
+      "value": [
+        112.5,
+        112.5,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Service logo"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Service logo",
+      "path": "effects/#1/black",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Service logo",
+      "path": "effects/#1/white",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Service title",
+      "text": "Read the context. Keep the matches.",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 38,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        178,
+        233
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Service title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Header divider",
+      "size": [
+        1190,
+        2
+      ],
+      "fill": [
+        0.86,
+        0.91,
+        0.97
+      ],
+      "position": [
+        700,
+        291
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Header divider",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Demo provenance",
+      "text": "Illustrative data \u00b7 adapted from the Treg motion study",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 21,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        106,
+        885
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Demo provenance",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "researchDecision",
+      "layer": "Service title",
+      "path": "text/sourceText",
+      "name": "Service title"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Rule surface",
+      "size": [
+        1190,
+        72
+      ],
+      "fill": [
+        0.94,
+        0.97,
+        1
+      ],
+      "position": [
+        700,
+        350
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Rule surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 15
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Matching rule",
+      "text": "Growth role + Series A + San Francisco",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 32,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        133,
+        350
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Matching rule",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Decision 0",
+      "size": [
+        1190,
+        90
+      ],
+      "fill": [
+        0.9,
+        0.95,
+        1
+      ],
+      "position": [
+        700,
+        460
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Decision 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 13
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Candidate 0",
+      "text": "Mira Chen",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 32,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        133,
+        460
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Candidate 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Evidence 0",
+      "text": "Hiring a growth team",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        435,
+        460
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Evidence 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Match 0",
+      "text": "\u2713 Match",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 30,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        1080,
+        460
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Match 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Row 0 motion"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/position",
+      "value": [
+        700,
+        460,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Decision 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Candidate 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Evidence 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Match 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86+14*bk(0.18,0.5);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.18?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,460+28*(1-bk(0.18,0.5)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Decision 1",
+      "size": [
+        1190,
+        90
+      ],
+      "fill": [
+        0.97,
+        0.975,
+        0.98
+      ],
+      "position": [
+        700,
+        565
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Decision 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 13
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Candidate 1",
+      "text": "Alex Kim",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 32,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        133,
+        565
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Candidate 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Evidence 1",
+      "text": "Outside the target stage",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        435,
+        565
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Evidence 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Match 1",
+      "text": "\u2014 Skip",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 30,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        1080,
+        565
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Match 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Row 1 motion"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/position",
+      "value": [
+        700,
+        565,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Decision 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Candidate 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Evidence 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Match 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86+14*bk(0.3,0.62);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.3?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,565+28*(1-bk(0.3,0.62)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Decision 2",
+      "size": [
+        1190,
+        90
+      ],
+      "fill": [
+        0.9,
+        0.95,
+        1
+      ],
+      "position": [
+        700,
+        670
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Decision 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 13
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Candidate 2",
+      "text": "Ravi Shah",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 32,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        133,
+        670
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Candidate 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Evidence 2",
+      "text": "Expanding outbound",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        435,
+        670
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Evidence 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Match 2",
+      "text": "\u2713 Match",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 30,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        1080,
+        670
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Match 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Row 2 motion"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/position",
+      "value": [
+        700,
+        670,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Decision 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Candidate 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Evidence 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Match 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86+14*bk(0.42,0.74);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.42?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,670+28*(1-bk(0.42,0.74)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Decision 3",
+      "size": [
+        1190,
+        90
+      ],
+      "fill": [
+        0.9,
+        0.95,
+        1
+      ],
+      "position": [
+        700,
+        775
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Decision 3",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 13
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Candidate 3",
+      "text": "Leah Park",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 32,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        133,
+        775
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Candidate 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Evidence 3",
+      "text": "Building a growth team",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        435,
+        775
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Evidence 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Match 3",
+      "text": "\u2713 Match",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 30,
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        1080,
+        775
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Match 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Row 3 motion"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row 3 motion",
+      "path": "transform/position",
+      "value": [
+        700,
+        775,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Decision 3"
+      ],
+      "parent": "Row 3 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Candidate 3"
+      ],
+      "parent": "Row 3 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Evidence 3"
+      ],
+      "parent": "Row 3 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Match 3"
+      ],
+      "parent": "Row 3 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 3 motion",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86+14*bk(0.54,0.86);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 3 motion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.54?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 3 motion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,775+28*(1-bk(0.54,0.86)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Scan line",
+      "size": [
+        1180,
+        3
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        700,
+        415
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Scan line",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 1
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Scan line",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,415+395*sm(.2,1.1),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Scan line",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<1.18?55:0"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "researchDecision",
+      "name": "researchDecision"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "researchDecision"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "researchShortlist",
+      "width": 1400,
+      "height": 1000,
+      "frameRate": 30,
+      "duration": 8,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel edge",
+      "size": [
+        1280,
+        754
+      ],
+      "fill": [
+        0.73,
+        0.85,
+        0.99
+      ],
+      "position": [
+        700,
+        559
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 26
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel surface",
+      "size": [
+        1280,
+        750
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        700,
+        550
+      ],
+      "stroke": [
+        0.8,
+        0.88,
+        0.98
+      ],
+      "strokeWidth": 1.5
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 26
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "treg.svg",
+      "position": [
+        123,
+        235
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "treg.svg",
+      "name": "Service logo"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Service logo",
+      "path": "transform/scale",
+      "value": [
+        10.546875,
+        10.546875,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Service logo"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Service logo",
+      "path": "effects/#1/black",
+      "value": [
+        0.165,
+        0.549,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Service logo",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Service title",
+      "text": "Your shortlist \u00b7 with the reasons attached",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 38,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        178,
+        233
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Service title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Header divider",
+      "size": [
+        1190,
+        2
+      ],
+      "fill": [
+        0.86,
+        0.91,
+        0.97
+      ],
+      "position": [
+        700,
+        291
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Header divider",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Demo provenance",
+      "text": "Illustrative data \u00b7 adapted from the Treg motion study",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 21,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        106,
+        885
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Demo provenance",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "researchShortlist",
+      "layer": "Service title",
+      "path": "text/sourceText",
+      "name": "Service title"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Shortlist 0",
+      "size": [
+        1190,
+        114
+      ],
+      "fill": [
+        0.94,
+        0.97,
+        1
+      ],
+      "position": [
+        700,
+        420
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Shortlist 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Shortlisted name 0",
+      "text": "Mira Chen",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 34,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        143,
+        400
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Shortlisted name 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Shortlisted context 0",
+      "text": "Head of Growth \u00b7 Hiring a growth team",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 26,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        143,
+        446
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Shortlisted context 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Ready badge 0",
+      "size": [
+        150,
+        48
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        1190,
+        420
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ready badge 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Ready 0",
+      "text": "Ready",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        1146,
+        420
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ready 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Row 0 motion"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/position",
+      "value": [
+        700,
+        420,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Shortlist 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Shortlisted name 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Shortlisted context 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Ready badge 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Ready 0"
+      ],
+      "parent": "Row 0 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86+14*bk(0.18,0.5);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.18?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 0 motion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,420+28*(1-bk(0.18,0.5)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Shortlist 1",
+      "size": [
+        1190,
+        114
+      ],
+      "fill": [
+        0.94,
+        0.97,
+        1
+      ],
+      "position": [
+        700,
+        556
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Shortlist 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Shortlisted name 1",
+      "text": "Ravi Shah",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 34,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        143,
+        536
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Shortlisted name 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Shortlisted context 1",
+      "text": "Head of Growth \u00b7 Expanding outbound",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 26,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        143,
+        582
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Shortlisted context 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Ready badge 1",
+      "size": [
+        150,
+        48
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        1190,
+        556
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ready badge 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Ready 1",
+      "text": "Ready",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        1146,
+        556
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ready 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Row 1 motion"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/position",
+      "value": [
+        700,
+        556,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Shortlist 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Shortlisted name 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Shortlisted context 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Ready badge 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Ready 1"
+      ],
+      "parent": "Row 1 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86+14*bk(0.3,0.62);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.3?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 1 motion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,556+28*(1-bk(0.3,0.62)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Shortlist 2",
+      "size": [
+        1190,
+        114
+      ],
+      "fill": [
+        0.94,
+        0.97,
+        1
+      ],
+      "position": [
+        700,
+        692
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Shortlist 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Shortlisted name 2",
+      "text": "Leah Park",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 34,
+      "fill": [
+        0.051,
+        0.165,
+        0.298
+      ],
+      "position": [
+        143,
+        672
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Shortlisted name 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Shortlisted context 2",
+      "text": "Growth Lead \u00b7 Building a growth team",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 26,
+      "fill": [
+        0.36,
+        0.46,
+        0.58
+      ],
+      "position": [
+        143,
+        718
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Shortlisted context 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Ready badge 2",
+      "size": [
+        150,
+        48
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        1190,
+        692
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ready badge 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Ready 2",
+      "text": "Ready",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        1146,
+        692
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ready 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Row 2 motion"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/position",
+      "value": [
+        700,
+        692,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Shortlist 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Shortlisted name 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Shortlisted context 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Ready badge 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Ready 2"
+      ],
+      "parent": "Row 2 motion",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86+14*bk(0.42,0.74);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.42?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Row 2 motion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[700,692+28*(1-bk(0.42,0.74)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Next step",
+      "size": [
+        1190,
+        64
+      ],
+      "fill": [
+        0.165,
+        0.549,
+        1
+      ],
+      "position": [
+        700,
+        820
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Next step",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Next step label",
+      "text": "Keep the source. Let Hermes take the next step.",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 31,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        143,
+        820
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next step label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "researchShortlist",
+      "name": "researchShortlist"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "researchShortlist"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "researchParts",
+      "width": 1400,
+      "height": 1000,
+      "frameRate": 30,
+      "duration": 8,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "researchSources",
+      "position": [
+        700,
+        500
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "researchSources",
+      "name": "Research component preview"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Research component preview",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "researchParts",
+      "layer": "Research component preview",
+      "path": "transform/scale",
+      "name": "Panel size",
+      "as": "scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "researchParts",
+      "name": "researchParts"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "researchParts"
+    }
+  }
+]

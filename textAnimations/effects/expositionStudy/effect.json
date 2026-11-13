@@ -1,0 +1,129 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "expositionStudy",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 9,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "expositionPremise",
+      "position": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "expositionPremise",
+      "name": "Premise"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Premise",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.timing",
+    "params": {
+      "layers": [
+        "Premise"
+      ],
+      "in": 0,
+      "out": 5
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "expositionPositioning",
+      "position": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "expositionPositioning",
+      "name": "Positioning"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.timing",
+    "params": {
+      "layers": [
+        "Positioning"
+      ],
+      "start": 5,
+      "in": 5,
+      "out": 9
+    }
+  },
+  {
+    "command": "comp.addMarker",
+    "params": {
+      "time": 0,
+      "comment": "Premise \u00b7 website copy / provisional narration timing"
+    }
+  },
+  {
+    "command": "comp.addMarker",
+    "params": {
+      "time": 5,
+      "comment": "Positioning \u00b7 full-screen read"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "expositionStudy",
+      "layer": "Premise",
+      "path": "transform/scale",
+      "name": "Premise size",
+      "as": "scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "expositionStudy",
+      "name": "expositionStudy"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "expositionStudy"
+    }
+  }
+]

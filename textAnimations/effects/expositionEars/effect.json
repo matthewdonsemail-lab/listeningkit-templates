@@ -1,0 +1,262 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "expositionEars",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 5,
+      "open": true
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/exposition/ear1.webp",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/exposition/ear2.webp",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/exposition/ear3.webp",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/exposition/ear4.webp",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/exposition/ear5.webp",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/exposition/ear6.webp",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/exposition/ear7.webp",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/exposition/ear8.webp"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "ear1.webp",
+      "position": [
+        -35,
+        270
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "ear1.webp",
+      "name": "Ear 1"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ear 1",
+      "path": "transform/scale",
+      "value": [
+        88,
+        88,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 1",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[-35+4*Math.sin(time*.5+0),270+6*Math.sin(time*.6+0),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 1",
+      "path": "transform/rotation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}-9+.7*Math.sin(time*.4+0)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 1",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=88*(1+.008*Math.sin(time*.5+0));[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "ear3.webp",
+      "position": [
+        1950,
+        230
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "ear3.webp",
+      "name": "Ear 3"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ear 3",
+      "path": "transform/scale",
+      "value": [
+        86,
+        86,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 3",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[1950+4*Math.sin(time*.5+1),230+6*Math.sin(time*.6+1),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 3",
+      "path": "transform/rotation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}11+.7*Math.sin(time*.4+1)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 3",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86*(1+.008*Math.sin(time*.5+1));[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "ear5.webp",
+      "position": [
+        10,
+        920
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "ear5.webp",
+      "name": "Ear 5"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ear 5",
+      "path": "transform/scale",
+      "value": [
+        78,
+        78,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 5",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[10+4*Math.sin(time*.5+2),920+6*Math.sin(time*.6+2),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 5",
+      "path": "transform/rotation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}8+.7*Math.sin(time*.4+2)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 5",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=78*(1+.008*Math.sin(time*.5+2));[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "ear7.webp",
+      "position": [
+        1920,
+        930
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "ear7.webp",
+      "name": "Ear 7"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ear 7",
+      "path": "transform/scale",
+      "value": [
+        86,
+        86,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 7",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[1920+4*Math.sin(time*.5+3),930+6*Math.sin(time*.6+3),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 7",
+      "path": "transform/rotation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}-9+.7*Math.sin(time*.4+3)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear 7",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=86*(1+.008*Math.sin(time*.5+3));[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "expositionEars",
+      "layer": "Ear 1",
+      "path": "transform/position",
+      "name": "Upper left ear"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "expositionEars",
+      "name": "expositionEars"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "expositionEars"
+    }
+  }
+]

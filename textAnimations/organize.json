@@ -1,25 +1,532 @@
-﻿[
-  { "command": "project.newFolder", "params": { "name": "Text Animations" } },
-  { "command": "project.newFolder", "params": { "name": "Strawberry Type" } },
-  { "command": "project.move", "params": { "items": ["Strawberry Type"], "folder": "Text Animations" } },
-  { "command": "project.newFolder", "params": { "name": "Title Cards" } },
-  { "command": "project.newFolder", "params": { "name": "Backgrounds" } },
-  { "command": "project.newFolder", "params": { "name": "Parts" } },
-  { "command": "project.move", "params": { "items": ["Parts"], "folder": "Backgrounds" } },
-  { "command": "project.newFolder", "params": { "name": "TikToks" } },
-  { "command": "project.move", "params": { "items": ["TikToks"], "folder": "Backgrounds" } },
-  { "command": "project.newFolder", "params": { "name": "Agent Windows" } },
-  { "command": "project.newFolder", "params": { "name": "Assets" } },
-  { "command": "project.newFolder", "params": { "name": "TikTok Clips" } },
-  { "command": "project.move", "params": { "items": ["TikTok Clips"], "folder": "Assets" } },
-  { "command": "project.move", "params": { "items": ["typewriter", "typewriterOvershoot", "typewriterOvershootFast", "typewriterOvershootWords", "typewriterOvershootRotate", "continuousScale", "fadeUpCharacters", "cvBluekey"], "folder": "Text Animations" } },
-  { "command": "project.move", "params": { "items": ["introCard", "blackHighlightFocus"], "folder": "Title Cards" } },
-  { "command": "project.move", "params": { "items": ["type01", "type02", "type03", "type04", "type05", "type06", "type07", "type08", "type09", "type10", "type11", "type12", "type13", "type14", "type15"], "folder": "Strawberry Type" } },
-  { "command": "project.move", "params": { "items": ["ditherGradientBackground", "cloudBackground", "brickTextBackground", "ascii3D", "tiktok"], "folder": "Backgrounds" } },
-  { "command": "project.move", "params": { "items": ["clayClouds", "cloudSolo"], "folder": "Parts" } },
-  { "command": "project.move", "params": { "items": ["tiktok 01", "tiktok 02", "tiktok 03", "tiktok 04", "tiktok 05", "tiktok 06", "tiktok 07", "tiktok 08", "tiktok 09"], "folder": "TikToks" } },
-  { "command": "project.move", "params": { "items": ["claudeCode", "codex", "terminal"], "folder": "Agent Windows" } },
-  { "command": "project.move", "params": { "items": ["claude.svg", "codex.svg", "like.png", "comment.png", "save.png", "Solids"], "folder": "Assets" } },
-  { "command": "project.move", "params": { "items": ["tt01.mp4", "tt02.mp4", "tt03.mp4", "tt04.mp4", "tt05.mp4", "tt06.mp4", "tt07.mp4", "tt08.mp4", "tt09.mp4"], "folder": "TikTok Clips" } }
+[
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Text Animations"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Strawberry Type"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "Strawberry Type"
+      ],
+      "folder": "Text Animations"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Title Cards"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Backgrounds"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Parts"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "Parts"
+      ],
+      "folder": "Backgrounds"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "TikToks"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "TikToks"
+      ],
+      "folder": "Backgrounds"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Scenes"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Product Demos"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "logAgentDemo",
+        "logInboxDemo",
+        "logReplyDemo",
+        "logListeningDemo"
+      ],
+      "folder": "Product Demos"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Agent Windows"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Assets"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "TikTok Clips"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "TikTok Clips"
+      ],
+      "folder": "Assets"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "typewriter",
+        "typewriterOvershoot",
+        "typewriterOvershootFast",
+        "typewriterOvershootWords",
+        "typewriterOvershootRotate",
+        "continuousScale",
+        "fadeUpCharacters",
+        "cvBluekey"
+      ],
+      "folder": "Text Animations"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "introCard",
+        "blackHighlightFocus"
+      ],
+      "folder": "Title Cards"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "askHermes",
+        "socialActions",
+        "yourControl"
+      ],
+      "folder": "Title Cards"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "blueSweep"
+      ],
+      "folder": "Scenes"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "type01",
+        "type02",
+        "type03",
+        "type04",
+        "type05",
+        "type06",
+        "type07",
+        "type08",
+        "type09",
+        "type10",
+        "type11",
+        "type12",
+        "type13",
+        "type14",
+        "type15"
+      ],
+      "folder": "Strawberry Type"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "ditherGradientBackground",
+        "cloudBackground",
+        "brickTextBackground",
+        "ascii3D",
+        "tiktok"
+      ],
+      "folder": "Backgrounds"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "clayClouds",
+        "cloudSolo"
+      ],
+      "folder": "Parts"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "tiktok 01",
+        "tiktok 02",
+        "tiktok 03",
+        "tiktok 04",
+        "tiktok 05",
+        "tiktok 06",
+        "tiktok 07",
+        "tiktok 08",
+        "tiktok 09"
+      ],
+      "folder": "TikToks"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "claudeCode",
+        "codex",
+        "terminal"
+      ],
+      "folder": "Agent Windows"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "LogXHermes"
+      ],
+      "folder": "Scenes"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "claude.svg",
+        "codex.svg",
+        "like.png",
+        "comment.png",
+        "save.png",
+        "Solids"
+      ],
+      "folder": "Assets"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "tt01.mp4",
+        "tt02.mp4",
+        "tt03.mp4",
+        "tt04.mp4",
+        "tt05.mp4",
+        "tt06.mp4",
+        "tt07.mp4",
+        "tt08.mp4",
+        "tt09.mp4"
+      ],
+      "folder": "TikTok Clips"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Start card components"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "Start card components"
+      ],
+      "folder": "Product Demos"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "startCardParts",
+        "startClient",
+        "startPrompt",
+        "startTools",
+        "startPromptDiscord",
+        "startToolsDiscord",
+        "startPromptSlack",
+        "startToolsSlack",
+        "startTongueX",
+        "startTongueDiscord",
+        "startTongueSlack",
+        "startReply",
+        "startVoice",
+        "startHermes",
+        "startTilex",
+        "startTilefacebook",
+        "startTilediscord",
+        "startTileslack",
+        "startTileinstagram",
+        "startTilereddit",
+        "startTilelinkedin",
+        "startClientContentX",
+        "startClientRevealX",
+        "startPlayX",
+        "startClientContentDiscord",
+        "startClientRevealDiscord",
+        "startPlayDiscord",
+        "startClientContentSlack",
+        "startClientRevealSlack",
+        "startPlaySlack",
+        "startClientContentReply",
+        "startClientRevealReply",
+        "startPlayReply"
+      ],
+      "folder": "Start card components"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Connection play components"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "Connection play components"
+      ],
+      "folder": "Product Demos"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "connectionCardParts",
+        "connectionPanelX",
+        "connectionRevealX",
+        "connectionTongueX",
+        "connectionPlayX",
+        "connectionPanelSlack",
+        "connectionRevealSlack",
+        "connectionTongueSlack",
+        "connectionPlaySlack",
+        "connectionPanelDiscord",
+        "connectionRevealDiscord",
+        "connectionTongueDiscord",
+        "connectionPlayDiscord",
+        "connectionPanelInstagram",
+        "connectionRevealInstagram",
+        "connectionTongueInstagram",
+        "connectionPlayInstagram",
+        "connectionPanelReddit",
+        "connectionRevealReddit",
+        "connectionTongueReddit",
+        "connectionPlayReddit",
+        "connectionPanelFacebook",
+        "connectionRevealFacebook",
+        "connectionTongueFacebook",
+        "connectionPlayFacebook",
+        "connectionPanelLinkedIn",
+        "connectionRevealLinkedIn",
+        "connectionTongueLinkedIn",
+        "connectionPlayLinkedIn"
+      ],
+      "folder": "Connection play components"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "logPlayJourney"
+      ],
+      "folder": "Product Demos"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Research components"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "Research components"
+      ],
+      "folder": "Product Demos"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "researchParts",
+        "researchTerminal",
+        "researchSources",
+        "researchDecision",
+        "researchShortlist"
+      ],
+      "folder": "Research components"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "logResearchDepth"
+      ],
+      "folder": "Product Demos"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "brandBlueGradient"
+      ],
+      "folder": "Backgrounds"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "hermesAgentTerminal"
+      ],
+      "folder": "Agent Windows"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Three-step components"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "Three-step components"
+      ],
+      "folder": "Product Demos"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "stepsTrackParts",
+        "stepsAskDemo",
+        "stepsCodeDemo",
+        "stepsFlowDemo",
+        "stepsPlayDemo",
+        "stepsResultDemo",
+        "stepsCard1",
+        "stepsCard2",
+        "stepsCard3"
+      ],
+      "folder": "Three-step components"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "logThreeStepsTrack"
+      ],
+      "folder": "Product Demos"
+    }
+  },
+  {
+    "command": "project.newFolder",
+    "params": {
+      "name": "Exposition"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "Exposition"
+      ],
+      "folder": "Title Cards"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "expositionEars",
+        "expositionPremise",
+        "expositionPositioning",
+        "expositionStudy"
+      ],
+      "folder": "Exposition"
+    }
+  },
+  {
+    "command": "project.move",
+    "params": {
+      "items": [
+        "ear1.webp",
+        "ear2.webp",
+        "ear3.webp",
+        "ear4.webp",
+        "ear5.webp",
+        "ear6.webp",
+        "ear7.webp",
+        "ear8.webp"
+      ],
+      "folder": "Assets"
+    }
+  }
 ]
-

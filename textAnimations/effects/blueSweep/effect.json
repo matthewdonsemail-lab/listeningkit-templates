@@ -1,0 +1,143 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "blueSweep",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 0.8,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "sweep 0",
+      "size": [
+        2680,
+        1800
+      ],
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        -2100,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "sweep 0",
+      "path": "transform/rotation",
+      "value": -9
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "sweep 0",
+      "path": "transform/position",
+      "expression": "function smooth(p){p=Math.max(0,Math.min(1,p));return p*p*(3-2*p);}var x=time<.32?-2100+3060*smooth(time/.32):960+3400*smooth((time-.32)/.48);[x+-180,540,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "sweep 1",
+      "size": [
+        2680,
+        1800
+      ],
+      "fill": [
+        0.69,
+        0.84,
+        1
+      ],
+      "position": [
+        -2100,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "sweep 1",
+      "path": "transform/rotation",
+      "value": -9
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "sweep 1",
+      "path": "transform/position",
+      "expression": "function smooth(p){p=Math.max(0,Math.min(1,p));return p*p*(3-2*p);}var x=time<.32?-2100+3060*smooth(time/.32):960+3400*smooth((time-.32)/.48);[x+0,540,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "sweep 2",
+      "size": [
+        2680,
+        1800
+      ],
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        -2100,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "sweep 2",
+      "path": "transform/rotation",
+      "value": -9
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "sweep 2",
+      "path": "transform/position",
+      "expression": "function smooth(p){p=Math.max(0,Math.min(1,p));return p*p*(3-2*p);}var x=time<.32?-2100+3060*smooth(time/.32):960+3400*smooth((time-.32)/.48);[x+190,540,0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "blueSweep",
+      "layer": "sweep 2",
+      "path": "contents/group/contents/fill/color",
+      "name": "Sweep colour"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "blueSweep",
+      "name": "Blue diagonal sweep"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "blueSweep"
+    }
+  }
+]

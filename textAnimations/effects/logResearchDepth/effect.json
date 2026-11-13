@@ -1,0 +1,1194 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "logResearchDepth",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 8,
+      "open": true
+    }
+  },
+  {
+    "command": "comp.settings",
+    "params": {
+      "comp": "logResearchDepth",
+      "renderer": "classic3D",
+      "shutterAngle": 150,
+      "motionBlurSamples": 8
+    }
+  },
+  {
+    "command": "layer.newSolid",
+    "params": {
+      "name": "Studio gradient",
+      "color": "#EFF6FF",
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Studio gradient"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.985,
+        0.99,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.7,
+        0.84,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/start",
+      "value": [
+        960,
+        150
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Studio gradient",
+      "path": "effects/#1/end",
+      "value": [
+        960,
+        1400
+      ]
+    }
+  },
+  {
+    "command": "layer.newCamera",
+    "params": {
+      "name": "3D Camera",
+      "type": "twoNode",
+      "angleOfView": 50,
+      "position": [
+        960,
+        470,
+        -2200
+      ],
+      "poi": [
+        960,
+        520,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Studio gradient"
+      ],
+      "switch": "video",
+      "value": false
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "brandBlueGradient",
+      "position": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "brandBlueGradient",
+      "name": "Brand blue background"
+    }
+  },
+  {
+    "command": "layer.arrange",
+    "params": {
+      "layers": [
+        "Brand blue background"
+      ],
+      "to": "back"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "researchTerminal",
+      "position": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "researchTerminal",
+      "name": "Ask in the terminal"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Ask in the terminal"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Ask in the terminal"
+      ],
+      "switch": "motionBlur",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ask in the terminal",
+      "path": "transform/position",
+      "value": [
+        960,
+        540,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ask in the terminal",
+      "path": "transform/scale",
+      "value": [
+        92,
+        92,
+        92
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ask in the terminal",
+      "path": "transform/orientation",
+      "value": [
+        0,
+        4,
+        -1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ask in the terminal",
+      "path": "transform/anchor",
+      "value": [
+        700,
+        550,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ask in the terminal",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}function sample(t,k){if(t<=k[0][0])return k[0].slice(1);if(t>=k[k.length-1][0])return k[k.length-1].slice(1);var i=0;while(i<k.length-2&&t>k[i+1][0])i++;var a=k[i],b=k[i+1],l=k[Math.max(0,i-1)],r=k[Math.min(k.length-1,i+2)],dt=b[0]-a[0],p=(t-a[0])/dt,p2=p*p,p3=p2*p,out=[];for(var j=1;j<a.length;j++){var m0=.65*(b[j]-l[j])/(b[0]-l[0]),m1=.65*(r[j]-a[j])/(r[0]-a[0]);out.push((2*p3-3*p2+1)*a[j]+(p3-2*p2+p)*dt*m0+(-2*p3+3*p2)*b[j]+(p3-p2)*dt*m1);}return out;}var s=sample(time-0.5,[[-0.32,70],[-0.16,89],[0.025,108],[0.16,89],[0.31,94],[0.48,92]])[0]*bk(0,0.28),strain=(s-92)/92;[s*(1-.12*strain),s*(1+.12*strain),100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ask in the terminal",
+      "path": "transform/orientation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var a=time-0.5,j=a<0?0:Math.exp(-a*7)*Math.sin(a*20);[0,4+2.5*j,-1+1.2*j]"
+    }
+  },
+  {
+    "command": "layer.enableTimeRemap",
+    "params": {
+      "layers": [
+        "Ask in the terminal"
+      ],
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ask in the terminal",
+      "path": "timeRemap",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}Math.max(0,(time-0.09999999999999998)*1.7)"
+    }
+  },
+  {
+    "command": "layer.timing",
+    "params": {
+      "layers": [
+        "Ask in the terminal"
+      ],
+      "in": 0,
+      "out": 8
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ask in the terminal",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*(1-sm(2.4,2.7))"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "researchSources",
+      "position": [
+        2740,
+        140
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "researchSources",
+      "name": "Treg source context"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Treg source context"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Treg source context"
+      ],
+      "switch": "motionBlur",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Treg source context",
+      "path": "transform/position",
+      "value": [
+        2740,
+        140,
+        850
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Treg source context",
+      "path": "transform/scale",
+      "value": [
+        92,
+        92,
+        92
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Treg source context",
+      "path": "transform/orientation",
+      "value": [
+        0,
+        -4,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Treg source context",
+      "path": "transform/anchor",
+      "value": [
+        700,
+        550,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Treg source context",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}function sample(t,k){if(t<=k[0][0])return k[0].slice(1);if(t>=k[k.length-1][0])return k[k.length-1].slice(1);var i=0;while(i<k.length-2&&t>k[i+1][0])i++;var a=k[i],b=k[i+1],l=k[Math.max(0,i-1)],r=k[Math.min(k.length-1,i+2)],dt=b[0]-a[0],p=(t-a[0])/dt,p2=p*p,p3=p2*p,out=[];for(var j=1;j<a.length;j++){var m0=.65*(b[j]-l[j])/(b[0]-l[0]),m1=.65*(r[j]-a[j])/(r[0]-a[0]);out.push((2*p3-3*p2+1)*a[j]+(p3-2*p2+p)*dt*m0+(-2*p3+3*p2)*b[j]+(p3-p2)*dt*m1);}return out;}var s=sample(time-2.25,[[-0.32,70],[-0.16,89],[0.025,108],[0.16,89],[0.31,94],[0.48,92]])[0]*bk(0.045,0.325),strain=(s-92)/92;[s*(1-.12*strain),s*(1+.12*strain),100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Treg source context",
+      "path": "transform/orientation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var a=time-2.25,j=a<0?0:Math.exp(-a*7)*Math.sin(a*20);[0,-4+2.5*j,1+1.2*j]"
+    }
+  },
+  {
+    "command": "layer.enableTimeRemap",
+    "params": {
+      "layers": [
+        "Treg source context"
+      ],
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Treg source context",
+      "path": "timeRemap",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}Math.max(0,(time-1.85)*1.7)"
+    }
+  },
+  {
+    "command": "layer.timing",
+    "params": {
+      "layers": [
+        "Treg source context"
+      ],
+      "in": 0,
+      "out": 8
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Treg source context",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*(1-sm(4.4,4.7))"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "researchDecision",
+      "position": [
+        1280,
+        1640
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "researchDecision",
+      "name": "SubQ decision"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "SubQ decision"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "SubQ decision"
+      ],
+      "switch": "motionBlur",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "SubQ decision",
+      "path": "transform/position",
+      "value": [
+        1280,
+        1640,
+        -380
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "SubQ decision",
+      "path": "transform/scale",
+      "value": [
+        92,
+        92,
+        92
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "SubQ decision",
+      "path": "transform/orientation",
+      "value": [
+        0,
+        4,
+        -1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "SubQ decision",
+      "path": "transform/anchor",
+      "value": [
+        700,
+        550,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "SubQ decision",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}function sample(t,k){if(t<=k[0][0])return k[0].slice(1);if(t>=k[k.length-1][0])return k[k.length-1].slice(1);var i=0;while(i<k.length-2&&t>k[i+1][0])i++;var a=k[i],b=k[i+1],l=k[Math.max(0,i-1)],r=k[Math.min(k.length-1,i+2)],dt=b[0]-a[0],p=(t-a[0])/dt,p2=p*p,p3=p2*p,out=[];for(var j=1;j<a.length;j++){var m0=.65*(b[j]-l[j])/(b[0]-l[0]),m1=.65*(r[j]-a[j])/(r[0]-a[0]);out.push((2*p3-3*p2+1)*a[j]+(p3-2*p2+p)*dt*m0+(-2*p3+3*p2)*b[j]+(p3-p2)*dt*m1);}return out;}var s=sample(time-4.25,[[-0.32,70],[-0.16,89],[0.025,108],[0.16,89],[0.31,94],[0.48,92]])[0]*bk(0.09,0.37),strain=(s-92)/92;[s*(1-.12*strain),s*(1+.12*strain),100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "SubQ decision",
+      "path": "transform/orientation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var a=time-4.25,j=a<0?0:Math.exp(-a*7)*Math.sin(a*20);[0,4+2.5*j,-1+1.2*j]"
+    }
+  },
+  {
+    "command": "layer.enableTimeRemap",
+    "params": {
+      "layers": [
+        "SubQ decision"
+      ],
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "SubQ decision",
+      "path": "timeRemap",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}Math.max(0,(time-3.85)*1.7)"
+    }
+  },
+  {
+    "command": "layer.timing",
+    "params": {
+      "layers": [
+        "SubQ decision"
+      ],
+      "in": 0,
+      "out": 8
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "SubQ decision",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*(1-sm(6.4,6.7))"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "researchShortlist",
+      "position": [
+        3380,
+        1150
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "researchShortlist",
+      "name": "Hermes shortlist"
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Hermes shortlist"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "Hermes shortlist"
+      ],
+      "switch": "motionBlur",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hermes shortlist",
+      "path": "transform/position",
+      "value": [
+        3380,
+        1150,
+        1100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hermes shortlist",
+      "path": "transform/scale",
+      "value": [
+        92,
+        92,
+        92
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hermes shortlist",
+      "path": "transform/orientation",
+      "value": [
+        0,
+        -4,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hermes shortlist",
+      "path": "transform/anchor",
+      "value": [
+        700,
+        550,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Hermes shortlist",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}function sample(t,k){if(t<=k[0][0])return k[0].slice(1);if(t>=k[k.length-1][0])return k[k.length-1].slice(1);var i=0;while(i<k.length-2&&t>k[i+1][0])i++;var a=k[i],b=k[i+1],l=k[Math.max(0,i-1)],r=k[Math.min(k.length-1,i+2)],dt=b[0]-a[0],p=(t-a[0])/dt,p2=p*p,p3=p2*p,out=[];for(var j=1;j<a.length;j++){var m0=.65*(b[j]-l[j])/(b[0]-l[0]),m1=.65*(r[j]-a[j])/(r[0]-a[0]);out.push((2*p3-3*p2+1)*a[j]+(p3-2*p2+p)*dt*m0+(-2*p3+3*p2)*b[j]+(p3-p2)*dt*m1);}return out;}var s=sample(time-6.25,[[-0.32,70],[-0.16,89],[0.025,108],[0.16,89],[0.31,94],[0.48,92]])[0]*bk(0.135,0.41500000000000004),strain=(s-92)/92;[s*(1-.12*strain),s*(1+.12*strain),100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Hermes shortlist",
+      "path": "transform/orientation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var a=time-6.25,j=a<0?0:Math.exp(-a*7)*Math.sin(a*20);[0,-4+2.5*j,1+1.2*j]"
+    }
+  },
+  {
+    "command": "layer.enableTimeRemap",
+    "params": {
+      "layers": [
+        "Hermes shortlist"
+      ],
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Hermes shortlist",
+      "path": "timeRemap",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}Math.max(0,(time-5.85)*1.7)"
+    }
+  },
+  {
+    "command": "layer.timing",
+    "params": {
+      "layers": [
+        "Hermes shortlist"
+      ],
+      "in": 0,
+      "out": 8
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Hermes shortlist",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "none",
+      "name": "White connection 1 draw"
+    }
+  },
+  {
+    "command": "shape.newPath",
+    "params": {
+      "layer": "White connection 1 draw",
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          331.93561122603285,
+          -140
+        ],
+        [
+          995.8068336780985,
+          -420
+        ],
+        [
+          1327.7424449041314,
+          -400
+        ]
+      ],
+      "inTangents": [
+        [
+          0,
+          0
+        ],
+        [
+          -159.32909338849575,
+          0
+        ],
+        [
+          -159.32909338849575,
+          0
+        ],
+        [
+          -159.32909338849575,
+          0
+        ]
+      ],
+      "outTangents": [
+        [
+          159.32909338849575,
+          0
+        ],
+        [
+          159.32909338849575,
+          0
+        ],
+        [
+          159.32909338849575,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "space": "layer",
+      "fill": false,
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 5
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "White connection 1 draw"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "White connection 1 draw"
+      ],
+      "switch": "motionBlur",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "White connection 1 draw",
+      "path": "transform/position",
+      "value": [
+        1340,
+        620,
+        180
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "White connection 1 draw",
+      "path": "transform/rotationY",
+      "value": -39.8055710922652
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "White connection 1 draw",
+      "path": "contents/group/contents/stroke/cap",
+      "value": 1
+    }
+  },
+  {
+    "command": "layer.addShapeItem",
+    "params": {
+      "layer": "White connection 1 draw",
+      "kind": "trim"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "White connection 1 draw",
+      "path": "contents/trim/end",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(1.07,2.21)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "White connection 1 draw",
+      "path": "contents/trim/start",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(2.35,2.89)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "White connection 1 draw",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<1.07||time>2.89?0:88"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "none",
+      "name": "White connection 2 draw"
+    }
+  },
+  {
+    "command": "shape.newPath",
+    "params": {
+      "layer": "White connection 2 draw",
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          353.8096239505082,
+          305
+        ],
+        [
+          1061.4288718515245,
+          1355
+        ],
+        [
+          1415.2384958020327,
+          1500
+        ]
+      ],
+      "inTangents": [
+        [
+          0,
+          0
+        ],
+        [
+          -169.82861949624393,
+          0
+        ],
+        [
+          -169.82861949624393,
+          0
+        ],
+        [
+          -169.82861949624393,
+          0
+        ]
+      ],
+      "outTangents": [
+        [
+          169.82861949624393,
+          0
+        ],
+        [
+          169.82861949624393,
+          0
+        ],
+        [
+          169.82861949624393,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "space": "layer",
+      "fill": false,
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 5
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "White connection 2 draw"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "White connection 2 draw"
+      ],
+      "switch": "motionBlur",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "White connection 2 draw",
+      "path": "transform/position",
+      "value": [
+        2360,
+        220,
+        1030
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "White connection 2 draw",
+      "path": "transform/rotationY",
+      "value": 119.64445058557818
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "White connection 2 draw",
+      "path": "contents/group/contents/stroke/cap",
+      "value": 1
+    }
+  },
+  {
+    "command": "layer.addShapeItem",
+    "params": {
+      "layer": "White connection 2 draw",
+      "kind": "trim"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "White connection 2 draw",
+      "path": "contents/trim/end",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(3.07,4.21)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "White connection 2 draw",
+      "path": "contents/trim/start",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(4.35,4.89)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "White connection 2 draw",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<3.07||time>4.89?0:88"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "none",
+      "name": "White connection 3 draw"
+    }
+  },
+  {
+    "command": "shape.newPath",
+    "params": {
+      "layer": "White connection 3 draw",
+      "vertices": [
+        [
+          0,
+          0
+        ],
+        [
+          499.1242330322181,
+          -153.5
+        ],
+        [
+          1497.3726990966543,
+          -496.5
+        ],
+        [
+          1996.4969321288725,
+          -490
+        ]
+      ],
+      "inTangents": [
+        [
+          0,
+          0
+        ],
+        [
+          -239.5796318554647,
+          0
+        ],
+        [
+          -239.5796318554647,
+          0
+        ],
+        [
+          -239.5796318554647,
+          0
+        ]
+      ],
+      "outTangents": [
+        [
+          239.5796318554647,
+          0
+        ],
+        [
+          239.5796318554647,
+          0
+        ],
+        [
+          239.5796318554647,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "space": "layer",
+      "fill": false,
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "strokeWidth": 5
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "White connection 3 draw"
+      ],
+      "switch": "threeD",
+      "value": true
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "White connection 3 draw"
+      ],
+      "switch": "motionBlur",
+      "value": true
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "White connection 3 draw",
+      "path": "transform/position",
+      "value": [
+        1660,
+        1720,
+        -200
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "White connection 3 draw",
+      "path": "transform/rotationY",
+      "value": -47.84213788365567
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "White connection 3 draw",
+      "path": "contents/group/contents/stroke/cap",
+      "value": 1
+    }
+  },
+  {
+    "command": "layer.addShapeItem",
+    "params": {
+      "layer": "White connection 3 draw",
+      "kind": "trim"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "White connection 3 draw",
+      "path": "contents/trim/end",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(5.07,6.21)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "White connection 3 draw",
+      "path": "contents/trim/start",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100*sm(6.35,6.89)"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "White connection 3 draw",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<5.07||time>6.89?0:88"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "3D Camera",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}function sample(t,k){if(t<=k[0][0])return k[0].slice(1);if(t>=k[k.length-1][0])return k[k.length-1].slice(1);var i=0;while(i<k.length-2&&t>k[i+1][0])i++;var a=k[i],b=k[i+1],l=k[Math.max(0,i-1)],r=k[Math.min(k.length-1,i+2)],dt=b[0]-a[0],p=(t-a[0])/dt,p2=p*p,p3=p2*p,out=[];for(var j=1;j<a.length;j++){var m0=.65*(b[j]-l[j])/(b[0]-l[0]),m1=.65*(r[j]-a[j])/(r[0]-a[0]);out.push((2*p3-3*p2+1)*a[j]+(p3-2*p2+p)*dt*m0+(-2*p3+3*p2)*b[j]+(p3-p2)*dt*m1);}return out;}var v=sample(time,[[0,920,560,-15,2580,-65,-50,-1.1],[0.25,938.64,544.8,-10.200000000000001,2380,-40,-60,-0.8],[0.5,1002.72,530.4,20.400000000000002,2080,70,-25,1.8],[0.64,938.64,544.8,-10.200000000000001,2280,-20,-45,-0.9],[0.8200000000000001,970.68,537.6,5.1000000000000005,2140,25,-35,0.45],[1.03,897.7,554,-29.750000000000004,2050,-80,-28,-1.6],[1.25,1004.5,530,21.25,2650,20,-85,0.7],[1.55,1387.2,334,204,3620,120,-105,2.3],[1.81,2134.8,201,561,3270,90,-70,1.7],[2,2718.64,144.8,839.8,2380,-40,-60,-0.8],[2.25,2782.72,130.4,870.4,2080,70,-25,1.8],[2.39,2718.64,144.8,839.8,2280,-20,-45,-0.9],[2.57,2750.68,137.6,855.1,2140,25,-35,0.45],[3.03,2791.1,87.5,893.05,2050,80,-28,1.6],[3.25,2703.5,177.5,819.25,2650,-20,-85,-0.7],[3.55,2389.6,610,554.8,3620,-120,-105,-2.3],[3.81,1776.4,1205,38.19999999999993,3270,-90,-70,-1.7],[4,1297.52,1622,-365.24,2380,40,-60,0.8],[4.25,1244.96,1676,-409.52,2080,-70,-25,-1.8],[4.39,1297.52,1622,-365.24,2280,20,-45,0.9],[4.57,1271.24,1649,-387.38,2140,-25,-35,-0.45],[5.03,1206.5,1657.15,-431.8,2050,-80,-28,-1.6],[5.25,1332.5,1627.75,-343,2650,20,-85,0.7],[5.55,1784,1412.4,-24.80000000000001,3620,120,-105,2.3],[5.8100000000000005,2666,1241.6,596.8000000000001,3270,90,-70,1.7],[6,3354.8,1155.88,1082.24,2380,-40,-60,-0.8],[6.25,3430.4,1138.24,1135.52,2080,70,-25,1.8],[6.39,3354.8,1155.88,1082.24,2280,-20,-45,-0.9],[6.57,3392.6,1147.06,1108.88,2140,25,-35,0.45],[7.2,3405.2,1144.12,1117.76,2090,90,-15,1.25],[7.5,3540,1075,1100,2450,120,-55,2.2],[8,3870,960,1300,3220,160,-80,3]]);[v[0]+v[4],v[1]+v[5],v[2]-v[3]]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "3D Camera",
+      "path": "transform/poi",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}function sample(t,k){if(t<=k[0][0])return k[0].slice(1);if(t>=k[k.length-1][0])return k[k.length-1].slice(1);var i=0;while(i<k.length-2&&t>k[i+1][0])i++;var a=k[i],b=k[i+1],l=k[Math.max(0,i-1)],r=k[Math.min(k.length-1,i+2)],dt=b[0]-a[0],p=(t-a[0])/dt,p2=p*p,p3=p2*p,out=[];for(var j=1;j<a.length;j++){var m0=.65*(b[j]-l[j])/(b[0]-l[0]),m1=.65*(r[j]-a[j])/(r[0]-a[0]);out.push((2*p3-3*p2+1)*a[j]+(p3-2*p2+p)*dt*m0+(-2*p3+3*p2)*b[j]+(p3-p2)*dt*m1);}return out;}var v=sample(time,[[0,920,560,-15,2580,-65,-50,-1.1],[0.25,938.64,544.8,-10.200000000000001,2380,-40,-60,-0.8],[0.5,1002.72,530.4,20.400000000000002,2080,70,-25,1.8],[0.64,938.64,544.8,-10.200000000000001,2280,-20,-45,-0.9],[0.8200000000000001,970.68,537.6,5.1000000000000005,2140,25,-35,0.45],[1.03,897.7,554,-29.750000000000004,2050,-80,-28,-1.6],[1.25,1004.5,530,21.25,2650,20,-85,0.7],[1.55,1387.2,334,204,3620,120,-105,2.3],[1.81,2134.8,201,561,3270,90,-70,1.7],[2,2718.64,144.8,839.8,2380,-40,-60,-0.8],[2.25,2782.72,130.4,870.4,2080,70,-25,1.8],[2.39,2718.64,144.8,839.8,2280,-20,-45,-0.9],[2.57,2750.68,137.6,855.1,2140,25,-35,0.45],[3.03,2791.1,87.5,893.05,2050,80,-28,1.6],[3.25,2703.5,177.5,819.25,2650,-20,-85,-0.7],[3.55,2389.6,610,554.8,3620,-120,-105,-2.3],[3.81,1776.4,1205,38.19999999999993,3270,-90,-70,-1.7],[4,1297.52,1622,-365.24,2380,40,-60,0.8],[4.25,1244.96,1676,-409.52,2080,-70,-25,-1.8],[4.39,1297.52,1622,-365.24,2280,20,-45,0.9],[4.57,1271.24,1649,-387.38,2140,-25,-35,-0.45],[5.03,1206.5,1657.15,-431.8,2050,-80,-28,-1.6],[5.25,1332.5,1627.75,-343,2650,20,-85,0.7],[5.55,1784,1412.4,-24.80000000000001,3620,120,-105,2.3],[5.8100000000000005,2666,1241.6,596.8000000000001,3270,90,-70,1.7],[6,3354.8,1155.88,1082.24,2380,-40,-60,-0.8],[6.25,3430.4,1138.24,1135.52,2080,70,-25,1.8],[6.39,3354.8,1155.88,1082.24,2280,-20,-45,-0.9],[6.57,3392.6,1147.06,1108.88,2140,25,-35,0.45],[7.2,3405.2,1144.12,1117.76,2090,90,-15,1.25],[7.5,3540,1075,1100,2450,120,-55,2.2],[8,3870,960,1300,3220,160,-80,3]]);[v[0],v[1],v[2]]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "3D Camera",
+      "path": "transform/rotation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}function sample(t,k){if(t<=k[0][0])return k[0].slice(1);if(t>=k[k.length-1][0])return k[k.length-1].slice(1);var i=0;while(i<k.length-2&&t>k[i+1][0])i++;var a=k[i],b=k[i+1],l=k[Math.max(0,i-1)],r=k[Math.min(k.length-1,i+2)],dt=b[0]-a[0],p=(t-a[0])/dt,p2=p*p,p3=p2*p,out=[];for(var j=1;j<a.length;j++){var m0=.65*(b[j]-l[j])/(b[0]-l[0]),m1=.65*(r[j]-a[j])/(r[0]-a[0]);out.push((2*p3-3*p2+1)*a[j]+(p3-2*p2+p)*dt*m0+(-2*p3+3*p2)*b[j]+(p3-p2)*dt*m1);}return out;}var v=sample(time,[[0,920,560,-15,2580,-65,-50,-1.1],[0.25,938.64,544.8,-10.200000000000001,2380,-40,-60,-0.8],[0.5,1002.72,530.4,20.400000000000002,2080,70,-25,1.8],[0.64,938.64,544.8,-10.200000000000001,2280,-20,-45,-0.9],[0.8200000000000001,970.68,537.6,5.1000000000000005,2140,25,-35,0.45],[1.03,897.7,554,-29.750000000000004,2050,-80,-28,-1.6],[1.25,1004.5,530,21.25,2650,20,-85,0.7],[1.55,1387.2,334,204,3620,120,-105,2.3],[1.81,2134.8,201,561,3270,90,-70,1.7],[2,2718.64,144.8,839.8,2380,-40,-60,-0.8],[2.25,2782.72,130.4,870.4,2080,70,-25,1.8],[2.39,2718.64,144.8,839.8,2280,-20,-45,-0.9],[2.57,2750.68,137.6,855.1,2140,25,-35,0.45],[3.03,2791.1,87.5,893.05,2050,80,-28,1.6],[3.25,2703.5,177.5,819.25,2650,-20,-85,-0.7],[3.55,2389.6,610,554.8,3620,-120,-105,-2.3],[3.81,1776.4,1205,38.19999999999993,3270,-90,-70,-1.7],[4,1297.52,1622,-365.24,2380,40,-60,0.8],[4.25,1244.96,1676,-409.52,2080,-70,-25,-1.8],[4.39,1297.52,1622,-365.24,2280,20,-45,0.9],[4.57,1271.24,1649,-387.38,2140,-25,-35,-0.45],[5.03,1206.5,1657.15,-431.8,2050,-80,-28,-1.6],[5.25,1332.5,1627.75,-343,2650,20,-85,0.7],[5.55,1784,1412.4,-24.80000000000001,3620,120,-105,2.3],[5.8100000000000005,2666,1241.6,596.8000000000001,3270,90,-70,1.7],[6,3354.8,1155.88,1082.24,2380,-40,-60,-0.8],[6.25,3430.4,1138.24,1135.52,2080,70,-25,1.8],[6.39,3354.8,1155.88,1082.24,2280,-20,-45,-0.9],[6.57,3392.6,1147.06,1108.88,2140,25,-35,0.45],[7.2,3405.2,1144.12,1117.76,2090,90,-15,1.25],[7.5,3540,1075,1100,2450,120,-55,2.2],[8,3870,960,1300,3220,160,-80,3]]);v[6]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "logResearchDepth",
+      "layer": "3D Camera",
+      "path": "cameraOptions/zoom",
+      "name": "Depth framing"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "logResearchDepth",
+      "name": "logResearchDepth"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "logResearchDepth"
+    }
+  }
+]

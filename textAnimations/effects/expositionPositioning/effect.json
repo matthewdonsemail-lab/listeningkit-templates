@@ -1,0 +1,733 @@
+[
+  {
+    "command": "effect.plugins.load",
+    "params": {
+      "folder": "C:/Users/0/AppData/Roaming/EffectCraft/Plug-ins"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "expositionPositioning",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 4,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "ditherGradientBackground",
+      "position": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "ditherGradientBackground",
+      "name": "Quiet dither"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Quiet dither",
+      "path": "transform/scale",
+      "value": [
+        108,
+        108,
+        100
+      ]
+    }
+  },
+  {
+    "command": "essential.set",
+    "params": {
+      "layer": "Quiet dither",
+      "control": "Wipe",
+      "value": 88
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Quiet dither",
+      "path": "essential/eg149",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}88+1.5*Math.sin(time*.4)"
+    }
+  },
+  {
+    "command": "layer.enableTimeRemap",
+    "params": {
+      "layers": [
+        "Quiet dither"
+      ],
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Quiet dither",
+      "path": "timeRemap",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}Math.min(time*.5,4.9)"
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "expositionEars",
+      "position": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "expositionEars",
+      "name": "Ear frame"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Ear frame",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Positioning lead",
+      "text": "The best tool for",
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 132,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        310,
+        335
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Positioning lead",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Positioning lead",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration-.6,false),s=Math.min(100,1320/Math.max(1,r.width)*100);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "Positioning lead"
+      ],
+      "time": 0.1,
+      "comment": "words"
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "Positioning lead",
+      "index": 0,
+      "duration": 0.45
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "Positioning lead",
+      "properties": [
+        "opacity"
+      ],
+      "name": "Spoken words"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "Positioning lead",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning lead",
+      "path": "text/animators/animator/properties/opacity",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning lead",
+      "path": "text/animators/animator/selectors/expressionSelector/basedOn",
+      "value": 2
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Positioning lead",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var m=thisLayer.marker.key(\"words\"),gap=textTotal>1?m.duration/(textTotal-1):0,a=time<m.time+(textIndex-1)*gap?100:0;[a,a,a]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "expositionPositioning",
+      "layer": "Positioning lead",
+      "path": "text/sourceText",
+      "name": "Positioning lead"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Positioning category",
+      "text": "social media",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 205,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        310,
+        552
+      ],
+      "justify": "left",
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 8,
+      "strokeOverFill": false
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Positioning category",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Positioning category",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration-.6,false),s=Math.min(100,1320/Math.max(1,r.width)*100);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "Positioning category"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning category",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning category",
+      "path": "layerStyles/stroke/size",
+      "value": 2.5
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "Positioning category"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning category",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning category",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 20
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning category",
+      "path": "layerStyles/outerGlow/size",
+      "value": 12
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning category",
+      "path": "transform/rotation",
+      "value": -1
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "Positioning category"
+      ],
+      "time": 0.66,
+      "comment": "words"
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "Positioning category",
+      "index": 0,
+      "duration": 0.28
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "Positioning category",
+      "properties": [
+        "opacity"
+      ],
+      "name": "Spoken words"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "Positioning category",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning category",
+      "path": "text/animators/animator/properties/opacity",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning category",
+      "path": "text/animators/animator/selectors/expressionSelector/basedOn",
+      "value": 2
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Positioning category",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var m=thisLayer.marker.key(\"words\"),gap=textTotal>1?m.duration/(textTotal-1):0,a=time<m.time+(textIndex-1)*gap?100:0;[a,a,a]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "expositionPositioning",
+      "layer": "Positioning category",
+      "path": "text/sourceText",
+      "name": "Positioning category"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Positioning finish",
+      "text": "marketing.",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 205,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        310,
+        756
+      ],
+      "justify": "left",
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 8,
+      "strokeOverFill": false
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Positioning finish",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Positioning finish",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration-.6,false),s=Math.min(100,1320/Math.max(1,r.width)*100);[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "Positioning finish"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning finish",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning finish",
+      "path": "layerStyles/stroke/size",
+      "value": 2.5
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "Positioning finish"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning finish",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning finish",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 20
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning finish",
+      "path": "layerStyles/outerGlow/size",
+      "value": 12
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning finish",
+      "path": "transform/rotation",
+      "value": -1
+    }
+  },
+  {
+    "command": "layer.addMarker",
+    "params": {
+      "layers": [
+        "Positioning finish"
+      ],
+      "time": 1.1,
+      "comment": "words"
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "layer": "Positioning finish",
+      "index": 0,
+      "duration": 0
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "Positioning finish",
+      "properties": [
+        "opacity"
+      ],
+      "name": "Spoken words"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "Positioning finish",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning finish",
+      "path": "text/animators/animator/properties/opacity",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Positioning finish",
+      "path": "text/animators/animator/selectors/expressionSelector/basedOn",
+      "value": 2
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Positioning finish",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var m=thisLayer.marker.key(\"words\"),gap=textTotal>1?m.duration/(textTotal-1):0,a=time<m.time+(textIndex-1)*gap?100:0;[a,a,a]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "expositionPositioning",
+      "layer": "Positioning finish",
+      "path": "text/sourceText",
+      "name": "Positioning finish"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Type block"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Type block",
+      "path": "transform/position",
+      "value": [
+        960,
+        540,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Positioning lead"
+      ],
+      "parent": "Type block",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Positioning category"
+      ],
+      "parent": "Type block",
+      "compensate": true
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Positioning finish"
+      ],
+      "parent": "Type block",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Type block",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var m;try{m=thisComp.marker.key(\"out\");}catch(e){m=null;}var a=m?m.time:3.52,d=m&&m.duration>0?m.duration:.48,p=Math.max(0,Math.min(1,(time-a)/d)),s=100*Math.max(0,1+1.8*p*p-2.8*p*p*p);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ear frame",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var m;try{m=thisComp.marker.key(\"out\");}catch(e){m=null;}var a=m?m.time:3.52,d=m&&m.duration>0?m.duration:.48,p=Math.max(0,Math.min(1,(time-a)/d)),s=100*Math.max(0,1+1.8*p*p-2.8*p*p*p);[s,s,100]"
+    }
+  },
+  {
+    "command": "comp.addMarker",
+    "params": {
+      "time": 3.52,
+      "comment": "out"
+    }
+  },
+  {
+    "command": "markers.set",
+    "params": {
+      "index": 0,
+      "duration": 0.48
+    }
+  },
+  {
+    "command": "layer.newAdjustment",
+    "params": {
+      "name": "Quiet page push"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "ec.distort.transform",
+      "layers": [
+        "Quiet page push"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Quiet page push",
+      "path": "effects/#1/anchor",
+      "value": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Quiet page push",
+      "path": "effects/#1/position",
+      "value": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Quiet page push",
+      "path": "effects/#1/scaleHeight",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}100+2*time/thisComp.duration"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Quiet page push",
+      "path": "effects/#1/rotation",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}-.2*time/thisComp.duration"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "expositionPositioning",
+      "name": "expositionPositioning"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "expositionPositioning"
+    }
+  }
+]

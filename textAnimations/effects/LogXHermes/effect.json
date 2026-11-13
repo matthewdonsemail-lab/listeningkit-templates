@@ -1,0 +1,121 @@
+[
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/video/HermesGirl.mp4"
+      ]
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "LogXHermes",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 4,
+      "background": "#000000",
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "HermesGirl.mp4",
+      "time": 0,
+      "position": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "HermesGirl.mp4",
+      "name": "clip"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clip",
+      "path": "transform/scale",
+      "value": [
+        168.75,
+        168.75,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.setSwitch",
+    "params": {
+      "layers": [
+        "clip"
+      ],
+      "switch": "audio",
+      "value": false
+    }
+  },
+  {
+    "command": "layer.enableTimeRemap",
+    "params": {
+      "layers": [
+        "clip"
+      ],
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "clip",
+      "path": "timeRemap",
+      "expression": "var u = Math.min(Math.max(time / 4, 0), 1);\n5.146 * (0.5 * u + 0.5 * u * u)"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Posterize Time",
+      "layers": [
+        "clip"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "clip",
+      "path": "effects/#1/frameRate",
+      "value": 15
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "LogXHermes",
+      "name": "LogXHermes"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "LogXHermes",
+      "layer": "clip",
+      "path": "effects/#1/frameRate",
+      "name": "Posterize"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "LogXHermes",
+      "layer": "clip",
+      "path": "transform/scale",
+      "name": "Scale"
+    }
+  }
+]

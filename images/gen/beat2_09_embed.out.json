@@ -1,0 +1,16 @@
+async task submitted: task_01a1d01c8c32738c9eacdbfd109f2f52
+resume: treg call reapi.tasks.get -p id=task_01a1d01c8c32738c9eacdbfd109f2f52
+generation reservation: $0.03
+async task task_01a1d01c8c32738c9eacdbfd109f2f52: processing (5s elapsed)
+async task task_01a1d01c8c32738c9eacdbfd109f2f52: processing (11s elapsed)
+async task task_01a1d01c8c32738c9eacdbfd109f2f52: processing (17s elapsed)
+async task task_01a1d01c8c32738c9eacdbfd109f2f52: processing (23s elapsed)
+async task task_01a1d01c8c32738c9eacdbfd109f2f52: processing (29s elapsed)
+async task task_01a1d01c8c32738c9eacdbfd109f2f52: processing (35s elapsed)
+async task task_01a1d01c8c32738c9eacdbfd109f2f52: processing (41s elapsed)
+async task task_01a1d01c8c32738c9eacdbfd109f2f52: processing (47s elapsed)
+async task task_01a1d01c8c32738c9eacdbfd109f2f52: processing (52s elapsed)
+async task task_01a1d01c8c32738c9eacdbfd109f2f52: processing (59s elapsed)
+async task task_01a1d01c8c32738c9eacdbfd109f2f52: processing (65s elapsed)
+{"id":"task_01a1d01c8c32738c9eacdbfd109f2f52","model":"gemini-3-pro-image-preview","status":"completed","created_at":1794492894,"output":{"image_urls":["https://file.deepytb.com/reapi/tasks/task_01a1d01c8c32738c9eacdbfd109f2f52/0.png"]},"usage":{"credits":25},"error":null}result: ["https://file.deepytb.com/reapi/tasks/task_01a1d01c8c32738c9eacdbfd109f2f52/0.png"]
+download promptly; result lifetime: 7d

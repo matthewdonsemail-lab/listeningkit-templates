@@ -1,0 +1,1121 @@
+[
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "socialActions",
+      "width": 1920,
+      "height": 1080,
+      "frameRate": 30,
+      "duration": 4.2,
+      "background": "#FFFEFC",
+      "open": true
+    }
+  },
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/strawberry-background.svg"
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "strawberry-background.svg",
+      "position": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "step",
+      "text": "02 / ACT",
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 38,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        960,
+        170
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "step",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(2,false);[r.left+r.width/2,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "step",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "step",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "step",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "step",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "step",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "step",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.24750000000000003; var gap=textTotal>1?0.2025/(textTotal-1):0; var s=back((time-0.1-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "step",
+      "path": "transform/scale",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.1)/0.45);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "step",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.1)/.45));var u=p-1;var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.22))/.2));var s=100*(1+2.8*u*u*u+1.8*u*u)*(1-q*q*(3-2*q));[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "socialActions",
+      "layer": "step",
+      "path": "text/sourceText",
+      "name": "02 / ACT"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "headline",
+      "text": "One agent.",
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 104,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        960,
+        330
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "headline",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(2,false);[r.left+r.width/2,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "headline",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "headline",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "headline",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "headline",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "headline",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "headline",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.24750000000000003; var gap=textTotal>1?0.2025/(textTotal-1):0; var s=back((time-0.14-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "headline",
+      "path": "transform/scale",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.14)/0.45);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "headline",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.14)/.45));var u=p-1;var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.22))/.2));var s=100*(1+2.8*u*u*u+1.8*u*u)*(1-q*q*(3-2*q));[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "socialActions",
+      "layer": "headline",
+      "path": "text/sourceText",
+      "name": "One agent."
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "action card 0",
+      "size": [
+        460,
+        240
+      ],
+      "fill": [
+        0.9,
+        0.95,
+        1
+      ],
+      "position": [
+        450,
+        555
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action card 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action card 0",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.24)/.45));var u=p-1;var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.22))/.2));var s=100*(1+2.8*u*u*u+1.8*u*u)*(1-q*q*(3-2*q));[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "action 0",
+      "text": "Read",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 134,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        450,
+        555
+      ],
+      "justify": "center",
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 16,
+      "strokeOverFill": false
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 0",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(2,false);[r.left+r.width/2,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "action 0",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "action 0",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 0",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 0",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 0",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 0",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.24750000000000003; var gap=textTotal>1?0.2025/(textTotal-1):0; var s=back((time-0.34-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 0",
+      "path": "transform/scale",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.34)/0.45);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 0",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.34)/.45));var u=p-1;var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.22))/.2));var s=100*(1+2.8*u*u*u+1.8*u*u)*(1-q*q*(3-2*q));[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "action 0"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 0",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 0",
+      "path": "layerStyles/stroke/size",
+      "value": 5
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "action 0"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 0",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 0",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 45
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 0",
+      "path": "layerStyles/outerGlow/size",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 0",
+      "path": "transform/rotation",
+      "value": -2
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "socialActions",
+      "layer": "action 0",
+      "path": "text/sourceText",
+      "name": "Read"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "action card 1",
+      "size": [
+        460,
+        240
+      ],
+      "fill": [
+        0.9,
+        0.95,
+        1
+      ],
+      "position": [
+        960,
+        555
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action card 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action card 1",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.37)/.45));var u=p-1;var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.22))/.2));var s=100*(1+2.8*u*u*u+1.8*u*u)*(1-q*q*(3-2*q));[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "action 1",
+      "text": "Reply",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 134,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        960,
+        555
+      ],
+      "justify": "center",
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 16,
+      "strokeOverFill": false
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 1",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(2,false);[r.left+r.width/2,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "action 1",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "action 1",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 1",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 1",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 1",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 1",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.24750000000000003; var gap=textTotal>1?0.2025/(textTotal-1):0; var s=back((time-0.47000000000000003-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 1",
+      "path": "transform/scale",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.47000000000000003)/0.45);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 1",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.47000000000000003)/.45));var u=p-1;var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.22))/.2));var s=100*(1+2.8*u*u*u+1.8*u*u)*(1-q*q*(3-2*q));[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "action 1"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 1",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 1",
+      "path": "layerStyles/stroke/size",
+      "value": 5
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "action 1"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 1",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 1",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 45
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 1",
+      "path": "layerStyles/outerGlow/size",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 1",
+      "path": "transform/rotation",
+      "value": -2
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "socialActions",
+      "layer": "action 1",
+      "path": "text/sourceText",
+      "name": "Reply"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "action card 2",
+      "size": [
+        460,
+        240
+      ],
+      "fill": [
+        0.9,
+        0.95,
+        1
+      ],
+      "position": [
+        1470,
+        555
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action card 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action card 2",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.5)/.45));var u=p-1;var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.22))/.2));var s=100*(1+2.8*u*u*u+1.8*u*u)*(1-q*q*(3-2*q));[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "action 2",
+      "text": "Post",
+      "font": "Schoolbell",
+      "style": "Regular",
+      "size": 134,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        1470,
+        555
+      ],
+      "justify": "center",
+      "stroke": [
+        1,
+        1,
+        1
+      ],
+      "applyStroke": true,
+      "strokeWidth": 16,
+      "strokeOverFill": false
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 2",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(2,false);[r.left+r.width/2,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "action 2",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "action 2",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 2",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 2",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 2",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 2",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.24750000000000003; var gap=textTotal>1?0.2025/(textTotal-1):0; var s=back((time-0.6000000000000001-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 2",
+      "path": "transform/scale",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.6000000000000001)/0.45);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "action 2",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.6000000000000001)/.45));var u=p-1;var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.22))/.2));var s=100*(1+2.8*u*u*u+1.8*u*u)*(1-q*q*(3-2*q));[s,s,100]"
+    }
+  },
+  {
+    "command": "layer.style.stroke",
+    "params": {
+      "layers": [
+        "action 2"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 2",
+      "path": "layerStyles/stroke/color",
+      "value": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 2",
+      "path": "layerStyles/stroke/size",
+      "value": 5
+    }
+  },
+  {
+    "command": "layer.style.outerGlow",
+    "params": {
+      "layers": [
+        "action 2"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 2",
+      "path": "layerStyles/outerGlow/color",
+      "value": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 2",
+      "path": "layerStyles/outerGlow/opacity",
+      "value": 45
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 2",
+      "path": "layerStyles/outerGlow/size",
+      "value": 24
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "action 2",
+      "path": "transform/rotation",
+      "value": -2
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "socialActions",
+      "layer": "action 2",
+      "path": "text/sourceText",
+      "name": "Post"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "subtext",
+      "text": "Across your connected accounts.",
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 60,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        960,
+        790
+      ],
+      "justify": "center"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "subtext",
+      "path": "transform/anchor",
+      "expression": "var r=sourceRectAtTime(2,false);[r.left+r.width/2,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.addTextAnimator",
+    "params": {
+      "layer": "subtext",
+      "properties": [
+        "scale"
+      ],
+      "name": "Typewriter overshoot"
+    }
+  },
+  {
+    "command": "layer.addTextSelector",
+    "params": {
+      "layer": "subtext",
+      "animator": 1,
+      "kind": "expression"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "subtext",
+      "path": "text/animators/animator/properties/scale",
+      "value": [
+        0,
+        0,
+        100
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "subtext",
+      "path": "text/moreOptions/anchorGrouping",
+      "value": 0
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "subtext",
+      "path": "text/moreOptions/groupingAlignment",
+      "value": [
+        0,
+        -50
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "subtext",
+      "path": "text/animators/animator/selectors/expressionSelector/amount",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var pop=0.24750000000000003; var gap=textTotal>1?0.2025/(textTotal-1):0; var s=back((time-0.72-(textIndex-1)*gap)/pop); [100*(1-s),100*(1-s),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "subtext",
+      "path": "transform/scale",
+      "expression": "function back(p){p=Math.max(0,Math.min(1,p));var u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=100*back((time-0.72)/0.45);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "subtext",
+      "path": "transform/scale",
+      "expression": "var p=Math.max(0,Math.min(1,(time-0.72)/.45));var u=p-1;var q=Math.max(0,Math.min(1,(time-(thisComp.duration-.22))/.2));var s=100*(1+2.8*u*u*u+1.8*u*u)*(1-q*q*(3-2*q));[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "socialActions",
+      "layer": "subtext",
+      "path": "text/sourceText",
+      "name": "Across your connected accounts."
+    }
+  },
+  {
+    "command": "layer.newAdjustment",
+    "params": {
+      "name": "Page push in"
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "ec.distort.transform",
+      "layers": [
+        "Page push in"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/anchor",
+      "value": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/position",
+      "value": [
+        960,
+        540
+      ]
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/scaleHeight",
+      "expression": "var p=Math.max(0,Math.min(1,time/thisComp.duration));100+8*p"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Page push in",
+      "path": "effects/#1/rotation",
+      "expression": "var p=Math.max(0,Math.min(1,time/thisComp.duration));-1.2*p"
+    }
+  },
+  {
+    "command": "layer.arrange",
+    "params": {
+      "layers": [
+        "Page push in"
+      ],
+      "to": "front"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "socialActions",
+      "name": "socialActions"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "socialActions"
+    }
+  }
+]

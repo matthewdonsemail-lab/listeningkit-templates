@@ -1,5 +1,25 @@
 # Text Animations
 
+[EDITING_STYLE.md](EDITING_STYLE.md) records the commentary-led editing style and the new
+`expositionStudy`: two quieter full-screen typography plates using the website's premise,
+Schoolbell highlights, the original ear artwork and editable word cues.
+
+[THREE_STEPS_TRACK.md](THREE_STEPS_TRACK.md) covers the website's Step 1–2–3 sequence in
+`logThreeStepsTrack`: Hermes request, checked play and Discord results, with larger lateral swings,
+longer lens pushes and quick pullbacks on a continuously retreating native camera Z track. It uses
+an oversized 3D dither background, brand-blue connecting lines, fluid camera swings and overshoot
+scale-outs with no card fades.
+
+The animated platform plays are documented in [PLAY_JOURNEY.md](PLAY_JOURNEY.md). `logPlayJourney`
+follows type04 in Intro 1: one camera travels between completed 2D tongue cards placed at different
+depths. See [INTRO1.md](INTRO1.md) for the saved sequence and preservation workflow.
+
+[RESEARCH_DEPTH.md](RESEARCH_DEPTH.md) covers `logResearchDepth`: the native Hermes Agent terminal, Treg
+source results, a SubQ matching pass and a shortlist, using zoom-out/pan/zoom-in camera moves on the
+reusable `brandBlueGradient` background, continuous pre/post pans and directional white Trim Paths.
+Marketing captures are in [the component study](references/marketing/ASSETS.md). The reusable
+[EffectCraft motion skill](../skills/effectcraft-motion/SKILL.md) records the native component workflow.
+
 ListeningKit text effects for EffectCraft, all set in Schoolbell (`fonts/Schoolbell-Regular.ttf`) with the
 cv-bluekey look (see cvBluekey below): brand blue, white then navy outline, -3Â° tilt, blue glow.
 
@@ -78,7 +98,7 @@ characters, so editing the line keeps the colour on the same word.
 | `type08` | Everyone | Everyone, orange |
 | `type09` | Everyone on your team | Everyone (orange) / on your team |
 | `type10` | gets a companion | gets a companion |
-| `type11` | Works on 1.7 billion websites | Works on 1.7 billion / websites |
+| `type11` | Log connects Hermes | Log lets Hermes communicate natively with your favourite social media |
 | `type12` | 266k companions | 266k companions / already created |
 | `type13` | Discover | Discover / a new way (orange) / to work |
 | `type14` | Claim your companion today | Claim your / **companion** (orange) today |

@@ -15,11 +15,38 @@
 //                      "in" marker on (0 = none, negative shrinks).
 import { mkdirSync, writeFileSync as writeFileRaw } from "node:fs";
 import { iCanDoSteps } from "./iCanDo.mjs";
+import { websitesSceneSteps } from "./websitesScene.mjs";
+import {explainerNames,explainerSteps,blueSweepSteps} from './hermesExplainers.mjs';
+import {uiDemoNames,uiDemoSteps} from './uiDemos.mjs';
+import {startPartsSteps} from './startCardMotion.mjs';
+import {connectionPartsSteps,journeySteps} from './connectionPlays.mjs';
+import {researchPartsSteps,researchDepthSteps,brandBlueGradientSteps,hermesAgentTerminalSteps} from './researchDepth.mjs';
+import {stepsTrackPartsSteps,stepsTrackSceneSteps} from './threeStepsTrack.mjs';
+import {expositionNames,expositionSteps} from './expositionCards.mjs';
 
 // effectcraft-cli reads command files in the Windows code page, not UTF-8, so every non-ASCII character
 // (symbols, curly quotes, middle dotsâ€¦) is written as a JSON \u escape, which reads back exactly.
 const writeFileSync = (path, text) =>
   writeFileRaw(path, text.replace(/[\u0080-ï¿¿]/g, (c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0")));
+
+mkdirSync('effects/startCardParts',{recursive:true});
+for(const name of expositionNames){
+  mkdirSync(`effects/${name}`,{recursive:true});
+  writeFileSync(`effects/${name}/effect.json`,JSON.stringify(expositionSteps(name),null,2)+'\n');
+}
+writeFileSync('effects/startCardParts/effect.json',JSON.stringify(startPartsSteps(),null,2)+'\n');
+for(const [name,steps]of [['connectionCardParts',connectionPartsSteps()],['logPlayJourney',journeySteps()],['brandBlueGradient',brandBlueGradientSteps()],['hermesAgentTerminal',hermesAgentTerminalSteps()],['researchParts',researchPartsSteps()],['logResearchDepth',researchDepthSteps()],['stepsTrackParts',stepsTrackPartsSteps()],['logThreeStepsTrack',stepsTrackSceneSteps()]]){
+  mkdirSync(`effects/${name}`,{recursive:true});
+  writeFileSync(`effects/${name}/effect.json`,JSON.stringify(steps,null,2)+'\n');
+}
+for(const name of uiDemoNames){
+  mkdirSync(`effects/${name}`,{recursive:true});
+  writeFileSync(`effects/${name}/effect.json`,JSON.stringify(uiDemoSteps(name),null,2)+'\n');
+}
+for(const name of [...explainerNames,'blueSweep']){
+  mkdirSync(`effects/${name}`,{recursive:true});
+  writeFileSync(`effects/${name}/effect.json`,JSON.stringify(name==='blueSweep'?blueSweepSteps():explainerSteps(name),null,2)+'\n');
+}
 
 const variations = {
   typewriterOvershoot: { in: [0, 0.6], out: [3, 0.5], pop: 0.25, overshoot: 2, whole: 1.7, continuous: 6 },
@@ -1539,9 +1566,10 @@ const bluekeyScaleExpression = [
   for (const scene of scenes) {
     const comp = `type${scene.id}`;
     const steps = [
-      { command: "comp.new", params: { name: comp, width: 1920, height: 1080, frameRate: 30, duration, background: paper, open: true } },
+      { command: "comp.new", params: { name: comp, width: 1920, height: 1080, frameRate: 30, duration:scene.id==='11'?5:duration, background: paper, open: true } },
     ];
     if (scene.id === "04") steps.push(...iCanDoSteps());
+    else if (scene.id === "11") steps.push(...websitesSceneSteps());
     else scene.lines.forEach((ln, i) => {
       const layer = `line ${i + 1}`;
       steps.push(...lineSteps(layer, ln), ...popSteps(layer, i));
@@ -1556,3 +1584,44 @@ const bluekeyScaleExpression = [
 
 
 
+
+// LogXHermes: the Hermes girl clip, sped into a ramp, muted, and stepped to 15 fps.
+// The clip (1152 x 640, 48 fps, 5.146 s) is scaled to cover 1920 x 1080. Its time is remapped so the playback rate
+// starts at ~0.64x and ends at ~1.93x across the 4 s comp (s = D * (u/2 + u^2/2), u = time / 4), Posterize Time holds
+// it at 15 fps, and the layer's audio is off.
+// Essential Graphics: Posterize (the 15), Scale.
+{
+  const name = "LogXHermes";
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
+  const clipPath = `${process.cwd().replace(/\\/g, "/").replace(/\/textAnimations$/, "")}/video/HermesGirl.mp4`;
+  const sourceDuration = 5.146;
+  const duration = 4;
+
+  const steps = [
+    { command: "file.import", params: { paths: [clipPath] } },
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, background: "#000000", open: true } },
+    { command: "layer.addItem", params: { item: "HermesGirl.mp4", time: 0, position: [960, 540] } },
+    { command: "layer.rename", params: { layer: "HermesGirl.mp4", name: "clip" } },
+    // Cover the frame: 1920/1152 = 166.7%, 1080/640 = 168.75%, so 168.75 leaves a hair of crop top and bottom.
+    set("clip", "transform/scale", [168.75, 168.75, 100]),
+    // Muted.
+    { command: "layer.setSwitch", params: { layers: ["clip"], switch: "audio", value: false } },
+    // The ramp: rate = d/dt of D(u/2 + u^2/2), so it starts slow and finishes fast, and lands exactly on the last frame.
+    { command: "layer.enableTimeRemap", params: { layers: ["clip"], value: true } },
+    expr("clip", "timeRemap", [
+      `var u = Math.min(Math.max(time / ${duration}, 0), 1);`,
+      `${sourceDuration} * (0.5 * u + 0.5 * u * u)`,
+    ].join("\n")),
+    // 15 fps steps on the layer itself.
+    fx("clip", "Posterize Time"),
+    set("clip", "effects/#1/frameRate", 15),
+
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "clip", path: "effects/#1/frameRate", name: "Posterize" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "clip", path: "transform/scale", name: "Scale" } },
+  ];
+  mkdirSync("effects/LogXHermes", { recursive: true });
+  writeFileSync("effects/LogXHermes/effect.json", JSON.stringify(steps, null, 2) + "\n");
+}

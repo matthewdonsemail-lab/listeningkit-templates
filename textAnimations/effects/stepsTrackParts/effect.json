@@ -1,0 +1,5778 @@
+[
+  {
+    "command": "file.import",
+    "params": {
+      "paths": [
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/startCards/hermesAgent.png",
+        "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/platforms/discord.svg"
+      ]
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "stepsAskDemo",
+      "width": 1120,
+      "height": 740,
+      "frameRate": 30,
+      "duration": 9,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel edge",
+      "size": [
+        1100,
+        714
+      ],
+      "fill": [
+        0.102,
+        0.373,
+        0.784
+      ],
+      "position": [
+        560,
+        368
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel surface",
+      "size": [
+        1100,
+        714
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        560,
+        360
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "hermesAgent.png",
+      "position": [
+        66,
+        60
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "hermesAgent.png",
+      "name": "Hermes mark"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Hermes mark",
+      "path": "transform/scale",
+      "value": [
+        76,
+        76,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Agent name",
+      "text": "Hermes Agent",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 33,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        112,
+        60
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Agent name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Header divider",
+      "size": [
+        1096,
+        2
+      ],
+      "fill": [
+        0.9,
+        0.93,
+        0.96
+      ],
+      "position": [
+        560,
+        108
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Header divider",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Session",
+      "text": "growth-mates / #marketing",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 25,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        58,
+        158
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Session",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Your request",
+      "size": [
+        884,
+        208
+      ],
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        624,
+        313
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Your request",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Ask",
+      "text": "/log  Read #marketing over the last day.\nWho needs help with ads?",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 37,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        220,
+        314
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ask",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Ask",
+      "path": "text/sourceText",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=String(value);s.slice(0,Math.floor(s.length*sm(.08,.65)))"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Reply bubble",
+      "size": [
+        850,
+        96
+      ],
+      "fill": [
+        0.95,
+        0.97,
+        0.99
+      ],
+      "position": [
+        481,
+        493
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reply bubble",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 22
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Reply",
+      "text": "On it. Running the play with log.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 35,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        85,
+        493
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Reply entrance"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Reply entrance",
+      "path": "transform/position",
+      "value": [
+        481,
+        493,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Reply bubble"
+      ],
+      "parent": "Reply entrance",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply bubble",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.72?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Reply"
+      ],
+      "parent": "Reply entrance",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.72?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply entrance",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=90+10*bk(0.72,1);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply entrance",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.72?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Reply entrance",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.72,0.97)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Tool chip",
+      "size": [
+        680,
+        68
+      ],
+      "fill": [
+        0.9,
+        0.95,
+        1
+      ],
+      "position": [
+        397,
+        616
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tool chip",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Tool label",
+      "text": "\u25cf  log \u00b7 discordRead",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 29,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        85,
+        616
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool label",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Tool entrance"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Tool entrance",
+      "path": "transform/position",
+      "value": [
+        397,
+        616,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Tool chip"
+      ],
+      "parent": "Tool entrance",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool chip",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<1.13?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Tool label"
+      ],
+      "parent": "Tool entrance",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool label",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<1.13?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool entrance",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=90+10*bk(1.13,1.41);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool entrance",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<1.13?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Tool entrance",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(1.13,1.38)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsAskDemo",
+      "layer": "Agent name",
+      "path": "text/sourceText",
+      "name": "Agent name"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsAskDemo",
+      "layer": "Ask",
+      "path": "text/sourceText",
+      "name": "Ask"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsAskDemo",
+      "layer": "Reply",
+      "path": "text/sourceText",
+      "name": "Reply"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "stepsAskDemo",
+      "name": "stepsAskDemo"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "stepsAskDemo"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "stepsCodeDemo",
+      "width": 1120,
+      "height": 740,
+      "frameRate": 30,
+      "duration": 9,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel edge",
+      "size": [
+        1100,
+        714
+      ],
+      "fill": [
+        0.102,
+        0.373,
+        0.784
+      ],
+      "position": [
+        560,
+        368
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel surface",
+      "size": [
+        1100,
+        714
+      ],
+      "fill": [
+        0.051,
+        0.067,
+        0.09
+      ],
+      "position": [
+        560,
+        360
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Window dot 0",
+      "size": [
+        16,
+        16
+      ],
+      "fill": [
+        0.35,
+        0.39,
+        0.44
+      ],
+      "position": [
+        57,
+        55
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Window dot 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 8
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Window dot 1",
+      "size": [
+        16,
+        16
+      ],
+      "fill": [
+        0.35,
+        0.39,
+        0.44
+      ],
+      "position": [
+        89,
+        55
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Window dot 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 8
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Window dot 2",
+      "size": [
+        16,
+        16
+      ],
+      "fill": [
+        0.35,
+        0.39,
+        0.44
+      ],
+      "position": [
+        121,
+        55
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Window dot 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 8
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "File tab",
+      "size": [
+        184,
+        52
+      ],
+      "fill": [
+        0.13,
+        0.16,
+        0.2
+      ],
+      "position": [
+        268,
+        55
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "File tab",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 10
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "File name",
+      "text": "play.ts",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.8,
+        0.85,
+        0.91
+      ],
+      "position": [
+        208,
+        55
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "File name",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Code divider",
+      "size": [
+        1096,
+        2
+      ],
+      "fill": [
+        0.19,
+        0.23,
+        0.28
+      ],
+      "position": [
+        560,
+        98
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Code divider",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 0",
+      "text": "01",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        146
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 0",
+      "text": "export default definePlay('helpWithAds',",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.9,
+        0.94,
+        0.97
+      ],
+      "position": [
+        104,
+        146
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 0",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 0",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0,0.25)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 0",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 0",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0,0.25)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 1",
+      "text": "02",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        189
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 1",
+      "text": "  async (log) => {",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.9,
+        0.94,
+        0.97
+      ],
+      "position": [
+        104,
+        189
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 1",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 1",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0,0.25)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 1",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 1",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0,0.25)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 2",
+      "text": "03",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        232
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 2",
+      "text": "  // Read #marketing back a day",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.55,
+        0.61,
+        0.67
+      ],
+      "position": [
+        104,
+        232
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 2",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.154?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 2",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.154,0.404)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 2",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.154?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 2",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.154,0.404)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 3",
+      "text": "04",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        275
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 3",
+      "text": "  await log.discordRead()",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.64,
+        0.8,
+        1
+      ],
+      "position": [
+        104,
+        275
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 3",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.201?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 3",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.201,0.451)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 3",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.201?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 3",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.201,0.451)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 4",
+      "text": "05",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        318
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 4",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 4",
+      "text": "  // Find a meme for the moment",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.55,
+        0.61,
+        0.67
+      ],
+      "position": [
+        104,
+        318
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 4",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 4",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.248?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 4",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.248,0.498)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 4",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.248?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 4",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.248,0.498)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 5",
+      "text": "06",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        361
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 5",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 5",
+      "text": "  await log.memelordSearch()",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.64,
+        0.8,
+        1
+      ],
+      "position": [
+        104,
+        361
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 5",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 5",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.295?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 5",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.295,0.5449999999999999)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 5",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.295?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 5",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.295,0.5449999999999999)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 6",
+      "text": "07",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        404
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 6",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 6",
+      "text": "  // Check it fits the room",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.55,
+        0.61,
+        0.67
+      ],
+      "position": [
+        104,
+        404
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 6",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 6",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.342?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 6",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.342,0.5920000000000001)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 6",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.342?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 6",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.342,0.5920000000000001)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 7",
+      "text": "08",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        447
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 7",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 7",
+      "text": "  await log.voice()",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.64,
+        0.8,
+        1
+      ],
+      "position": [
+        104,
+        447
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 7",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 7",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.389?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 7",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.389,0.639)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 7",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.389?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 7",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.389,0.639)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 8",
+      "text": "09",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        490
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 8",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 8",
+      "text": "  // Answer in the chat",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.55,
+        0.61,
+        0.67
+      ],
+      "position": [
+        104,
+        490
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 8",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 8",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.436?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 8",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.436,0.6859999999999999)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 8",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.436?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 8",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.436,0.6859999999999999)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 9",
+      "text": "10",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        533
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 9",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 9",
+      "text": "  await log.discordSendLive()",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.64,
+        0.8,
+        1
+      ],
+      "position": [
+        104,
+        533
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 9",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 9",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.483?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 9",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.483,0.733)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 9",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.483?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 9",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.483,0.733)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 10",
+      "text": "11",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        576
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 10",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 10",
+      "text": "  // React to their thanks",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.55,
+        0.61,
+        0.67
+      ],
+      "position": [
+        104,
+        576
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 10",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 10",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.53?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 10",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.53,0.78)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 10",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.53?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 10",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.53,0.78)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 11",
+      "text": "12",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        619
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 11",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 11",
+      "text": "  await log.discordReactLive()",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.64,
+        0.8,
+        1
+      ],
+      "position": [
+        104,
+        619
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 11",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 11",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.577?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 11",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.577,0.827)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 11",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.577?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 11",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.577,0.827)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Line number 12",
+      "text": "13",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 23,
+      "fill": [
+        0.36,
+        0.42,
+        0.49
+      ],
+      "position": [
+        41,
+        662
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 12",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Code line 12",
+      "text": "})",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 28,
+      "fill": [
+        0.9,
+        0.94,
+        0.97
+      ],
+      "position": [
+        104,
+        662
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 12",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 12",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.6240000000000001?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code line 12",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.6240000000000001,0.8740000000000001)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 12",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.6240000000000001?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Line number 12",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.6240000000000001,0.8740000000000001)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsCodeDemo",
+      "layer": "Code line 0",
+      "path": "text/sourceText",
+      "name": "Play declaration"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "stepsCodeDemo",
+      "name": "stepsCodeDemo"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "stepsCodeDemo"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "stepsFlowDemo",
+      "width": 1120,
+      "height": 740,
+      "frameRate": 30,
+      "duration": 9,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel edge",
+      "size": [
+        1100,
+        714
+      ],
+      "fill": [
+        0.102,
+        0.373,
+        0.784
+      ],
+      "position": [
+        560,
+        368
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel surface",
+      "size": [
+        1100,
+        714
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        560,
+        360
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Running dot",
+      "size": [
+        16,
+        16
+      ],
+      "fill": [
+        0.118,
+        0.557,
+        0.31
+      ],
+      "position": [
+        64,
+        60
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Running dot",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 8
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Flow title",
+      "text": "Running the play",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 34,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        92,
+        60
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Flow title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Flow divider",
+      "size": [
+        1096,
+        2
+      ],
+      "fill": [
+        0.9,
+        0.93,
+        0.96
+      ],
+      "position": [
+        560,
+        108
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Flow divider",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Task surface 0",
+      "size": [
+        1008,
+        86
+      ],
+      "fill": [
+        0.95,
+        0.97,
+        0.99
+      ],
+      "position": [
+        560,
+        178
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Task surface 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Task icon tile 0",
+      "size": [
+        52,
+        52
+      ],
+      "fill": [
+        0.87,
+        0.93,
+        1
+      ],
+      "position": [
+        99,
+        178
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Task icon tile 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Task icon 0",
+      "text": "#",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 29,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        83,
+        178
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Task icon 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Task name 0",
+      "text": "Read #marketing back a day",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 31,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        145,
+        178
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Task name 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Next 0",
+      "text": "Next",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 26,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        938,
+        178
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next 0",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.21000000000000002?100:0"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Done 0",
+      "text": "\u2713 Done",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.118,
+        0.557,
+        0.31
+      ],
+      "position": [
+        910,
+        178
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 0",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.21000000000000002?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 0",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.21000000000000002,0.46)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Call 0",
+      "text": "discordRead",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 15,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        145,
+        206
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Call 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Call 0",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}0"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Task surface 1",
+      "size": [
+        1008,
+        86
+      ],
+      "fill": [
+        0.95,
+        0.97,
+        0.99
+      ],
+      "position": [
+        560,
+        279
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Task surface 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Task icon tile 1",
+      "size": [
+        52,
+        52
+      ],
+      "fill": [
+        0.87,
+        0.93,
+        1
+      ],
+      "position": [
+        99,
+        279
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Task icon tile 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Task icon 1",
+      "text": "\u2726",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 29,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        83,
+        279
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Task icon 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Task name 1",
+      "text": "Find a meme for the moment",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 31,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        145,
+        279
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Task name 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Next 1",
+      "text": "Next",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 26,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        938,
+        279
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next 1",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.36?100:0"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Done 1",
+      "text": "\u2713 Done",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.118,
+        0.557,
+        0.31
+      ],
+      "position": [
+        910,
+        279
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 1",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.36?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 1",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.36,0.61)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Call 1",
+      "text": "memelordSearch",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 15,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        145,
+        307
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Call 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Call 1",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}0"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Task surface 2",
+      "size": [
+        1008,
+        86
+      ],
+      "fill": [
+        0.95,
+        0.97,
+        0.99
+      ],
+      "position": [
+        560,
+        380
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Task surface 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Task icon tile 2",
+      "size": [
+        52,
+        52
+      ],
+      "fill": [
+        0.87,
+        0.93,
+        1
+      ],
+      "position": [
+        99,
+        380
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Task icon tile 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Task icon 2",
+      "text": "\u2248",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 29,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        83,
+        380
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Task icon 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Task name 2",
+      "text": "Check it fits the room",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 31,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        145,
+        380
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Task name 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Next 2",
+      "text": "Next",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 26,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        938,
+        380
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next 2",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.51?100:0"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Done 2",
+      "text": "\u2713 Done",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.118,
+        0.557,
+        0.31
+      ],
+      "position": [
+        910,
+        380
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 2",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.51?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 2",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.51,0.76)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Call 2",
+      "text": "voice",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 15,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        145,
+        408
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Call 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Call 2",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}0"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Task surface 3",
+      "size": [
+        1008,
+        86
+      ],
+      "fill": [
+        0.95,
+        0.97,
+        0.99
+      ],
+      "position": [
+        560,
+        481
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Task surface 3",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Task icon tile 3",
+      "size": [
+        52,
+        52
+      ],
+      "fill": [
+        0.87,
+        0.93,
+        1
+      ],
+      "position": [
+        99,
+        481
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Task icon tile 3",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Task icon 3",
+      "text": "\u2197",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 29,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        83,
+        481
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Task icon 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Task name 3",
+      "text": "Answer in the chat",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 31,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        145,
+        481
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Task name 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Next 3",
+      "text": "Next",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 26,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        938,
+        481
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next 3",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.6599999999999999?100:0"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Done 3",
+      "text": "\u2713 Done",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.118,
+        0.557,
+        0.31
+      ],
+      "position": [
+        910,
+        481
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 3",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.6599999999999999?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 3",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.6599999999999999,0.9099999999999999)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Call 3",
+      "text": "discordSendLive",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 15,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        145,
+        509
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Call 3",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Call 3",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}0"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Task surface 4",
+      "size": [
+        1008,
+        86
+      ],
+      "fill": [
+        0.95,
+        0.97,
+        0.99
+      ],
+      "position": [
+        560,
+        582
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Task surface 4",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 16
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Task icon tile 4",
+      "size": [
+        52,
+        52
+      ],
+      "fill": [
+        0.87,
+        0.93,
+        1
+      ],
+      "position": [
+        99,
+        582
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Task icon tile 4",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Task icon 4",
+      "text": "\u2661",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 29,
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        83,
+        582
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Task icon 4",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Task name 4",
+      "text": "React to their thanks",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 31,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        145,
+        582
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Task name 4",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Next 4",
+      "text": "Next",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 26,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        938,
+        582
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next 4",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Next 4",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.8099999999999999?100:0"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Done 4",
+      "text": "\u2713 Done",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.118,
+        0.557,
+        0.31
+      ],
+      "position": [
+        910,
+        582
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 4",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 4",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.8099999999999999?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Done 4",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.8099999999999999,1.06)),0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Call 4",
+      "text": "discordReactLive",
+      "font": "JetBrains Mono",
+      "style": "Medium",
+      "size": 15,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        145,
+        610
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Call 4",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Call 4",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}0"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Completion",
+      "text": "All 5 steps checked.",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 25,
+      "fill": [
+        0.118,
+        0.557,
+        0.31
+      ],
+      "position": [
+        58,
+        692
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Completion",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Completion",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.92?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Completion",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.92,1.17)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsFlowDemo",
+      "layer": "Flow title",
+      "path": "text/sourceText",
+      "name": "Flow title"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "stepsFlowDemo",
+      "name": "stepsFlowDemo"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "stepsFlowDemo"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "stepsPlayDemo",
+      "width": 1120,
+      "height": 740,
+      "frameRate": 30,
+      "duration": 9,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "stepsCodeDemo",
+      "position": [
+        560,
+        370
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "stepsCodeDemo",
+      "name": "Code"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Code",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "stepsFlowDemo",
+      "position": [
+        560,
+        370
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "stepsFlowDemo",
+      "name": "Checked flow"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Checked flow",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.enableTimeRemap",
+    "params": {
+      "layers": [
+        "Checked flow"
+      ],
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Checked flow",
+      "path": "timeRemap",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}Math.max(0,time-.72)"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Checked flow",
+      "path": "transform/opacity",
+      "value": 100
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Checked flow",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}[560,370+800*(1-bk(.72,1.14)),0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Code",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var p=Math.max(0,Math.min(1,(time-.70)/.42)),s=100*Math.max(0,1+1.8*p*p-2.8*p*p*p);[s,s,100]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsPlayDemo",
+      "layer": "Checked flow",
+      "path": "transform/scale",
+      "name": "Flow size",
+      "as": "scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "stepsPlayDemo",
+      "name": "stepsPlayDemo"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "stepsPlayDemo"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "stepsResultDemo",
+      "width": 1120,
+      "height": 740,
+      "frameRate": 30,
+      "duration": 9,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel edge",
+      "size": [
+        1100,
+        714
+      ],
+      "fill": [
+        0.102,
+        0.373,
+        0.784
+      ],
+      "position": [
+        560,
+        368
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Panel surface",
+      "size": [
+        1100,
+        714
+      ],
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        560,
+        360
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Panel surface",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 25
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Column 0",
+      "text": "Who",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        60,
+        69
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Column 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Column 1",
+      "text": "What log did",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        320,
+        69
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Column 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Column 2",
+      "text": "Status",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        922,
+        69
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Column 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Table divider",
+      "size": [
+        1096,
+        2
+      ],
+      "fill": [
+        0.9,
+        0.93,
+        0.96
+      ],
+      "position": [
+        560,
+        115
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Table divider",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Row divider 0",
+      "size": [
+        1008,
+        2
+      ],
+      "fill": [
+        0.93,
+        0.95,
+        0.97
+      ],
+      "position": [
+        560,
+        277
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row divider 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Who 0",
+      "text": "mila",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 37,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        60,
+        215
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Who 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "What 0",
+      "text": "answer about ads",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 33,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        320,
+        215
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "What 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Status badge 0",
+      "size": [
+        144,
+        52
+      ],
+      "fill": [
+        0.91,
+        0.97,
+        0.94
+      ],
+      "position": [
+        978,
+        215
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Status badge 0",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Sent 0",
+      "text": "Sent",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.118,
+        0.557,
+        0.31
+      ],
+      "position": [
+        945,
+        215
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sent 0",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Result entrance 0"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Result entrance 0",
+      "path": "transform/position",
+      "value": [
+        560,
+        215,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Who 0"
+      ],
+      "parent": "Result entrance 0",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Who 0",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.14?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "What 0"
+      ],
+      "parent": "Result entrance 0",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "What 0",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.14?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Status badge 0"
+      ],
+      "parent": "Result entrance 0",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Status badge 0",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.14?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Sent 0"
+      ],
+      "parent": "Result entrance 0",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sent 0",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.14?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Result entrance 0",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=90+10*bk(0.14,0.42000000000000004);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Result entrance 0",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.14?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Result entrance 0",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.14,0.39)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Row divider 1",
+      "size": [
+        1008,
+        2
+      ],
+      "fill": [
+        0.93,
+        0.95,
+        0.97
+      ],
+      "position": [
+        560,
+        410
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row divider 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Who 1",
+      "text": "deano",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 37,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        60,
+        348
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Who 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "What 1",
+      "text": "meme, shown inline",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 33,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        320,
+        348
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "What 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Status badge 1",
+      "size": [
+        144,
+        52
+      ],
+      "fill": [
+        0.91,
+        0.97,
+        0.94
+      ],
+      "position": [
+        978,
+        348
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Status badge 1",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Sent 1",
+      "text": "Sent",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.118,
+        0.557,
+        0.31
+      ],
+      "position": [
+        945,
+        348
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sent 1",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Result entrance 1"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Result entrance 1",
+      "path": "transform/position",
+      "value": [
+        560,
+        348,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Who 1"
+      ],
+      "parent": "Result entrance 1",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Who 1",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.35?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "What 1"
+      ],
+      "parent": "Result entrance 1",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "What 1",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.35?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Status badge 1"
+      ],
+      "parent": "Result entrance 1",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Status badge 1",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.35?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Sent 1"
+      ],
+      "parent": "Result entrance 1",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sent 1",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.35?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Result entrance 1",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=90+10*bk(0.35,0.63);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Result entrance 1",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.35?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Result entrance 1",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.35,0.6)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Row divider 2",
+      "size": [
+        1008,
+        2
+      ],
+      "fill": [
+        0.93,
+        0.95,
+        0.97
+      ],
+      "position": [
+        560,
+        543
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Row divider 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Who 2",
+      "text": "kai",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 37,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        60,
+        481
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Who 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "What 2",
+      "text": "answer about ads",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 33,
+      "fill": [
+        0.42,
+        0.5,
+        0.6
+      ],
+      "position": [
+        320,
+        481
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "What 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Status badge 2",
+      "size": [
+        144,
+        52
+      ],
+      "fill": [
+        0.91,
+        0.97,
+        0.94
+      ],
+      "position": [
+        978,
+        481
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Status badge 2",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 12
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Sent 2",
+      "text": "Sent",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 27,
+      "fill": [
+        0.118,
+        0.557,
+        0.31
+      ],
+      "position": [
+        945,
+        481
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sent 2",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Result entrance 2"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Result entrance 2",
+      "path": "transform/position",
+      "value": [
+        560,
+        481,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Who 2"
+      ],
+      "parent": "Result entrance 2",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Who 2",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.56?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "What 2"
+      ],
+      "parent": "Result entrance 2",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "What 2",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.56?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Status badge 2"
+      ],
+      "parent": "Result entrance 2",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Status badge 2",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.56?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Sent 2"
+      ],
+      "parent": "Result entrance 2",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Sent 2",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.56?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Result entrance 2",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=90+10*bk(0.56,0.8400000000000001);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Result entrance 2",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.56?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Result entrance 2",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.56,0.81)),0]"
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Footer",
+      "size": [
+        1096,
+        132
+      ],
+      "fill": [
+        0.97,
+        0.98,
+        0.99
+      ],
+      "position": [
+        560,
+        645
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Footer",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 20
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Footer divider",
+      "size": [
+        1096,
+        2
+      ],
+      "fill": [
+        0.9,
+        0.93,
+        0.96
+      ],
+      "position": [
+        560,
+        579
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Footer divider",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 0
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Discord badge",
+      "size": [
+        72,
+        72
+      ],
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        341,
+        645
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Discord badge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 17
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "discord.svg",
+      "position": [
+        341,
+        645
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "discord.svg",
+      "name": "Logo discord"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "transform/scale",
+      "value": [
+        45.19230769230769,
+        45.19230769230769,
+        100
+      ]
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Tint",
+      "layers": [
+        "Logo discord"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "effects/#1/black",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Logo discord",
+      "path": "effects/#1/white",
+      "value": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Landing",
+      "text": "Landed on Discord",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 35,
+      "fill": [
+        0.050980392156862744,
+        0.16470588235294117,
+        0.2980392156862745
+      ],
+      "position": [
+        399,
+        645
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Landing",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newNull",
+    "params": {
+      "name": "Landed entrance"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Landed entrance",
+      "path": "transform/position",
+      "value": [
+        560,
+        645,
+        0
+      ]
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Discord badge"
+      ],
+      "parent": "Landed entrance",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Discord badge",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.88?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Logo discord"
+      ],
+      "parent": "Landed entrance",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Logo discord",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.88?0:100"
+    }
+  },
+  {
+    "command": "layer.setParent",
+    "params": {
+      "layers": [
+        "Landing"
+      ],
+      "parent": "Landed entrance",
+      "compensate": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Landing",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.88?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Landed entrance",
+      "path": "transform/scale",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var s=90+10*bk(0.88,1.1600000000000001);[s,s,100]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Landed entrance",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.88?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Landed entrance",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.88,1.13)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsResultDemo",
+      "layer": "Landing",
+      "path": "text/sourceText",
+      "name": "Landing"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "stepsResultDemo",
+      "name": "stepsResultDemo"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "stepsResultDemo"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "stepsCard1",
+      "width": 1200,
+      "height": 1300,
+      "frameRate": 30,
+      "duration": 9,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue carrier edge",
+      "size": [
+        980,
+        1220
+      ],
+      "fill": [
+        0.102,
+        0.373,
+        0.784
+      ],
+      "position": [
+        600,
+        657
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 36
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue carrier",
+      "size": [
+        980,
+        1220
+      ],
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        600,
+        645
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 36
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue carrier"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.122,
+        0.471,
+        0.941,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/start",
+      "value": [
+        600,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/end",
+      "value": [
+        600,
+        1290
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "stepsAskDemo",
+      "position": [
+        600,
+        443
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "stepsAskDemo",
+      "name": "Website demo"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Website demo",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.enableTimeRemap",
+    "params": {
+      "layers": [
+        "Website demo"
+      ],
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Website demo",
+      "path": "timeRemap",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}Math.max(0,time-0.32)"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Step number",
+      "text": "Step 1",
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 108,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        165,
+        911
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step number",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Step title",
+      "text": "Ask your agent",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 54,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        165,
+        1033
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Step description",
+      "text": "The play: help people in\nyour Discord server.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 37,
+      "fill": [
+        0.9,
+        0.96,
+        1
+      ],
+      "position": [
+        165,
+        1148
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step description",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step number",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.1?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step number",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.1,0.35)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsCard1",
+      "layer": "Step number",
+      "path": "text/sourceText",
+      "name": "Step number"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step title",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.17?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step title",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.17,0.42000000000000004)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsCard1",
+      "layer": "Step title",
+      "path": "text/sourceText",
+      "name": "Step title"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step description",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.24000000000000002?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step description",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.24000000000000002,0.49)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsCard1",
+      "layer": "Step description",
+      "path": "text/sourceText",
+      "name": "Step description"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "stepsCard1",
+      "name": "stepsCard1"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "stepsCard1"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "stepsCard2",
+      "width": 1200,
+      "height": 1300,
+      "frameRate": 30,
+      "duration": 9,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue carrier edge",
+      "size": [
+        980,
+        1220
+      ],
+      "fill": [
+        0.102,
+        0.373,
+        0.784
+      ],
+      "position": [
+        600,
+        657
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 36
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue carrier",
+      "size": [
+        980,
+        1220
+      ],
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        600,
+        645
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 36
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue carrier"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.122,
+        0.471,
+        0.941,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/start",
+      "value": [
+        600,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/end",
+      "value": [
+        600,
+        1290
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "stepsPlayDemo",
+      "position": [
+        600,
+        443
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "stepsPlayDemo",
+      "name": "Website demo"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Website demo",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.enableTimeRemap",
+    "params": {
+      "layers": [
+        "Website demo"
+      ],
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Website demo",
+      "path": "timeRemap",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}Math.max(0,time-0.47)"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Step number",
+      "text": "Step 2",
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 108,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        165,
+        911
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step number",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Step title",
+      "text": "log writes and runs the play",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 48,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        165,
+        1033
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Step description",
+      "text": "5 steps, each one checked\nbefore the next.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 37,
+      "fill": [
+        0.9,
+        0.96,
+        1
+      ],
+      "position": [
+        165,
+        1148
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step description",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step number",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.1?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step number",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.1,0.35)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsCard2",
+      "layer": "Step number",
+      "path": "text/sourceText",
+      "name": "Step number"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step title",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.17?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step title",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.17,0.42000000000000004)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsCard2",
+      "layer": "Step title",
+      "path": "text/sourceText",
+      "name": "Step title"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step description",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.24000000000000002?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step description",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.24000000000000002,0.49)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsCard2",
+      "layer": "Step description",
+      "path": "text/sourceText",
+      "name": "Step description"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "stepsCard2",
+      "name": "stepsCard2"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "stepsCard2"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "stepsCard3",
+      "width": 1200,
+      "height": 1300,
+      "frameRate": 30,
+      "duration": 9,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue carrier edge",
+      "size": [
+        980,
+        1220
+      ],
+      "fill": [
+        0.102,
+        0.373,
+        0.784
+      ],
+      "position": [
+        600,
+        657
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier edge",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 36
+    }
+  },
+  {
+    "command": "layer.newShape",
+    "params": {
+      "kind": "rounded",
+      "name": "Blue carrier",
+      "size": [
+        980,
+        1220
+      ],
+      "fill": [
+        0.16470588235294117,
+        0.5490196078431373,
+        1
+      ],
+      "position": [
+        600,
+        645
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "contents/group/contents/rect/roundness",
+      "value": 36
+    }
+  },
+  {
+    "command": "effect.apply",
+    "params": {
+      "effect": "Gradient Ramp",
+      "layers": [
+        "Blue carrier"
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/startColor",
+      "value": [
+        0.31,
+        0.65,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/endColor",
+      "value": [
+        0.122,
+        0.471,
+        0.941,
+        1
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/start",
+      "value": [
+        600,
+        0
+      ]
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Blue carrier",
+      "path": "effects/#1/end",
+      "value": [
+        600,
+        1290
+      ]
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "stepsResultDemo",
+      "position": [
+        600,
+        443
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "stepsResultDemo",
+      "name": "Website demo"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Website demo",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "layer.enableTimeRemap",
+    "params": {
+      "layers": [
+        "Website demo"
+      ],
+      "value": true
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Website demo",
+      "path": "timeRemap",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}Math.max(0,time-0.47)"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Step number",
+      "text": "Step 3",
+      "font": "Satoshi",
+      "style": "Black",
+      "size": 108,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        165,
+        911
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step number",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Step title",
+      "text": "It lands on Discord",
+      "font": "Satoshi",
+      "style": "Bold",
+      "size": 54,
+      "fill": [
+        1,
+        1,
+        1
+      ],
+      "position": [
+        165,
+        1033
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step title",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "layer.newText",
+    "params": {
+      "name": "Step description",
+      "text": "Every message from your own\naccount, in your own voice.",
+      "font": "Satoshi",
+      "style": "Medium",
+      "size": 37,
+      "fill": [
+        0.9,
+        0.96,
+        1
+      ],
+      "position": [
+        165,
+        1148
+      ],
+      "justify": "left"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step description",
+      "path": "transform/anchor",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var r=sourceRectAtTime(thisComp.duration,false);[r.left,r.top+r.height/2,0]"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step number",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.1?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step number",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.1,0.35)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsCard3",
+      "layer": "Step number",
+      "path": "text/sourceText",
+      "name": "Step number"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step title",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.17?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step title",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.17,0.42000000000000004)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsCard3",
+      "layer": "Step title",
+      "path": "text/sourceText",
+      "name": "Step title"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step description",
+      "path": "transform/opacity",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}time<0.24000000000000002?0:100"
+    }
+  },
+  {
+    "command": "prop.setExpression",
+    "params": {
+      "layer": "Step description",
+      "path": "transform/position",
+      "expression": "function sm(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a)));return p*p*(3-2*p);}function bk(a,b){var p=Math.max(0,Math.min(1,(time-a)/(b-a))),u=p-1;return 1+2.8*u*u*u+1.8*u*u;}var v=value;[v[0],v[1]+24*(1-bk(0.24000000000000002,0.49)),0]"
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsCard3",
+      "layer": "Step description",
+      "path": "text/sourceText",
+      "name": "Step description"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "stepsCard3",
+      "name": "stepsCard3"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "stepsCard3"
+    }
+  },
+  {
+    "command": "comp.new",
+    "params": {
+      "name": "stepsTrackParts",
+      "width": 1200,
+      "height": 1300,
+      "frameRate": 30,
+      "duration": 9,
+      "open": true
+    }
+  },
+  {
+    "command": "layer.addItem",
+    "params": {
+      "item": "stepsCard1",
+      "position": [
+        600,
+        650
+      ]
+    }
+  },
+  {
+    "command": "layer.rename",
+    "params": {
+      "layer": "stepsCard1",
+      "name": "Three-step preview"
+    }
+  },
+  {
+    "command": "prop.set",
+    "params": {
+      "layer": "Three-step preview",
+      "path": "transform/scale",
+      "value": [
+        100,
+        100,
+        100
+      ]
+    }
+  },
+  {
+    "command": "essential.addProperty",
+    "params": {
+      "comp": "stepsTrackParts",
+      "layer": "Three-step preview",
+      "path": "transform/scale",
+      "name": "Card size",
+      "as": "scale"
+    }
+  },
+  {
+    "command": "essential.setName",
+    "params": {
+      "comp": "stepsTrackParts",
+      "name": "stepsTrackParts"
+    }
+  },
+  {
+    "command": "comp.close",
+    "params": {
+      "comp": "stepsTrackParts"
+    }
+  }
+]
