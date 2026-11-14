@@ -1,0 +1,243 @@
+{
+ "about": "The launch film's opener, matt's FilmCraft cut (launchIntro-v1.fcproj, sequence intro), synced by assets/sync_opening_from_filmcraft.py: every picture clip at its timestamps and Motion, track 2 on top (the cyberpsycho shout, make_opening_psycho_cut.py). cyberStart: the frame cyberpunk's own time 0 sits at.",
+ "fps": 30,
+ "frames": 450,
+ "cyberStart": 263,
+ "flash": null,
+ "shots": [
+  {
+   "name": "aerial",
+   "in": 0,
+   "out": 23,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/cast/aerial.png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    960.0,
+    540.0
+   ],
+   "position": [
+    960.0,
+    540.0
+   ],
+   "scale": 100.0
+  },
+  {
+   "name": "carwindow_moving_raw",
+   "in": 23,
+   "out": 48,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/gpt3/carwindow_moving_raw.png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    1376.0,
+    768.0
+   ],
+   "position": [
+    960.0,
+    540.0
+   ],
+   "scale": 75.5
+  },
+  {
+   "name": "Cinematic Close-Up of Sam Altman",
+   "in": 48,
+   "out": 64,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/mattgen/Cinematic Close-Up of Sam Altman.png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    836.0,
+    470.5
+   ],
+   "position": [
+    960.0,
+    540.0
+   ],
+   "scale": 118.5
+  },
+  {
+   "name": "gpt3",
+   "in": 64,
+   "out": 82,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/mattgen/gpt3.png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    969.0,
+    405.5
+   ],
+   "position": [
+    592.0,
+    540.0
+   ],
+   "scale": 138.5
+  },
+  {
+   "name": "Pixelated Chat Input Close-Up (1)",
+   "in": 82,
+   "out": 109,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/mattgen/Pixelated Chat Input Close-Up (1).png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    970.0,
+    405.5
+   ],
+   "position": [
+    960.0,
+    540.0
+   ],
+   "scale": 100.0
+  },
+  {
+   "name": "gpt32",
+   "in": 109,
+   "out": 128,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/mattgen/gpt32.png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    965.5,
+    407.0
+   ],
+   "position": [
+    960.0,
+    540.0
+   ],
+   "scale": 137.0
+  },
+  {
+   "name": "sama3",
+   "in": 128,
+   "out": 153,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/mattgen/sama3.png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    836.0,
+    471.5
+   ],
+   "position": [
+    960.0,
+    518.0
+   ],
+   "scale": 121.5
+  },
+  {
+   "name": "darioboard",
+   "in": 153,
+   "out": 181,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/mattgen/darioboard.png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    836.0,
+    470.5
+   ],
+   "position": [
+    960.0,
+    540.0
+   ],
+   "scale": 119.5
+  },
+  {
+   "name": "Through the Blinds_ Focused Tech Workspace",
+   "in": 181,
+   "out": 215,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/mattgen/Through the Blinds_ Focused Tech Workspace.png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    836.0,
+    470.5
+   ],
+   "position": [
+    960.0,
+    540.0
+   ],
+   "scale": 123.0
+  },
+  {
+   "name": "Can I Trust You_ Maybe",
+   "in": 215,
+   "out": 253,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/mattgen/Can I Trust You_ Maybe.png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    965.5,
+    407.0
+   ],
+   "position": [
+    960.0,
+    540.0
+   ],
+   "scale": 143.0
+  },
+  {
+   "name": "Through the Blinds, Wired In Silence",
+   "in": 253,
+   "out": 281,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/mattgen/Through the Blinds, Wired In Silence.png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    836.0,
+    470.5
+   ],
+   "position": [
+    735.0,
+    588.0
+   ],
+   "scale": 149.0
+  },
+  {
+   "name": "Intense Gaze Before the Chalkboard",
+   "in": 281,
+   "out": 308,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/mattgen/Intense Gaze Before the Chalkboard.png",
+   "video": false,
+   "sourceIn": 0,
+   "track": 1,
+   "anchor": [
+    836.0,
+    470.5
+   ],
+   "position": [
+    1230.0,
+    540.0
+   ],
+   "scale": 148.5
+  },
+  {
+   "name": "opening_psycho_v5",
+   "in": 253,
+   "out": 450,
+   "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/opening_psycho_v5.mp4",
+   "video": true,
+   "sourceIn": 0,
+   "track": 2,
+   "anchor": [
+    960.0,
+    540.0
+   ],
+   "position": [
+    960.0,
+    540.0
+   ],
+   "scale": 100.0
+  }
+ ]
+}
