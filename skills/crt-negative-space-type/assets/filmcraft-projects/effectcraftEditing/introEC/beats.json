@@ -1,0 +1,322 @@
+[
+ {
+  "p0": 0.0,
+  "p1": 2.35,
+  "src": 91.2,
+  "words": [
+   [
+    0.14,
+    "I"
+   ],
+   [
+    0.2,
+    "did"
+   ],
+   [
+    0.44,
+    "not"
+   ],
+   [
+    0.86,
+    "touch"
+   ],
+   [
+    1.36,
+    "the"
+   ],
+   [
+    1.6,
+    "timeline"
+   ]
+  ],
+  "text": "I did not touch the timeline"
+ },
+ {
+  "p0": 2.35,
+  "p1": 2.85,
+  "src": 206.75,
+  "words": [
+   [
+    2.282,
+    "One"
+   ],
+   [
+    2.525,
+    "prompt."
+   ]
+  ],
+  "text": "One prompt."
+ },
+ {
+  "p0": 2.85,
+  "p1": 5.95,
+  "src": 2513.15,
+  "words": [
+   [
+    2.801,
+    "you"
+   ],
+   [
+    2.882,
+    "simply"
+   ],
+   [
+    3.529,
+    "need"
+   ],
+   [
+    3.852,
+    "free"
+   ],
+   [
+    4.03,
+    "libraries"
+   ],
+   [
+    4.807,
+    "and"
+   ],
+   [
+    5.049,
+    "a"
+   ],
+   [
+    5.065,
+    "Claude"
+   ],
+   [
+    5.308,
+    "Code"
+   ],
+   [
+    5.373,
+    "subscription."
+   ]
+  ],
+  "text": "you simply need free libraries and a Claude Code subscription."
+ },
+ {
+  "p0": 5.95,
+  "p1": 7.4667,
+  "src": 235.0,
+  "words": [
+   [
+    5.9,
+    "You"
+   ],
+   [
+    5.98,
+    "couldn't"
+   ],
+   [
+    6.24,
+    "tell"
+   ],
+   [
+    6.5,
+    "this"
+   ],
+   [
+    6.62,
+    "was"
+   ],
+   [
+    6.72,
+    "made"
+   ],
+   [
+    6.84,
+    "with"
+   ],
+   [
+    6.98,
+    "AI."
+   ]
+  ],
+  "text": "You couldn't tell this was made with AI."
+ },
+ {
+  "p0": 7.4667,
+  "p1": 9.7667,
+  "src": 2219.85,
+  "words": [
+   [
+    7.384,
+    "That"
+   ],
+   [
+    7.577,
+    "shit"
+   ],
+   [
+    7.882,
+    "is"
+   ],
+   [
+    8.188,
+    "over"
+   ],
+   [
+    8.59,
+    "and"
+   ],
+   [
+    8.767,
+    "fucking"
+   ],
+   [
+    9.233,
+    "done"
+   ],
+   [
+    9.474,
+    "with."
+   ]
+  ],
+  "text": "That shit is over and fucking done with."
+ },
+ {
+  "p0": 9.7667,
+  "p1": 11.55,
+  "src": 3347.15,
+  "words": [
+   [
+    9.679,
+    "you"
+   ],
+   [
+    9.84,
+    "never"
+   ],
+   [
+    10.065,
+    "pay"
+   ],
+   [
+    10.724,
+    "for"
+   ],
+   [
+    10.885,
+    "plugins."
+   ]
+  ],
+  "text": "you never pay for plugins."
+ },
+ {
+  "p0": 11.55,
+  "p1": 11.7833,
+  "src": 3349.2333,
+  "words": [
+   [
+    11.485,
+    "Never."
+   ]
+  ],
+  "text": "Never."
+ },
+ {
+  "p0": 11.7833,
+  "p1": 14.6667,
+  "src": 3908.9,
+  "words": [
+   [
+    11.843,
+    "it"
+   ],
+   [
+    12.088,
+    "literally"
+   ],
+   [
+    12.823,
+    "would"
+   ],
+   [
+    12.97,
+    "have"
+   ],
+   [
+    13.068,
+    "taken"
+   ],
+   [
+    14.165,
+    "A"
+   ],
+   [
+    14.173,
+    "week."
+   ]
+  ],
+  "text": "it literally would have taken A week."
+ },
+ {
+  "p0": 14.6667,
+  "p1": 16.1333,
+  "src": 3912.1833,
+  "words": [
+   [
+    14.589,
+    "It's"
+   ],
+   [
+    15.551,
+    "done"
+   ],
+   [
+    15.665,
+    "in"
+   ],
+   [
+    15.731,
+    "2"
+   ],
+   [
+    15.829,
+    "days."
+   ]
+  ],
+  "text": "It's done in 2 days."
+ },
+ {
+  "p0": 16.1333,
+  "p1": 17.5,
+  "src": 3928.1833,
+  "words": [
+   [
+    16.169,
+    "this"
+   ],
+   [
+    16.347,
+    "is"
+   ],
+   [
+    16.411,
+    "the"
+   ],
+   [
+    16.492,
+    "greatest"
+   ],
+   [
+    16.67,
+    "upgrade"
+   ],
+   [
+    16.912,
+    "we'll"
+   ],
+   [
+    17.074,
+    "ever"
+   ],
+   [
+    17.139,
+    "have."
+   ]
+  ],
+  "text": "this is the greatest upgrade we'll ever have."
+ }
+]

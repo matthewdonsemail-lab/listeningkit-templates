@@ -1,0 +1,163 @@
+[
+ {
+  "t": 183.0,
+  "d": 4.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_00.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/ref/shotref.mp4",
+  "said": "I love watching reference material"
+ },
+ {
+  "t": 190.0,
+  "d": 3.8,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_01.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/process/opener_bigshort.jpg",
+  "said": "take my favourite media and find the shots I like"
+ },
+ {
+  "t": 194.5,
+  "d": 3.5,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_02.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/process/opener_shotref.jpg",
+  "said": "with Claude Code you can automate the fuck out of this"
+ },
+ {
+  "t": 283.0,
+  "d": 4.5,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_03.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/opening_camera_stills.jpg",
+  "said": "pass through the reference image, a counted 45-degree angle"
+ },
+ {
+  "t": 486.0,
+  "d": 5.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_04.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/plugins/redlines/redlines_sheet.jpg",
+  "said": "NumPy pulls out the skeleton, a seed of this path"
+ },
+ {
+  "t": 512.0,
+  "d": 6.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_05.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/process/eye_effect.jpg",
+  "said": "this is just done with Python ... the effect around the eyes"
+ },
+ {
+  "t": 563.0,
+  "d": 5.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_06.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/process/opener_psycho_steps.jpg",
+  "said": "12 variation shots, the subject off the background"
+ },
+ {
+  "t": 585.0,
+  "d": 5.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_07.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/process/eye_effect.jpg",
+  "said": "OpenCV plots out where the eyes are ... 3 echoes"
+ },
+ {
+  "t": 618.0,
+  "d": 5.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_08.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/process/opener_psycho_cut.jpg",
+  "said": "rectangles cropped in random intervals from 12 variations"
+ },
+ {
+  "t": 647.0,
+  "d": 4.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_09.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/ref/sun_ae/tiktok_7658403141708172558.mp4",
+  "said": "this TikTok, the sun_ae one"
+ },
+ {
+  "t": 652.0,
+  "d": 3.5,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_10.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/process/sun_ae_picked.jpg",
+  "said": "multiple faces, red and white glitch box, the cyberware HUD"
+ },
+ {
+  "t": 794.0,
+  "d": 3.5,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_11.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/ref/cyberpunk_edits/urV5GzXcXsQ/video.mp4",
+  "said": "this is from Cyberpunk itself"
+ },
+ {
+  "t": 798.0,
+  "d": 4.5,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_12.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/ref/cyberpunk_edits/urV5GzXcXsQ/lines_1029_sheet.jpg",
+  "said": "turn it into a map ... a seed ... a generator"
+ },
+ {
+  "t": 826.5,
+  "d": 4.5,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_13.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/ref/yt_line/line_sheet.jpg",
+  "said": "the trailer ... a small white line, this is the skeleton"
+ },
+ {
+  "t": 836.0,
+  "d": 5.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_14.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/ending_redlines_stills.jpg",
+  "said": "create these cracks ... slashes around the subject"
+ },
+ {
+  "t": 866.0,
+  "d": 5.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_15.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/girl_inserts_sheet.jpg",
+  "said": "going around it, the area of the object to create a line"
+ },
+ {
+  "t": 947.0,
+  "d": 5.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_16.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/ref/tt_elements/tiktok_7705499377023995169.mp4",
+  "said": "throughout the TikTok videos, they achieve these effects"
+ },
+ {
+  "t": 958.0,
+  "d": 5.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_17.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/ref/tt_elements/assets/fx/layers_sheet.jpg",
+  "said": "break a transition down into each RGB layer"
+ },
+ {
+  "t": 999.0,
+  "d": 4.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_18.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/ref/cyberpunk_edits/boards/00_extracted_fx_layers.jpg",
+  "said": "take these different effects, NumPy, isolated paths"
+ },
+ {
+  "t": 1005.0,
+  "d": 6.5,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_19.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/process/transition_howto.jpg",
+  "said": "shot A runs past the cut, shot B starts early"
+ },
+ {
+  "t": 1231.0,
+  "d": 4.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_20.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/ref/tt_elements/elements_sheet.jpg",
+  "said": "these are obviously the TikTok frames"
+ },
+ {
+  "t": 1237.0,
+  "d": 4.5,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_21.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/opening/ref/tt_elements/assets/fx/layers_sheet.jpg",
+  "said": "the chroma streaks, the noise, the lines"
+ },
+ {
+  "t": 1249.0,
+  "d": 3.0,
+  "file": "C:/Users/0/filmcraft/projects/effectcraftEditing/breakdowns/bd_22.mp4",
+  "src": "C:/Users/0/.buzz/REPOS/listeningkit-templates/textAnimations/assets/collage/ending_transitions_stills.jpg",
+  "said": "really interesting transitions like these"
+ }
+]

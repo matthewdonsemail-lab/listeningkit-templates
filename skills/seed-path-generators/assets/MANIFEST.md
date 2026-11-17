@@ -1,0 +1,173 @@
+# Assets for seed-path-generators
+
+Everything this skill needs to run again, copied here at the same path it has in the repo
+(`textAnimations/...`, `images/gen/...`, `projects/...`), or under `filmcraft-projects/...` for files from
+`C:/Users/0/filmcraft/projects/`. The scripts still use their original absolute paths, so either run them from the
+repo, or point their path constants at this folder.
+
+## Bundled here
+
+- `textAnimations/assets/collage/ending_redlines_stills.jpg`
+- `textAnimations/assets/collage/girl_inserts_sheet.jpg`
+- `textAnimations/assets/collage/lines_animated_check.jpg`
+- `textAnimations/assets/collage/redflash_seeded.jpg`
+- `textAnimations/assets/make_bust_lines.py`
+- `textAnimations/assets/make_endcard_lines.py`
+- `textAnimations/assets/make_ending_girl_inserts.py`
+- `textAnimations/assets/make_ending_redlines.py`
+- `textAnimations/assets/make_ending_transitions.py`
+- `textAnimations/assets/make_heartbeat_lines.py`
+- `textAnimations/plugins/bustLines.jsx`
+- `textAnimations/plugins/cyberpsycho/cyberpsycho.py`
+- `textAnimations/plugins/endingCardSeq.jsx`
+- `textAnimations/plugins/endingCards.jsx`
+- `textAnimations/plugins/endingCrazy.jsx`
+- `textAnimations/plugins/endingTransitions.jsx`
+- `textAnimations/plugins/redflash/redflash.py`
+- `textAnimations/plugins/redflash/seed.py`
+- `textAnimations/plugins/redflash/seeds/seed_01.json`
+- `textAnimations/plugins/redflash/seeds/seed_01.png`
+- `textAnimations/plugins/redflash/seeds/seed_02.json`
+- `textAnimations/plugins/redflash/seeds/seed_02.png`
+- `textAnimations/plugins/redflash/seeds/seed_03.json`
+- `textAnimations/plugins/redflash/seeds/seed_03.png`
+- `textAnimations/plugins/redflash/seeds/seed_04.json`
+- `textAnimations/plugins/redflash/seeds/seed_04.png`
+- `textAnimations/plugins/redflash/seeds/seed_05.json`
+- `textAnimations/plugins/redflash/seeds/seed_05.png`
+- `textAnimations/plugins/redflash/seeds/seed_06.json`
+- `textAnimations/plugins/redflash/seeds/seed_06.png`
+- `textAnimations/plugins/redflash/seeds/seed_07.json`
+- `textAnimations/plugins/redflash/seeds/seed_07.png`
+- `textAnimations/plugins/redlines/redlines.py`
+- `textAnimations/plugins/redlines/redlines_sheet.jpg`
+- `textAnimations/plugins/redlines/seeds/cracks.json`
+- `textAnimations/plugins/redlines/seeds/mask_1020.png`
+- `textAnimations/plugins/redlines/seeds/mask_1021.png`
+- `textAnimations/plugins/redlines/seeds/mask_1022.png`
+- `textAnimations/plugins/redlines/seeds/mask_1023.png`
+- `textAnimations/plugins/redlines/seeds/mask_1024.png`
+- `textAnimations/plugins/redlines/seeds/mask_1025.png`
+- `textAnimations/plugins/redlines/seeds/mask_1026.png`
+- `textAnimations/plugins/redlines/seeds/mask_1027.png`
+- `textAnimations/plugins/redlines/seeds/mask_1028.png`
+- `textAnimations/plugins/redlines/seeds/mask_1029.png`
+- `textAnimations/plugins/redlines/seeds/mask_1030.png`
+- `textAnimations/plugins/redlines/seeds/mask_1031.png`
+- `textAnimations/plugins/redlines/seeds/mask_1032.png`
+- `textAnimations/plugins/redlines/seeds/mask_1033.png`
+- `textAnimations/plugins/redlines/seeds/mask_1034.png`
+- `textAnimations/plugins/redlines/seeds/mask_1035.png`
+- `textAnimations/plugins/redlines/seeds/mask_1036.png`
+- `textAnimations/plugins/redlines/seeds/mask_1037.png`
+- `textAnimations/plugins/redlines/seeds/mask_1038.png`
+- `textAnimations/plugins/redlines/seeds/mask_1039.png`
+- `textAnimations/plugins/redlines/seeds/mask_1040.png`
+- `textAnimations/plugins/redlines/seeds/mask_1041.png`
+- `textAnimations/plugins/redlines/seeds/mask_1042.png`
+- `textAnimations/plugins/redlines/seeds/mask_1043.png`
+- `textAnimations/plugins/redlines/seeds/mask_1044.png`
+- `textAnimations/plugins/redlines/seeds/mask_1045.png`
+- `textAnimations/plugins/redlines/seeds/mask_1046.png`
+- `textAnimations/plugins/redlines/seeds/mask_1047.png`
+- `textAnimations/plugins/redlines/seeds/mask_1048.png`
+- `textAnimations/plugins/redlines/seeds/mask_1049.png`
+- `textAnimations/plugins/redlines/seeds/mask_1050.png`
+- `textAnimations/plugins/redlines/seeds/mask_1052.png`
+- `textAnimations/plugins/redlines/seeds/mask_1053.png`
+- `textAnimations/plugins/redlines/seeds/mask_1054.png`
+- `textAnimations/plugins/redlines/seeds/mask_1055.png`
+- `textAnimations/plugins/redlines/seeds/mask_1056.png`
+- `textAnimations/plugins/redlines/seeds/mask_1057.png`
+- `textAnimations/plugins/redlines/seeds/mask_1058.png`
+- `textAnimations/plugins/redlines/seeds/mask_1059.png`
+- `textAnimations/plugins/redlines/seeds/mask_1060.png`
+- `textAnimations/plugins/redlines/seeds/mask_1061.png`
+- `textAnimations/plugins/redlines/seeds/mask_1062.png`
+- `textAnimations/plugins/redlines/seeds/mask_1063.png`
+- `textAnimations/plugins/redlines/seeds/mask_1064.png`
+- `textAnimations/plugins/redlines/seeds/mask_1065.png`
+- `textAnimations/plugins/redlines/seeds/mask_1066.png`
+- `textAnimations/plugins/redlines/seeds/mask_1067.png`
+- `textAnimations/plugins/redlines/seeds/mask_1068.png`
+- `textAnimations/plugins/redlines/seeds/mask_1069.png`
+- `textAnimations/plugins/redlines/seeds/mask_1071.png`
+- `textAnimations/plugins/redlines/seeds/mask_1072.png`
+- `textAnimations/plugins/redlines/seeds/mask_1073.png`
+- `textAnimations/plugins/redlines/seeds/mask_1074.png`
+- `textAnimations/plugins/redlines/seeds/mask_1075.png`
+- `textAnimations/plugins/redlines/seeds/mask_1076.png`
+- `textAnimations/plugins/redlines/seeds/mask_1077.png`
+- `textAnimations/plugins/redlines/seeds/mask_1078.png`
+- `textAnimations/plugins/redlines/seeds/mask_1079.png`
+- `textAnimations/plugins/redlines/seeds/mask_1080.png`
+- `textAnimations/plugins/redlines/seeds/mask_1081.png`
+- `textAnimations/plugins/redlines/seeds/mask_1082.png`
+- `textAnimations/plugins/redlines/seeds/mask_1083.png`
+- `textAnimations/plugins/redlines/seeds/mask_1084.png`
+- `textAnimations/plugins/redlines/seeds/mask_1085.png`
+- `textAnimations/plugins/redlines/seeds/mask_1086.png`
+- `textAnimations/plugins/redlines/seeds/mask_1087.png`
+- `textAnimations/plugins/redlines/seeds/mask_1089.png`
+- `textAnimations/plugins/redlines/seeds/mask_1090.png`
+- `textAnimations/plugins/redlines/seeds/mask_1091.png`
+- `textAnimations/plugins/redlines/seeds/mask_1092.png`
+- `textAnimations/plugins/redlines/seeds/mask_1093.png`
+- `textAnimations/plugins/redlines/seeds/mask_1094.png`
+- `textAnimations/plugins/redlines/seeds/mask_1095.png`
+- `textAnimations/plugins/redlines/seeds/mask_1096.png`
+- `textAnimations/plugins/redlines/seeds/mask_1097.png`
+- `textAnimations/plugins/redlines/seeds/mask_1098.png`
+- `textAnimations/plugins/redlines/seeds/mask_1099.png`
+- `textAnimations/plugins/redlines/seeds/mask_1100.png`
+- `textAnimations/plugins/redlines/seeds/mask_1101.png`
+- `textAnimations/plugins/redlines/seeds/mask_1102.png`
+- `textAnimations/plugins/redlines/seeds/mask_1103.png`
+- `textAnimations/plugins/redlines/seeds/mask_1104.png`
+- `textAnimations/plugins/redlines/seeds/mask_1105.png`
+- `textAnimations/plugins/redlines/seeds/mask_1106.png`
+- `textAnimations/plugins/redlines/seeds/mask_1108.png`
+- `textAnimations/plugins/redlines/seeds/mask_1109.png`
+- `textAnimations/plugins/redlines/seeds/mask_1110.png`
+- `textAnimations/plugins/redlines/seeds/mask_1111.png`
+- `textAnimations/plugins/redlines/seeds/mask_1112.png`
+- `textAnimations/plugins/redlines/seeds/mask_1113.png`
+- `textAnimations/plugins/redlines/seeds/mask_1114.png`
+- `textAnimations/plugins/redlines/seeds/mask_1115.png`
+- `textAnimations/plugins/redlines/seeds/mask_1116.png`
+- `textAnimations/plugins/redlines/seeds/mask_1117.png`
+- `textAnimations/plugins/redlines/seeds/mask_1118.png`
+- `textAnimations/plugins/redlines/seeds/mask_1119.png`
+- `textAnimations/plugins/redlines/seeds/mask_1120.png`
+- `textAnimations/plugins/redlines/seeds/mask_1121.png`
+- `textAnimations/plugins/redlines/seeds/mask_1122.png`
+- `textAnimations/plugins/redlines/seeds/mask_1123.png`
+- `textAnimations/plugins/redlines/seeds/mask_1124.png`
+- `textAnimations/plugins/redlines/seeds/mask_1126.png`
+- `textAnimations/plugins/redlines/seeds/mask_1127.png`
+- `textAnimations/plugins/redlines/seeds/mask_1128.png`
+- `textAnimations/plugins/redlines/seeds/mask_1129.png`
+- `textAnimations/plugins/redlines/seeds/mask_1130.png`
+- `textAnimations/plugins/redlines/seeds/mask_1131.png`
+- `textAnimations/plugins/redlines/seeds/mask_1132.png`
+- `textAnimations/plugins/redlines/seeds/mask_1133.png`
+- `textAnimations/plugins/redlines/seeds/mask_1134.png`
+- `textAnimations/plugins/redlines/seeds/mask_1135.png`
+- `textAnimations/plugins/redlines/seeds/mask_1136.png`
+- `textAnimations/plugins/redlines/seeds/mask_1137.png`
+- `textAnimations/plugins/redlines/seeds/mask_1138.png`
+- `textAnimations/plugins/redlines/seeds/mask_1139.png`
+- `textAnimations/plugins/redlines/seeds/slashes.json`
+
+## Not copied: media, renders and projects (too big for git; they stay in the repo, or get rebuilt by the scripts above)
+
+- `C:\Program Files\ArtCraft\EffectCraft\effectcraft-cli.exe` (112.8 MB): tool or whole project folder, not copied
+- `C:\Users\0\.buzz\REPOS\listeningkit-templates\projects\cyberpunk\outro\portrait_0.png` (3.9 MB): media or project file
+- `C:\Users\0\.buzz\REPOS\listeningkit-templates\projects\opening\ref\cyberpunk_edits\urV5GzXcXsQ\lines_1029` (59.6 MB): folder of media
+- `C:\Users\0\.buzz\REPOS\listeningkit-templates\projects\opening\ref\yt_line` (73.1 MB): folder of media
+- `C:\Users\0\.buzz\REPOS\listeningkit-templates\projects\opening\ref\yt_line\ref.mp4` (17.9 MB): media or project file
+- `C:\Users\0\.buzz\REPOS\listeningkit-templates\textAnimations\assets\collage\bust_lines.mp4` (17.3 MB): media or project file
+- `C:\Users\0\.buzz\REPOS\listeningkit-templates\textAnimations\assets\collage\endtrans` (62.3 MB): folder of media
+- `C:\Users\0\.buzz\REPOS\listeningkit-templates\textAnimations\assets\collage\girlins` (51.1 MB): folder of media
+- `C:\Users\0\.buzz\REPOS\listeningkit-templates\textAnimations\assets\collage\redlines` (75.8 MB): folder of media
+- `C:\Users\0\.buzz\REPOS\listeningkit-templates\textAnimations\renders\launch_film_final_full.mp4` (122.4 MB): media or project file

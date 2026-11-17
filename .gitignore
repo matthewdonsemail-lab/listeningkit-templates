@@ -45,3 +45,6 @@ __pycache__/
 *.log
 projects/**/*.png
 references/**/*.html
+
+# Skills bundle the CRT plugin, including its displacement map
+!skills/*/assets/**/CRTGRID/*.mp4

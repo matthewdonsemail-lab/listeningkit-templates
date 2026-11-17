@@ -1,0 +1,1627 @@
+﻿// Writes effects/<name>/effect.json for each typewriter variation.
+// Every variation scales each unit from 0 to full size from its own centre (anchor centred), past
+// full size and back (overshoot), and out again the same way. No fades. Run: node typewriterVariations.mjs
+//
+// Timing is driven from the text layer's markers:
+//   "in"  marker â€” where the type-on starts; its duration is how long until the last unit has landed.
+//   "out" marker â€” where the type-off starts; its duration is how long until the last unit is gone.
+// The whole text also scales from 0 to full size around its centre over each marker's duration,
+// with its own overshoot, on top of the letters.
+// Slider controls on the layer (also in Essential Graphics):
+//   Letter Overshoot â€” how far past full size each unit goes (0 = none).
+//   Pop Time         â€” seconds for one unit to scale in or out.
+//   Whole Overshoot  â€” how far past full size the whole text goes (0 = none).
+//   Continuous Scale â€” (continuousScale only) % the whole text keeps growing per second from the
+//                      "in" marker on (0 = none, negative shrinks).
+import { mkdirSync, writeFileSync as writeFileRaw } from "node:fs";
+import { iCanDoSteps } from "./iCanDo.mjs";
+import { websitesSceneSteps } from "./websitesScene.mjs";
+import {explainerNames,explainerSteps,blueSweepSteps} from './hermesExplainers.mjs';
+import {uiDemoNames,uiDemoSteps} from './uiDemos.mjs';
+import {startPartsSteps} from './startCardMotion.mjs';
+import {connectionPartsSteps,journeySteps} from './connectionPlays.mjs';
+import {researchPartsSteps,researchDepthSteps,brandBlueGradientSteps,hermesAgentTerminalSteps} from './researchDepth.mjs';
+import {stepsTrackPartsSteps,stepsTrackSceneSteps} from './threeStepsTrack.mjs';
+import {expositionNames,expositionSteps} from './expositionCards.mjs';
+
+// effectcraft-cli reads command files in the Windows code page, not UTF-8, so every non-ASCII character
+// (symbols, curly quotes, middle dotsâ€¦) is written as a JSON \u escape, which reads back exactly.
+const writeFileSync = (path, text) =>
+  writeFileRaw(path, text.replace(/[\u0080-ï¿¿]/g, (c) => "\\u" + c.charCodeAt(0).toString(16).padStart(4, "0")));
+
+mkdirSync('effects/startCardParts',{recursive:true});
+for(const name of expositionNames){
+  mkdirSync(`effects/${name}`,{recursive:true});
+  writeFileSync(`effects/${name}/effect.json`,JSON.stringify(expositionSteps(name),null,2)+'\n');
+}
+writeFileSync('effects/startCardParts/effect.json',JSON.stringify(startPartsSteps(),null,2)+'\n');
+for(const [name,steps]of [['connectionCardParts',connectionPartsSteps()],['logPlayJourney',journeySteps()],['brandBlueGradient',brandBlueGradientSteps()],['hermesAgentTerminal',hermesAgentTerminalSteps()],['researchParts',researchPartsSteps()],['logResearchDepth',researchDepthSteps()],['stepsTrackParts',stepsTrackPartsSteps()],['logThreeStepsTrack',stepsTrackSceneSteps()]]){
+  mkdirSync(`effects/${name}`,{recursive:true});
+  writeFileSync(`effects/${name}/effect.json`,JSON.stringify(steps,null,2)+'\n');
+}
+for(const name of uiDemoNames){
+  mkdirSync(`effects/${name}`,{recursive:true});
+  writeFileSync(`effects/${name}/effect.json`,JSON.stringify(uiDemoSteps(name),null,2)+'\n');
+}
+for(const name of [...explainerNames,'blueSweep']){
+  mkdirSync(`effects/${name}`,{recursive:true});
+  writeFileSync(`effects/${name}/effect.json`,JSON.stringify(name==='blueSweep'?blueSweepSteps():explainerSteps(name),null,2)+'\n');
+}
+
+const variations = {
+  typewriterOvershoot: { in: [0, 0.6], out: [3, 0.5], pop: 0.25, overshoot: 2, whole: 1.7, continuous: 6 },
+  typewriterOvershootFast: { in: [0, 0.35], out: [3, 0.3], pop: 0.16, overshoot: 2.6, whole: 2, continuous: 6 },
+  typewriterOvershootWords: { in: [0, 0.4], out: [3, 0.35], pop: 0.28, overshoot: 2, whole: 1.7, words: true, continuous: 6 },
+  typewriterOvershootRotate: { in: [0, 0.6], out: [3, 0.5], pop: 0.28, overshoot: 2, whole: 1.7, rotation: -20, continuous: 6 },
+  continuousScale: { in: [0, 0.6], out: [3, 0.5], pop: 0.25, overshoot: 2, whole: 1.7, continuous: 6 },
+};
+
+// The built-in preset effects get the Continuous Scale slider too (growing from the start of the comp).
+const presets = { typewriter: 6, fadeUpCharacters: 6 };
+
+// The cv-bluekey look, on every effect: Schoolbell in brand blue #2a8cff, a white outline inside a dark
+// navy #0d2a4c outline (text stroke + Stroke layer style), tilted -3Â°, blue Outer Glow.
+const bluekeyText = { fill: [0.165, 0.549, 1], stroke: [1, 1, 1], applyStroke: true, strokeWidth: 18, strokeOverFill: false };
+const bluekeyStyleSteps = () => {
+  const set = (path, value) => ({ command: "prop.set", params: { layer: "text", path, value } });
+  return [
+    { command: "layer.style.stroke", params: { layers: ["text"] } },
+    set("layerStyles/stroke/color", [0.051, 0.165, 0.298, 1]),
+    set("layerStyles/stroke/size", 5),
+    { command: "layer.style.outerGlow", params: { layers: ["text"] } },
+    set("layerStyles/outerGlow/blendMode", 0),
+    set("layerStyles/outerGlow/color", [0.165, 0.549, 1, 1]),
+    set("layerStyles/outerGlow/opacity", 55),
+    set("layerStyles/outerGlow/size", 28),
+  ];
+};
+// Gives a step list the cv-bluekey look: colours on the text, layer styles right after it, and the -3Â° tilt.
+function withBluekey(steps) {
+  const at = steps.findIndex((s) => s.command === "layer.newText");
+  steps[at] = { ...steps[at], params: { ...steps[at].params, ...bluekeyText } };
+  steps.splice(at + 1, 0, ...bluekeyStyleSteps(), { command: "prop.set", params: { layer: "text", path: "transform/rotation", value: -3 } });
+  return steps;
+}
+
+const presetScaleExpression = [
+  `var cs = 0; try { cs = effect("Continuous Scale")("Slider"); } catch (e) { cs = 0; }`,
+  `var s = Math.max(1 + (cs / 100) * Math.max(time - inPoint, 0), 0);`,
+  `[100 * s, 100 * s, 100]`,
+].join("\n");
+
+const presetAnchorExpression = [
+  `var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);`,
+  `[r.left + r.width / 2, r.top + r.height / 2, 0]`,
+].join("\n");
+
+const amountExpression = [
+  `var ov = effect("Letter Overshoot")("Slider"), pop = Math.max(effect("Pop Time")("Slider"), 0.001);`,
+  `function markerKey(name) { try { return thisLayer.marker.key(name); } catch (e) { return null; } }`,
+  `function clamp(t) { return Math.min(Math.max(t, 0), 1); }`,
+  `var n = Math.max(textTotal, 1), i = textIndex - 1;`,
+  `function progress(m) {`,
+  `  var p = Math.min(pop, m.duration > 0 ? m.duration : pop);`,
+  `  var gap = n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0;`,
+  `  return clamp((time - m.time - i * gap) / p);`,
+  `}`,
+  `function backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }`,
+  `function backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }`,
+  `var mIn = markerKey("in"), mOut = markerKey("out");`,
+  `var s = mIn ? backOut(progress(mIn)) : 1;`,
+  `if (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));`,
+  `var a = 100 * (1 - s);`,
+  `[a, a, a]`,
+].join("\n");
+
+// The whole layer: scale over the full marker duration, anchor kept at the text's centre.
+const wholeScaleExpression = [
+  `var ov = effect("Whole Overshoot")("Slider");`,
+  `function markerKey(name) { try { return thisLayer.marker.key(name); } catch (e) { return null; } }`,
+  `function progress(m) { return Math.min(Math.max((time - m.time) / Math.max(m.duration, 0.001), 0), 1); }`,
+  `function backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }`,
+  `function backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }`,
+  `var mIn = markerKey("in"), mOut = markerKey("out");`,
+  `var s = mIn ? backOut(progress(mIn)) : 1;`,
+  `if (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));`,
+  `var cs = 0; try { cs = effect("Continuous Scale")("Slider"); } catch (e) { cs = 0; }`,
+  `s *= Math.max(1 + (cs / 100) * Math.max(time - (mIn ? mIn.time : 0), 0), 0);`,
+  `s = Math.max(s, 0);`,
+  `[100 * s, 100 * s, 100]`,
+].join("\n");
+
+// Measured once the text has landed, so the letters' own scaling does not move the anchor.
+const centredAnchorExpression = [
+  `var m; try { m = thisLayer.marker.key("in"); } catch (e) { m = null; }`,
+  `var r = sourceRectAtTime(m ? m.time + m.duration + 0.5 : time, false);`,
+  `[r.left + r.width / 2, r.top + r.height / 2, 0]`,
+].join("\n");
+
+const animator = "text/animators/animator";
+
+for (const [name, v] of Object.entries(variations)) {
+  const set = (path, value) => ({ command: "prop.set", params: { layer: "text", path, value } });
+  const steps = [
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 4, background: "#FAF7F0", open: true } },
+    { command: "layer.newText", params: { text: "listening kit", name: "text", position: [960, 540], font: "Schoolbell", style: "Regular", size: 160, fill: [0.07, 0.07, 0.07], justify: "center" } },
+    { command: "effect.apply", params: { effect: "Slider Control", layers: ["text"] } },
+    { command: "effect.apply", params: { effect: "Slider Control", layers: ["text"] } },
+    { command: "effect.apply", params: { effect: "Slider Control", layers: ["text"] } },
+    set("effects/#1/slider", v.overshoot),
+    set("effects/#2/slider", v.pop),
+    set("effects/#3/slider", v.whole),
+    ...(v.continuous !== undefined
+      ? [{ command: "effect.apply", params: { effect: "Slider Control", layers: ["text"] } }, set("effects/#4/slider", v.continuous)]
+      : []),
+    { command: "layer.addMarker", params: { layers: ["text"], time: v.in[0], comment: "in" } },
+    { command: "layer.addMarker", params: { layers: ["text"], time: v.out[0], comment: "out" } },
+    { command: "markers.set", params: { layer: "text", index: 0, duration: v.in[1] } },
+    { command: "markers.set", params: { layer: "text", index: 1, duration: v.out[1] } },
+    { command: "layer.addTextAnimator", params: { layer: "text", properties: ["scale", ...(v.rotation ? ["rotation"] : [])], name: "typeOn" } },
+    { command: "layer.addTextSelector", params: { layer: "text", animator: 1, kind: "expression" } },
+    set(`${animator}/properties/scale`, [0, 0, 100]),
+    set("text/moreOptions/anchorGrouping", v.words ? 1 : 0),
+    set("text/moreOptions/groupingAlignment", [0, -50]),
+  ];
+  if (v.words) steps.push(set(`${animator}/selectors/expressionSelector/basedOn`, 2));
+  if (v.rotation) steps.push(set(`${animator}/properties/rotation`, v.rotation));
+  steps.push(
+    { command: "prop.setExpression", params: { layer: "text", path: `${animator}/selectors/expressionSelector/amount`, expression: amountExpression } },
+    { command: "prop.setExpression", params: { layer: "text", path: "transform/anchor", expression: centredAnchorExpression } },
+    { command: "prop.setExpression", params: { layer: "text", path: "transform/scale", expression: wholeScaleExpression } },
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "text/sourceText", name: "Text" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "text/sourceText", name: "Font", as: "font" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "transform/position", name: "Position" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "effects/#1/slider", name: "Letter Overshoot" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "effects/#2/slider", name: "Pop Time" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "effects/#3/slider", name: "Whole Overshoot" } },
+  );
+  if (v.continuous !== undefined)
+    steps.push({ command: "essential.addProperty", params: { comp: name, layer: "text", path: "effects/#4/slider", name: "Continuous Scale" } });
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(withBluekey(steps), null, 2) + "\n");
+}
+
+for (const [name, continuous] of Object.entries(presets)) {
+  const steps = [
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 4, background: "#FAF7F0", open: true } },
+    { command: "layer.newText", params: { text: "listening kit", name: "text", position: [960, 540], font: "Schoolbell", style: "Regular", size: 160, fill: [0.07, 0.07, 0.07], justify: "center" } },
+    { command: "layer.applyTextPreset", params: { layer: "text", preset: name } },
+    { command: "effect.apply", params: { effect: "Slider Control", layers: ["text"] } },
+    { command: "prop.set", params: { layer: "text", path: "effects/#1/slider", value: continuous } },
+    { command: "prop.setExpression", params: { layer: "text", path: "transform/anchor", expression: presetAnchorExpression } },
+    { command: "prop.setExpression", params: { layer: "text", path: "transform/scale", expression: presetScaleExpression } },
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "text/sourceText", name: "Text" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "text/sourceText", name: "Font", as: "font" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "transform/position", name: "Position" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "effects/#1/slider", name: "Continuous Scale" } },
+  ];
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(withBluekey(steps), null, 2) + "\n");
+}
+
+// cv-bluekey: the ListeningKit sticker look (log-cli's .lk-bluekey, the looksmaxxing project's word stickers).
+// Schoolbell in brand blue #2a8cff, a white outline inside a dark navy #0d2a4c outline, tilted -3Â°, blue glow.
+// It pops in like the looksmaxxing words (0 â†’ 126% â†’ 94% â†’ 100% over 4 frames) from the "in" marker, pops out in
+// reverse from the "out" marker, and wobbles and bobs while on screen.
+// Sliders: Continuous Scale (% per second), Wobble (degrees), Bob (pixels).
+const bluekeyNames = ["Continuous Scale", "Wobble", "Bob"];
+
+const bluekeyScaleExpression = [
+  `var cs = effect("Continuous Scale")("Slider"), f = thisComp.frameDuration;`,
+  `function markerKey(name) { try { return thisLayer.marker.key(name); } catch (e) { return null; } }`,
+  `var keys = [[0, 0], [2 * f, 126], [3 * f, 94], [4 * f, 100]];`,
+  `function pop(t) {`,
+  `  if (t <= 0) return 0;`,
+  `  for (var j = 1; j < keys.length; j++) if (t <= keys[j][0]) return keys[j - 1][1] + (keys[j][1] - keys[j - 1][1]) * (t - keys[j - 1][0]) / (keys[j][0] - keys[j - 1][0]);`,
+  `  return 100;`,
+  `}`,
+  `var mIn = markerKey("in"), mOut = markerKey("out");`,
+  `var p = mIn ? pop(time - mIn.time) : 100;`,
+  `if (mOut && time >= mOut.time) p = pop(mOut.time + 4 * f - time);`,
+  `var s = (p / 100) * Math.max(1 + (cs / 100) * Math.max(time - (mIn ? mIn.time : 0), 0), 0);`,
+  `[100 * s, 100 * s, 100]`,
+].join("\n");
+
+{
+  const name = "cvBluekey";
+  const set = (path, value) => ({ command: "prop.set", params: { layer: "text", path, value } });
+  const expr = (path, expression) => ({ command: "prop.setExpression", params: { layer: "text", path, expression } });
+  const steps = [
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 4, background: "#FAF7F0", open: true } },
+    { command: "layer.newText", params: { text: "listening kit", name: "text", position: [960, 540], font: "Schoolbell", style: "Regular", size: 160, fill: [0.165, 0.549, 1], stroke: [1, 1, 1], applyStroke: true, strokeWidth: 18, strokeOverFill: false, justify: "center" } },
+    { command: "layer.style.stroke", params: { layers: ["text"] } },
+    set("layerStyles/stroke/color", [0.051, 0.165, 0.298, 1]),
+    set("layerStyles/stroke/size", 5),
+    { command: "layer.style.outerGlow", params: { layers: ["text"] } },
+    set("layerStyles/outerGlow/blendMode", 0),
+    set("layerStyles/outerGlow/color", [0.165, 0.549, 1, 1]),
+    set("layerStyles/outerGlow/opacity", 55),
+    set("layerStyles/outerGlow/size", 28),
+    ...bluekeyNames.map(() => ({ command: "effect.apply", params: { effect: "Slider Control", layers: ["text"] } })),
+    set("effects/#1/slider", 6),
+    set("effects/#2/slider", 2),
+    set("effects/#3/slider", 6),
+    { command: "layer.addMarker", params: { layers: ["text"], time: 0, comment: "in" } },
+    { command: "layer.addMarker", params: { layers: ["text"], time: 3, comment: "out" } },
+    expr("transform/anchor", centredAnchorExpression),
+    expr("transform/scale", bluekeyScaleExpression),
+    expr("transform/rotation", `-3 + effect("Wobble")("Slider") * Math.cos(time * 2 * Math.PI * 2.5)`),
+    expr("transform/position", `value + [0, effect("Bob")("Slider") * Math.cos(time * 2 * Math.PI * 2), 0]`),
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "text/sourceText", name: "Text" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "text/sourceText", name: "Font", as: "font" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "text", path: "transform/position", name: "Position" } },
+    ...bluekeyNames.map((n, k) => ({ command: "essential.addProperty", params: { comp: name, layer: "text", path: `effects/#${k + 1}/slider`, name: n } })),
+  ];
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+}
+
+// introCard: a title card precomp.
+//   "Introducing" â€” Satoshi (the ListeningKit site font), navy, the overshoot typewriter.
+//   "listening kit" â€” below it, cv-bluekey look with the overshoot typewriter, on top of the lines around it.
+//   Subtext â€” smaller, one text layer per word, each word scaling in with overshoot one after another.
+//     Highlights as on the site: "no dashboards" and "no SaaS" in Satoshi Black, brand blue, with a dashed
+//     underline that draws on with them; "your agent." as a small cv-bluekey sticker.
+//   The subtext's timing and look live on the "controls" null: its "in" / "out" markers and its
+//   Overshoot, Pop Time, Word Spacing and Continuous Scale sliders (the whole block keeps growing around
+//   its centre). The words lay themselves out from their own widths,
+//   so changing a word's text reflows the line.
+{
+  const name = "introCard";
+  const ink = [0.051, 0.165, 0.298];
+  const body = [0.193, 0.29, 0.403]; // navy at 85% on white, as the site's subtext
+  const blue = [0.165, 0.549, 1];
+  const baselines = [666, 722]; // one per subtext line
+  const words = [
+    { t: "no", hl: 1 }, { t: "dashboards", hl: 1 }, { t: ",", ns: true },
+    { t: "no", hl: 2 }, { t: "SaaS", hl: 2 }, { t: ",", ns: true },
+    { t: "just", line: 1 }, { t: "your", line: 1 }, { t: "accounts", line: 1 }, { t: "and", line: 1 },
+    { t: "your", bk: true, line: 1 }, { t: "agent.", bk: true, line: 1 },
+  ].map((w) => ({ line: 0, ...w })).map((w, i) => {
+    const size = w.bk ? 58 : 46;
+    return { ...w, i, size, layer: `word ${String(i + 1).padStart(2, "0")}`, anchorY: -Math.round(size * 0.35) };
+  });
+  const names = JSON.stringify(words.map((w) => w.layer));
+  const space = JSON.stringify(words.map((w, i) => (i > 0 && !w.ns && words[i - 1].line === w.line ? 1 : 0)));
+  const lines = JSON.stringify(words.map((w) => w.line));
+  const n = words.length;
+
+  // Shared by every word and underline: where each word starts, each line centred on its own.
+  const layout = [
+    `var names = ${names}, space = ${space}, lines = ${lines};`,
+    `var gap = thisComp.layer("controls").effect("Word Spacing")("Slider");`,
+    `function wordWidth(k) { return thisComp.layer(names[k]).sourceRectAtTime(0, false).width; }`,
+    `var lefts = [], totals = [];`,
+    `for (var k = 0; k < names.length; k++) { var L = lines[k]; if (totals[L] === undefined) totals[L] = 0; if (space[k]) totals[L] += gap; lefts.push(totals[L]); totals[L] += wordWidth(k); }`,
+    `function start(k) { return thisComp.width / 2 - totals[lines[k]] / 2; }`,
+  ];
+  const timing = [
+    `var c = thisComp.layer("controls"), ov = c.effect("Overshoot")("Slider"), pop = Math.max(c.effect("Pop Time")("Slider"), 0.001), n = ${n};`,
+    `function markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }`,
+    `function clamp(t) { return Math.min(Math.max(t, 0), 1); }`,
+    `function wordGap(m) { var p = Math.min(pop, m.duration > 0 ? m.duration : pop); return { p: p, g: n > 1 ? Math.max(m.duration - p, 0) / (n - 1) : 0 }; }`,
+    `function backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }`,
+    `function backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }`,
+    `var mIn = markerKey("in"), mOut = markerKey("out");`,
+  ];
+  // The whole subtext block keeps growing around its centre (controls' Continuous Scale, from its "in" marker):
+  // word positions spread out from the centre and every word scales up by the same amount.
+  const growth = [
+    `var cc = thisComp.layer("controls"), gcs = cc.effect("Continuous Scale")("Slider");`,
+    `var gIn; try { gIn = cc.marker.key("in"); } catch (e) { gIn = null; }`,
+    `var grow = Math.max(1 + (gcs / 100) * Math.max(time - (gIn ? gIn.time : 0), 0), 0);`,
+    `var cx = thisComp.width / 2, cy = ${Math.round((baselines[0] + baselines[1]) / 2 - 16)};`,
+  ];
+  const wordPosition = (w) =>
+    [
+      ...layout,
+      ...growth,
+      `var px = start(${w.i}) + lefts[${w.i}] + wordWidth(${w.i}) / 2, py = ${baselines[w.line] + w.anchorY};`,
+      `[cx + (px - cx) * grow, cy + (py - cy) * grow]`,
+    ].join("\n");
+  const wordAnchor = (w) => [`var r = sourceRectAtTime(0, false);`, `[r.left + r.width / 2, ${w.anchorY}, 0]`].join("\n");
+  const wordScale = (w) =>
+    [
+      ...timing,
+      `var i = ${w.i};`,
+      `function progress(m) { var q = wordGap(m); return clamp((time - m.time - i * q.g) / q.p); }`,
+      `var s = mIn ? backOut(progress(mIn)) : 1;`,
+      `if (mOut && time >= mOut.time) s = 1 - backIn(progress(mOut));`,
+      ...growth,
+      `s = Math.max(s, 0) * grow;`,
+      `[100 * s, 100 * s, 100]`,
+    ].join("\n");
+  // The underline draws on from the first word of its group starting to the last one landing, and back off.
+  const underlinePath = (first, last, line) =>
+    [
+      ...layout,
+      ...timing,
+      ...growth,
+      `var a = ${first}, b = ${last};`,
+      `function reveal(m) { var q = wordGap(m); return clamp((time - m.time - a * q.g) / ((b - a) * q.g + q.p)); }`,
+      `var v = mIn ? reveal(mIn) : 1;`,
+      `if (mOut && time >= mOut.time) v = 1 - reveal(mOut);`,
+      `var x0 = start(a) + lefts[a], x1 = start(b) + lefts[b] + wordWidth(b), y = ${baselines[line] + 12};`,
+      `x0 = cx + (x0 - cx) * grow; x1 = cx + (x1 - cx) * grow; y = cy + (y - cy) * grow;`,
+      `createPath([[x0, y], [x0 + (x1 - x0) * v, y]], [], [], false)`,
+    ].join("\n");
+
+  const on = (layer) => ({
+    set: (path, value) => ({ command: "prop.set", params: { layer, path, value } }),
+    expr: (path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } }),
+    slider: () => ({ command: "effect.apply", params: { effect: "Slider Control", layers: [layer] } }),
+    marker: (time, comment) => ({ command: "layer.addMarker", params: { layers: [layer], time, comment } }),
+    markerLength: (index, duration) => ({ command: "markers.set", params: { layer, index, duration } }),
+  });
+  const stickerStyle = (layer, outline) => {
+    const l = on(layer);
+    return [
+      { command: "layer.style.stroke", params: { layers: [layer] } },
+      l.set("layerStyles/stroke/color", [...ink, 1]),
+      l.set("layerStyles/stroke/size", outline),
+      { command: "layer.style.outerGlow", params: { layers: [layer] } },
+      l.set("layerStyles/outerGlow/blendMode", 0),
+      l.set("layerStyles/outerGlow/color", [...blue, 1]),
+      l.set("layerStyles/outerGlow/opacity", 55),
+      l.set("layerStyles/outerGlow/size", 28),
+    ];
+  };
+
+  const intro = on("introducing");
+  const brand = on("listening kit");
+  const controls = on("controls");
+  const steps = [
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 5, background: "#FAF7F0", open: true } },
+
+    // Background: the cloudBackground template precomp (built first by build.sh).
+    { command: "layer.addItem", params: { item: "cloudBackground", time: 0 } },
+    { command: "layer.rename", params: { layer: "cloudBackground", name: "background" } },
+
+    // "Introducing": the overshoot typewriter in Satoshi.
+    { command: "layer.newText", params: { text: "Introducing", name: "introducing", position: [960, 420], font: "Satoshi", style: "Bold", size: 96, fill: ink, justify: "center" } },
+    intro.slider(), intro.slider(), intro.slider(), intro.slider(),
+    intro.set("effects/#1/slider", 2), intro.set("effects/#2/slider", 0.25), intro.set("effects/#3/slider", 1.7), intro.set("effects/#4/slider", 6),
+    intro.marker(0, "in"), intro.marker(4.2, "out"), intro.markerLength(0, 0.5), intro.markerLength(1, 0.4),
+    { command: "layer.addTextAnimator", params: { layer: "introducing", properties: ["scale"], name: "typeOn" } },
+    { command: "layer.addTextSelector", params: { layer: "introducing", animator: 1, kind: "expression" } },
+    intro.set("text/animators/animator/properties/scale", [0, 0, 100]),
+    intro.set("text/moreOptions/groupingAlignment", [0, -50]),
+    intro.expr("text/animators/animator/selectors/expressionSelector/amount", amountExpression),
+    intro.expr("transform/anchor", centredAnchorExpression),
+    intro.expr("transform/scale", wholeScaleExpression),
+
+    // "listening kit": the cv-bluekey look with the overshoot typewriter.
+    { command: "layer.newText", params: { text: "listening kit", name: "listening kit", position: [960, 530], font: "Schoolbell", style: "Regular", size: 170, justify: "center", ...bluekeyText } },
+    ...stickerStyle("listening kit", 5),
+    brand.set("transform/rotation", -3),
+    brand.slider(), brand.slider(), brand.slider(), brand.slider(),
+    brand.set("effects/#1/slider", 2), brand.set("effects/#2/slider", 0.25), brand.set("effects/#3/slider", 1.7), brand.set("effects/#4/slider", 6),
+    brand.marker(0.55, "in"), brand.marker(4.3, "out"), brand.markerLength(0, 0.6), brand.markerLength(1, 0.4),
+    { command: "layer.addTextAnimator", params: { layer: "listening kit", properties: ["scale"], name: "typeOn" } },
+    { command: "layer.addTextSelector", params: { layer: "listening kit", animator: 1, kind: "expression" } },
+    brand.set("text/animators/animator/properties/scale", [0, 0, 100]),
+    brand.set("text/moreOptions/groupingAlignment", [0, -50]),
+    brand.expr("text/animators/animator/selectors/expressionSelector/amount", amountExpression),
+    brand.expr("transform/anchor", centredAnchorExpression),
+    brand.expr("transform/scale", wholeScaleExpression),
+
+    // The subtext's controls.
+    { command: "layer.newNull", params: { name: "controls" } },
+    controls.slider(), controls.slider(), controls.slider(), controls.slider(),
+    controls.set("effects/#1/slider", 2), controls.set("effects/#2/slider", 0.3), controls.set("effects/#3/slider", 18), controls.set("effects/#4/slider", 6),
+    controls.marker(1, "in"), controls.marker(4.4, "out"), controls.markerLength(0, 1), controls.markerLength(1, 0.4),
+  ];
+
+  for (const w of words) {
+    const l = on(w.layer);
+    const look = w.bk
+      ? { font: "Schoolbell", style: "Regular", ...bluekeyText, strokeWidth: 7 }
+      : { font: "Satoshi", style: w.hl ? "Black" : "Bold", fill: w.hl ? blue : body };
+    steps.push(
+      { command: "layer.newText", params: { text: w.t, name: w.layer, position: [960, baselines[w.line]], size: w.size, ...look } },
+      ...(w.bk ? [...stickerStyle(w.layer, 2), l.set("transform/rotation", -3)] : []),
+      l.expr("transform/anchor", wordAnchor(w)),
+      l.expr("transform/position", wordPosition(w)),
+      l.expr("transform/scale", wordScale(w)),
+    );
+  }
+
+  for (const group of [1, 2]) {
+    const inGroup = words.filter((w) => w.hl === group);
+    const layer = `underline ${group}`;
+    const l = on(layer);
+    steps.push(
+      { command: "layer.newShape", params: { kind: "none", name: layer } },
+      { command: "shape.newPath", params: { layer, vertices: [[0, 0], [100, 0]], closed: false, fill: false, stroke: blue, strokeWidth: 4, space: "layer" } },
+      l.set("transform/position", [0, 0]),
+      l.set("transform/anchor", [0, 0]),
+      l.set("contents/group/contents/stroke/dashes/dash", 10),
+      l.set("contents/group/contents/stroke/dashes/gap", 7),
+      l.expr("contents/group/contents/path/path", underlinePath(inGroup[0].i, inGroup[inGroup.length - 1].i, inGroup[0].line)),
+      l.expr("contents/group/contents/stroke/width", [...growth, `4 * grow`].join("\n")),
+    );
+  }
+
+  // "listening kit" sits on top, overlapping "Introducing" above it and the subtext below it.
+  steps.push({ command: "layer.arrange", params: { layers: ["listening kit"], to: "front" } });
+
+  const ess = (layer, path, label, as) => ({ command: "essential.addProperty", params: { comp: name, layer, path, name: label, ...(as ? { as } : {}) } });
+  steps.push(
+    { command: "essential.setName", params: { comp: name, name } },
+    ess("introducing", "text/sourceText", "Introducing"),
+    ess("listening kit", "text/sourceText", "Brand"),
+    ...words.filter((w) => w.t !== ",").map((w) => ess(w.layer, "text/sourceText", `Subtext ${w.layer.replace("word ", "")}`)),
+    ess("introducing", "effects/#4/slider", "Introducing Continuous Scale"),
+    ess("listening kit", "effects/#4/slider", "Brand Continuous Scale"),
+    ess("controls", "effects/#4/slider", "Subtext Continuous Scale"),
+    ess("controls", "effects/#1/slider", "Subtext Overshoot"),
+    ess("controls", "effects/#2/slider", "Subtext Pop Time"),
+    ess("controls", "effects/#3/slider", "Word Spacing"),
+  );
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+}
+
+// cloudBackground: 3D clay clouds drifting over the ditherGradientBackground sky, rebuilt from log-cli's landing
+// page hero (site/apps/web/src/landing/ClayClouds.tsx). That page loads Claybound's cloud.glb, which isn't
+// licensed to ListeningKit, so each cloud here is our own: a cluster of six 3D spheres under a null.
+//
+//   clayClouds â€” an Advanced 3D comp: a 30Â° camera, ambient + warm key (casting shadows) + blue fill lights, and
+//     30 clouds in 4 depth layers (12 far and small ... 3 near and big), as on the site. Each cloud drifts right
+//     at its layer's speed and wraps around, bobs gently and turns slowly (expressions on its null). Far clouds
+//     are tinted toward the sky to stand in for the site's fog.
+//   cloudBackground â€” the ditherGradientBackground precomp as the sky, then clayClouds run through the site's
+//     clay dither: Black & White, Levels (black point 0.3, white point 0.92), Craft Halftone & Dither (3 px
+//     cells), Tint (shade light blue #9ecbff, lit white).
+// Positions are generated from a fixed seed, so every build is the same.
+{
+  const plugins = { command: "effect.plugins.load", params: { folder: `${process.env.APPDATA.replace(/\\/g, "/")}/EffectCraft/Plug-ins` } };
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
+
+  let seed = 20261110;
+  const random = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
+  const round = (n) => Math.round(n * 100) / 100;
+
+  // The site's scene in its own units: camera at z 12 with a 30Â° field of view, clouds in layers at z -16 ... -1.
+  const layers = [
+    { count: 12, z: -16, scale: 0.75, speed: 0.05, fog: 0.35 },
+    { count: 9, z: -10, scale: 1.0, speed: 0.08, fog: 0.2 },
+    { count: 6, z: -5, scale: 1.35, speed: 0.13, fog: 0.08 },
+    { count: 3, z: -1, scale: 1.9, speed: 0.22, fog: 0 },
+  ];
+  const cameraZ = 12;
+  const unit = 540 / Math.tan((15 * Math.PI) / 180) / cameraZ; // px per site unit at z 0
+  const halfHeight = (z) => Math.tan((15 * Math.PI) / 180) * (cameraZ - z);
+  const halfWidth = (z) => halfHeight(z) * (1920 / 1080);
+  const sky = [0.353, 0.651, 1]; // the site's fog colour #5aa6ff
+  // One cloud: six puffs [x, y, radius] as fractions of its width (y down).
+  const puffs = [[0, -0.05, 0.3], [-0.3, 0.08, 0.22], [0.3, 0.06, 0.24], [-0.12, 0.14, 0.22], [0.16, 0.15, 0.22], [0.06, -0.2, 0.2]];
+
+  const steps = [
+    plugins,
+    { command: "comp.new", params: { name: "clayClouds", width: 1920, height: 1080, frameRate: 30, duration: 5, open: true } },
+    { command: "comp.settings", params: { comp: "clayClouds", renderer: "advanced3D" } },
+    { command: "layer.newCamera", params: { name: "camera", type: "oneNode", angleOfView: 30, position: [960, 540, -cameraZ * unit] } },
+    { command: "layer.newLight", params: { kind: "Ambient", name: "ambient", color: "#ffffff", intensity: 55 } },
+    { command: "layer.newLight", params: { kind: "Parallel", name: "key", color: "#fff1dc", intensity: 110, castsShadows: true, position: [-40, -960, -1700] } },
+    { command: "layer.newLight", params: { kind: "Parallel", name: "fill", color: "#a8d1ff", intensity: 30, position: [2260, 840, -1000] } },
+    // Slide in and out: the controls null's "in" marker (start, and how long until the last cloud has landed)
+    // and "out" marker (start, and how long until the last cloud has left), with Overshoot and Stagger (the
+    // most seconds one cloud starts after another) sliders.
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    fx("controls", "Slider Control"),
+    set("controls", "effects/#1/slider", 1.7),
+    set("controls", "effects/#2/slider", 0.35),
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 0, comment: "in" } },
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 3.6, comment: "out" } },
+    { command: "markers.set", params: { layer: "controls", index: 0, duration: 1.3 } },
+    { command: "markers.set", params: { layer: "controls", index: 1, duration: 1.3 } },
+  ];
+
+  let n = 0;
+  for (const layer of layers) {
+    const zPx = -layer.z * unit;
+    const edge = halfWidth(layer.z) + 2; // site units either side of centre before a cloud wraps
+    for (let i = 0; i < layer.count; i++) {
+      n += 1;
+      const name = `cloud ${String(n).padStart(2, "0")}`;
+      const s = layer.scale * (0.6 + random() * 0.7);
+      const squash = 0.8 + random() * 0.3;
+      const half = halfHeight(layer.z);
+      const minY = half - 0.63 * 2 * half + 0.5 * s;
+      const maxY = half - 0.55 * s;
+      const yUnits = minY + random() * Math.max(0, maxY - minY);
+      const span = edge * 2;
+      const xUnits = -edge + (span / layer.count) * (i + random() * 0.6);
+      const phase = random() * Math.PI * 2;
+      const spin = (random() - 0.5) * 0.08;
+      const turn = (random() - 0.5) * 0.9;
+      const widthPx = 2 * s * unit;
+      const colour = sky.map((c) => round(1 + (c - 1) * layer.fog));
+
+      steps.push(
+        { command: "layer.newNull", params: { name } },
+        { command: "layer.setSwitch", params: { layers: [name], switch: "threeD", value: true } },
+        set(name, "transform/position", [round(960 + xUnits * unit), round(540 - yUnits * unit), round(zPx)]),
+        set(name, "transform/scale", [100, round(100 * squash), 100]),
+        // Drift right at the layer's speed and wrap at the edge, bob, and turn slowly, as on the site. On top of
+        // that, slide in from off the left with overshoot at the controls' "in" marker, and wind up and slide
+        // back out to the left at its "out" marker, each cloud a little after the last (Stagger).
+        expr(name, "transform/position", [
+          `var unit = ${round(unit)}, speed = ${layer.speed}, edge = ${round(edge)};`,
+          `var x0 = ${round(xUnits)}, y0 = ${round(yUnits)}, phase = ${round(phase)};`,
+          `var x = x0 + speed * time + edge;`,
+          `x = x - Math.floor(x / (2 * edge)) * (2 * edge) - edge;`,
+          `var y = y0 + Math.sin(time * 0.5 + phase) * 0.08;`,
+          `var c = thisComp.layer("controls"), ov = c.effect("Overshoot")("Slider"), stagger = Math.max(c.effect("Stagger")("Slider"), 0);`,
+          `function markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }`,
+          `var delay = stagger * ${((n * 7) % 10) / 10};`,
+          `function progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }`,
+          `function backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }`,
+          `function backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }`,
+          `var mIn = markerKey("in"), mOut = markerKey("out"), away = x + edge;`,
+          `if (mIn) x -= away * (1 - backOut(progress(mIn)));`,
+          `if (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));`,
+          `[960 + x * unit, 540 - y * unit, ${round(zPx)}]`,
+        ].join("\n")),
+        expr(name, "transform/rotationY", `${round((turn * 180) / Math.PI)} + ${round((spin * 180) / Math.PI)} * time`),
+      );
+      puffs.forEach(([dx, dy, r], k) => {
+        const puff = `${name} puff ${k + 1}`;
+        steps.push(
+          { command: "layer.new3dPrimitive", params: { kind: "sphere", name: puff, radius: round((r * widthPx) / 1.9), position: [round(960 + xUnits * unit + (dx * widthPx) / 1.9), round(540 - yUnits * unit + (dy * widthPx) / 1.9), round(zPx)], baseColor: colour, roughness: 0.85, metallic: 0, castsShadows: true, acceptsShadows: true } },
+          { command: "layer.setParent", params: { layers: [puff], parent: name } },
+        );
+      });
+    }
+  }
+
+  steps.push(
+    { command: "comp.new", params: { name: "cloudBackground", width: 1920, height: 1080, frameRate: 30, duration: 5, open: true } },
+    // The sky is the ditherGradientBackground precomp (built first by build.sh).
+    { command: "layer.addItem", params: { item: "ditherGradientBackground", time: 0 } },
+    { command: "layer.rename", params: { layer: "ditherGradientBackground", name: "sky" } },
+    { command: "layer.addItem", params: { item: "clayClouds", time: 0 } },
+    fx("clayClouds", "Black & White"),
+    fx("clayClouds", "Levels"),
+    set("clayClouds", "effects/#2/inBlack", 0.3),
+    set("clayClouds", "effects/#2/inWhite", 0.92),
+    fx("clayClouds", "Craft Halftone & Dither"),
+    set("clayClouds", "effects/#3/cell_size", 3),
+    set("clayClouds", "effects/#3/contrast", 1),
+    set("clayClouds", "effects/#3/dither_spread", 1),
+    fx("clayClouds", "Tint"),
+    set("clayClouds", "effects/#4/black", [0.62, 0.8, 1, 1]),
+    set("clayClouds", "effects/#4/white", [1, 1, 1, 1]),
+    { command: "essential.setName", params: { comp: "cloudBackground", name: "cloudBackground" } },
+    { command: "essential.addProperty", params: { comp: "cloudBackground", layer: "clayClouds", path: "effects/#3/cell_size", name: "Cloud Dither Size" } },
+    { command: "essential.addProperty", params: { comp: "cloudBackground", layer: "clayClouds", path: "effects/#4/black", name: "Cloud Shade" } },
+    { command: "essential.addProperty", params: { comp: "cloudBackground", layer: "clayClouds", path: "effects/#4/white", name: "Cloud Lit" } },
+  );
+  mkdirSync("effects/cloudBackground", { recursive: true });
+  writeFileSync("effects/cloudBackground/effect.json", JSON.stringify(steps, null, 2) + "\n");
+}
+
+// ascii3D: one clay cloud drawn as ASCII characters, on the ditherGradientBackground sky held mostly blue with the
+// dither only just creeping in at the bottom of the frame.
+//
+// There is no ASCII effect to apply, so the ASCII is built from layers: full-frame grids of monospace characters,
+// each revealed only where the cloud is that bright by a track matte of the cloud render.
+//   cloudSolo â€” one cloud: our own six 3D spheres under a null (clayClouds' cloud, on its own), Advanced 3D with the
+//     same camera and lights. It drifts, bobs and turns, and slides in from off the left at the "in" marker (add an
+//     "out" marker to have it wind back out).
+//   ascii sparse / mid / dense â€” grids of characters from the ramp ". , ' ` : - = + * # % @", one per brightness
+//     range: the lit tops of the cloud get the dense glyphs, the shadows the sparse ones.
+//   matte sparse / mid / dense â€” cloudSolo with its shading stretched to 0â€“1 by Levels, then clipped to that band by
+//     a second Levels. Not rendered; each is the luma track matte of its glyph layer.
+// The sky is the ditherGradientBackground precomp, time-remapped to 0.55 + time * 0.21 so its 0 â†’ 100 Wipe only
+// creeps a little way up from the bottom of the frame instead of wiping it to white.
+// The grids are laid out for a monospace font: JetBrains Mono advances 0.6 em, so the glyph size sets the columns
+// and the row spacing is 0.9 of it. A fixed seed picks every character, so every build is the same.
+// Essential Graphics: Density (positive draws more of the cloud, negative less), Ink (the lit glyphs) and Shade
+// (the glyphs in the cloud's shadows).
+{
+  const name = "ascii3D";
+  const plugins = { command: "effect.plugins.load", params: { folder: `${process.env.APPDATA.replace(/\\/g, "/")}/EffectCraft/Plug-ins` } };
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
+  const round = (n) => Math.round(n * 100) / 100;
+  const duration = 5;
+
+  // The site's scene in its own units: camera at z 12 with a 30Â° field of view. The single cloud sits at z -4, big
+  // and centred, built from the same six puffs as clayClouds' clouds.
+  const cameraZ = 12;
+  const unit = 540 / Math.tan((15 * Math.PI) / 180) / cameraZ; // px per site unit at z 0
+  const z = -4;
+  const zPx = -z * unit;
+  const scale = 2.5;
+  const widthPx = 2 * scale * unit;
+  const puffs = [[0, -0.05, 0.3], [-0.3, 0.08, 0.22], [0.3, 0.06, 0.24], [-0.12, 0.14, 0.22], [0.16, 0.15, 0.22], [0.06, -0.2, 0.2]];
+
+  // One glyph grid for the whole frame. JetBrains Mono's advance is 0.6 of the size, so the columns follow the
+  // size; rows sit 0.9 of the size apart, which keeps the characters touching the way ASCII art does.
+  const size = 20;
+  const advance = size * 0.6;
+  const line = Math.round(size * 0.9 * 100) / 100;
+  const cols = Math.ceil(1920 / advance) + 1;
+  const rows = Math.ceil(1080 / line) + 2;
+
+  let seed = 20261110;
+  const random = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
+  const field = (chars) => {
+    const lines = [];
+    for (let r = 0; r < rows; r++) {
+      let s = "";
+      for (let c = 0; c < cols; c++) s += chars[Math.floor(random() * chars.length)];
+      lines.push(s);
+    }
+    return lines.join("\n");
+  };
+
+  // The ramp, split into the three bands: sparse in the cloud shadows, mid in the body, dense on the lit tops.
+  // inBlack / inWhite are where that band starts and ends in the shading, once the cloud is stretched to 0â€“1.
+  // The sparse glyphs are drawn in the Shade colour and the other two in Ink, so the shading reads as form.
+  const bands = [
+    { layer: "ascii sparse", matte: "matte sparse", chars: [".", ",", "'", "`"], inBlack: -0.3, inWhite: 0.2, opacity: 100, ink: "Shade" },
+    { layer: "ascii mid", matte: "matte mid", chars: [":", "-", "=", "+"], inBlack: 0.16, inWhite: 0.48, opacity: 78, ink: "Ink" },
+    { layer: "ascii dense", matte: "matte dense", chars: ["*", "#", "%", "@"], inBlack: 0.42, inWhite: 0.82, opacity: 100, ink: "Ink" },
+  ];
+
+  // Density moves the whole ramp: 0 is the built-in split, positive draws more of the cloud (denser ASCII),
+  // negative leaves only the brightest parts drawn.
+  const density = (base) => [
+    `var d = 0; try { d = thisComp.layer("controls").effect("Density")("Slider"); } catch (e) { d = 0; }`,
+    `Math.min(Math.max(${base} + (d / 100) * 0.3, -1), 2)`,
+  ].join("\n");
+
+  const steps = [
+    plugins,
+
+    // cloudSolo: the one cloud, in its own Advanced 3D comp so the ASCII can matte against it.
+    { command: "comp.new", params: { name: "cloudSolo", width: 1920, height: 1080, frameRate: 30, duration, open: true } },
+    { command: "comp.settings", params: { comp: "cloudSolo", renderer: "advanced3D" } },
+    { command: "layer.newCamera", params: { name: "camera", type: "oneNode", angleOfView: 30, position: [960, 540, -cameraZ * unit] } },
+    { command: "layer.newLight", params: { kind: "Ambient", name: "ambient", color: "#ffffff", intensity: 55 } },
+    { command: "layer.newLight", params: { kind: "Parallel", name: "key", color: "#fff1dc", intensity: 110, castsShadows: true, position: [-40, -960, -1700] } },
+    { command: "layer.newLight", params: { kind: "Parallel", name: "fill", color: "#a8d1ff", intensity: 30, position: [2260, 840, -1000] } },
+    // Slide in and out: the controls null's "in" and "out" markers, with Overshoot.
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    set("controls", "effects/#1/slider", 1.7),
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 0, comment: "in" } },
+    { command: "markers.set", params: { layer: "controls", index: 0, duration: 1.2 } },
+    { command: "layer.newNull", params: { name: "cloud" } },
+    { command: "layer.setSwitch", params: { layers: ["cloud"], switch: "threeD", value: true } },
+    set("cloud", "transform/position", [960, 520, round(zPx)]),
+    // Drift gently either side, bob and turn, then slide in from off the left with overshoot and wind back out.
+    expr("cloud", "transform/position", [
+      `var unit = ${round(unit)}, away = 13;`,
+      `var x = Math.sin(time * 0.35) * 0.55;`,
+      `var y = 0.15 + Math.sin(time * 0.5 + 1.1) * 0.12;`,
+      `var c = thisComp.layer("controls"), ov = c.effect("Overshoot")("Slider");`,
+      `function markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }`,
+      `function progress(m) { return Math.min(Math.max((time - m.time) / Math.max(m.duration, 0.001), 0), 1); }`,
+      `function backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }`,
+      `function backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }`,
+      `var mIn = markerKey("in"), mOut = markerKey("out");`,
+      `if (mIn) x -= away * (1 - backOut(progress(mIn)));`,
+      `if (mOut && time >= mOut.time) x -= away * backIn(progress(mOut));`,
+      `[960 + x * unit, 540 - y * unit, ${round(zPx)}]`,
+    ].join("\n")),
+    expr("cloud", "transform/rotationY", `Math.sin(time * 0.3) * 10`),
+    ...puffs.flatMap(([dx, dy, r], k) => [
+      { command: "layer.new3dPrimitive", params: { kind: "sphere", name: `cloud puff ${k + 1}`, radius: round((r * widthPx) / 1.9), position: [round(960 + (dx * widthPx) / 1.9), round(520 - (dy * widthPx) / 1.9), round(zPx)], baseColor: [1, 1, 1], roughness: 0.85, metallic: 0, castsShadows: true, acceptsShadows: true } },
+      { command: "layer.setParent", params: { layers: [`cloud puff ${k + 1}`], parent: "cloud" } },
+    ]),
+    { command: "comp.close", params: { comp: "cloudSolo" } },
+
+    // ascii3D: the sky, then the three ASCII bands over their mattes.
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, background: "#ffffff", open: true } },
+    // The sky is the ditherGradientBackground precomp (built first by build.sh), played slowly so its Wipe only
+    // creeps a little way up from the bottom of the frame.
+    { command: "layer.addItem", params: { item: "ditherGradientBackground", time: 0 } },
+    { command: "layer.rename", params: { layer: "ditherGradientBackground", name: "sky" } },
+    { command: "layer.enableTimeRemap", params: { layers: ["sky"], value: true } },
+    // Play the sky slowly (its 0 â†’ 100 Wipe over 5 s spread over ~24 s), so the dither only creeps a little way up
+    // from the bottom of the frame instead of wiping it to white.
+    expr("sky", "timeRemap", "0.55 + time * 0.21"),
+  ];
+
+  for (const band of bands) {
+    steps.push(
+      // The glyph grid: a full frame of characters, laid out from the top-left corner.
+      { command: "layer.newText", params: { text: field(band.chars), name: band.layer, position: [0, line], font: "JetBrains Mono", style: "Regular", size, leading: line, tracking: 0, fill: [1, 1, 1], justify: "left" } },
+      fx(band.layer, "Fill"),
+      expr(band.layer, "effects/#1/color", `thisComp.layer("controls").effect("${band.ink}")("Color")`),
+      set(band.layer, "transform/opacity", band.opacity),
+      // Its matte: the cloud, shading stretched to 0â€“1, then only this band's slice of that shading kept.
+      { command: "layer.addItem", params: { item: "cloudSolo", time: 0 } },
+      { command: "layer.rename", params: { layer: "cloudSolo", name: band.matte } },
+      fx(band.matte, "Levels"),
+      set(band.matte, "effects/#1/inBlack", 0.8),
+      set(band.matte, "effects/#1/inWhite", 1),
+      fx(band.matte, "Levels"),
+      expr(band.matte, "effects/#2/inBlack", density(band.inBlack)),
+      expr(band.matte, "effects/#2/inWhite", density(band.inWhite)),
+      { command: "layer.setSwitch", params: { layers: [band.matte], switch: "video", value: false } },
+      { command: "layer.setTrackMatte", params: { layer: band.layer, matte: band.matte, kind: "luma" } },
+    );
+  }
+
+  steps.push(
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    set("controls", "effects/#1/slider", 0),
+    fx("controls", "Color Control"),
+    set("controls", "effects/#2/color", [1, 1, 1, 1]),
+    fx("controls", "Color Control"),
+    set("controls", "effects/#3/color", [0.051, 0.165, 0.298, 1]),
+    { command: "layer.setSwitch", params: { layers: ["controls"], switch: "guide", value: true } },
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Density" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#2/color", name: "Ink" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#3/color", name: "Shade" } },
+  );
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+}
+
+// ditherGradientBackground: brand blue breaking into light blue, then into white, in big square pixels
+// (ordered/Bayer dither), wiping up the frame from fully blue to fully white. Two bands, each a black-to-white
+// Gradient Ramp run through Craft Halftone & Dither (18 px cells) and then Tint, so the dither's black and white
+// become the band's two colours:
+//   upper â€” Top Color (blue) to Middle Color (light blue) over 378 px.
+//   lower â€” Middle Color to Bottom Color (white) over the next 491 px, wiped so it only covers below the split.
+// The "controls" null's Wipe slider moves both bands together: 0 is fully blue (the fade sits below the frame),
+// 100 is fully white (the fade has gone off the top). It's keyframed 0 â†’ 100 over the comp with easy ease, so the
+// fade comes up slowly, speeds up, and settles on white at the end; retime or reshape it by moving the keys.
+// Essential Graphics: Wipe, Top Color, Middle Color, Bottom Color, Pixel Size.
+{
+  const name = "ditherGradientBackground";
+  const plugins = { command: "effect.plugins.load", params: { folder: `${process.env.APPDATA.replace(/\\/g, "/")}/EffectCraft/Plug-ins` } };
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const key = (layer, path, value, time) => ({ command: "prop.addKey", params: { layer, path, value, time } });
+  const ease = (layer, path, time, side) => ({ command: "keys.setEase", params: { layer, path, time, side, speed: 0, influence: 60 } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
+  const blue = [0.165, 0.549, 1, 1];
+  const lightBlue = [0.56, 0.77, 1, 1];
+  const white = [1, 1, 1, 1];
+  const duration = 5;
+  const lastFrame = duration - 1 / 30;
+  // Where the bands sit, from the Wipe slider. The fade is 378 px (upper) + 491 px (lower) tall; Wipe moves its top
+  // edge from the bottom of the frame (0) to the fade's full height above the top (100). The split between the
+  // bands is snapped to the pixel grid so it falls between pixel rows.
+  const geometry = [
+    `var p = Math.min(Math.max(thisComp.layer("controls").effect("Wipe")("Slider"), 0), 100) / 100;`,
+    `var cell = Math.max(thisComp.layer("upper").effect(2)("cell_size"), 1);`,
+    `var up = 378, low = 491, H = thisComp.height;`,
+    `var top = H - p * (H + up + low + cell);`,
+    `var split = Math.round((top + up) / cell) * cell;`,
+    `var bottom = split + low;`,
+    `var bottomRow = Math.ceil(bottom / cell) * cell;`,
+  ];
+  const at = (result) => [...geometry, result].join("\n");
+
+  const band = (layer, black, whiteTo) => [
+    { command: "layer.newSolid", params: { name: layer, color: "#000000", width: 1920, height: 1080 } },
+    fx(layer, "Gradient Ramp"),
+    set(layer, "effects/#1/startColor", [0, 0, 0, 1]),
+    set(layer, "effects/#1/endColor", [1, 1, 1, 1]),
+    fx(layer, "Craft Halftone & Dither"),
+    set(layer, "effects/#2/cell_size", 18),
+    set(layer, "effects/#2/contrast", 1),
+    set(layer, "effects/#2/dither_spread", 1),
+    fx(layer, "Tint"),
+    set(layer, "effects/#3/black", black),
+    set(layer, "effects/#3/white", whiteTo),
+  ];
+
+  const steps = [
+    plugins,
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, open: true } },
+    ...band("upper", blue, lightBlue),
+    ...band("lower", lightBlue, white),
+    fx("lower", "Linear Wipe"),
+    set("lower", "effects/#4/angle", 180),
+    // The lower band follows the upper one's Middle Color and pixel size.
+    expr("lower", "effects/#3/black", `thisComp.layer("upper").effect(3)(2)`),
+    expr("lower", "effects/#2/cell_size", `thisComp.layer("upper").effect(2)("cell_size")`),
+
+    // The controls null and its Wipe slider, keyframed fully blue â†’ fully white with easy ease.
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    key("controls", "effects/#1/slider", 0, 0),
+    key("controls", "effects/#1/slider", 100, lastFrame),
+    ease("controls", "effects/#1/slider", 0, "out"),
+    ease("controls", "effects/#1/slider", lastFrame, "in"),
+
+    expr("upper", "effects/#1/start", at(`[thisComp.width / 2, top]`)),
+    expr("upper", "effects/#1/end", at(`[thisComp.width / 2, split]`)),
+    expr("lower", "effects/#1/start", at(`[thisComp.width / 2, split]`)),
+    expr("lower", "effects/#1/end", at(`[thisComp.width / 2, bottom]`)),
+    expr("lower", "effects/#4/completion", at(`Math.min(Math.max(split / H * 100, 0), 100)`)),
+
+    // The dither leaves a dot in every tile even in pure white, so a clean Bottom Color layer covers everything
+    // past the end of the fade (snapped to the pixel rows); at Wipe 100 that's the whole frame.
+    { command: "layer.newSolid", params: { name: "clear", color: "#ffffff", width: 1920, height: 1080 } },
+    fx("clear", "Fill"),
+    expr("clear", "effects/#1/color", `thisComp.layer("lower").effect(3)(2)`),
+    fx("clear", "Linear Wipe"),
+    set("clear", "effects/#2/angle", 180),
+    expr("clear", "effects/#2/completion", at(`Math.min(Math.max(bottomRow / H * 100, 0), 100)`)),
+
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Wipe" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "upper", path: "effects/#3/black", name: "Top Color" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "upper", path: "effects/#3/white", name: "Middle Color" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "lower", path: "effects/#3/white", name: "Bottom Color" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "upper", path: "effects/#2/cell_size", name: "Pixel Size" } },
+  ];
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+}
+
+// brickTextBackground: a wall of blue rounded bricks filling the frame, each holding one word picked at random
+// from a sentence.
+//   sentence â€” a guide text layer (not rendered) holding the sentence; edit it (or Sentence in Essential
+//     Graphics) and every brick re-picks its words from it.
+//   controls â€” Build (0â€“100): the bricks pop in one by one in a fixed random order with overshoot, and at 100 the
+//     wall fills the whole comp. It's keyframed 0 â†’ 100 over the first 2.5 s. Overshoot sets the pop. Scramble
+//     (checkbox) makes every brick swap to another random word every Scramble Every seconds, each brick at its own
+//     moment. Brick Color sets the bricks.
+//   8 rows of bricks in a running bond (every other row shifted half a brick), each brick a shape layer with its
+//   word as a child text layer that shrinks to fit.
+{
+  const name = "brickTextBackground";
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
+  const key = (layer, path, value, time) => ({ command: "prop.addKey", params: { layer, path, value, time } });
+  const ease = (layer, path, time, side) => ({ command: "keys.setEase", params: { layer, path, time, side, speed: 0, influence: 60 } });
+  const round = (v) => Math.round(v * 100) / 100;
+
+  let seed = 424242;
+  const random = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
+
+  const W = 1920, H = 1080, rows = 8, perRow = 7, gap = 10;
+  const rowH = H / rows, brickW = W / perRow;
+  const bricks = [];
+  for (let r = 0; r < rows; r++) {
+    const offset = r % 2 === 1;
+    const count = offset ? perRow + 1 : perRow;
+    for (let c = 0; c < count; c++) bricks.push({ x: offset ? c * brickW : brickW / 2 + c * brickW, y: rowH / 2 + r * rowH });
+  }
+  const n = bricks.length;
+  // A fixed random build order.
+  const order = bricks.map((_, i) => i);
+  for (let i = n - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+
+  const controls = `var c = thisComp.layer("controls");`;
+  const hash = `function rnd(v) { var s = Math.sin(v * 12.9898) * 43758.5453; return s - Math.floor(s); }`;
+  const steps = [
+    { command: "comp.new", params: { name, width: W, height: H, frameRate: 30, duration: 5, background: "#ffffff", open: true } },
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    fx("controls", "Slider Control"),
+    fx("controls", "Checkbox Control"),
+    fx("controls", "Slider Control"),
+    fx("controls", "Color Control"),
+    key("controls", "effects/#1/slider", 0, 0),
+    key("controls", "effects/#1/slider", 100, 2.5),
+    ease("controls", "effects/#1/slider", 0, "out"),
+    ease("controls", "effects/#1/slider", 2.5, "in"),
+    set("controls", "effects/#2/slider", 1.7),
+    set("controls", "effects/#3/checkbox", false),
+    set("controls", "effects/#4/slider", 0.8),
+    set("controls", "effects/#5/color", [0.165, 0.549, 1, 1]),
+    { command: "layer.newText", params: { text: "Listen to your competitors across Twitter Reddit and Facebook help their customers and get new customers", name: "sentence", position: [960, 540], font: "Satoshi", style: "Bold", size: 40, fill: [0, 0, 0], justify: "center" } },
+    { command: "layer.setSwitch", params: { layers: ["sentence"], switch: "guide", value: true } },
+    // Hidden: EffectCraft still draws guide layers in the viewer. The bricks read its text either way.
+    { command: "layer.setSwitch", params: { layers: ["sentence"], switch: "video", value: false } },
+  ];
+
+  bricks.forEach((b, i) => {
+    const id = String(i + 1).padStart(2, "0");
+    const brick = `brick ${id}`;
+    const word = `word ${id}`;
+    steps.push(
+      { command: "layer.newShape", params: { kind: "rounded", name: brick, size: [round(brickW - gap), round(rowH - gap)], fill: [0.165, 0.549, 1], position: [round(b.x), round(b.y)] } },
+      set(brick, "contents/group/contents/rect/roundness", 14),
+      expr(brick, "contents/group/contents/fill/color", `thisComp.layer("controls").effect("Brick Color")("Color")`),
+      // Pop in with overshoot as Build passes this brick's place in the order; every brick is in by Build 100.
+      expr(brick, "transform/scale", [
+        controls,
+        `var build = c.effect("Build")("Slider"), ov = c.effect("Overshoot")("Slider");`,
+        `var n = ${n}, place = ${order.indexOf(i)}, w = 100 / n * 4;`,
+        `var t = Math.min(Math.max((build - place / n * (100 - w)) / w, 0), 1), u = t - 1;`,
+        `var s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;`,
+        `[100 * s, 100 * s]`,
+      ].join("\n")),
+      { command: "layer.newText", params: { text: "word", name: word, position: [round(b.x), round(b.y)], font: "Satoshi", style: "Bold", size: 46, fill: [1, 1, 1], justify: "center" } },
+      { command: "layer.setParent", params: { layers: [word], parent: brick } },
+      set(word, "transform/position", [0, 0, 0]),
+      // A random word from the sentence; with Scramble on it re-picks every Scramble Every seconds.
+      expr(word, "text/sourceText", [
+        controls,
+        hash,
+        `var words = String(thisComp.layer("sentence").text.sourceText).split(/\\s+/);`,
+        `var list = []; for (var k = 0; k < words.length; k++) if (words[k].length) list.push(words[k]);`,
+        `var every = Math.max(c.effect("Scramble Every")("Slider"), 0.05), k0 = ${i + 1};`,
+        `var tick = c.effect("Scramble")("Checkbox") == 1 ? Math.floor(time / every + rnd(k0 * 3.7)) : 0;`,
+        `function mix(a) { a = (a ^ 61) ^ (a >>> 16); a = a + (a << 3); a = a ^ (a >>> 4); a = (a * 668265261) | 0; a = a ^ (a >>> 15); return a >>> 0; }`,
+        `list.length ? list[mix(k0 * 7919 + tick * 104729) % list.length] : ""`,
+      ].join("\n")),
+      expr(word, "transform/anchor", [`var r = sourceRectAtTime(time, false);`, `[r.left + r.width / 2, r.top + r.height / 2, 0]`].join("\n")),
+      expr(word, "transform/scale", [`var r = sourceRectAtTime(time, false);`, `var f = r.width > 0 ? Math.min(1, ${round(brickW - gap - 34)} / r.width) : 1;`, `[100 * f, 100 * f, 100]`].join("\n")),
+    );
+  });
+
+  steps.push(
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "sentence", path: "text/sourceText", name: "Sentence" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Build" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#2/slider", name: "Overshoot" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#3/checkbox", name: "Scramble" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#4/slider", name: "Scramble Every" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#5/color", name: "Brick Color" } },
+  );
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+}
+
+// claudeCode, codex, terminal: the agent windows from log-cli's landing page, rebuilt as reusable precomps
+// (site/apps/web/src/landing/AgentSession.tsx for the Claude Code and Codex windows, the "Paste this into your
+// terminal" box in landing/useCases/UseCasesPage.tsx for the terminal). Each is a 1920Ã—1080 comp with a transparent
+// background and the window centred, built from plain shapes and text so it stays light. They play the start of the
+// site's session: the prompt pops in and types, a log tool call pops in, and the reply types on word by word (the
+// terminal types its lines one after another). Edit the text in Essential Graphics.
+{
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const hex = (h) => [1, 3, 5].map((i) => Math.round((parseInt(h.slice(i, i + 2), 16) / 255) * 1000) / 1000);
+
+  const rect = (name, cx, cy, w, h, fill, opts = {}) => [
+    { command: "layer.newShape", params: { kind: "rounded", name, size: [w, h], fill: hex(fill), position: [cx, cy], ...(opts.stroke ? { stroke: hex(opts.stroke), strokeWidth: opts.strokeWidth ?? 2 } : {}) } },
+    set(name, "contents/group/contents/rect/roundness", opts.round ?? 0),
+  ];
+  const text = (name, str, x, y, opts = {}) => ({
+    command: "layer.newText",
+    params: { text: str, name, position: [x, y], font: opts.font ?? "Satoshi", style: opts.style ?? "Medium", size: opts.size ?? 22, fill: hex(opts.fill ?? "#1a1a18"), justify: opts.justify ?? "left", ...(opts.box ? { box: opts.box } : {}) },
+  });
+  const parent = (child, to) => ({ command: "layer.setParent", params: { layers: [child], parent: to } });
+  // Pops in from nothing with overshoot at t0.
+  const pop = (layer, t0) => expr(layer, "transform/scale", [
+    `var t = Math.min(Math.max((time - ${t0}) / 0.35, 0), 1), u = t - 1, ov = 1.7;`,
+    `var s = t <= 0 ? 0 : 1 + (ov + 1) * u * u * u + ov * u * u;`,
+    `[100 * s, 100 * s]`,
+  ].join("\n"));
+  // Types its own text on from t0, by character or by word.
+  const type = (layer, t0, rate, perWord = false) => expr(layer, "text/sourceText", perWord
+    ? [`var s = String(value), w = s.split(" ");`, `var n = Math.max(0, Math.floor((time - ${t0}) * ${rate}));`, `w.slice(0, n).join(" ")`].join("\n")
+    : [`var s = String(value);`, `s.slice(0, Math.max(0, Math.floor((time - ${t0}) * ${rate})))`].join("\n"));
+  const appearAt = (layer, t0) => expr(layer, "transform/opacity", `time >= ${t0} ? 100 : 0`);
+  const essText = (comp, layer, label) => ({ command: "essential.addProperty", params: { comp, layer, path: "text/sourceText", name: label } });
+
+  const prompt = "check my twitter whos waiting on me";
+  const reply = "6 people are waiting on you, and 2 more opened your last message but didnâ€™t reply. Reading each thread in full before drafting anything.";
+  const toolArgs = '{ account: "you", waiting: true, limit: "50" }';
+  const toolLines = ["@you, 6 conversations waiting on a reply, newest first", "1. @dana_builds Â· 2h ago Â· unread, waiting on you", "2. @leo_ops Â· 5h ago Â· unread, waiting on you"];
+  const mono = { font: "JetBrains Mono", style: "Regular", size: 17 };
+  // The window: 1400 Ã— 800, centred; sidebar 330 wide; feed column from x 620 to 1630.
+  const L = 260, T = 140, W = 1400, H = 800, side = 330, feedX = 620, feedW = 1010;
+
+  // A brand mark from assets/ (the 24Ã—24 SVGs from log-cli's BrandMark.tsx), sized to px and kept sharp.
+  const brandMark = (file, x, y, px) => [
+    { command: "file.import", params: { paths: [`${process.cwd().replace(/\\/g, "/")}/assets/${file}`] } },
+    { command: "layer.addItem", params: { item: file, position: [x, y] } },
+    { command: "layer.rename", params: { layer: file, name: "mark" } },
+    set("mark", "transform/scale", [(px / 24) * 100, (px / 24) * 100]),
+    { command: "layer.setSwitch", params: { layers: ["mark"], switch: "collapse", value: true } },
+  ];
+
+  // The prompt is typed into the input box first (the hint hides while it's there), then sent: the box clears and the
+  // prompt pops in as a bubble at the top. The tool call and the reply follow.
+  const round = (v) => Math.round(v * 100) / 100;
+  const typeFrom = 0.3, cps = 32, sent = round(typeFrom + prompt.length / cps + 0.35);
+  const typedInInput = (name, x, y, fill) => [
+    text(name, " ", x, y, { size: 22, fill }),
+    expr(name, "text/sourceText", [
+      `var s = String(thisComp.layer("prompt").text.sourceText);`,
+      `time >= ${round(sent)} ? "" : s.slice(0, Math.max(0, Math.floor((time - ${typeFrom}) * ${cps})))`,
+    ].join("\n")),
+    expr("input hint", "transform/opacity", `time < ${typeFrom} || time >= ${round(sent)} ? 100 : 0`),
+  ];
+
+  // ---- Claude Code ----
+  {
+    const name = "claudeCode";
+    const steps = [
+      { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 6, open: true } },
+      ...rect("window", L + W / 2, T + H / 2, W, H, "#F0ECE0", { stroke: "#DCD4C2", round: 18 }),
+      ...rect("sidebar", L + side / 2, T + H / 2, side, H, "#EAE4D3", { round: 18 }),
+      ...rect("sidebar edge", L + side - 10, T + H / 2, 20, H, "#EAE4D3"),
+      ...rect("sidebar line", L + side, T + H / 2, 2, H, "#DCD4C2"),
+      ...brandMark("claude.svg", L + 46, T + 58, 30),
+      text("brand", "Claude", L + 70, T + 66, { font: "Georgia", style: "Regular", size: 30 }),
+      text("new plus", "+", L + 32, T + 125, { size: 24, fill: "#c96442" }),
+      text("new session", "New session", L + 58, T + 125, { fill: "#3d3a35" }),
+      text("chats", "Chats", L + 32, T + 175, { fill: "#5b5950" }),
+      ...rect("code pill", L + side / 2, T + 217, side - 30, 42, "#DFD9C8", { round: 8 }),
+      text("code", "Code", L + 32, T + 225, { style: "Bold", fill: "#1a1a18" }),
+      text("recents", "Recents", L + 32, T + 285, { size: 18, fill: "#8a8780" }),
+      text("recent 1", "X inbox follow-ups", L + 32, T + 330, { fill: "#3d3a35" }),
+      text("recent 2", "Marketplace listings", L + 32, T + 375, { fill: "#5b5950" }),
+      text("recent 3", "Group listening", L + 32, T + 420, { fill: "#5b5950" }),
+      text("path", "â–¢  your-marketing      â‘‚  main", feedX, T + 42, { font: "Segoe UI", style: "Regular", size: 20, fill: "#5b5950" }),
+      ...rect("top line", L + side + (W - side) / 2, T + 65, W - side, 2, "#DCD4C2"),
+      // The prompt: a bubble on the right that pops in, then the text types.
+      ...rect("prompt bubble", feedX + feedW - 240, T + 125, 480, 58, "#E5E0D6", { round: 26 }),
+      text("prompt", prompt, feedX + feedW - 240, T + 133, { justify: "center", size: 23 }),
+      parent("prompt", "prompt bubble"),
+      pop("prompt bubble", sent),
+      // The log tool call card.
+      ...rect("tool card", feedX + feedW / 2, T + 250, feedW, 140, "#F7F5EF", { stroke: "#E5E0D6", round: 12 }),
+      text("tool name", "log Â· twitterDms", feedX + 24, T + 215, { size: 21 }),
+      text("tool args", toolArgs, feedX + 230, T + 215, { ...mono, fill: "#8a8780" }),
+      text("tool check", "âœ“", feedX + feedW - 36, T + 215, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#5a8a3c" }),
+      ...rect("tool line", feedX + feedW / 2, T + 232, feedW, 2, "#E5E0D6"),
+      ...toolLines.map((line, k) => text(`tool result ${k + 1}`, line, feedX + 24, T + 262 + k * 25, { ...mono, fill: "#5b5950" })),
+      ...["tool name", "tool args", "tool check", "tool line", "tool result 1", "tool result 2", "tool result 3"].map((child) => parent(child, "tool card")),
+      pop("tool card", sent + 0.5),
+      // The reply types on word by word.
+      text("reply", reply, feedX, T + 360, { font: "Georgia", style: "Regular", size: 24, box: [feedX, T + 340, feedW, 110] }),
+      type("reply", sent + 1.3, 9, true),
+      // The input box.
+      ...rect("input", feedX + feedW / 2, T + H - 80, feedW, 100, "#FFFFFF", { stroke: "#E5E0D6", round: 24 }),
+      text("input hint", "Reply to Claudeâ€¦", feedX + 24, T + H - 100, { fill: "#9a9893" }),
+      ...typedInInput("input typing", feedX + 24, T + H - 100, "#1a1a18"),
+      text("input plus", "+", feedX + 24, T + H - 52, { size: 24, fill: "#5b5950" }),
+      text("model", "Opus 5.5  â–¾", feedX + feedW - 170, T + H - 52, { size: 20 }),
+      ...rect("send", feedX + feedW - 40, T + H - 60, 40, 40, "#c96442", { round: 8 }),
+      text("send arrow", "â†‘", feedX + feedW - 40, T + H - 52, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#FFFFFF", justify: "center" }),
+      { command: "essential.setName", params: { comp: name, name } },
+      essText(name, "prompt", "Prompt"),
+      essText(name, "tool name", "Tool"),
+      essText(name, "reply", "Reply"),
+    ];
+    mkdirSync(`effects/${name}`, { recursive: true });
+    writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+  }
+
+  // ---- Codex ----
+  {
+    const name = "codex";
+    const steps = [
+      { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 6, open: true } },
+      ...rect("window", L + W / 2, T + H / 2, W, H, "#FFFFFF", { stroke: "#e5e5e5", round: 18 }),
+      ...rect("sidebar", L + side / 2, T + H / 2, side, H, "#f9f9f9", { round: 18 }),
+      ...rect("sidebar edge", L + side - 10, T + H / 2, 20, H, "#f9f9f9"),
+      ...rect("sidebar line", L + side, T + H / 2, 2, H, "#ececec"),
+      ...brandMark("codex.svg", L + 46, T + 58, 30),
+      text("brand", "Codex", L + 72, T + 66, { style: "Bold", size: 24, fill: "#0d0d0d" }),
+      text("new thread", "âœŽ  New thread", L + 32, T + 125, { font: "Segoe UI", style: "Regular", fill: "#0d0d0d" }),
+      text("project", "your-marketing", L + 32, T + 185, { size: 18, fill: "#8f8f8f" }),
+      ...rect("recent pill", L + side / 2, T + 222, side - 30, 42, "#ececec", { round: 10 }),
+      text("recent 1", "Answer my X DMs", L + 32, T + 230, { fill: "#0d0d0d" }),
+      text("recent 2", "Post the listings", L + 32, T + 275, { fill: "#5d5d5d" }),
+      text("recent 3", "Read the groups", L + 32, T + 320, { fill: "#5d5d5d" }),
+      text("thread", "Answer my X DMs", feedX, T + 42, { size: 20, fill: "#0d0d0d" }),
+      text("branch", "â‘‚  main", feedX + feedW, T + 42, { font: "Segoe UI", style: "Regular", size: 20, fill: "#8f8f8f", justify: "right" }),
+      ...rect("top line", L + side + (W - side) / 2, T + 65, W - side, 2, "#ececec"),
+      ...rect("prompt bubble", feedX + feedW - 240, T + 125, 480, 58, "#f3f3f3", { round: 29 }),
+      text("prompt", prompt, feedX + feedW - 240, T + 133, { justify: "center", size: 23, fill: "#0d0d0d" }),
+      parent("prompt", "prompt bubble"),
+      pop("prompt bubble", sent),
+      // "Called log.twitterDms" with its result box.
+      ...rect("tool", feedX + feedW / 2, T + 262, feedW, 150, "#FFFFFF"),
+      text("tool called", ">_  Called", feedX, T + 205, { font: "JetBrains Mono", style: "Regular", size: 19, fill: "#5d5d5d" }),
+      ...rect("tool chip", feedX + 290, T + 198, 230, 32, "#f3f3f3", { round: 6 }),
+      text("tool name", "log.twitterDms", feedX + 290, T + 205, { ...mono, justify: "center", fill: "#0d0d0d" }),
+      ...rect("tool box", feedX + feedW / 2, T + 285, feedW, 112, "#f9f9f9", { round: 14 }),
+      text("tool args", toolArgs, feedX + 18, T + 252, { ...mono, fill: "#8f8f8f" }),
+      ...toolLines.map((line, k) => text(`tool result ${k + 1}`, line, feedX + 18, T + 277 + k * 24, { ...mono, fill: "#5d5d5d" })),
+      ...["tool called", "tool chip", "tool name", "tool box", "tool args", "tool result 1", "tool result 2", "tool result 3"].map((child) => parent(child, "tool")),
+      pop("tool", sent + 0.5),
+      text("reply", reply, feedX, T + 380, { style: "Regular", size: 23, fill: "#0d0d0d", box: [feedX, T + 360, feedW, 110] }),
+      type("reply", sent + 1.3, 9, true),
+      ...rect("input", feedX + feedW / 2, T + H - 70, feedW, 72, "#FFFFFF", { stroke: "#e5e5e5", round: 36 }),
+      text("input plus", "+", feedX + 28, T + H - 61, { size: 24, fill: "#5d5d5d" }),
+      text("input hint", "Ask Codex anything", feedX + 62, T + H - 62, { fill: "#8f8f8f" }),
+      ...typedInInput("input typing", feedX + 62, T + H - 62, "#0d0d0d"),
+      ...rect("send", feedX + feedW - 40, T + H - 70, 44, 44, "#0d0d0d", { round: 22 }),
+      text("send arrow", "â†‘", feedX + feedW - 40, T + H - 62, { font: "Segoe UI Symbol", style: "Regular", size: 22, fill: "#FFFFFF", justify: "center" }),
+      { command: "essential.setName", params: { comp: name, name } },
+      essText(name, "prompt", "Prompt"),
+      essText(name, "tool name", "Tool"),
+      essText(name, "reply", "Reply"),
+    ];
+    mkdirSync(`effects/${name}`, { recursive: true });
+    writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+  }
+
+  // ---- Terminal ----
+  // The Claude Code CLI window from the rea-looksmaxxing project (log-hyperframes/effectcraft/scene2/assets.html,
+  // #window): a near-black window with a title bar and traffic lights, the orange-bordered "Welcome to Claude Code"
+  // box, then the session in JetBrains Mono: the prompt typed after ">", an orange â— tool line, a grey â”” result and a
+  // blue â— reply.
+  {
+    const name = "terminal";
+    const left = 260, top = 130, width = 1400, height = 820;
+    const consolas = { font: "Consolas", style: "Regular", size: 22 };
+    const cw = 22 * 0.5498; // Consolas advance at 22 px
+    const bodyX = 300, line = { font: "JetBrains Mono", style: "Regular", size: 30 };
+    const typeAt = 0.5, typeRate = 40;
+    const ask = `> ${prompt}`;
+    const shown = round(typeAt + ask.length / typeRate + 0.4);
+    const steps = [
+      { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration: 6, open: true } },
+      ...rect("window", 960, 540, width, height, "#0d1117", { stroke: "#2a3442", round: 22 }),
+      ...rect("bar", 960, top + 27, width, 54, "#161b22", { round: 22 }),
+      ...rect("bar square", 960, top + 41, width, 26, "#161b22"),
+      ...rect("bar line", 960, top + 54, width, 2, "#222b37"),
+      ...["#ff5f57", "#febc2e", "#28c840"].map((fill, k) => [
+        { command: "layer.newShape", params: { kind: "ellipse", name: `light ${k + 1}`, size: [16, 16], fill: hex(fill), position: [left + 30 + k * 28, top + 27] } },
+      ]).flat(),
+      text("title", "matt â€” claude â€” ~/log", 960, top + 34, { ...consolas, size: 20, fill: "#8b98a9", justify: "center" }),
+      ...rect("welcome", 960, top + 54 + 30 + 75, width - 72, 150, "#0d1117", { stroke: "#d97757", round: 12 }),
+      text("welcome star", "âœ»", left + 64, top + 122, { ...consolas, style: "Bold", fill: "#d97757" }),
+      text("welcome to", "Welcome to", left + 64 + 2 * cw, top + 122, { ...consolas, style: "Bold", fill: "#c9d1d9" }),
+      text("welcome claude", "Claude Code", left + 64 + 13 * cw, top + 122, { ...consolas, style: "Bold", fill: "#d97757" }),
+      text("welcome bang", "!", left + 64 + 24 * cw, top + 122, { ...consolas, style: "Bold", fill: "#c9d1d9" }),
+      text("welcome help", "/help for help, /status for your current setup", left + 64, top + 157, { ...consolas, fill: "#7d8590" }),
+      text("welcome cwd", "cwd: ~/your-marketing", left + 64, top + 192, { ...consolas, fill: "#7d8590" }),
+      // The session.
+      text("prompt", ask, bodyX, 430, { ...line, fill: "#f2f5fa" }),
+      type("prompt", typeAt, typeRate),
+      text("tool", "â— log Â· twitterDms (account=you, waiting=true)", bodyX, 500, { ...line, fill: "#d98766" }),
+      appearAt("tool", shown),
+      text("result", "  â”” 6 conversations waiting on a reply, newest first", bodyX, 546, { ...line, fill: "#99a6b8" }),
+      appearAt("result", round(shown + 0.15)),
+      text("reply", "â— 6 people are waiting on you, 2 more opened and didnâ€™t reply", bodyX, 616, { ...line, fill: "#2a8cff" }),
+      appearAt("reply", round(shown + 0.4)),
+    ];
+    // Everything rides on the window, which pops in.
+    const children = ["bar", "bar square", "bar line", "light 1", "light 2", "light 3", "title", "welcome", "welcome star", "welcome to", "welcome claude", "welcome bang", "welcome help", "welcome cwd", "prompt", "tool", "result", "reply"];
+    steps.push(
+      ...children.map((child) => parent(child, "window")),
+      pop("window", 0),
+      { command: "essential.setName", params: { comp: name, name } },
+      essText(name, "prompt", "Prompt"),
+      essText(name, "tool", "Tool"),
+      essText(name, "result", "Result"),
+      essText(name, "reply", "Reply"),
+    );
+    mkdirSync(`effects/${name}`, { recursive: true });
+    writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+  }
+}
+
+
+// tiktok: a wall of TikToks. Each tile is a 9:16 TikTok precomp - the clip and the TikTok like / comment / save icons
+// with their counts down the right edge - and three columns of those tiles fill the width of the frame, with gaps
+// showing between them, scrolling up at
+// different speeds. The clips and icons are the ones from the rea-looksmaxxing project (log-hyperframes/effectcraft/
+// tiktok and scene3), imported from there, so this template needs those folders on disk.
+// Each column holds its three tiles twice over and wraps every three, so it scrolls forever without a seam.
+// Essential Graphics: Speed (all three columns).
+{
+  const name = "tiktok";
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
+  const round = (n) => Math.round(n * 100) / 100;
+
+  const clipsDir = "C:/Users/0/.buzz/REPOS/log-hyperframes/effectcraft/tiktok";
+  const assetsDir = `${process.cwd().replace(/\\/g, "/")}/assets/tiktok`;
+  // Native clip sizes, so each one covers its 9:16 tile.
+  const sizes = {
+    "tt01.mp4": [576, 576], "tt02.mp4": [838, 720], "tt03.mp4": [576, 1024],
+    "tt04.mp4": [720, 1280], "tt05.mp4": [576, 1024], "tt06.mp4": [576, 1024],
+    "tt07.mp4": [720, 1280], "tt08.mp4": [720, 1280], "tt09.mp4": [720, 1280],
+  };
+  const tiles = [
+    { clip: "tt01.mp4", likes: "416K", saves: "19,427", comments: "1,049" },
+    { clip: "tt02.mp4", likes: "212K", saves: "8,310", comments: "742" },
+    { clip: "tt03.mp4", likes: "89.4K", saves: "5,208", comments: "310" },
+    { clip: "tt04.mp4", likes: "1.2M", saves: "44,019", comments: "6,882" },
+    { clip: "tt05.mp4", likes: "64.1K", saves: "3,977", comments: "208" },
+    { clip: "tt06.mp4", likes: "305K", saves: "12,664", comments: "1,530" },
+    { clip: "tt07.mp4", likes: "742K", saves: "31,208", comments: "4,017" },
+    { clip: "tt08.mp4", likes: "158K", saves: "6,459", comments: "918" },
+    { clip: "tt09.mp4", likes: "2.4M", saves: "88,102", comments: "12,740" },
+  ];
+  const tileW = 1080, tileH = 1920; // one TikTok
+  const cellW = 640;                // column pitch
+  const shownW = 580;               // how wide one TikTok sits in the wall: a 60 px gutter either side
+  const shownH = Math.round((shownW * tileH) / tileW); // 1031
+  const cellH = shownH + 60;        // row pitch: the tile plus the same 60 px gutter
+  const run = cellH * 3;
+  const duration = 8;
+
+  const steps = [
+    { command: "file.import", params: { paths: [
+      ...tiles.map((t) => `${clipsDir}/${t.clip}`),
+      `${assetsDir}/like.png`, `${assetsDir}/comment.png`, `${assetsDir}/save.png`,
+    ] } },
+  ];
+
+  // One 9:16 TikTok per tile: the clip, the action rail down the right, and the profile.
+  const icon = (file, layer, x, y) => [
+    { command: "layer.addItem", params: { item: file, time: 0, position: [x, y] } },
+    { command: "layer.rename", params: { layer: file, name: layer } },
+    set(layer, "transform/scale", [40, 40, 100]),
+  ];
+  const count = (layer, x, y, text) => [
+    { command: "layer.newText", params: { text, name: layer, position: [x, y], font: "Satoshi", style: "Bold", size: 44, fill: [1, 1, 1], justify: "center" } },
+  ];
+
+  tiles.forEach((tile, i) => {
+    const tileName = `tiktok ${String(i + 1).padStart(2, "0")}`;
+    const [w, h] = sizes[tile.clip];
+    const cover = round(Math.max(tileW / w, tileH / h) * 100);
+    steps.push(
+      { command: "comp.new", params: { name: tileName, width: tileW, height: tileH, frameRate: 30, duration, background: "#000000", open: true } },
+      { command: "layer.addItem", params: { item: tile.clip, time: 0, position: [tileW / 2, tileH / 2] } },
+      { command: "layer.rename", params: { layer: tile.clip, name: "clip" } },
+      set("clip", "transform/scale", [cover, cover, 100]),
+      // The action rail: avatar, then like, comment and save with their counts, all down the right edge.
+      { command: "layer.newShape", params: { kind: "ellipse", name: "avatar", size: [96, 96], fill: [0.165, 0.549, 1], stroke: [1, 1, 1], strokeWidth: 4, position: [962, 800] } },
+      ...icon("like.png", "likes icon", 962, 980),
+      ...count("likes count", 962, 1052, tile.likes),
+      ...icon("comment.png", "comments icon", 962, 1180),
+      ...count("comments count", 962, 1252, tile.comments),
+      ...icon("save.png", "saves icon", 962, 1380),
+      ...count("saves count", 962, 1452, tile.saves),
+      { command: "comp.close", params: { comp: tileName } },
+    );
+  });
+
+  // The wall: three columns of those tiles. They scroll up all the time, and slide in from below at the "in" marker
+  // and back out through the top at the "out" marker, with overshoot.
+  steps.push(
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, background: "#000000", open: true } },
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    fx("controls", "Slider Control"),
+    set("controls", "effects/#1/slider", 1.7),
+    set("controls", "effects/#2/slider", 0.15),
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 0, comment: "in" } },
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 6, comment: "out" } },
+    { command: "markers.set", params: { layer: "controls", index: 0, duration: 1.2 } },
+    { command: "markers.set", params: { layer: "controls", index: 1, duration: 1.8 } },
+    { command: "layer.setSwitch", params: { layers: ["controls"], switch: "guide", value: true } },
+  );
+
+  // The tiles live straight in the wall, so a column slides out of the frame instead of being cropped by a panel:
+  // the scroll runs all the time, `in` slides the column up from below the frame, and `out` takes the whole stack
+  // past the top (its six cells plus the frame), so even the outermost tile clears.
+  const speeds = [42, 96, 158];
+  speeds.forEach((speed, i) => {
+    const x = 320 + i * cellW;
+    const col = `column ${i + 1}`;
+    steps.push(
+      { command: "layer.newNull", params: { name: col } },
+      set(col, "transform/anchor", [0, 0, 0]),
+      expr(col, "transform/position", [
+        `var c = thisComp.layer("controls");`,
+        `var ov = c.effect("Overshoot")("Slider"), stagger = Math.max(c.effect("Stagger")("Slider"), 0);`,
+        `function markerKey(name) { try { return c.marker.key(name); } catch (e) { return null; } }`,
+        `var delay = stagger * ${i};`,
+        `function ease(t) { return t * t * (3 - 2 * t); }`,
+        `function progress(m) { var d = Math.max(m.duration - stagger, 0.001); return Math.min(Math.max((time - m.time - delay) / d, 0), 1); }`,
+        `function backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }`,
+        `function backIn(t) { return (ov + 1) * t * t * t - ov * t * t; }`,
+        `var y = -((time * ${speed}) % ${run});`,
+        `var mIn = markerKey("in"), mOut = markerKey("out");`,
+        `if (mIn) y += thisComp.height * (1 - backOut(progress(mIn)));`,
+        `if (mOut && time >= mOut.time) y -= (${cellH * 5} + thisComp.height) * ease(progress(mOut));`,
+        `[${x}, y]`,
+      ].join("\n")),
+    );
+    for (let k = 0; k < 5; k++) {
+      const tileName = `tiktok ${String(i * 3 + (k % 3) + 1).padStart(2, "0")}`;
+      const layer = `${col} tile ${k + 1}`;
+      steps.push(
+        { command: "layer.addItem", params: { item: tileName, time: 0, position: [x, 0] } },
+        { command: "layer.rename", params: { layer: tileName, name: layer } },
+        { command: "layer.setParent", params: { layers: [layer], parent: col } },
+        set(layer, "transform/position", [0, cellH * k + cellH / 2, 0]),
+        set(layer, "transform/scale", [round((shownW / tileW) * 100), round((shownW / tileW) * 100), 100]),
+      );
+    }
+  });
+
+  steps.push(
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Overshoot" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#2/slider", name: "Stagger" } },
+  );
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+}
+
+
+
+
+
+
+
+// blackHighlightFocus: the typography from the Strawberry launch (x.com/TechByMarkandey/status/2114687171789779414),
+// on black: a kicker, then the big word with a highlight pill snapped in behind it, then the word under it. Each one
+// focuses in — it comes up out of a blur and settles — and a marker-driven out fades them away.
+// The reference puts a pale pill behind a saturated word; here the pill is brand blue and the type is white, so it
+// reads the same way on black.
+// Essential Graphics: Focus Blur, Stagger, Overshoot, and the three lines of text.
+{
+  const name = "blackHighlightFocus";
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
+  const duration = 5;
+
+  // Every layer shares these: the marker timing, the stagger and the two numbers that shape the focus.
+  const control = (index) => [
+    `var c = thisComp.layer("controls");`,
+    `var ov = c.effect("Overshoot")("Slider"), stagger = Math.max(c.effect("Stagger")("Slider"), 0);`,
+    `var blur0 = c.effect("Focus Blur")("Slider");`,
+    `function markerKey(n) { try { return c.marker.key(n); } catch (e) { return null; } }`,
+    `function clamp(t) { return Math.min(Math.max(t, 0), 1); }`,
+    `var delay = stagger * ${index};`,
+    `var mIn = markerKey("in"), mOut = markerKey("out");`,
+    `var focus = mIn ? Math.max(mIn.duration / 3, 0.2) : 0.55;`,
+    `var p = mIn ? clamp((time - mIn.time - delay) / focus) : 1;`,
+  ];
+  // Comes up out of a blur, from 112% to 100%, fading on quickly.
+  const focusIn = (index) => ({
+    opacity: [...control(index), `var o = mIn ? Math.min(p * 2.2, 1) : 1;`, `if (mOut && time >= mOut.time) o *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);`, `o * 100`].join("\n"),
+    blur: [...control(index), `(1 - p) * blur0`].join("\n"),
+    scale: [...control(index), `var s = 100 + 12 * (1 - p);`, `if (mOut && time >= mOut.time) s *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);`, `[s, s, 100]`].join("\n"),
+  });
+  // The pill snaps in behind the word with overshoot instead of settling.
+  const pillIn = (index) => ({
+    opacity: [...control(index), `var o = mIn ? Math.min(p * 2.5, 1) : 1;`, `if (mOut && time >= mOut.time) o *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);`, `o * 100`].join("\n"),
+    scale: [...control(index), `function backOut(t) { var u = t - 1; return 1 + (ov + 1) * u * u * u + ov * u * u; }`, `var s = mIn ? backOut(p) : 1;`, `if (mOut && time >= mOut.time) s *= Math.max(1 - (time - mOut.time - delay) / 0.35, 0);`, `[100 * s, 100 * s, 100]`].join("\n"),
+  });
+
+  const centred = [
+    `var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);`,
+    `[r.left + r.width / 2, r.top + r.height / 2, 0]`,
+  ].join("\n");
+
+  const line = (layer, text, font, style, size, y, index, colour, dim = 100) => {
+    const look = focusIn(index);
+    look.opacity = look.opacity.replace(/\* 100$/, `* ${dim}`);
+    return [
+      { command: "layer.newText", params: { text, name: layer, position: [960, y], font, style, size, fill: colour, justify: "center" } },
+      expr(layer, "transform/anchor", centred),
+      fx(layer, "Gaussian Blur"),
+      expr(layer, "effects/#1/blurriness", look.blur),
+      expr(layer, "transform/opacity", look.opacity),
+      expr(layer, "transform/scale", look.scale),
+    ];
+  };
+
+  const pill = pillIn(1);
+  const steps = [
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, background: "#000000", open: true } },
+    { command: "layer.newNull", params: { name: "controls" } },
+    fx("controls", "Slider Control"),
+    fx("controls", "Slider Control"),
+    fx("controls", "Slider Control"),
+    set("controls", "effects/#1/slider", 30),
+    set("controls", "effects/#2/slider", 0.18),
+    set("controls", "effects/#3/slider", 1.3),
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 0, comment: "in" } },
+    { command: "layer.addMarker", params: { layers: ["controls"], time: 3.4, comment: "out" } },
+    { command: "markers.set", params: { layer: "controls", index: 0, duration: 1.6 } },
+    { command: "markers.set", params: { layer: "controls", index: 1, duration: 1.2 } },
+    { command: "layer.setSwitch", params: { layers: ["controls"], switch: "guide", value: true } },
+
+    // The pill sits behind the big word, so it is created first.
+    { command: "layer.newShape", params: { kind: "rounded", name: "highlight pill", size: [980, 214], fill: [0.165, 0.549, 1], position: [960, 512] } },
+    set("highlight pill", "contents/group/contents/rect/roundness", 107),
+    expr("highlight pill", "transform/opacity", pill.opacity),
+    expr("highlight pill", "transform/scale", pill.scale),
+
+    ...line("word highlight", "highlight", "Satoshi", "Black", 170, 512, 1, [1, 1, 1]),
+    ...line("word focus", "focus", "Satoshi", "Black", 150, 742, 2, [1, 1, 1]),
+    ...line("kicker", "black", "Satoshi", "Medium", 54, 306, 0, [1, 1, 1], 62),
+
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#1/slider", name: "Focus Blur" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#2/slider", name: "Stagger" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "controls", path: "effects/#3/slider", name: "Overshoot" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "word highlight", path: "text/sourceText", name: "Highlight" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "word focus", path: "text/sourceText", name: "Word" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "kicker", path: "text/sourceText", name: "Kicker" } },
+  ];
+  mkdirSync(`effects/${name}`, { recursive: true });
+  writeFileSync(`effects/${name}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+}
+
+
+
+
+// strawberryType: the typographic beats of the Strawberry launch (x.com/TechByMarkandey/status/2114687171789779414),
+// rebuilt as one precomp per scene — same words, sizes and colours as the reference, on the paper background.
+// Each line is one text layer; a word in another colour is a text animator with a range selector over those
+// characters, so editing the line keeps the colour on the same word. Every line pops in from 0 to full size with
+// overshoot, one after another, then holds. Each scene is its own effect folder (type01 … type15).
+{
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const animator = "text/animators/animator";
+
+  const ink = [0.07, 0.07, 0.07];
+  const orange = [1, 0.38, 0.24];
+  const purple = [0.52, 0.4, 0.95];
+  const green = [0.2, 0.78, 0.36];
+  const paper = "#FAF7F0";
+  const duration = 3;
+
+  const lineSteps = (layer, { text, size, y, colour = ink, highlight }) => {
+    const steps = [
+      { command: "layer.newText", params: { text, name: layer, position: [960, y], font: "Satoshi", style: "Black", size, fill: colour, justify: "center" } },
+      expr(layer, "transform/anchor", [
+        `var r = sourceRectAtTime(thisComp.duration - thisComp.frameDuration, false);`,
+        `[r.left + r.width / 2, r.top + r.height / 2, 0]`,
+      ].join("\n")),
+    ];
+    if (highlight) {
+      steps.push(
+        { command: "layer.addTextAnimator", params: { layer, properties: ["fillColor"], name: "colour" } },
+        set(layer, `${animator}/selectors/rangeSelector/start`, ((highlight.from - 1) / text.length) * 100),
+        set(layer, `${animator}/selectors/rangeSelector/end`, (highlight.to / text.length) * 100),
+        set(layer, `${animator}/properties/fillColor`, [...highlight.colour, 1]),
+      );
+    }
+    return steps;
+  };
+
+  const popSteps = (layer, i) => {
+    const t = 0.12 + i * 0.12;
+    return [
+      expr(layer, "transform/scale", [
+        `function clamp(v) { return Math.min(Math.max(v, 0), 1); }`,
+        `var t = clamp((time - ${t.toFixed(2)}) / 0.34), u = t - 1;`,
+        `var ov = 1.8, s = 1 + (ov + 1) * u * u * u + ov * u * u;`,
+        `[100 * s, 100 * s, 100]`,
+      ].join("\n")),
+      expr(layer, "transform/opacity", `Math.min(Math.max((time - ${t.toFixed(2)}) / 0.10, 0), 1) * 100`),
+    ];
+  };
+
+  const scenes = [
+    { id: "01", lines: [
+      { text: "You want", size: 150, y: 380 },
+      { text: "to move", size: 150, y: 530, colour: purple },
+      { text: "fast", size: 150, y: 680, colour: purple },
+    ] },
+    { id: "02", lines: [
+      { text: "You need a team", size: 110, y: 540, highlight: { from: 10, to: 15, colour: orange } },
+    ] },
+    { id: "03", lines: [
+      { text: "The AI team", size: 120, y: 400 },
+      { text: "that works alongside you", size: 92, y: 530, highlight: { from: 6, to: 10, colour: purple } },
+    ] },
+    { id: "04", lines: [
+      { text: "I can do", size: 110, y: 300 },
+      { text: "sales", size: 92, y: 450, colour: green },
+      { text: "research", size: 92, y: 580, colour: [0.36, 0.56, 0.95] },
+      { text: "marketing", size: 92, y: 710, colour: [0.95, 0.45, 0.4] },
+    ] },
+    { id: "05", lines: [
+      { text: "I work", size: 110, y: 540, highlight: { from: 3, to: 6, colour: orange } },
+    ] },
+    { id: "06", lines: [
+      { text: "in your tabs apps docs", size: 100, y: 540 },
+    ] },
+    { id: "07", lines: [
+      { text: "Transcribe meetings", size: 96, y: 540, highlight: { from: 1, to: 10, colour: [0.16, 0.6, 0.53] } },
+    ] },
+    { id: "08", lines: [
+      { text: "Everyone", size: 140, y: 540, colour: orange },
+    ] },
+    { id: "09", lines: [
+      { text: "Everyone", size: 110, y: 470, colour: orange },
+      { text: "on your team", size: 110, y: 610 },
+    ] },
+    { id: "10", lines: [
+      { text: "gets a companion", size: 100, y: 540 },
+    ] },
+    { id: "11", lines: [
+      { text: "Works on 1.7 billion", size: 96, y: 470 },
+      { text: "websites", size: 96, y: 600 },
+    ] },
+    { id: "12", lines: [
+      { text: "266k companions", size: 96, y: 470 },
+      { text: "already created", size: 96, y: 600 },
+    ] },
+    { id: "13", lines: [
+      { text: "Discover", size: 170, y: 420 },
+      { text: "a new way", size: 110, y: 570, colour: orange },
+      { text: "to work", size: 110, y: 700 },
+    ] },
+    { id: "14", lines: [
+      { text: "Claim your", size: 110, y: 470 },
+      { text: "companion today", size: 110, y: 610, highlight: { from: 1, to: 9, colour: orange } },
+    ] },
+    { id: "15", lines: [
+      { text: "Download now", size: 96, y: 470 },
+      { text: "for free", size: 96, y: 600, colour: orange },
+    ] },
+  ];
+
+  for (const scene of scenes) {
+    const comp = `type${scene.id}`;
+    const steps = [
+      { command: "comp.new", params: { name: comp, width: 1920, height: 1080, frameRate: 30, duration:scene.id==='11'?5:duration, background: paper, open: true } },
+    ];
+    if (scene.id === "04") steps.push(...iCanDoSteps());
+    else if (scene.id === "11") steps.push(...websitesSceneSteps());
+    else scene.lines.forEach((ln, i) => {
+      const layer = `line ${i + 1}`;
+      steps.push(...lineSteps(layer, ln), ...popSteps(layer, i));
+      steps.push({ command: "essential.addProperty", params: { comp, layer, path: "text/sourceText", name: `Text ${i + 1}` } });
+    });
+    steps.push({ command: "essential.setName", params: { comp, name: comp } });
+    steps.push({ command: "comp.close", params: { comp } });
+    mkdirSync(`effects/type${scene.id}`, { recursive: true });
+    writeFileSync(`effects/type${scene.id}/effect.json`, JSON.stringify(steps, null, 2) + "\n");
+  }
+}
+
+
+
+
+// LogXHermes: the Hermes girl clip, sped into a ramp, muted, and stepped to 15 fps.
+// The clip (1152 x 640, 48 fps, 5.146 s) is scaled to cover 1920 x 1080. Its time is remapped so the playback rate
+// starts at ~0.64x and ends at ~1.93x across the 4 s comp (s = D * (u/2 + u^2/2), u = time / 4), Posterize Time holds
+// it at 15 fps, and the layer's audio is off.
+// Essential Graphics: Posterize (the 15), Scale.
+{
+  const name = "LogXHermes";
+  const set = (layer, path, value) => ({ command: "prop.set", params: { layer, path, value } });
+  const expr = (layer, path, expression) => ({ command: "prop.setExpression", params: { layer, path, expression } });
+  const fx = (layer, effect) => ({ command: "effect.apply", params: { effect, layers: [layer] } });
+  const clipPath = `${process.cwd().replace(/\\/g, "/").replace(/\/textAnimations$/, "")}/video/HermesGirl.mp4`;
+  const sourceDuration = 5.146;
+  const duration = 4;
+
+  const steps = [
+    { command: "file.import", params: { paths: [clipPath] } },
+    { command: "comp.new", params: { name, width: 1920, height: 1080, frameRate: 30, duration, background: "#000000", open: true } },
+    { command: "layer.addItem", params: { item: "HermesGirl.mp4", time: 0, position: [960, 540] } },
+    { command: "layer.rename", params: { layer: "HermesGirl.mp4", name: "clip" } },
+    // Cover the frame: 1920/1152 = 166.7%, 1080/640 = 168.75%, so 168.75 leaves a hair of crop top and bottom.
+    set("clip", "transform/scale", [168.75, 168.75, 100]),
+    // Muted.
+    { command: "layer.setSwitch", params: { layers: ["clip"], switch: "audio", value: false } },
+    // The ramp: rate = d/dt of D(u/2 + u^2/2), so it starts slow and finishes fast, and lands exactly on the last frame.
+    { command: "layer.enableTimeRemap", params: { layers: ["clip"], value: true } },
+    expr("clip", "timeRemap", [
+      `var u = Math.min(Math.max(time / ${duration}, 0), 1);`,
+      `${sourceDuration} * (0.5 * u + 0.5 * u * u)`,
+    ].join("\n")),
+    // 15 fps steps on the layer itself.
+    fx("clip", "Posterize Time"),
+    set("clip", "effects/#1/frameRate", 15),
+
+    { command: "essential.setName", params: { comp: name, name } },
+    { command: "essential.addProperty", params: { comp: name, layer: "clip", path: "effects/#1/frameRate", name: "Posterize" } },
+    { command: "essential.addProperty", params: { comp: name, layer: "clip", path: "transform/scale", name: "Scale" } },
+  ];
+  mkdirSync("effects/LogXHermes", { recursive: true });
+  writeFileSync("effects/LogXHermes/effect.json", JSON.stringify(steps, null, 2) + "\n");
+}
