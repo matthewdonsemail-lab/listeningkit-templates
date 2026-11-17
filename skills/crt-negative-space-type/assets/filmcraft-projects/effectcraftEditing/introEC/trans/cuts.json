@@ -1,0 +1,898 @@
+[
+ {
+  "cut": 4,
+  "first": 3,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_00/t_01.jpg"
+ },
+ {
+  "cut": 6,
+  "first": 5,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_01/t_01.jpg"
+ },
+ {
+  "cut": 8,
+  "first": 7,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_02/t_01.jpg"
+ },
+ {
+  "cut": 13,
+  "first": 12,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_03/t_01.jpg"
+ },
+ {
+  "cut": 15,
+  "first": 14,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_04/t_01.jpg"
+ },
+ {
+  "cut": 26,
+  "first": 25,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_05/t_01.jpg"
+ },
+ {
+  "cut": 28,
+  "first": 27,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_06/t_01.jpg"
+ },
+ {
+  "cut": 32,
+  "first": 31,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_07/t_01.jpg"
+ },
+ {
+  "cut": 36,
+  "first": 35,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_08/t_01.jpg"
+ },
+ {
+  "cut": 41,
+  "first": 40,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_09/t_01.jpg"
+ },
+ {
+  "cut": 43,
+  "first": 42,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_10/t_01.jpg"
+ },
+ {
+  "cut": 48,
+  "first": 47,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_11/t_01.jpg"
+ },
+ {
+  "cut": 50,
+  "first": 49,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_12/t_01.jpg"
+ },
+ {
+  "cut": 54,
+  "first": 53,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_13/t_01.jpg"
+ },
+ {
+  "cut": 57,
+  "first": 56,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_14/t_01.jpg"
+ },
+ {
+  "cut": 68,
+  "first": 65,
+  "n": 7,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_15/t_01.jpg"
+ },
+ {
+  "cut": 76,
+  "first": 75,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_16/t_01.jpg"
+ },
+ {
+  "cut": 78,
+  "first": 77,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_17/t_01.jpg"
+ },
+ {
+  "cut": 83,
+  "first": 81,
+  "n": 5,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_18/t_01.jpg"
+ },
+ {
+  "cut": 90,
+  "first": 89,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_19/t_01.jpg"
+ },
+ {
+  "cut": 94,
+  "first": 93,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_20/t_01.jpg"
+ },
+ {
+  "cut": 98,
+  "first": 97,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_21/t_01.jpg"
+ },
+ {
+  "cut": 101,
+  "first": 100,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_22/t_01.jpg"
+ },
+ {
+  "cut": 106,
+  "first": 105,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_23/t_01.jpg"
+ },
+ {
+  "cut": 108,
+  "first": 107,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_24/t_01.jpg"
+ },
+ {
+  "cut": 116,
+  "first": 115,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_25/t_01.jpg"
+ },
+ {
+  "cut": 118,
+  "first": 117,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_26/t_01.jpg"
+ },
+ {
+  "cut": 121,
+  "first": 120,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_27/t_01.jpg"
+ },
+ {
+  "cut": 123,
+  "first": 122,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_28/t_01.jpg"
+ },
+ {
+  "cut": 127,
+  "first": 126,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_29/t_01.jpg"
+ },
+ {
+  "cut": 134,
+  "first": 131,
+  "n": 7,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_30/t_01.jpg"
+ },
+ {
+  "cut": 144,
+  "first": 143,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_31/t_01.jpg"
+ },
+ {
+  "cut": 146,
+  "first": 145,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_32/t_01.jpg"
+ },
+ {
+  "cut": 151,
+  "first": 150,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_33/t_01.jpg"
+ },
+ {
+  "cut": 152,
+  "first": 151,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_34/t_01.jpg"
+ },
+ {
+  "cut": 153,
+  "first": 152,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_35/t_01.jpg"
+ },
+ {
+  "cut": 154,
+  "first": 153,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_36/t_01.jpg"
+ },
+ {
+  "cut": 159,
+  "first": 158,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_37/t_01.jpg"
+ },
+ {
+  "cut": 161,
+  "first": 160,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_38/t_01.jpg"
+ },
+ {
+  "cut": 163,
+  "first": 162,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_39/t_01.jpg"
+ },
+ {
+  "cut": 176,
+  "first": 172,
+  "n": 9,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_40/t_01.jpg"
+ },
+ {
+  "cut": 187,
+  "first": 186,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_41/t_01.jpg"
+ },
+ {
+  "cut": 189,
+  "first": 188,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_42/t_01.jpg"
+ },
+ {
+  "cut": 195,
+  "first": 194,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_43/t_01.jpg"
+ },
+ {
+  "cut": 197,
+  "first": 196,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_44/t_01.jpg"
+ },
+ {
+  "cut": 199,
+  "first": 198,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_45/t_01.jpg"
+ },
+ {
+  "cut": 201,
+  "first": 200,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_46/t_01.jpg"
+ },
+ {
+  "cut": 202,
+  "first": 201,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_47/t_01.jpg"
+ },
+ {
+  "cut": 204,
+  "first": 203,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_48/t_01.jpg"
+ },
+ {
+  "cut": 205,
+  "first": 204,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_49/t_01.jpg"
+ },
+ {
+  "cut": 207,
+  "first": 206,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_50/t_01.jpg"
+ },
+ {
+  "cut": 209,
+  "first": 208,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_51/t_01.jpg"
+ },
+ {
+  "cut": 211,
+  "first": 210,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_52/t_01.jpg"
+ },
+ {
+  "cut": 221,
+  "first": 219,
+  "n": 5,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_53/t_01.jpg"
+ },
+ {
+  "cut": 227,
+  "first": 226,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_54/t_01.jpg"
+ },
+ {
+  "cut": 229,
+  "first": 228,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_55/t_01.jpg"
+ },
+ {
+  "cut": 236,
+  "first": 235,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_56/t_01.jpg"
+ },
+ {
+  "cut": 238,
+  "first": 237,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_57/t_01.jpg"
+ },
+ {
+  "cut": 246,
+  "first": 245,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_58/t_01.jpg"
+ },
+ {
+  "cut": 248,
+  "first": 247,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_59/t_01.jpg"
+ },
+ {
+  "cut": 258,
+  "first": 257,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_60/t_01.jpg"
+ },
+ {
+  "cut": 260,
+  "first": 259,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_61/t_01.jpg"
+ },
+ {
+  "cut": 263,
+  "first": 262,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_62/t_01.jpg"
+ },
+ {
+  "cut": 265,
+  "first": 264,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_63/t_01.jpg"
+ },
+ {
+  "cut": 269,
+  "first": 268,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_64/t_01.jpg"
+ },
+ {
+  "cut": 273,
+  "first": 272,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_65/t_01.jpg"
+ },
+ {
+  "cut": 277,
+  "first": 276,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_66/t_01.jpg"
+ },
+ {
+  "cut": 279,
+  "first": 278,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_67/t_01.jpg"
+ },
+ {
+  "cut": 284,
+  "first": 283,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_68/t_01.jpg"
+ },
+ {
+  "cut": 286,
+  "first": 285,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_69/t_01.jpg"
+ },
+ {
+  "cut": 290,
+  "first": 289,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_70/t_01.jpg"
+ },
+ {
+  "cut": 295,
+  "first": 294,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_71/t_01.jpg"
+ },
+ {
+  "cut": 297,
+  "first": 296,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_72/t_01.jpg"
+ },
+ {
+  "cut": 302,
+  "first": 301,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_73/t_01.jpg"
+ },
+ {
+  "cut": 304,
+  "first": 303,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_74/t_01.jpg"
+ },
+ {
+  "cut": 308,
+  "first": 307,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_75/t_01.jpg"
+ },
+ {
+  "cut": 312,
+  "first": 311,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_76/t_01.jpg"
+ },
+ {
+  "cut": 322,
+  "first": 321,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_77/t_01.jpg"
+ },
+ {
+  "cut": 324,
+  "first": 323,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_78/t_01.jpg"
+ },
+ {
+  "cut": 327,
+  "first": 326,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_79/t_01.jpg"
+ },
+ {
+  "cut": 329,
+  "first": 328,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_80/t_01.jpg"
+ },
+ {
+  "cut": 333,
+  "first": 332,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_81/t_01.jpg"
+ },
+ {
+  "cut": 336,
+  "first": 335,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_82/t_01.jpg"
+ },
+ {
+  "cut": 344,
+  "first": 341,
+  "n": 7,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_83/t_01.jpg"
+ },
+ {
+  "cut": 351,
+  "first": 348,
+  "n": 7,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_84/t_01.jpg"
+ },
+ {
+  "cut": 363,
+  "first": 362,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_85/t_01.jpg"
+ },
+ {
+  "cut": 365,
+  "first": 364,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_86/t_01.jpg"
+ },
+ {
+  "cut": 377,
+  "first": 376,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_87/t_01.jpg"
+ },
+ {
+  "cut": 381,
+  "first": 380,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_88/t_01.jpg"
+ },
+ {
+  "cut": 385,
+  "first": 384,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_89/t_01.jpg"
+ },
+ {
+  "cut": 387,
+  "first": 386,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_90/t_01.jpg"
+ },
+ {
+  "cut": 389,
+  "first": 388,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_91/t_01.jpg"
+ },
+ {
+  "cut": 391,
+  "first": 390,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_92/t_01.jpg"
+ },
+ {
+  "cut": 392,
+  "first": 391,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_93/t_01.jpg"
+ },
+ {
+  "cut": 394,
+  "first": 393,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_94/t_01.jpg"
+ },
+ {
+  "cut": 398,
+  "first": 397,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_95/t_01.jpg"
+ },
+ {
+  "cut": 405,
+  "first": 402,
+  "n": 7,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_96/t_01.jpg"
+ },
+ {
+  "cut": 413,
+  "first": 412,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_97/t_01.jpg"
+ },
+ {
+  "cut": 416,
+  "first": 415,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_98/t_01.jpg"
+ },
+ {
+  "cut": 425,
+  "first": 424,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_99/t_01.jpg"
+ },
+ {
+  "cut": 427,
+  "first": 426,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_100/t_01.jpg"
+ },
+ {
+  "cut": 437,
+  "first": 435,
+  "n": 5,
+  "kind": "redflash",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_101/t_01.jpg"
+ },
+ {
+  "cut": 450,
+  "first": 449,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_102/t_01.jpg"
+ },
+ {
+  "cut": 454,
+  "first": 453,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_103/t_01.jpg"
+ },
+ {
+  "cut": 458,
+  "first": 457,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_104/t_01.jpg"
+ },
+ {
+  "cut": 461,
+  "first": 460,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_105/t_01.jpg"
+ },
+ {
+  "cut": 467,
+  "first": 466,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_106/t_01.jpg"
+ },
+ {
+  "cut": 469,
+  "first": 468,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_107/t_01.jpg"
+ },
+ {
+  "cut": 470,
+  "first": 469,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_108/t_01.jpg"
+ },
+ {
+  "cut": 472,
+  "first": 471,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_109/t_01.jpg"
+ },
+ {
+  "cut": 474,
+  "first": 473,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_110/t_01.jpg"
+ },
+ {
+  "cut": 475,
+  "first": 474,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_111/t_01.jpg"
+ },
+ {
+  "cut": 477,
+  "first": 476,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_112/t_01.jpg"
+ },
+ {
+  "cut": 481,
+  "first": 480,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_113/t_01.jpg"
+ },
+ {
+  "cut": 490,
+  "first": 489,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_114/t_01.jpg"
+ },
+ {
+  "cut": 492,
+  "first": 491,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_115/t_01.jpg"
+ },
+ {
+  "cut": 494,
+  "first": 493,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_116/t_01.jpg"
+ },
+ {
+  "cut": 495,
+  "first": 494,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_117/t_01.jpg"
+ },
+ {
+  "cut": 497,
+  "first": 496,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_118/t_01.jpg"
+ },
+ {
+  "cut": 500,
+  "first": 499,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_119/t_01.jpg"
+ },
+ {
+  "cut": 502,
+  "first": 501,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_120/t_01.jpg"
+ },
+ {
+  "cut": 507,
+  "first": 506,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_121/t_01.jpg"
+ },
+ {
+  "cut": 509,
+  "first": 508,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_122/t_01.jpg"
+ },
+ {
+  "cut": 512,
+  "first": 511,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_123/t_01.jpg"
+ },
+ {
+  "cut": 514,
+  "first": 513,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_124/t_01.jpg"
+ },
+ {
+  "cut": 516,
+  "first": 515,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_125/t_01.jpg"
+ },
+ {
+  "cut": 520,
+  "first": 519,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_126/t_01.jpg"
+ },
+ {
+  "cut": 523,
+  "first": 522,
+  "n": 3,
+  "kind": "blend",
+  "path": "C:/Users/0/filmcraft/projects/effectcraftEditing/introEC/trans/cut_127/t_01.jpg"
+ }
+]

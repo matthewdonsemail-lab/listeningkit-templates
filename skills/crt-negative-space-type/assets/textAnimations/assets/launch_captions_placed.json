@@ -1,0 +1,1832 @@
+[
+ {
+  "text": "WHEN AI ARRIVED,",
+  "t0": 0.0,
+  "t1": 1.74,
+  "x": 516,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "WHEN",
+      0.0
+     ],
+     [
+      "AI",
+      0.3
+     ]
+    ],
+    "size": 46,
+    "y": 263
+   },
+   {
+    "words": [
+     [
+      "ARRIVED,",
+      0.64
+     ]
+    ],
+    "size": 138,
+    "y": 378
+   }
+  ],
+  "ink": "black",
+  "lum": 0.63,
+  "busy": 0.6
+ },
+ {
+  "text": "IT FELT MAGICAL.",
+  "t0": 1.74,
+  "t1": 4.56,
+  "x": 452,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "IT",
+      1.74
+     ],
+     [
+      "FELT",
+      2.18
+     ]
+    ],
+    "size": 46,
+    "y": 455
+   },
+   {
+    "words": [
+     [
+      "MAGICAL.",
+      2.56
+     ]
+    ],
+    "size": 138,
+    "y": 570
+   }
+  ],
+  "ink": "black",
+  "lum": 0.52,
+  "busy": 0.7
+ },
+ {
+  "text": "IT PROMISED US",
+  "t0": 4.56,
+  "t1": 5.38,
+  "x": 1535,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "IT",
+      4.56
+     ]
+    ],
+    "size": 46,
+    "y": 743
+   },
+   {
+    "words": [
+     [
+      "PROMISED",
+      4.62
+     ]
+    ],
+    "size": 190,
+    "y": 897
+   },
+   {
+    "words": [
+     [
+      "US",
+      5.08
+     ]
+    ],
+    "size": 46,
+    "y": 975
+   }
+  ],
+  "ink": "white",
+  "lum": 0.33,
+  "busy": 0.29
+ },
+ {
+  "text": "OUR TIME BACK,",
+  "t0": 5.38,
+  "t1": 6.82,
+  "x": 1395,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "OUR",
+      5.38
+     ]
+    ],
+    "size": 46,
+    "y": 407
+   },
+   {
+    "words": [
+     [
+      "TIME",
+      5.62
+     ]
+    ],
+    "size": 230,
+    "y": 591
+   },
+   {
+    "words": [
+     [
+      "BACK,",
+      5.98
+     ]
+    ],
+    "size": 46,
+    "y": 676
+   }
+  ],
+  "ink": "white",
+  "lum": 0.3,
+  "busy": 0.28
+ },
+ {
+  "text": "BUT THEN THERE",
+  "t0": 6.82,
+  "t1": 8.48,
+  "x": 1483,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "BUT",
+      6.82
+     ],
+     [
+      "THEN",
+      7.3
+     ]
+    ],
+    "size": 46,
+    "y": 103
+   },
+   {
+    "words": [
+     [
+      "THERE",
+      7.66
+     ]
+    ],
+    "size": 167,
+    "y": 239
+   }
+  ],
+  "ink": "black",
+  "lum": 0.48,
+  "busy": 0.75
+ },
+ {
+  "text": "WAS A SPLIT.",
+  "t0": 8.48,
+  "t1": 9.8,
+  "x": 1497,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "WAS",
+      8.48
+     ],
+     [
+      "A",
+      8.64
+     ]
+    ],
+    "size": 46,
+    "y": 679
+   },
+   {
+    "words": [
+     [
+      "SPLIT.",
+      8.78
+     ]
+    ],
+    "size": 167,
+    "y": 815
+   }
+  ],
+  "ink": "white",
+  "lum": 0.27,
+  "busy": 0.53
+ },
+ {
+  "text": "PEOPLE BECAME FEARFUL,",
+  "t0": 9.8,
+  "t1": 11.76,
+  "x": 548,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "PEOPLE",
+      9.8
+     ],
+     [
+      "BECAME",
+      10.04
+     ]
+    ],
+    "size": 46,
+    "y": 903
+   },
+   {
+    "words": [
+     [
+      "FEARFUL,",
+      10.4
+     ]
+    ],
+    "size": 138,
+    "y": 1018
+   }
+  ],
+  "ink": "white",
+  "lum": 0.21,
+  "busy": 1.06
+ },
+ {
+  "text": "UNCERTAIN,",
+  "t0": 11.76,
+  "t1": 13.08,
+  "x": 116,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "UNCERTAIN,",
+      11.76
+     ]
+    ],
+    "size": 109,
+    "y": 122
+   }
+  ],
+  "ink": "white",
+  "lum": 0.09,
+  "busy": 0.49
+ },
+ {
+  "text": "DOUBTFUL OF EACH",
+  "t0": 13.08,
+  "t1": 14.14,
+  "x": 1791,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "DOUBTFUL",
+      13.08
+     ]
+    ],
+    "size": 190,
+    "y": 935
+   },
+   {
+    "words": [
+     [
+      "OF",
+      13.66
+     ],
+     [
+      "EACH",
+      13.98
+     ]
+    ],
+    "size": 46,
+    "y": 1014
+   }
+  ],
+  "ink": "white",
+  "lum": 0.07,
+  "busy": 0.39
+ },
+ {
+  "text": "OTHER.",
+  "t0": 14.14,
+  "t1": 15.1,
+  "x": 1673,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "OTHER.",
+      14.14
+     ]
+    ],
+    "size": 167,
+    "y": 758
+   }
+  ],
+  "ink": "white",
+  "lum": 0.15,
+  "busy": 0.93
+ },
+ {
+  "text": "BECAUSE THEY DON'T",
+  "t0": 15.1,
+  "t1": 15.7,
+  "x": 324,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "BECAUSE",
+      15.1
+     ]
+    ],
+    "size": 138,
+    "y": 144
+   },
+   {
+    "words": [
+     [
+      "THEY",
+      15.12
+     ],
+     [
+      "DON'T",
+      15.36
+     ]
+    ],
+    "size": 46,
+    "y": 214
+   }
+  ],
+  "ink": "white",
+  "lum": 0.41,
+  "busy": 0.71
+ },
+ {
+  "text": "THINK THEY'RE TALKING",
+  "t0": 15.7,
+  "t1": 16.5,
+  "x": 84,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "THINK",
+      15.7
+     ]
+    ],
+    "size": 46,
+    "y": 807
+   },
+   {
+    "words": [
+     [
+      "THEY'RE",
+      15.98
+     ]
+    ],
+    "size": 138,
+    "y": 922
+   },
+   {
+    "words": [
+     [
+      "TALKING",
+      16.18
+     ]
+    ],
+    "size": 46,
+    "y": 992
+   }
+  ],
+  "ink": "white",
+  "lum": 0.2,
+  "busy": 0.53
+ },
+ {
+  "text": "TO YOU.",
+  "t0": 16.5,
+  "t1": 17.6,
+  "x": 68,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "TO",
+      16.5
+     ]
+    ],
+    "size": 46,
+    "y": 199
+   },
+   {
+    "words": [
+     [
+      "YOU.",
+      16.74
+     ]
+    ],
+    "size": 204,
+    "y": 363
+   }
+  ],
+  "ink": "white",
+  "lum": 0.4,
+  "busy": 0.69
+ },
+ {
+  "text": "NOW THEY'LL NEVER",
+  "t0": 17.6,
+  "t1": 18.48,
+  "x": 1426,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "NOW",
+      17.6
+     ]
+    ],
+    "size": 46,
+    "y": 775
+   },
+   {
+    "words": [
+     [
+      "THEY'LL",
+      17.88
+     ]
+    ],
+    "size": 138,
+    "y": 890
+   },
+   {
+    "words": [
+     [
+      "NEVER",
+      18.14
+     ]
+    ],
+    "size": 46,
+    "y": 960
+   }
+  ],
+  "ink": "white",
+  "lum": 0.39,
+  "busy": 1.31
+ },
+ {
+  "text": "BE ABLE TO",
+  "t0": 18.48,
+  "t1": 19.1,
+  "x": 308,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "BE",
+      18.48
+     ]
+    ],
+    "size": 46,
+    "y": 135
+   },
+   {
+    "words": [
+     [
+      "ABLE",
+      18.72
+     ]
+    ],
+    "size": 230,
+    "y": 319
+   },
+   {
+    "words": [
+     [
+      "TO",
+      18.94
+     ]
+    ],
+    "size": 46,
+    "y": 404
+   }
+  ],
+  "ink": "white",
+  "lum": 0.06,
+  "busy": 0.48
+ },
+ {
+  "text": "TELL IF IT'S",
+  "t0": 19.1,
+  "t1": 19.72,
+  "x": 116,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "TELL",
+      19.1
+     ]
+    ],
+    "size": 167,
+    "y": 550
+   },
+   {
+    "words": [
+     [
+      "IF",
+      19.32
+     ],
+     [
+      "IT'S",
+      19.5
+     ]
+    ],
+    "size": 46,
+    "y": 625
+   }
+  ],
+  "ink": "white",
+  "lum": 0.06,
+  "busy": 0.59
+ },
+ {
+  "text": "YOU.",
+  "t0": 19.72,
+  "t1": 20.32,
+  "x": 260,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "YOU.",
+      19.72
+     ]
+    ],
+    "size": 280,
+    "y": 251
+   }
+  ],
+  "ink": "white",
+  "lum": 0.04,
+  "busy": 0.37
+ },
+ {
+  "text": "BECAUSE HERMES AGENT",
+  "t0": 20.32,
+  "t1": 21.62,
+  "x": 1810,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "BECAUSE",
+      20.32
+     ]
+    ],
+    "size": 138,
+    "y": 688
+   },
+   {
+    "words": [
+     [
+      "HERMES",
+      20.66
+     ],
+     [
+      "AGENT",
+      21.18
+     ]
+    ],
+    "size": 46,
+    "y": 758
+   }
+  ],
+  "ink": "white",
+  "lum": 0.21,
+  "busy": 0.57
+ },
+ {
+  "text": "CAN BECOME YOU.",
+  "t0": 21.62,
+  "t1": 23.7,
+  "x": 372,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "CAN",
+      21.62
+     ]
+    ],
+    "size": 46,
+    "y": 87
+   },
+   {
+    "words": [
+     [
+      "BECOME",
+      22.16
+     ]
+    ],
+    "size": 138,
+    "y": 202
+   },
+   {
+    "words": [
+     [
+      "YOU.",
+      22.64
+     ]
+    ],
+    "size": 46,
+    "y": 272
+   }
+  ],
+  "ink": "white",
+  "lum": 0.05,
+  "busy": 0.53
+ },
+ {
+  "text": "INTRODUCING LOG BY",
+  "t0": 23.7,
+  "t1": 25.34,
+  "x": 68,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "INTRODUCING",
+      23.7
+     ]
+    ],
+    "size": 109,
+    "y": 954
+   },
+   {
+    "words": [
+     [
+      "LOG",
+      24.42
+     ],
+     [
+      "BY",
+      24.78
+     ]
+    ],
+    "size": 46,
+    "y": 1019
+   }
+  ],
+  "ink": "white",
+  "lum": 0.08,
+  "busy": 0.97
+ },
+ {
+  "text": "LISTENING KIT IN",
+  "t0": 25.34,
+  "t1": 26.44,
+  "x": 324,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "LISTENING",
+      25.34
+     ]
+    ],
+    "size": 109,
+    "y": 602
+   },
+   {
+    "words": [
+     [
+      "KIT",
+      25.7
+     ],
+     [
+      "IN",
+      26.04
+     ]
+    ],
+    "size": 46,
+    "y": 667
+   }
+  ],
+  "ink": "white",
+  "lum": 0.09,
+  "busy": 0.82
+ },
+ {
+  "text": "COLLABORATION WITH",
+  "t0": 26.44,
+  "t1": 27.52,
+  "x": 1435,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "COLLABORATION",
+      26.44
+     ]
+    ],
+    "size": 109,
+    "y": 250
+   },
+   {
+    "words": [
+     [
+      "WITH",
+      26.86
+     ]
+    ],
+    "size": 46,
+    "y": 315
+   }
+  ],
+  "ink": "white",
+  "lum": 0.35,
+  "busy": 0.92
+ },
+ {
+  "text": "NOUS RESEARCH.",
+  "t0": 27.52,
+  "t1": 28.34,
+  "x": 1832,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "NOUS",
+      27.52
+     ]
+    ],
+    "size": 46,
+    "y": 759
+   },
+   {
+    "words": [
+     [
+      "RESEARCH.",
+      27.9
+     ]
+    ],
+    "size": 138,
+    "y": 874
+   }
+  ],
+  "ink": "white",
+  "lum": 0.08,
+  "busy": 0.66
+ },
+ {
+  "text": "YOU ARE SOMEONE",
+  "t0": 28.34,
+  "t1": 29.52,
+  "x": 1410,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "YOU",
+      28.34
+     ],
+     [
+      "ARE",
+      29.04
+     ]
+    ],
+    "size": 46,
+    "y": 519
+   },
+   {
+    "words": [
+     [
+      "SOMEONE",
+      29.22
+     ]
+    ],
+    "size": 190,
+    "y": 673
+   }
+  ],
+  "ink": "white",
+  "lum": 0.02,
+  "busy": 0.27
+ },
+ {
+  "text": "DIFFERENT TO EVERY",
+  "t0": 29.52,
+  "t1": 30.92,
+  "x": 1631,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "DIFFERENT",
+      29.52
+     ]
+    ],
+    "size": 150,
+    "y": 889
+   },
+   {
+    "words": [
+     [
+      "TO",
+      30.02
+     ],
+     [
+      "EVERY",
+      30.52
+     ]
+    ],
+    "size": 46,
+    "y": 961
+   }
+  ],
+  "ink": "white",
+  "lum": 0.05,
+  "busy": 0.26
+ },
+ {
+  "text": "PERSON YOU MEET.",
+  "t0": 30.92,
+  "t1": 32.34,
+  "x": 1828,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "PERSON",
+      30.92
+     ]
+    ],
+    "size": 190,
+    "y": 231
+   },
+   {
+    "words": [
+     [
+      "YOU",
+      31.32
+     ],
+     [
+      "MEET.",
+      31.54
+     ]
+    ],
+    "size": 46,
+    "y": 310
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.02
+ },
+ {
+  "text": "SO LOG INDEXES,",
+  "t0": 32.34,
+  "t1": 33.8,
+  "x": 1855,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "SO",
+      32.34
+     ],
+     [
+      "LOG",
+      32.4
+     ]
+    ],
+    "size": 46,
+    "y": 455
+   },
+   {
+    "words": [
+     [
+      "INDEXES,",
+      32.7
+     ]
+    ],
+    "size": 190,
+    "y": 609
+   }
+  ],
+  "ink": "white",
+  "lum": 0.02,
+  "busy": 0.21
+ },
+ {
+  "text": "COPIES,",
+  "t0": 33.8,
+  "t1": 34.4,
+  "x": 180,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "COPIES,",
+      33.8
+     ]
+    ],
+    "size": 190,
+    "y": 999
+   }
+  ],
+  "ink": "white",
+  "lum": 0.01,
+  "busy": 0.09
+ },
+ {
+  "text": "AND CLONES THE",
+  "t0": 34.4,
+  "t1": 35.22,
+  "x": 548,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "AND",
+      34.4
+     ]
+    ],
+    "size": 46,
+    "y": 215
+   },
+   {
+    "words": [
+     [
+      "CLONES",
+      34.48
+     ]
+    ],
+    "size": 190,
+    "y": 369
+   },
+   {
+    "words": [
+     [
+      "THE",
+      34.88
+     ]
+    ],
+    "size": 46,
+    "y": 447
+   }
+  ],
+  "ink": "white",
+  "lum": 0.03,
+  "busy": 0.09
+ },
+ {
+  "text": "WAY YOU SPEAK",
+  "t0": 35.22,
+  "t1": 35.86,
+  "x": 1851,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "WAY",
+      35.22
+     ],
+     [
+      "YOU",
+      35.38
+     ]
+    ],
+    "size": 46,
+    "y": 807
+   },
+   {
+    "words": [
+     [
+      "SPEAK",
+      35.54
+     ]
+    ],
+    "size": 230,
+    "y": 991
+   }
+  ],
+  "ink": "white",
+  "lum": 0.01,
+  "busy": 0.15
+ },
+ {
+  "text": "SO YOU CAN",
+  "t0": 35.86,
+  "t1": 36.68,
+  "x": 660,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "SO",
+      35.86
+     ]
+    ],
+    "size": 46,
+    "y": 135
+   },
+   {
+    "words": [
+     [
+      "YOU",
+      36.36
+     ]
+    ],
+    "size": 280,
+    "y": 357
+   },
+   {
+    "words": [
+     [
+      "CAN",
+      36.52
+     ]
+    ],
+    "size": 46,
+    "y": 450
+   }
+  ],
+  "ink": "white",
+  "lum": 0.04,
+  "busy": 0.2
+ },
+ {
+  "text": "WIN MORE DEALS.",
+  "t0": 36.68,
+  "t1": 37.94,
+  "x": 68,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "WIN",
+      36.68
+     ],
+     [
+      "MORE",
+      36.84
+     ]
+    ],
+    "size": 46,
+    "y": 775
+   },
+   {
+    "words": [
+     [
+      "DEALS.",
+      37.08
+     ]
+    ],
+    "size": 167,
+    "y": 911
+   }
+  ],
+  "ink": "white",
+  "lum": 0.17,
+  "busy": 1.02
+ },
+ {
+  "text": "HUMANS CAN TELL",
+  "t0": 37.94,
+  "t1": 38.92,
+  "x": 356,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "HUMANS",
+      37.94
+     ]
+    ],
+    "size": 285,
+    "y": 591
+   },
+   {
+    "words": [
+     [
+      "CAN",
+      38.22
+     ],
+     [
+      "TELL",
+      38.52
+     ]
+    ],
+    "size": 46,
+    "y": 685
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.08
+ },
+ {
+  "text": "WHEN YOU USE",
+  "t0": 38.92,
+  "t1": 39.64,
+  "x": 436,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "WHEN",
+      38.92
+     ]
+    ],
+    "size": 345,
+    "y": 604
+   },
+   {
+    "words": [
+     [
+      "YOU",
+      39.16
+     ],
+     [
+      "USE",
+      39.3
+     ]
+    ],
+    "size": 46,
+    "y": 709
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 3.09
+ },
+ {
+  "text": "AI.",
+  "t0": 39.64,
+  "t1": 40.64,
+  "x": 1764,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "AI.",
+      39.64
+     ]
+    ],
+    "size": 420,
+    "y": 709
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 3.09
+ },
+ {
+  "text": "LOG SYSTEMATICALLY",
+  "t0": 40.64,
+  "t1": 41.72,
+  "x": 68,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "LOG",
+      40.64
+     ]
+    ],
+    "size": 46,
+    "y": 215
+   },
+   {
+    "words": [
+     [
+      "SYSTEMATICALLY",
+      40.82
+     ]
+    ],
+    "size": 182,
+    "y": 363
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.11
+ },
+ {
+  "text": "DEFEATS THAT BY",
+  "t0": 41.72,
+  "t1": 43.16,
+  "x": 1657,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "DEFEATS",
+      41.72
+     ]
+    ],
+    "size": 285,
+    "y": 799
+   },
+   {
+    "words": [
+     [
+      "THAT",
+      42.42
+     ],
+     [
+      "BY",
+      42.7
+     ]
+    ],
+    "size": 46,
+    "y": 893
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.09
+ },
+ {
+  "text": "BECOMING YOU.",
+  "t0": 43.16,
+  "t1": 44.66,
+  "x": 1797,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "BECOMING",
+      43.16
+     ]
+    ],
+    "size": 285,
+    "y": 479
+   },
+   {
+    "words": [
+     [
+      "YOU.",
+      43.68
+     ]
+    ],
+    "size": 46,
+    "y": 573
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.12
+ },
+ {
+  "text": "THERE ARE OPPORTUNITIES",
+  "t0": 44.66,
+  "t1": 45.68,
+  "x": 84,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "THERE",
+      44.66
+     ],
+     [
+      "ARE",
+      44.84
+     ]
+    ],
+    "size": 46,
+    "y": 631
+   },
+   {
+    "words": [
+     [
+      "OPPORTUNITIES",
+      44.98
+     ]
+    ],
+    "size": 202,
+    "y": 794
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.15
+ },
+ {
+  "text": "ACROSS EVERY CONVERSATION",
+  "t0": 45.68,
+  "t1": 47.2,
+  "x": 68,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "ACROSS",
+      45.68
+     ],
+     [
+      "EVERY",
+      46.08
+     ]
+    ],
+    "size": 46,
+    "y": 359
+   },
+   {
+    "words": [
+     [
+      "CONVERSATION",
+      46.64
+     ]
+    ],
+    "size": 225,
+    "y": 539
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.11
+ },
+ {
+  "text": "YOU'VE EVER HAD.",
+  "t0": 47.2,
+  "t1": 48.68,
+  "x": 1533,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "YOU'VE",
+      47.2
+     ]
+    ],
+    "size": 285,
+    "y": 799
+   },
+   {
+    "words": [
+     [
+      "EVER",
+      47.74
+     ],
+     [
+      "HAD.",
+      48.02
+     ]
+    ],
+    "size": 46,
+    "y": 893
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.12
+ },
+ {
+  "text": "LOG HELPS YOU",
+  "t0": 48.68,
+  "t1": 49.56,
+  "x": 372,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "LOG",
+      48.68
+     ]
+    ],
+    "size": 46,
+    "y": 199
+   },
+   {
+    "words": [
+     [
+      "HELPS",
+      49.04
+     ]
+    ],
+    "size": 345,
+    "y": 470
+   },
+   {
+    "words": [
+     [
+      "YOU",
+      49.38
+     ]
+    ],
+    "size": 46,
+    "y": 574
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.11
+ },
+ {
+  "text": "FIND THEM,",
+  "t0": 49.56,
+  "t1": 50.32,
+  "x": 1731,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "FIND",
+      49.56
+     ]
+    ],
+    "size": 345,
+    "y": 860
+   },
+   {
+    "words": [
+     [
+      "THEM,",
+      49.82
+     ]
+    ],
+    "size": 46,
+    "y": 965
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.12
+ },
+ {
+  "text": "SPEAK WITH THEM,",
+  "t0": 50.32,
+  "t1": 51.52,
+  "x": 1638,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "SPEAK",
+      50.32
+     ]
+    ],
+    "size": 345,
+    "y": 476
+   },
+   {
+    "words": [
+     [
+      "WITH",
+      50.64
+     ],
+     [
+      "THEM,",
+      50.9
+     ]
+    ],
+    "size": 46,
+    "y": 581
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.13
+ },
+ {
+  "text": "AND WIN THE",
+  "t0": 51.52,
+  "t1": 52.06,
+  "x": 132,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "AND",
+      51.52
+     ]
+    ],
+    "size": 420,
+    "y": 917
+   },
+   {
+    "words": [
+     [
+      "WIN",
+      51.58
+     ],
+     [
+      "THE",
+      51.86
+     ]
+    ],
+    "size": 46,
+    "y": 1034
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.1
+ },
+ {
+  "text": "PEOPLE OVER.",
+  "t0": 52.06,
+  "t1": 53.16,
+  "x": 1597,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "PEOPLE",
+      52.06
+     ]
+    ],
+    "size": 285,
+    "y": 495
+   },
+   {
+    "words": [
+     [
+      "OVER.",
+      52.36
+     ]
+    ],
+    "size": 46,
+    "y": 589
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.09
+ },
+ {
+  "text": "FOR WHATEVER YOU",
+  "t0": 53.16,
+  "t1": 53.88,
+  "x": 1717,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "FOR",
+      53.16
+     ]
+    ],
+    "size": 46,
+    "y": 647
+   },
+   {
+    "words": [
+     [
+      "WHATEVER",
+      53.34
+     ]
+    ],
+    "size": 285,
+    "y": 873
+   },
+   {
+    "words": [
+     [
+      "YOU",
+      53.62
+     ]
+    ],
+    "size": 46,
+    "y": 967
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.15
+ },
+ {
+  "text": "DO,",
+  "t0": 53.88,
+  "t1": 54.44,
+  "x": 148,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "DO,",
+      53.88
+     ]
+    ],
+    "size": 420,
+    "y": 533
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.1
+ },
+ {
+  "text": "FOR WHATEVER YOU",
+  "t0": 54.44,
+  "t1": 55.2,
+  "x": 1749,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "FOR",
+      54.44
+     ]
+    ],
+    "size": 46,
+    "y": 663
+   },
+   {
+    "words": [
+     [
+      "WHATEVER",
+      54.66
+     ]
+    ],
+    "size": 285,
+    "y": 889
+   },
+   {
+    "words": [
+     [
+      "YOU",
+      54.96
+     ]
+    ],
+    "size": 46,
+    "y": 983
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.13
+ },
+ {
+  "text": "WANT.",
+  "t0": 55.2,
+  "t1": 55.58,
+  "x": 244,
+  "just": "L",
+  "lines": [
+   {
+    "words": [
+     [
+      "WANT.",
+      55.2
+     ]
+    ],
+    "size": 345,
+    "y": 444
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.1
+ },
+ {
+  "text": "ALL LOCALLY,",
+  "t0": 55.58,
+  "t1": 57.06,
+  "x": 1749,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "ALL",
+      55.58
+     ]
+    ],
+    "size": 46,
+    "y": 647
+   },
+   {
+    "words": [
+     [
+      "LOCALLY,",
+      56.16
+     ]
+    ],
+    "size": 285,
+    "y": 873
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.09
+ },
+ {
+  "text": "BECAUSE THAT'S WHAT",
+  "t0": 57.06,
+  "t1": 57.98,
+  "x": 1673,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "BECAUSE",
+      57.06
+     ]
+    ],
+    "size": 285,
+    "y": 495
+   },
+   {
+    "words": [
+     [
+      "THAT'S",
+      57.26
+     ],
+     [
+      "WHAT",
+      57.82
+     ]
+    ],
+    "size": 46,
+    "y": 589
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.11
+ },
+ {
+  "text": "COUNTS.",
+  "t0": 57.98,
+  "t1": 58.9,
+  "x": 1794,
+  "just": "R",
+  "lines": [
+   {
+    "words": [
+     [
+      "COUNTS.",
+      57.98
+     ]
+    ],
+    "size": 190,
+    "y": 839
+   }
+  ],
+  "ink": "white",
+  "lum": 0.0,
+  "busy": 0.01
+ }
+]

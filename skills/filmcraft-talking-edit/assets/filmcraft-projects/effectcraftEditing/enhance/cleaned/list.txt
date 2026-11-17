@@ -1,0 +1,3 @@
+file 'voice_part1_clean.flac'
+file 'voice_part2_clean.flac'
+file 'voice_part3_clean.flac'
