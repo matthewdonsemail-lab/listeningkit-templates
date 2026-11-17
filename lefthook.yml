@@ -1,0 +1,29 @@
+# Git hooks managed by lefthook (https://github.com/evilmartians/lefthook).
+# Install after cloning: lefthook install   (or: npx lefthook install)
+# Hook implementations live under scripts/hooks/; every `run:` target must resolve and every
+# scripts/hooks/check-*.mjs must be wired in here (scripts/hooks/check-hook-scripts.mjs enforces it).
+# Never skip them with --no-verify.
+
+pre-commit:
+  jobs:
+    - name: commits go out as matthewdonsemail-lab
+      run: node scripts/hooks/check-commit-identity.mjs
+    - name: media stays local (no renders, projects or files over 20 MB)
+      run: node scripts/hooks/check-staged-media.mjs {staged_files}
+    - name: staged Python compiles
+      glob: "*.py"
+      run: node scripts/hooks/check-python.mjs {staged_files}
+    - name: skills are complete, links work, treg uses the referral link
+      glob: "skills/**"
+      run: node scripts/hooks/check-skills.mjs
+
+pre-push:
+  jobs:
+    - name: push target discipline (non-owners push template/* branches, never main)
+      run: node scripts/hooks/check-push-target.mjs
+    - name: lefthook config is schema-valid
+      run: lefthook validate
+    - name: hook scripts resolve
+      run: node scripts/hooks/check-hook-scripts.mjs
+    - name: skills are complete
+      run: node scripts/hooks/check-skills.mjs

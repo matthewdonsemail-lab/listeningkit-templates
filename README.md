@@ -141,6 +141,17 @@ Close the project in EffectCraft before rebuilding.
 To change a template or add one, edit `typewriterVariations.mjs` and run both commands again. A new template also
 needs its comp added to `organize.json`, and its slider names to `nameControls.jsx` if it has sliders.
 
+## Git hooks
+
+[lefthook](https://github.com/evilmartians/lefthook) runs the checks in `scripts/hooks/` (`lefthook.yml`). Install
+once after cloning: `lefthook install` (or `npx lefthook install`). Never skip them with `--no-verify`.
+
+- **pre-commit:** commits go out as `matthewdonsemail-lab` (from an agent session, prefix git with
+  `GIT_CONFIG_COUNT=0`); no renders, projects, audio or files over 20 MB; staged Python compiles; every skill in
+  `skills/` is complete, with working links and images, and treg linked with the referral URL.
+- **pre-push:** only the owner pushes main (others push `template/*` branches); `lefthook.yml` is valid and every
+  check script is wired in; the skills check again.
+
 ## Vendored
 
 [`vendor/rea-video`](vendor/README.md) — JuneYaooo's [rea-video](https://github.com/JuneYaooo/rea-video), the tool that
