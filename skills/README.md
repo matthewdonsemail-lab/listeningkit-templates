@@ -87,6 +87,7 @@ The skills are listed in the order they come up in a build: references, then pic
 | Skill | What it does |
 |---|---|
 | [end-card-and-outro](end-card-and-outro/README.md) | Nous, then Log wrapped in lines, then a glitch, then both side by side; the music's last phrase stuttered into a reverb tail; the sound-effect pass and what was kept |
+| [sfx-from-youtube](sfx-from-youtube/README.md) | Sound effects: a cue sheet of every cut, yt-dlp searches for free packs, the packs cut into a kit by kind, laid on every cue mixed under the music; or cut from the music's own source track |
 
 ## 6. Editing and delivery
 | Skill | What it does |
