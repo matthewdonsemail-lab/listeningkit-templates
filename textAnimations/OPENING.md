@@ -15,10 +15,27 @@ To bring a new FilmCraft cut across (save it in FilmCraft, close EffectCraft), f
 python assets/sync_opening_from_filmcraft.py      # the clips, timestamps and Motion -> assets/opening_edit.json
 python assets/make_opening_comp.py                # -> plugins/openingDawn.jsx
 "$CLI" --project textAnimations.ecproj script plugins/openingDawn.jsx --save
+"$CLI" --project textAnimations.ecproj script plugins/openingInserts.jsx --save
 "$CLI" --project textAnimations.ecproj script plugins/CRTemulator/applyOpening.jsx --save
+"$CLI" --project textAnimations.ecproj script plugins/openingThermal.jsx --save
 ```
 
-`openingDawn.jsx` rebuilds `opening` from scratch, so always run `applyOpening.jsx` after it. Only the picture is
+To swap just the cyberpsycho clip for a new render, set `CLIP` in `plugins/openingPsychoSwap.jsx` and run it.
+
+After the drop the clip (`--after speakers`, the default) is young Sam for 4 beats, young Dario for 4 beats (their
+clips in `projects/opening/ref/speakers/`, a punch-in on every beat, their own red cyberpsycho steps from
+`images/gen/make_opening_psycho_speakers.py` breaking through at each peak), then the inside scene. The three
+switches are thermogram transitions (`plugins/openingThermal.jsx`, as cyberpunk's match cut).
+
+`openingDawn.jsx` rebuilds `opening` from scratch, so always run `openingInserts.jsx` and `applyOpening.jsx` after
+it, in that order.
+
+## Inserts
+
+`plugins/openingInserts.jsx`: three 4-frame cutaways from `projects/opening/ref/styleref.mp4`, under the VHS look:
+a mouse click (styleref 52.09 s) at frame 78 (2.60 s, before the cut to the chat at 2.73 s), a finger pressing a key
+(26.40 s) at frame 107 (3.58 s, before the cut at 3.63 s), the mouse click again at frame 238 (7.95 s, on "Can I
+trust you?"). The reference is 640x268, so it is scaled 403% to fill the height and looks soft. Only the picture is
 synced: `launch film` plays the whole VO and music from 0, as the FilmCraft sequence does.
 
 ## The look
