@@ -141,6 +141,11 @@ Close the project in EffectCraft before rebuilding.
 To change a template or add one, edit `typewriterVariations.mjs` and run both commands again. A new template also
 needs its comp added to `organize.json`, and its slider names to `nameControls.jsx` if it has sliders.
 
+## Projects
+
+- [`projects/cyberpunk`](projects/cyberpunk/README.md): the cyberpunk pre-comp at the end of Intro 1, and how it is
+  made: generating match-cut stills, the glitch collage, the cut-out walk-in, the cyberpsycho lines plug-in, the CRT.
+
 ## Git hooks
 
 [lefthook](https://github.com/evilmartians/lefthook) runs the checks in `scripts/hooks/` (`lefthook.yml`). Install

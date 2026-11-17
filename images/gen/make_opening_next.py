@@ -55,10 +55,47 @@ def gen(shot):
     return dest, "ok"
 
 
+def gen_google(shot):
+    """the same model on Google's own API (google-ai.image-gen.gemini-3-pro-image, about $0.15 each): the reference
+    goes inline as base64, so nothing is hosted and treg's daily hosting quota doesn't matter"""
+    import base64
+    import io
+    name = shot["name"].replace(" ", "_")
+    dest = OUT + name + "_next.png"
+    if os.path.exists(dest):
+        return dest, "exists"
+    src = Image.open(shot["src"]).convert("RGB")
+    ref = src.copy()
+    ref.thumbnail((1600, 1600))
+    buf = io.BytesIO()
+    ref.save(buf, "JPEG", quality=90)
+    body = {"contents": [{"parts": [{"text": PROMPT},
+                                    {"inlineData": {"mimeType": "image/jpeg", "data": base64.b64encode(buf.getvalue()).decode()}}]}],
+            "generationConfig": {"responseModalities": ["IMAGE"],
+                                 "imageConfig": {"imageSize": "2K", "aspectRatio": ratio(*src.size)}}}
+    req = OUT + "upload/_%s_body.json" % name
+    json.dump(body, open(req, "w"))
+    r = subprocess.run(["treg", "call", "google-ai.image-gen.gemini-3-pro-image", "--method", "POST",
+                        "--query", "model=gemini-3-pro-image",
+                        "--query", "fields=candidates(content(parts(text,inlineData)),finishReason),usageMetadata",
+                        "--data", "@" + req, "--await", "--timeout", "900"], capture_output=True, text=True)
+    os.remove(req)
+    try:
+        resp = json.loads(r.stdout[r.stdout.index("{"):])
+        cand = resp["candidates"][0]
+        data = next(p["inlineData"]["data"] for p in cand["content"]["parts"] if "inlineData" in p)
+    except (ValueError, KeyError, IndexError, StopIteration):
+        return dest, "FAIL " + (r.stdout + r.stderr)[:300].replace("\n", " ")
+    Image.open(io.BytesIO(base64.b64decode(data))).convert("RGB").resize(src.size, Image.LANCZOS).save(dest)
+    return dest, "ok"
+
+
 if __name__ == "__main__":
+    args = [v for v in sys.argv[1:] if v != "--google"]
+    run = gen_google if "--google" in sys.argv else gen
     shots = [s for s in json.load(open(EDIT))["shots"] if not s["video"]]
-    if len(sys.argv) > 1:
-        shots = [s for s in shots if s["name"] in sys.argv[1:]]
-    with cf.ThreadPoolExecutor(max_workers=12) as ex:
-        for dest, status in ex.map(gen, shots):
+    if args:
+        shots = [s for s in shots if s["name"] in args]
+    with cf.ThreadPoolExecutor(max_workers=10) as ex:
+        for dest, status in ex.map(run, shots):
             print(status, dest.replace(OUT, ""), flush=True)
