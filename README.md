@@ -4,6 +4,31 @@ ListeningKit's motion templates for [EffectCraft](https://artcraft.ai): text ani
 backgrounds in the ListeningKit look. Every template is built from EffectCraft layers, effects and
 expressions, so each one is editable in Essential Graphics. None of them is a baked image.
 
+## Videos made with this
+
+**Log, the launch film** (15 Nov 2026), [watch on X](https://x.com/matthewsoldit/status/2122065041843478886)
+
+![Log launch film: the drop, the cyberpsycho cut](skills/_showcase/log_launch_film.gif)
+
+The drop: two men go cyberpsycho over 12 steps, glitch-cutting on the beat, with the eye echo and lines, words in
+the negative space and a thermogram flash, all under the CRT.
+
+**Log x Hermes Agent, the intro** (12 Nov 2026), [watch on X](https://x.com/matthewsoldit/status/2120938715820474690)
+
+![Log x Hermes intro](skills/_showcase/log_hermes_intro.gif)
+
+The anime noir cut: genre-swap match cuts and collage cut-ups, words in the empty space, under the CRT.
+
+**/rea-looksmaxxing** (7 Nov 2026), [watch on X](https://x.com/matthewsoldit/status/2118876082409725989)
+
+![rea-looksmaxxing](skills/_showcase/rea_looksmaxxing.gif)
+
+Neon handwritten type over halftone cut-outs, built on [treg](https://treg.to/?ref=matthewdonse-aebsh), subquadratic
+and Log.
+
+**How they were made:** every technique is written up as a skill, with pictures and the assets to run it again, in
+[`skills/`](skills/README.md). Start a new one with [`skills/new-video-project`](skills/new-video-project/README.md).
+
 ## What's in it
 
 Everything lives in [`textAnimations/`](textAnimations). Open `textAnimations/textAnimations.ecproj` in
