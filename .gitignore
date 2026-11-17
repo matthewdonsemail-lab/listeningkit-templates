@@ -48,3 +48,16 @@ references/**/*.html
 
 # Skills bundle the CRT plugin, including its displacement map
 !skills/*/assets/**/CRTGRID/*.mp4
+
+# EffectCraft test and section projects stay local (80 MB each); textAnimations.ecproj is the one shipped
+textAnimations/launchFilm_*.ecproj
+# EffectCraft autosave temp files and timestamped backups
+.effectcraft-*.tmp
+*.tmp
+*.bak-*
+# Project stills and audio stay local, like the rest of the media
+projects/**/*.jpg
+projects/**/*.jpeg
+projects/**/*.webp
+projects/**/*.wav
+projects/**/*.mp3

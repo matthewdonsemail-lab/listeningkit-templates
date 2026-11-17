@@ -2,7 +2,8 @@
 //
 // Fails when a staged file is over 20 MB (GitHub rejects 100 MB, and the repo stays cloneable), or is a render,
 // project or audio file: .mp4 .mov .wav .mp3 .ecproj .fcproj .aep. The one exception is the CRT plugin's
-// displacement map bundled in skills (skills/*/assets/**/CRTGRID/*.mp4), which the CRT needs to work.
+// displacement map bundled in skills (skills/*/assets/**/CRTGRID/*.mp4), which the CRT needs to work, and the
+// shipped textAnimations/textAnimations.ecproj (GitHub's hard limit is 100 MB).
 // Usage: node scripts/hooks/check-staged-media.mjs [files...]  (lefthook passes {staged_files})
 import { existsSync, statSync } from 'node:fs';
 import { execSync } from 'node:child_process';
@@ -10,6 +11,8 @@ import { execSync } from 'node:child_process';
 const LIMIT = 20 * 1024 * 1024;
 const MEDIA = /\.(mp4|mov|wav|mp3|m4a|ecproj|fcproj|aep)$/i;
 const ALLOWED = /^skills\/[^/]+\/assets\/.*\/CRTGRID\/[^/]+\.mp4$/;
+// the shipped template project the README tells people to open (tracked since the start, about 70 MB)
+const SHIPPED = new Set(['textAnimations/textAnimations.ecproj']);
 
 let files = process.argv.slice(2);
 if (!files.length) {
@@ -17,7 +20,7 @@ if (!files.length) {
 }
 const bad = [];
 for (const f of files.map((p) => p.replace(/\\/g, '/'))) {
-  if (!existsSync(f)) continue;
+  if (!existsSync(f) || SHIPPED.has(f)) continue;
   const size = statSync(f).size;
   if (size > LIMIT) bad.push(`${f} is ${(size / 1048576).toFixed(1)} MB (limit 20 MB)`);
   else if (MEDIA.test(f) && !ALLOWED.test(f)) bad.push(`${f} is a render/project/audio file: keep it local and commit the script that makes it`);
