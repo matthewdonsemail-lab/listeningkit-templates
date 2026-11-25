@@ -1,0 +1,1 @@
+C:\Users\0\.buzz\REPOS\listeningkit-templates\plugins\Shadow-Studio\src\target\wasm32-unknown-unknown\release\shadow_studio.wasm: C:\Users\0\.buzz\REPOS\listeningkit-templates\plugins\Shadow-Studio\src\src\lib.rs
