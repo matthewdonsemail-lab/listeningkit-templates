@@ -76,7 +76,7 @@ The plug-in's CEP panel (HTML) doesn't run in EffectCraft, so every apply script
 Run from `textAnimations/` with EffectCraft closed:
 
 ```bash
-"/c/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe" --project <project>.ecproj script plugins/CRTemulator/applyCyberpunk.jsx --save
+"/c/Users/0/effectcraft/target/release/effectcraft-cli.exe" --project <project>.ecproj script plugins/CRTemulator/applyCyberpunk.jsx --save
 ```
 
 `applyIntro1.jsx`, `endingType.jsx`, `endingCardSeq.jsx` and others say `File > Scripts > Run Script File...` in

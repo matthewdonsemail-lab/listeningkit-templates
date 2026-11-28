@@ -119,7 +119,7 @@ The cut is one rendered clip placed as footage, not layers. In the project (`tex
 rebuilding the rest, set `CLIP` in `plugins/openingPsychoSwap.jsx` and run, with EffectCraft closed:
 
 ```bash
-CLI="/c/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe"
+CLI="/c/Users/0/effectcraft/target/release/effectcraft-cli.exe"
 cd textAnimations
 "$CLI" --project textAnimations.ecproj script plugins/openingPsychoSwap.jsx --save
 ```

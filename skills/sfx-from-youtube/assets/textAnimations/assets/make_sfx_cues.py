@@ -16,7 +16,7 @@ import subprocess
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TA = os.path.normpath(os.path.join(HERE, ".."))
-CLI = "C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe"
+CLI = "C:/Users/0/effectcraft/target/release/effectcraft-cli.exe"
 F = 30
 CYBER_AT, ENDING_AT = 263, 1123       # where the sections sit in the launch film (frames)
 

@@ -20,7 +20,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 REPO = os.path.normpath(os.path.join(HERE, "..", "..", ".."))
-CLI = "C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe"
+CLI = "C:/Users/0/effectcraft/target/release/effectcraft-cli.exe"
 FOLDERS = {
     "ref": "references matt gives: downloaded videos, frames he picked",
     "ref/sheets": "numbered frame sheets to pick from",

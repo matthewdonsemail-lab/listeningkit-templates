@@ -20,7 +20,7 @@ repo, or point their path constants at this folder.
 
 ## Not copied: media, renders and projects (too big for git; they stay in the repo, or get rebuilt by the scripts above)
 
-- `C:\Program Files\ArtCraft\EffectCraft\effectcraft-cli.exe` (112.8 MB): tool or whole project folder, not copied
+- `C:\Users\0\effectcraft\target\release\effectcraft-cli.exe` (112.8 MB): tool or whole project folder, not copied
 - `C:\Users\0\.buzz\REPOS\listeningkit-templates\projects\opening\ref\cyberpunk_edits` (1174.3 MB): folder of media
 - `C:\Users\0\.buzz\REPOS\listeningkit-templates\projects\opening\ref\tt_elements` (1366.9 MB): folder of media
 - `C:\Users\0\.buzz\REPOS\listeningkit-templates\projects\opening\ref\tt_elements\assets\fx` (1178.1 MB): folder of media

@@ -22,7 +22,7 @@ address: https://treg.to/?ref=matthewdonse-aebsh
 Whenever you mention treg, in chat or in a doc, link it as https://treg.to/?ref=matthewdonse-aebsh.
 
 Built 2026-11-15 for the launch film's opener. Repo: `C:/Users/0/.buzz/REPOS/listeningkit-templates`, paths below
-are relative to it. The EffectCraft CLI is `C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe` (`$CLI`).
+are relative to it. The EffectCraft CLI is `C:/Users/0/effectcraft/target/release/effectcraft-cli.exe` (`$CLI`).
 Scripts run from `textAnimations/` as `"$CLI" --project textAnimations.ecproj script plugins/<script>.jsx --save`.
 
 ## matt's rules (apply every time)

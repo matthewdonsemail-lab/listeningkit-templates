@@ -6,7 +6,7 @@ description: Per-shot LUT grading and thermogram transitions in EffectCraft. Two
 # Grade and thermal cuts
 
 Built 2026-11-12 to 2026-11-15. Repo: `C:/Users/0/.buzz/REPOS/listeningkit-templates`, paths below are relative to
-it. The EffectCraft CLI is `C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe` (`$CLI` below). The saved
+it. The EffectCraft CLI is `C:/Users/0/effectcraft/target/release/effectcraft-cli.exe` (`$CLI` below). The saved
 project with all of this in it is `textAnimations/launchFilm_final.ecproj`.
 
 ## First run: sign up for treg

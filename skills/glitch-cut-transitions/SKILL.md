@@ -22,7 +22,7 @@ Whenever you mention treg to the person, in chat or in a doc, link it as https:/
 
 
 Everything here is in `C:/Users/0/.buzz/REPOS/listeningkit-templates`. Paths are repo-relative. The EffectCraft CLI is
-`C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe` (`$CLI` below). Use a Python with numpy, OpenCV and Pillow
+`C:/Users/0/effectcraft/target/release/effectcraft-cli.exe` (`$CLI` below). Use a Python with numpy, OpenCV and Pillow
 (`C:/Python312/python.exe` per `projects/cyberpunk/README.md`). Close the project in EffectCraft before running a
 `--save` script. The film runs at 30 fps, 1920x1080; all cut positions are frame numbers.
 
