@@ -121,12 +121,14 @@ if "--render" in args:
     for i in range(int(END)):
         f = os.path.join(d, f"f{i:03d}.png")
         subprocess.run([CLI, "render-frame", "--project", P, "--comp", "1", "--time", str(i + 0.5), "--scale", "0.15", "--out", f], capture_output=True)
-        o = subprocess.run(["ffmpeg", "-hide_banner", "-i", f, "-vf", "signalstats,metadata=print:key=lavfi.signalstats.YAVG", "-f", "null", "-"],
-                           capture_output=True, text=True).stderr
-        y = re.findall(r"YAVG=([\d.]+)", o)
-        if y and float(y[0]) < 12:
-            black.append(i + 0.5)
-    check("rendered frames (1 per second) are not black", not black, str(black))
+        # top and bottom halves separately: a split shot with a missing face is half black
+        for half, crop in (("face band 28-50%", "crop=iw:ih*0.22:0:ih*0.28"), ("bottom half", "crop=iw:ih/2:0:ih/2")):
+            o = subprocess.run(["ffmpeg", "-hide_banner", "-i", f, "-vf", f"{crop},signalstats,metadata=print:key=lavfi.signalstats.YAVG", "-f", "null", "-"],
+                               capture_output=True, text=True).stderr
+            y = re.findall(r"YAVG=([\d.]+)", o)
+            if y and float(y[0]) < 16.5:  # limited-range video: pure black reads 16
+                black.append(f"{i + 0.5}s {half}")
+    check("rendered frames (1 per second): neither half is black", not black, str(black))
 
 if "--video" in args:
     v = args[args.index("--video") + 1]

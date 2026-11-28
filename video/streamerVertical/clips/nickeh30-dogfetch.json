@@ -1,0 +1,10 @@
+{
+  "template": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/nickeh30-gta6-v2.ecproj",
+  "out": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/nickeh30-dogfetch/nickeh30-dogfetch.ecproj",
+  "source": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/nickeh30-dogfetch/tt8gdQ8EmoJW.mp4",
+  "transcript": "C:/Users/0/.buzz/REPOS/listeningkit-templates/projects/nickeh30-dogfetch/assembly_tt8gdQ8EmoJW.json",
+  "eyes": [153, 246],
+  "ranges": [[15.2, 29.93], [40.93, 46.9], [50.03, 57.13], [59.93, 64.77], [71.9, 80.03], [82.2, 83.13]],
+  "upscaleCloseups": false,
+  "_note": "NickEh30 plays fetch with dogs in GTA 6, full clip (livestreamfails.com/clip/tt8gdQ8EmoJW). Ranges keep the gameplay payoff around each line (throw + explosion, the dogs swimming) and cut the dead air; ends on the last 'Oh my God'."
+}

@@ -1,0 +1,1157 @@
+{
+ "id": "08affaf9-a359-4cd9-bdd1-33aecd0e5664",
+ "language_model": "assemblyai_default",
+ "acoustic_model": "assemblyai_default",
+ "language_code": "en",
+ "speech_understanding": null,
+ "translated_texts": null,
+ "status": "completed",
+ "audio_url": "https://cdn.assemblyai.com/upload/d97eb3fabe42be6cdd135300edb837ef0c6b06165513b1fbb952650cc437ca2b/a7cc3171-048c-4b0e-a4ca-95b00340fa99",
+ "text": "Here, boy. Boom! Nah, nah, I wouldn't. I wouldn't. I wouldn't. No, no, no, I wouldn't. I won't, I won't, I won't, I won't. No, no, no, I'm just playing, I'm just playing, I'm just playing, I'm just playing, I'm just playing, I'm just playing. All right guys, I gotta get going. Goodbye. Ah, they're trying to swim with me. Here, boy. Fudge, fudge boy. Oh my God. Oh my God. Oh my God.",
+ "words": [
+  {
+   "text": "Here,",
+   "start": 15399,
+   "end": 15529,
+   "confidence": 0.73145187,
+   "speaker": "A"
+  },
+  {
+   "text": "boy.",
+   "start": 15577,
+   "end": 15691,
+   "confidence": 0.82964873,
+   "speaker": "A"
+  },
+  {
+   "text": "Boom!",
+   "start": 23250,
+   "end": 23447,
+   "confidence": 0.8919951,
+   "speaker": "A"
+  },
+  {
+   "text": "Nah,",
+   "start": 23793,
+   "end": 24106,
+   "confidence": 0.9523425,
+   "speaker": "A"
+  },
+  {
+   "text": "nah,",
+   "start": 24502,
+   "end": 24634,
+   "confidence": 0.9793965,
+   "speaker": "A"
+  },
+  {
+   "text": "I",
+   "start": 24831,
+   "end": 24864,
+   "confidence": 0.98935497,
+   "speaker": "A"
+  },
+  {
+   "text": "wouldn't.",
+   "start": 25095,
+   "end": 25589,
+   "confidence": 0.8152324,
+   "speaker": "A"
+  },
+  {
+   "text": "I",
+   "start": 25820,
+   "end": 25870,
+   "confidence": 0.9983082,
+   "speaker": "A"
+  },
+  {
+   "text": "wouldn't.",
+   "start": 25903,
+   "end": 26100,
+   "confidence": 0.9895075,
+   "speaker": "A"
+  },
+  {
+   "text": "I",
+   "start": 26314,
+   "end": 26331,
+   "confidence": 0.9963606,
+   "speaker": "A"
+  },
+  {
+   "text": "wouldn't.",
+   "start": 26413,
+   "end": 26858,
+   "confidence": 0.99527425,
+   "speaker": "A"
+  },
+  {
+   "text": "No,",
+   "start": 28330,
+   "end": 28430,
+   "confidence": 0.7023376,
+   "speaker": "A"
+  },
+  {
+   "text": "no,",
+   "start": 28463,
+   "end": 28513,
+   "confidence": 0.9725976,
+   "speaker": "A"
+  },
+  {
+   "text": "no,",
+   "start": 28597,
+   "end": 28680,
+   "confidence": 0.8730422,
+   "speaker": "A"
+  },
+  {
+   "text": "I",
+   "start": 28830,
+   "end": 28964,
+   "confidence": 0.7876459,
+   "speaker": "A"
+  },
+  {
+   "text": "wouldn't.",
+   "start": 28997,
+   "end": 29748,
+   "confidence": 0.9775309,
+   "speaker": "A"
+  },
+  {
+   "text": "I",
+   "start": 41010,
+   "end": 41026,
+   "confidence": 0.995891,
+   "speaker": "A"
+  },
+  {
+   "text": "won't,",
+   "start": 41058,
+   "end": 41236,
+   "confidence": 0.6583027,
+   "speaker": "A"
+  },
+  {
+   "text": "I",
+   "start": 41398,
+   "end": 41446,
+   "confidence": 0.8903174,
+   "speaker": "A"
+  },
+  {
+   "text": "won't,",
+   "start": 41446,
+   "end": 41624,
+   "confidence": 0.99912274,
+   "speaker": "A"
+  },
+  {
+   "text": "I",
+   "start": 41640,
+   "end": 41753,
+   "confidence": 0.9972126,
+   "speaker": "A"
+  },
+  {
+   "text": "won't,",
+   "start": 41882,
+   "end": 42028,
+   "confidence": 0.9951379,
+   "speaker": "A"
+  },
+  {
+   "text": "I",
+   "start": 42189,
+   "end": 42206,
+   "confidence": 0.99488777,
+   "speaker": "A"
+  },
+  {
+   "text": "won't.",
+   "start": 42270,
+   "end": 42497,
+   "confidence": 0.9931295,
+   "speaker": "A"
+  },
+  {
+   "text": "No,",
+   "start": 42561,
+   "end": 42610,
+   "confidence": 0.9572874,
+   "speaker": "A"
+  },
+  {
+   "text": "no,",
+   "start": 42642,
+   "end": 42771,
+   "confidence": 0.9974915,
+   "speaker": "A"
+  },
+  {
+   "text": "no,",
+   "start": 42787,
+   "end": 42901,
+   "confidence": 0.9433236,
+   "speaker": "A"
+  },
+  {
+   "text": "I'm",
+   "start": 42933,
+   "end": 43014,
+   "confidence": 0.99442,
+   "speaker": "A"
+  },
+  {
+   "text": "just",
+   "start": 43014,
+   "end": 43143,
+   "confidence": 0.9999155,
+   "speaker": "A"
+  },
+  {
+   "text": "playing,",
+   "start": 43143,
+   "end": 43434,
+   "confidence": 0.92739433,
+   "speaker": "A"
+  },
+  {
+   "text": "I'm",
+   "start": 43450,
+   "end": 43563,
+   "confidence": 0.99999064,
+   "speaker": "A"
+  },
+  {
+   "text": "just",
+   "start": 43579,
+   "end": 43741,
+   "confidence": 0.9999865,
+   "speaker": "A"
+  },
+  {
+   "text": "playing,",
+   "start": 43741,
+   "end": 44032,
+   "confidence": 0.9996853,
+   "speaker": "A"
+  },
+  {
+   "text": "I'm",
+   "start": 45260,
+   "end": 45438,
+   "confidence": 0.9999895,
+   "speaker": "A"
+  },
+  {
+   "text": "just",
+   "start": 45438,
+   "end": 45632,
+   "confidence": 0.9999825,
+   "speaker": "A"
+  },
+  {
+   "text": "playing,",
+   "start": 45632,
+   "end": 45729,
+   "confidence": 0.99052,
+   "speaker": "A"
+  },
+  {
+   "text": "I'm",
+   "start": 45761,
+   "end": 45874,
+   "confidence": 0.99978596,
+   "speaker": "A"
+  },
+  {
+   "text": "just",
+   "start": 45874,
+   "end": 45971,
+   "confidence": 0.9998565,
+   "speaker": "A"
+  },
+  {
+   "text": "playing,",
+   "start": 45971,
+   "end": 46214,
+   "confidence": 0.9989627,
+   "speaker": "A"
+  },
+  {
+   "text": "I'm",
+   "start": 46327,
+   "end": 46440,
+   "confidence": 0.9999425,
+   "speaker": "A"
+  },
+  {
+   "text": "just",
+   "start": 46440,
+   "end": 46537,
+   "confidence": 0.9999454,
+   "speaker": "A"
+  },
+  {
+   "text": "playing,",
+   "start": 46537,
+   "end": 46666,
+   "confidence": 0.99715286,
+   "speaker": "A"
+  },
+  {
+   "text": "I'm",
+   "start": 50338,
+   "end": 50500,
+   "confidence": 0.9999643,
+   "speaker": "A"
+  },
+  {
+   "text": "just",
+   "start": 50500,
+   "end": 50630,
+   "confidence": 0.99991095,
+   "speaker": "A"
+  },
+  {
+   "text": "playing.",
+   "start": 50663,
+   "end": 50971,
+   "confidence": 0.99946374,
+   "speaker": "B"
+  },
+  {
+   "text": "All",
+   "start": 51085,
+   "end": 51166,
+   "confidence": 0.98479617,
+   "speaker": "B"
+  },
+  {
+   "text": "right",
+   "start": 51166,
+   "end": 51312,
+   "confidence": 0.99999166,
+   "speaker": "B"
+  },
+  {
+   "text": "guys,",
+   "start": 51312,
+   "end": 51539,
+   "confidence": 0.90170425,
+   "speaker": "B"
+  },
+  {
+   "text": "I",
+   "start": 51572,
+   "end": 51588,
+   "confidence": 0.9998951,
+   "speaker": "B"
+  },
+  {
+   "text": "gotta",
+   "start": 51653,
+   "end": 51831,
+   "confidence": 0.96961355,
+   "speaker": "B"
+  },
+  {
+   "text": "get",
+   "start": 51831,
+   "end": 51993,
+   "confidence": 0.9947353,
+   "speaker": "B"
+  },
+  {
+   "text": "going.",
+   "start": 52058,
+   "end": 52188,
+   "confidence": 0.98689324,
+   "speaker": "B"
+  },
+  {
+   "text": "Goodbye.",
+   "start": 53097,
+   "end": 53259,
+   "confidence": 0.998326,
+   "speaker": "A"
+  },
+  {
+   "text": "Ah,",
+   "start": 53600,
+   "end": 53633,
+   "confidence": 0.98470986,
+   "speaker": "A"
+  },
+  {
+   "text": "they're",
+   "start": 53827,
+   "end": 53957,
+   "confidence": 0.99990594,
+   "speaker": "A"
+  },
+  {
+   "text": "trying",
+   "start": 53957,
+   "end": 54606,
+   "confidence": 0.9997389,
+   "speaker": "A"
+  },
+  {
+   "text": "to",
+   "start": 54606,
+   "end": 55061,
+   "confidence": 0.9988883,
+   "speaker": "A"
+  },
+  {
+   "text": "swim",
+   "start": 55207,
+   "end": 56294,
+   "confidence": 0.9998586,
+   "speaker": "A"
+  },
+  {
+   "text": "with",
+   "start": 56749,
+   "end": 56895,
+   "confidence": 0.99944884,
+   "speaker": "A"
+  },
+  {
+   "text": "me.",
+   "start": 56992,
+   "end": 57073,
+   "confidence": 0.9987726,
+   "speaker": "A"
+  },
+  {
+   "text": "Here,",
+   "start": 60220,
+   "end": 61175,
+   "confidence": 0.80839384,
+   "speaker": "A"
+  },
+  {
+   "text": "boy.",
+   "start": 61192,
+   "end": 61289,
+   "confidence": 0.967126,
+   "speaker": "A"
+  },
+  {
+   "text": "Fudge,",
+   "start": 62568,
+   "end": 63103,
+   "confidence": 0.61124367,
+   "speaker": "A"
+  },
+  {
+   "text": "fudge",
+   "start": 63459,
+   "end": 64204,
+   "confidence": 0.999011,
+   "speaker": "A"
+  },
+  {
+   "text": "boy.",
+   "start": 64285,
+   "end": 64447,
+   "confidence": 0.93269837,
+   "speaker": "A"
+  },
+  {
+   "text": "Oh",
+   "start": 72131,
+   "end": 72148,
+   "confidence": 0.9953134,
+   "speaker": "A"
+  },
+  {
+   "text": "my",
+   "start": 74166,
+   "end": 74442,
+   "confidence": 0.9920866,
+   "speaker": "A"
+  },
+  {
+   "text": "God.",
+   "start": 74752,
+   "end": 74882,
+   "confidence": 0.6279281,
+   "speaker": "A"
+  },
+  {
+   "text": "Oh",
+   "start": 75663,
+   "end": 75777,
+   "confidence": 0.995589,
+   "speaker": "A"
+  },
+  {
+   "text": "my",
+   "start": 76037,
+   "end": 76134,
+   "confidence": 0.9989986,
+   "speaker": "A"
+  },
+  {
+   "text": "God.",
+   "start": 76134,
+   "end": 79740,
+   "confidence": 0.9901718,
+   "speaker": "A"
+  },
+  {
+   "text": "Oh",
+   "start": 82361,
+   "end": 82377,
+   "confidence": 0.8647898,
+   "speaker": "A"
+  },
+  {
+   "text": "my",
+   "start": 82603,
+   "end": 82797,
+   "confidence": 0.99960774,
+   "speaker": "A"
+  },
+  {
+   "text": "God.",
+   "start": 82991,
+   "end": 83137,
+   "confidence": 0.9929478,
+   "speaker": "A"
+  }
+ ],
+ "utterances": [
+  {
+   "speaker": "A",
+   "text": "Here, boy. Boom! Nah, nah, I wouldn't. I wouldn't. I wouldn't. No, no, no, I wouldn't. I won't, I won't, I won't, I won't. No, no, no, I'm just playing, I'm just playing, I'm just playing, I'm just playing, I'm just playing, I'm just",
+   "confidence": 0.9502622,
+   "start": 15399,
+   "end": 50630,
+   "words": [
+    {
+     "text": "Here,",
+     "start": 15399,
+     "end": 15529,
+     "confidence": 0.73145187,
+     "speaker": "A"
+    },
+    {
+     "text": "boy.",
+     "start": 15577,
+     "end": 15691,
+     "confidence": 0.82964873,
+     "speaker": "A"
+    },
+    {
+     "text": "Boom!",
+     "start": 23250,
+     "end": 23447,
+     "confidence": 0.8919951,
+     "speaker": "A"
+    },
+    {
+     "text": "Nah,",
+     "start": 23793,
+     "end": 24106,
+     "confidence": 0.9523425,
+     "speaker": "A"
+    },
+    {
+     "text": "nah,",
+     "start": 24502,
+     "end": 24634,
+     "confidence": 0.9793965,
+     "speaker": "A"
+    },
+    {
+     "text": "I",
+     "start": 24831,
+     "end": 24864,
+     "confidence": 0.98935497,
+     "speaker": "A"
+    },
+    {
+     "text": "wouldn't.",
+     "start": 25095,
+     "end": 25589,
+     "confidence": 0.8152324,
+     "speaker": "A"
+    },
+    {
+     "text": "I",
+     "start": 25820,
+     "end": 25870,
+     "confidence": 0.9983082,
+     "speaker": "A"
+    },
+    {
+     "text": "wouldn't.",
+     "start": 25903,
+     "end": 26100,
+     "confidence": 0.9895075,
+     "speaker": "A"
+    },
+    {
+     "text": "I",
+     "start": 26314,
+     "end": 26331,
+     "confidence": 0.9963606,
+     "speaker": "A"
+    },
+    {
+     "text": "wouldn't.",
+     "start": 26413,
+     "end": 26858,
+     "confidence": 0.99527425,
+     "speaker": "A"
+    },
+    {
+     "text": "No,",
+     "start": 28330,
+     "end": 28430,
+     "confidence": 0.7023376,
+     "speaker": "A"
+    },
+    {
+     "text": "no,",
+     "start": 28463,
+     "end": 28513,
+     "confidence": 0.9725976,
+     "speaker": "A"
+    },
+    {
+     "text": "no,",
+     "start": 28597,
+     "end": 28680,
+     "confidence": 0.8730422,
+     "speaker": "A"
+    },
+    {
+     "text": "I",
+     "start": 28830,
+     "end": 28964,
+     "confidence": 0.7876459,
+     "speaker": "A"
+    },
+    {
+     "text": "wouldn't.",
+     "start": 28997,
+     "end": 29748,
+     "confidence": 0.9775309,
+     "speaker": "A"
+    },
+    {
+     "text": "I",
+     "start": 41010,
+     "end": 41026,
+     "confidence": 0.995891,
+     "speaker": "A"
+    },
+    {
+     "text": "won't,",
+     "start": 41058,
+     "end": 41236,
+     "confidence": 0.6583027,
+     "speaker": "A"
+    },
+    {
+     "text": "I",
+     "start": 41398,
+     "end": 41446,
+     "confidence": 0.8903174,
+     "speaker": "A"
+    },
+    {
+     "text": "won't,",
+     "start": 41446,
+     "end": 41624,
+     "confidence": 0.99912274,
+     "speaker": "A"
+    },
+    {
+     "text": "I",
+     "start": 41640,
+     "end": 41753,
+     "confidence": 0.9972126,
+     "speaker": "A"
+    },
+    {
+     "text": "won't,",
+     "start": 41882,
+     "end": 42028,
+     "confidence": 0.9951379,
+     "speaker": "A"
+    },
+    {
+     "text": "I",
+     "start": 42189,
+     "end": 42206,
+     "confidence": 0.99488777,
+     "speaker": "A"
+    },
+    {
+     "text": "won't.",
+     "start": 42270,
+     "end": 42497,
+     "confidence": 0.9931295,
+     "speaker": "A"
+    },
+    {
+     "text": "No,",
+     "start": 42561,
+     "end": 42610,
+     "confidence": 0.9572874,
+     "speaker": "A"
+    },
+    {
+     "text": "no,",
+     "start": 42642,
+     "end": 42771,
+     "confidence": 0.9974915,
+     "speaker": "A"
+    },
+    {
+     "text": "no,",
+     "start": 42787,
+     "end": 42901,
+     "confidence": 0.9433236,
+     "speaker": "A"
+    },
+    {
+     "text": "I'm",
+     "start": 42933,
+     "end": 43014,
+     "confidence": 0.99442,
+     "speaker": "A"
+    },
+    {
+     "text": "just",
+     "start": 43014,
+     "end": 43143,
+     "confidence": 0.9999155,
+     "speaker": "A"
+    },
+    {
+     "text": "playing,",
+     "start": 43143,
+     "end": 43434,
+     "confidence": 0.92739433,
+     "speaker": "A"
+    },
+    {
+     "text": "I'm",
+     "start": 43450,
+     "end": 43563,
+     "confidence": 0.99999064,
+     "speaker": "A"
+    },
+    {
+     "text": "just",
+     "start": 43579,
+     "end": 43741,
+     "confidence": 0.9999865,
+     "speaker": "A"
+    },
+    {
+     "text": "playing,",
+     "start": 43741,
+     "end": 44032,
+     "confidence": 0.9996853,
+     "speaker": "A"
+    },
+    {
+     "text": "I'm",
+     "start": 45260,
+     "end": 45438,
+     "confidence": 0.9999895,
+     "speaker": "A"
+    },
+    {
+     "text": "just",
+     "start": 45438,
+     "end": 45632,
+     "confidence": 0.9999825,
+     "speaker": "A"
+    },
+    {
+     "text": "playing,",
+     "start": 45632,
+     "end": 45729,
+     "confidence": 0.99052,
+     "speaker": "A"
+    },
+    {
+     "text": "I'm",
+     "start": 45761,
+     "end": 45874,
+     "confidence": 0.99978596,
+     "speaker": "A"
+    },
+    {
+     "text": "just",
+     "start": 45874,
+     "end": 45971,
+     "confidence": 0.9998565,
+     "speaker": "A"
+    },
+    {
+     "text": "playing,",
+     "start": 45971,
+     "end": 46214,
+     "confidence": 0.9989627,
+     "speaker": "A"
+    },
+    {
+     "text": "I'm",
+     "start": 46327,
+     "end": 46440,
+     "confidence": 0.9999425,
+     "speaker": "A"
+    },
+    {
+     "text": "just",
+     "start": 46440,
+     "end": 46537,
+     "confidence": 0.9999454,
+     "speaker": "A"
+    },
+    {
+     "text": "playing,",
+     "start": 46537,
+     "end": 46666,
+     "confidence": 0.99715286,
+     "speaker": "A"
+    },
+    {
+     "text": "I'm",
+     "start": 50338,
+     "end": 50500,
+     "confidence": 0.9999643,
+     "speaker": "A"
+    },
+    {
+     "text": "just",
+     "start": 50500,
+     "end": 50630,
+     "confidence": 0.99991095,
+     "speaker": "A"
+    }
+   ]
+  },
+  {
+   "speaker": "B",
+   "text": "playing. All right guys, I gotta get going.",
+   "confidence": 0.9796366,
+   "start": 50663,
+   "end": 52188,
+   "words": [
+    {
+     "text": "playing.",
+     "start": 50663,
+     "end": 50971,
+     "confidence": 0.99946374,
+     "speaker": "B"
+    },
+    {
+     "text": "All",
+     "start": 51085,
+     "end": 51166,
+     "confidence": 0.98479617,
+     "speaker": "B"
+    },
+    {
+     "text": "right",
+     "start": 51166,
+     "end": 51312,
+     "confidence": 0.99999166,
+     "speaker": "B"
+    },
+    {
+     "text": "guys,",
+     "start": 51312,
+     "end": 51539,
+     "confidence": 0.90170425,
+     "speaker": "B"
+    },
+    {
+     "text": "I",
+     "start": 51572,
+     "end": 51588,
+     "confidence": 0.9998951,
+     "speaker": "B"
+    },
+    {
+     "text": "gotta",
+     "start": 51653,
+     "end": 51831,
+     "confidence": 0.96961355,
+     "speaker": "B"
+    },
+    {
+     "text": "get",
+     "start": 51831,
+     "end": 51993,
+     "confidence": 0.9947353,
+     "speaker": "B"
+    },
+    {
+     "text": "going.",
+     "start": 52058,
+     "end": 52188,
+     "confidence": 0.98689324,
+     "speaker": "B"
+    }
+   ]
+  },
+  {
+   "speaker": "A",
+   "text": "Goodbye. Ah, they're trying to swim with me. Here, boy. Fudge, fudge boy. Oh my God. Oh my God. Oh my God.",
+   "confidence": 0.9434343,
+   "start": 53097,
+   "end": 83137,
+   "words": [
+    {
+     "text": "Goodbye.",
+     "start": 53097,
+     "end": 53259,
+     "confidence": 0.998326,
+     "speaker": "A"
+    },
+    {
+     "text": "Ah,",
+     "start": 53600,
+     "end": 53633,
+     "confidence": 0.98470986,
+     "speaker": "A"
+    },
+    {
+     "text": "they're",
+     "start": 53827,
+     "end": 53957,
+     "confidence": 0.99990594,
+     "speaker": "A"
+    },
+    {
+     "text": "trying",
+     "start": 53957,
+     "end": 54606,
+     "confidence": 0.9997389,
+     "speaker": "A"
+    },
+    {
+     "text": "to",
+     "start": 54606,
+     "end": 55061,
+     "confidence": 0.9988883,
+     "speaker": "A"
+    },
+    {
+     "text": "swim",
+     "start": 55207,
+     "end": 56294,
+     "confidence": 0.9998586,
+     "speaker": "A"
+    },
+    {
+     "text": "with",
+     "start": 56749,
+     "end": 56895,
+     "confidence": 0.99944884,
+     "speaker": "A"
+    },
+    {
+     "text": "me.",
+     "start": 56992,
+     "end": 57073,
+     "confidence": 0.9987726,
+     "speaker": "A"
+    },
+    {
+     "text": "Here,",
+     "start": 60220,
+     "end": 61175,
+     "confidence": 0.80839384,
+     "speaker": "A"
+    },
+    {
+     "text": "boy.",
+     "start": 61192,
+     "end": 61289,
+     "confidence": 0.967126,
+     "speaker": "A"
+    },
+    {
+     "text": "Fudge,",
+     "start": 62568,
+     "end": 63103,
+     "confidence": 0.61124367,
+     "speaker": "A"
+    },
+    {
+     "text": "fudge",
+     "start": 63459,
+     "end": 64204,
+     "confidence": 0.999011,
+     "speaker": "A"
+    },
+    {
+     "text": "boy.",
+     "start": 64285,
+     "end": 64447,
+     "confidence": 0.93269837,
+     "speaker": "A"
+    },
+    {
+     "text": "Oh",
+     "start": 72131,
+     "end": 72148,
+     "confidence": 0.9953134,
+     "speaker": "A"
+    },
+    {
+     "text": "my",
+     "start": 74166,
+     "end": 74442,
+     "confidence": 0.9920866,
+     "speaker": "A"
+    },
+    {
+     "text": "God.",
+     "start": 74752,
+     "end": 74882,
+     "confidence": 0.6279281,
+     "speaker": "A"
+    },
+    {
+     "text": "Oh",
+     "start": 75663,
+     "end": 75777,
+     "confidence": 0.995589,
+     "speaker": "A"
+    },
+    {
+     "text": "my",
+     "start": 76037,
+     "end": 76134,
+     "confidence": 0.9989986,
+     "speaker": "A"
+    },
+    {
+     "text": "God.",
+     "start": 76134,
+     "end": 79740,
+     "confidence": 0.9901718,
+     "speaker": "A"
+    },
+    {
+     "text": "Oh",
+     "start": 82361,
+     "end": 82377,
+     "confidence": 0.8647898,
+     "speaker": "A"
+    },
+    {
+     "text": "my",
+     "start": 82603,
+     "end": 82797,
+     "confidence": 0.99960774,
+     "speaker": "A"
+    },
+    {
+     "text": "God.",
+     "start": 82991,
+     "end": 83137,
+     "confidence": 0.9929478,
+     "speaker": "A"
+    }
+   ]
+  }
+ ],
+ "confidence": 0.9514079,
+ "audio_duration": 84,
+ "punctuate": true,
+ "format_text": true,
+ "dual_channel": false,
+ "webhook_url": null,
+ "webhook_status_code": null,
+ "webhook_auth": false,
+ "webhook_auth_header_name": null,
+ "speed_boost": false,
+ "auto_highlights_result": null,
+ "auto_highlights": false,
+ "audio_start_from": null,
+ "audio_end_at": null,
+ "word_boost": [],
+ "boost_param": null,
+ "prompt": null,
+ "keyterms_prompt": [],
+ "filter_profanity": false,
+ "redact_pii": false,
+ "redact_pii_audio": false,
+ "redact_pii_audio_quality": null,
+ "redact_pii_audio_options": null,
+ "redact_pii_policies": null,
+ "redact_pii_sub": null,
+ "redact_static_entities": null,
+ "speaker_labels": true,
+ "speaker_options": {
+  "min_speakers_expected": null,
+  "max_speakers_expected": null,
+  "advanced_speaker_segmentation": true
+ },
+ "content_safety": false,
+ "iab_categories": false,
+ "content_safety_labels": {
+  "status": "unavailable",
+  "results": [],
+  "summary": {}
+ },
+ "iab_categories_result": {
+  "status": "unavailable",
+  "results": [],
+  "summary": {}
+ },
+ "language_detection": true,
+ "language_detection_options": null,
+ "language_detection_results": null,
+ "language_confidence_threshold": null,
+ "language_confidence": 0.8146,
+ "custom_spelling": null,
+ "throttled": false,
+ "auto_chapters": false,
+ "summarization": false,
+ "summary_type": null,
+ "summary_model": null,
+ "custom_topics": false,
+ "topics": [],
+ "speech_threshold": null,
+ "speech_model": null,
+ "speech_models": [
+  "universal-3-5-pro",
+  "universal-2"
+ ],
+ "speech_model_used": "universal-3-5-pro",
+ "temperature": null,
+ "remove_audio_tags": "all",
+ "chapters": null,
+ "disfluencies": false,
+ "entity_detection": false,
+ "sentiment_analysis": false,
+ "sentiment_analysis_results": null,
+ "entities": null,
+ "speakers_expected": null,
+ "summary": null,
+ "custom_topics_results": null,
+ "is_deleted": null,
+ "multichannel": null,
+ "project_id": 1944242,
+ "token_id": 1975503
+}

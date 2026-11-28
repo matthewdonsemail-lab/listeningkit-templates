@@ -10,13 +10,19 @@ any new clip with the same webcam layout and a validator that checks a project a
 | `resync_captions.py project.ecproj` | Re-times the caption words to the cut's own dialogue (SFX muted → render → AssemblyAI). `build.py` runs it last. |
 | `validate.py project.ecproj [--render dir] [--video file.mp4]` | Checks the rules below; exit 0 = pass. |
 | `clips/*.json` | One config per clip (source, transcript, eyes, kept ranges). |
+| `scripts/transcribe.py` | AssemblyAI transcript: words + speakers. |
+| `scripts/edl.py` | The cut plan: beats, quiet-snapped edges, J-cuts. |
+| `scripts/upscale.py` | AI upscaling with Real-ESRGAN: webcam close-ups (`crop`) or used frames of the whole clip (`full`). |
+| `scripts/render_chunks.py` | Full-quality render in 4 s chunks, joined, audio muxed once through a limiter. |
+
+**How every script works, step by step, and why: [`scripts/README.md`](scripts/README.md).**
 | `../findPerson/findPerson.py` | Finds the streamer's eyes (`--task pose --pick left`). |
 
 ## Pipeline
 
 1. **Pick the clip.** r/LivestreamFail is the source; download the Twitch/LSF clip with
    `yt-dlp --no-update -c "https://livestreamfails.com/clip/<id>"`. Landscape 1280×720, webcam top-left.
-2. **Transcribe** the full clip with AssemblyAI (`speaker_labels: true`), keep word-level ms timings.
+2. **Transcribe** the full clip: `python scripts/transcribe.py CLIP.mp4` (AssemblyAI, words + speakers).
 3. **Find his eyes** on this clip only: `findPerson.py clip.mp4 --task pose --pick left --every 1` → `summary.eyes`.
    One fixed point for the whole clip; never track per frame.
 4. **Choose the kept ranges**: cut dead air between lines, but keep gameplay action that pays a line off
@@ -26,7 +32,8 @@ any new clip with the same webcam layout and a validator that checks a project a
    `resync_captions.py`, which re-transcribes the finished cut's dialogue (SFX muted) and rebuilds every
    caption word from it. Re-run it after ANY change to the cut.
 6. **Validate**: `python validate.py projects/<name>.ecproj --render <tmpdir>`; fix until 0 failures.
-7. **Render** (chunked if long; see Pitfalls), add a limiter, then `validate.py ... --video <file>`.
+7. **Render**: `python scripts/render_chunks.py PROJECT OUT.mp4 [--gain dB]`, then `validate.py ... --video OUT.mp4`.
+8. **Optional AI upscale**: `"upscaleCloseups": true` in the clip config, or `scripts/upscale.py full` for the whole frame.
 
 ## The rules (what `validate.py` checks)
 
@@ -51,7 +58,7 @@ any new clip with the same webcam layout and a validator that checks a project a
 | 17 | PiP box crops are rounded (mask path has rounded corners, never a 4-point square) | A square crop pokes past the rounded border. Never `layer.mask.shape rect` on a box; keep the template's rounded mask. |
 | 18 | Captions re-timed to the cut's own dialogue (`resync_captions.py` ran) | The source clip's transcript splits repeated words differently and counts game sounds ("Boom!") as words: it drifts ~0.3 s and shows words he never says in the cut. |
 | 19 | Sound effects present (at least one per swish) | Every move has a sound. |
-| 20 | `--render`: one frame per second, none black | Catches missing footage. |
+| 20 | `--render`: one frame per second; neither the face band (28-50 %) nor the bottom half is black | Catches missing footage, incl. a split shot with no face. |
 | 21 | `--video`: −16…−13 LUFS integrated | Social loudness. |
 | 22 | `--video`: true peak ≤ −1 dBFS | No clipping after AAC encode. |
 
@@ -113,4 +120,5 @@ set by measurement (whoosh −6, slides −10, pop −12 dB under the dialogue).
 | Clip | Config | Result |
 |---|---|---|
 | NickEh30 family-friendly train (GTA 6) | hand-built | `projects/renders/nickeh30-gta6-v2-final.mp4` |
+| NickEh30 plays fetch with dogs (GTA 6), full, 41.7 s | `clips/nickeh30-dogfetch.json` | [`projects/nickeh30-dogfetch`](../../projects/nickeh30-dogfetch/README.md) (20/20 with `--render`) |
 | NickEh30 plays fetch with dogs (GTA 6), first quarter | `clips/nickeh30-dogfetch-preview.json` | `projects/renders/nickeh30-dogfetch-preview.mp4` (21/21 with `--video`) |
