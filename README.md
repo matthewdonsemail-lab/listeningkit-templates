@@ -29,6 +29,48 @@ and Log.
 **How they were made:** every technique is written up as a skill, with pictures and the assets to run it again, in
 [`skills/`](skills/README.md). Start a new one with [`skills/new-video-project`](skills/new-video-project/README.md).
 
+## Content
+
+### Gaming content
+
+Stream clips cut into 9:16 verticals in the house style, from clips on
+[r/LivestreamFail](https://www.reddit.com/r/LivestreamFail/). The whole style is written down as rules, with a
+builder that applies it to a new clip and a validator that checks every rule:
+[`video/streamerVertical`](video/streamerVertical/README.md).
+
+**NickEh30, GTA 6: "a great family-friendly experience"** (27 Nov 2026), 36.6 s
+
+![NickEh30 GTA 6 vertical](skills/_showcase/nickeh30_gta6.gif)
+
+Cut word by word between his face, the gameplay and a split of both, with J-cuts on the audio. Includes:
+
+- word-by-word captions in SFC Signsmith;
+- whip pans on every cut and a punch-in that opens each split shot;
+- picture-in-picture boxes with rounded crops that slide up and down;
+- Real-ESRGAN upscaled close-ups;
+- a sound effect on every move;
+- an exposure ramp-out at the end so it loops.
+
+Project: `projects/nickeh30-gta6-v2.ecproj`, kept local (the hooks keep projects out of git). It's also the template that `build.py` clones the style from.
+
+**NickEh30 plays fetch with dogs in GTA 6, preview** (28 Nov 2026), 10 s
+
+![NickEh30 dog fetch preview](skills/_showcase/nickeh30_dogfetch.gif)
+
+The first quarter of the clip, built automatically by `build.py` from
+[`clips/nickeh30-dogfetch-preview.json`](video/streamerVertical/clips/nickeh30-dogfetch-preview.json). The captions
+are re-timed to the cut's own dialogue, and it passes all 21 validator rules.
+
+Make a new one:
+
+```sh
+cd video/streamerVertical
+uv run --no-project --with numpy --with pillow python build.py clips/<name>.json
+python validate.py ../../projects/<name>.ecproj --render <tmpdir>
+```
+
+The streamer's eye point comes from [`video/findPerson`](video/findPerson/README.md).
+
 ## What's in it
 
 Everything lives in [`textAnimations/`](textAnimations). Open `textAnimations/textAnimations.ecproj` in
