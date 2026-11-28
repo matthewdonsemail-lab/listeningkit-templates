@@ -60,7 +60,7 @@ for i, c in enumerate(caps):
 font = ImageFont.truetype(FONT, 100)
 for i, c in enumerate(caps):
     nxt = caps[i + 1]["a"] if i + 1 < len(caps) else END
-    c["b"] = min(fr(c["e"] + 0.12), nxt, END)
+    c["b"] = min(fr(c["e"] + 0.12), nxt, END, fr(c["a"] + 1.2))  # no spoken word holds past 1.2 s (ASR stretches shouts over game noise)
     c["b"] = max(c["b"], min(c["a"] + 2 / FPS, nxt))
     c["size"] = round(min(260, (864 / 1.132 - 56) / (font.getlength(c["text"]) * 1.06 / 100)), 1)
 

@@ -173,7 +173,8 @@ for i, bt in enumerate(beats):
             bt["push"] = (s0, s1)
             face_n += 1
         if k == "split_top":
-            steps += [cmd("prop.set", layer=lid, path="transform/position", value=[540 + (640 - 180) * 3, 680 + (360 - EY) * 3, 0]),
+            steps += [cmd("prop.set", layer=lid, path="transform/anchor", value=[180, EY, 0]),
+                      cmd("prop.set", layer=lid, path="transform/position", value=[540, 680, 0]),
                       cmd("layer.mask.shape", layer=lid, mask=1, rect=[0, EY - 680 / 3, 360, 320])]
     comp1(steps)
     bt["ids"] = ids

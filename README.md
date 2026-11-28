@@ -53,13 +53,17 @@ Cut word by word between his face, the gameplay and a split of both, with J-cuts
 
 Project: `projects/nickeh30-gta6-v2.ecproj`, kept local (the hooks keep projects out of git). It's also the template that `build.py` clones the style from.
 
-**NickEh30 plays fetch with dogs in GTA 6, preview** (28 Nov 2026), 10 s
+**NickEh30 plays fetch with dogs in GTA 6** (28 Nov 2026), 41.7 s
 
-![NickEh30 dog fetch preview](skills/_showcase/nickeh30_dogfetch.gif)
+![NickEh30 dog fetch](skills/_showcase/nickeh30_dogfetch.gif)
 
-The first quarter of the clip, built automatically by `build.py` from
-[`clips/nickeh30-dogfetch-preview.json`](video/streamerVertical/clips/nickeh30-dogfetch-preview.json). The captions
-are re-timed to the cut's own dialogue, and it passes all 21 validator rules.
+Built end to end by the scripts with no hand edits, from
+[`clips/nickeh30-dogfetch.json`](video/streamerVertical/clips/nickeh30-dogfetch.json): 14 beats, 65 caption words timed to
+the cut's own dialogue, 13 whip pans, 10 picture-in-picture boxes, 46 sound effects, no AI upscale. Passes all 21
+validator rules. The cut, files and rebuild steps: [`projects/nickeh30-dogfetch`](projects/nickeh30-dogfetch/README.md).
+
+How every script works (transcription, cut planning, the builder, caption re-sync, Real-ESRGAN AI upscaling, chunked
+rendering): [`video/streamerVertical/scripts/README.md`](video/streamerVertical/scripts/README.md).
 
 Make a new one:
 
@@ -185,6 +189,8 @@ needs its comp added to `organize.json`, and its slider names to `nameControls.j
 
 ## Projects
 
+- [`projects/nickeh30-dogfetch`](projects/nickeh30-dogfetch/README.md): the NickEh30 GTA 6 dog-fetch vertical, built
+  end to end by `video/streamerVertical`: the cut, the files and how to rebuild it.
 - [`projects/cyberpunk`](projects/cyberpunk/README.md): the cyberpunk pre-comp at the end of Intro 1, and how it is
   made: generating match-cut stills, the glitch collage, the cut-out walk-in, the cyberpsycho lines plug-in, the CRT.
 
