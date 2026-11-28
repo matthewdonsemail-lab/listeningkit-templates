@@ -27,7 +27,7 @@ W, H = 1920, 1080
 INK = [(255, 255, 255), (16, 24, 60), (254, 206, 0), (255, 255, 255)]   # RGB, as endingCards.jsx (index i % 4)
 RED_BG = 3                                                               # the card colour index that's red
 
-CLI = "C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe"
+CLI = "C:/Users/0/effectcraft/target/release/effectcraft-cli.exe"
 
 DUMP = r"""var C;for(var i=1;i<=app.project.numItems;i++){var it=app.project.item(i); if(it instanceof CompItem && it.name==="ending") C=it;}
 var cards={},order=[];

@@ -28,7 +28,7 @@ inputs; don't re-derive them. All the scripts are rerunnable: each one removes t
 - EffectCraft project: `introEC.ecproj`, comp `intro` (1920x1080, 30 fps, 525 frames = 17.5 s)
 - Final render: `introEC/intro_render.mp4` (17.5 s). `intro_render_ramp.mp4` is the older version that still had the
   burn-to-white exposure ramp. matt swapped that for a quick white flash in FilmCraft (step 12).
-- EffectCraft CLI: `C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe`. Run a script with
+- EffectCraft CLI: `C:/Users/0/effectcraft/target/release/effectcraft-cli.exe`. Run a script with
   `effectcraft-cli --project introEC.ecproj script <file>.jsx --save`, or from File > Scripts.
 - Python needs `uv run --no-project --with ...`; each script's docstring gives its exact `--with` list (pillow,
   `opencv-python-headless<5`, `numpy<3`, `rembg[cpu]`).

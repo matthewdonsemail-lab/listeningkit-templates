@@ -22,4 +22,4 @@ repo, or point their path constants at this folder.
 
 ## Not copied: media, renders and projects (too big for git; they stay in the repo, or get rebuilt by the scripts above)
 
-- `C:\Program Files\ArtCraft\EffectCraft\effectcraft-cli.exe` (112.8 MB): tool or whole project folder, not copied
+- `C:\Users\0\effectcraft\target\release\effectcraft-cli.exe` (112.8 MB): tool or whole project folder, not copied

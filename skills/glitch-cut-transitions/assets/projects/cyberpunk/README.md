@@ -20,7 +20,7 @@ Paths are relative to `textAnimations/` unless they start `images/` or `projects
 ## Rebuilding
 
 Close the project in EffectCraft first. Then, in Git Bash from `textAnimations/`, with
-`CLI="/c/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe"`:
+`CLI="/c/Users/0/effectcraft/target/release/effectcraft-cli.exe"`:
 
 ```bash
 python assets/make_cyberpunk_matte.py          # her cut-out, projects/cyberpunk/girl.png

@@ -62,7 +62,7 @@ repo, or point their path constants at this folder.
 
 ## Not copied: media, renders and projects (too big for git; they stay in the repo, or get rebuilt by the scripts above)
 
-- `C:\Program Files\ArtCraft\EffectCraft\effectcraft-cli.exe` (112.8 MB): tool or whole project folder, not copied
+- `C:\Users\0\effectcraft\target\release\effectcraft-cli.exe` (112.8 MB): tool or whole project folder, not copied
 - `C:\Users\0\filmcraft\projects\effectcraftEditing\introEC` (1580.1 MB): folder of media
 - `C:\Users\0\filmcraft\projects\effectcraftEditing\introEC\clean` (159.0 MB): folder of media
 - `C:\Users\0\filmcraft\projects\effectcraftEditing\introEC\cutouts\beat_01` (94.9 MB): folder of media

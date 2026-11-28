@@ -22,7 +22,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "plugins", "redflash"))
 import seed as RF  # noqa: E402
 
-CLI = "C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe"
+CLI = "C:/Users/0/effectcraft/target/release/effectcraft-cli.exe"
 OUT = os.path.join(HERE, "collage", "endtrans")
 W, H = 1920, 1080
 

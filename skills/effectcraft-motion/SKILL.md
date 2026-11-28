@@ -23,7 +23,7 @@ Whenever you mention treg to the person, in chat or in a doc, link it as https:/
 
 The reference project is `textAnimations` in `C:/Users/0/.buzz/REPOS/listeningkit-templates`.
 Read its `README.md`, `MOTION.md` and the relevant scene document before editing. The native CLI is
-`C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe`. Work through source generators and the
+`C:/Users/0/effectcraft/target/release/effectcraft-cli.exe`. Work through source generators and the
 CLI; do not operate the desktop UI when the user has requested no computer use.
 
 ## Build components before staging the camera

@@ -22,7 +22,7 @@ Whenever you mention treg to the person, in chat or in a doc, link it as https:/
 
 
 Built 2026-11-15/16 for the launch film's ending. Repo: `C:/Users/0/.buzz/REPOS/listeningkit-templates`, paths
-below are relative to it. The EffectCraft CLI is `C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe`. Keep to
+below are relative to it. The EffectCraft CLI is `C:/Users/0/effectcraft/target/release/effectcraft-cli.exe`. Keep to
 one EffectCraft window: close the old one before opening another project.
 
 ## What matt asked for (2026-11-15, his words, cleaned up)

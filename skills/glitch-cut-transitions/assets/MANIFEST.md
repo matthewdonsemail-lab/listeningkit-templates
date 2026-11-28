@@ -40,7 +40,7 @@ repo, or point their path constants at this folder.
 
 ## Not copied: media, renders and projects (too big for git; they stay in the repo, or get rebuilt by the scripts above)
 
-- `C:\Program Files\ArtCraft\EffectCraft\effectcraft-cli.exe` (112.8 MB): tool or whole project folder, not copied
+- `C:\Users\0\effectcraft\target\release\effectcraft-cli.exe` (112.8 MB): tool or whole project folder, not copied
 - `C:\Python312\python.exe` (0.1 MB): tool or whole project folder, not copied
 - `C:\Users\0\.buzz\REPOS\listeningkit-templates\textAnimations\assets\collage\cutfx\cut_00` (37.7 MB): folder of media
 - `C:\Users\0\.buzz\REPOS\listeningkit-templates\textAnimations\renders\launch_film_final_full.mp4` (122.4 MB): media or project file

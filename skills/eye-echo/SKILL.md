@@ -111,7 +111,7 @@ What exists today:
 - Cyberpunk close-up lines: three ProRes 4444 layers placed by `plugins/cyberpunkEyes.jsx`. This is the layered way.
 
 Run jsx with EffectCraft closed:
-`"/c/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe" --project textAnimations.ecproj script plugins/<x>.jsx --save`
+`"/c/Users/0/effectcraft/target/release/effectcraft-cli.exe" --project textAnimations.ecproj script plugins/<x>.jsx --save`
 from `textAnimations/`.
 
 matt's rule for new work is editable precomps/layers in EffectCraft, never a baked render. The echo scenes above are

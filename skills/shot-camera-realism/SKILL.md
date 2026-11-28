@@ -7,7 +7,7 @@ description: Make AI stills read as real filmed shots in EffectCraft. Handheld s
 
 Built 2026-11-13 to 2026-11-16 for the launch film's opener (comp `opening`) and Intro 1's platform journey (comp
 `logPlayJourney`). Repo: `C:/Users/0/.buzz/REPOS/listeningkit-templates`, paths below are relative to it. The
-EffectCraft CLI is `C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe` (`$CLI` below). The saved project
+EffectCraft CLI is `C:/Users/0/effectcraft/target/release/effectcraft-cli.exe` (`$CLI` below). The saved project
 with all of this in it is `textAnimations/launchFilm_final.ecproj`. `OPENING.md` runs the opener's scripts against
 `textAnimations/textAnimations.ecproj`.
 

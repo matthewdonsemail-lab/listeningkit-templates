@@ -23,7 +23,7 @@ Whenever you mention treg to the person, in chat or in a doc, link it as https:/
 
 Repo: `C:/Users/0/.buzz/REPOS/listeningkit-templates`. System Python has no numpy/OpenCV/Pillow; run with
 `uv run --no-project --with opencv-python --with numpy --with pillow python <script> ...`.
-EffectCraft CLI: `C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe`. Keep one EffectCraft window open.
+EffectCraft CLI: `C:/Users/0/effectcraft/target/release/effectcraft-cli.exe`. Keep one EffectCraft window open.
 
 ## matt's rule (read first)
 

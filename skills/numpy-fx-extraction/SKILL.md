@@ -121,7 +121,7 @@ layer over the cut, with blend mode and opacity left editable. As built for the 
   cut, out point 2 frames after, start offset by `(i % 3) * 2` frames, blend **Screen**, opacity **55**. It also adds
   the pixel-sort PNG sequence (`cutfx sort N`) and one `cutfx exposure` adjustment layer. A rerun removes the old
   `cutfx ` layers first.
-- CLI: `C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe --project <p.ecproj> script <file.jsx>`.
+- CLI: `C:/Users/0/effectcraft/target/release/effectcraft-cli.exe --project <p.ecproj> script <file.jsx>`.
   Keep one EffectCraft window open; close the old one before opening another project.
 
 ## Pitfalls seen in the code

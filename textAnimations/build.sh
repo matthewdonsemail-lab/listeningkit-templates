@@ -4,7 +4,7 @@
 # Add an effect: make effects/<name>/effect.json (a JSON array of CLI commands) and re-run.
 set -euo pipefail
 cd "$(dirname "$0")"
-CLI="${EFFECTCRAFT_CLI:-/c/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe}"
+CLI="${EFFECTCRAFT_CLI:-/c/Users/0/effectcraft/target/release/effectcraft-cli.exe}"
 PROJECT="textAnimations.ecproj"
 
 # Precomps go first, in order: cloudBackground uses ditherGradientBackground, introCard uses cloudBackground.

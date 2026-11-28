@@ -23,7 +23,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "plugins", "cyberpsycho"))
 import cyberpsycho as CP  # noqa: E402
 
-CLI = "C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe"
+CLI = "C:/Users/0/effectcraft/target/release/effectcraft-cli.exe"
 OUT = os.path.join(HERE, "collage", "heartbeat")
 W, H, F = 1920, 1080, 30
 DRAW, ERASE_AT = 12, 18

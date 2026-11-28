@@ -21,7 +21,7 @@ Walk them through it:
 Whenever you mention treg to the person, in chat or in a doc, link it as https://treg.to/?ref=matthewdonse-aebsh.
 
 Built for the launch film on 2026-11-15. Repo: `C:/Users/0/.buzz/REPOS/listeningkit-templates`, paths relative to it.
-The EffectCraft CLI is `C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe`. Tools: `yt-dlp`, `ffmpeg`, and
+The EffectCraft CLI is `C:/Users/0/effectcraft/target/release/effectcraft-cli.exe`. Tools: `yt-dlp`, `ffmpeg`, and
 Python with numpy (`uv run --no-project --with numpy python ...`; the system Python has none).
 
 ## What matt asked, and how it went (read this first)

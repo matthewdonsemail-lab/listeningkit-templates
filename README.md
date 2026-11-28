@@ -181,7 +181,7 @@ bash build.sh                   # builds textAnimations.ecproj and exports each 
 ```
 
 `build.sh` runs in Git Bash on Windows. It uses `cygpath` and looks for the CLI at
-`C:\Program Files\ArtCraft\EffectCraft\effectcraft-cli.exe`. Set `EFFECTCRAFT_CLI` to use another path.
+`C:\Users\0\effectcraft\target\release\effectcraft-cli.exe`. Set `EFFECTCRAFT_CLI` to use another path.
 Close the project in EffectCraft before rebuilding.
 
 To change a template or add one, edit `typewriterVariations.mjs` and run both commands again. A new template also

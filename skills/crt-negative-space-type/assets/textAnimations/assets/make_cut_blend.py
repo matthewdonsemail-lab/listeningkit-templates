@@ -20,7 +20,7 @@ import cv2
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-CLI = "C:/Program Files/ArtCraft/EffectCraft/effectcraft-cli.exe"
+CLI = "C:/Users/0/effectcraft/target/release/effectcraft-cli.exe"
 FPS = 30
 OUT = os.path.join(HERE, "collage", "cutblend")
 ap = argparse.ArgumentParser()
